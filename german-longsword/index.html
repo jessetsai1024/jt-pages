@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>德式長劍術圖解：Liechtenauer 傳統、四架式與五大師斬</title>
+<meta name="description" content="以繁體中文圖解德式長劍術（Kunst des Fechtens）：Liechtenauer 傳統的歷史與手稿、先後同時等核心原理、四種架式、五大師斬動畫，以及與《天國：拯救2》的關係。">
+<meta name="theme-color" content="#7a1f16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5eedf;--paper:#fffbf2;--ink:#1c1813;--muted:#5b5142;--line:#dccdae;--red:#8a1d14;--red2:#b8261c;--blue:#1f4fa3;--gold:#9a6b00;--chip:#efe3c8;--shadow:0 1px 2px rgba(60,40,10,.08),0 6px 18px rgba(60,40,10,.06)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;font-size:17px;line-height:1.75;overflow-wrap:anywhere;word-break:normal}
+img,svg{max-width:100%}
+a{color:var(--red);text-underline-offset:2px}
+a:hover{color:var(--red2)}
+h1,h2,h3{font-family:"Noto Serif TC",serif;line-height:1.3;color:#2a1a0e}
+h2{font-size:clamp(1.45rem,4.6vw,2rem);margin:0 0 .6em;padding-top:.2em}
+h3{font-size:clamp(1.15rem,3.6vw,1.35rem);margin:1.4em 0 .5em}
+p{margin:.6em 0}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header.hero{background:radial-gradient(ellipse at 20% 0%,#fffaf0 0%,#f3e6c8 60%,#ead9b3 100%);border-bottom:3px double #b99a5f;padding:34px 0 26px}
+.kicker{font-size:.9rem;letter-spacing:.12em;color:var(--red);font-weight:700;margin:0}
+h1{font-size:clamp(1.9rem,7.2vw,3.1rem);margin:.25em 0 .35em;font-weight:800}
+h1 small{display:block;font-size:.48em;font-weight:600;color:var(--muted);margin-top:.35em;letter-spacing:.02em}
+.lede{font-size:1.06rem;color:#2f271d;max-width:44em}
+.hero svg{display:block;width:100%;max-width:620px;height:auto;margin:14px auto 0}
+nav.chips{position:sticky;top:0;z-index:20;display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:10px 14px;background:rgba(245,238,223,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.chips::-webkit-scrollbar{display:none}
+nav.chips a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;background:var(--chip);color:#3b2b17;text-decoration:none;font-size:.95rem;font-weight:500;border:1px solid #dcc79c;white-space:nowrap}
+nav.chips a.on{background:var(--red);color:#fff;border-color:var(--red)}
+main section{padding:34px 0 10px;border-bottom:1px solid var(--line)}
+main section:last-of-type{border-bottom:0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 16px;box-shadow:var(--shadow);margin:16px 0}
+.note{background:#fff6dc;border-left:5px solid var(--gold);border-radius:10px;padding:12px 14px;margin:16px 0}
+.warn{background:#fdeceb;border-left:5px solid var(--red2);border-radius:10px;padding:12px 14px;margin:16px 0}
+.src{font-size:.86rem;color:var(--muted);line-height:1.6;margin:.5em 0 0}
+.src a{color:#6b3a10}
+sup.c a{font-size:.72em;text-decoration:none;font-weight:700;padding:0 2px}
+.de{font-style:italic;color:#4a3920}
+.term{font-weight:700;color:#2a1a0e}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+ol.tl{list-style:none;margin:16px 0;padding:0 0 0 22px;border-left:3px solid #c9ad74}
+ol.tl li{position:relative;margin:0 0 16px;padding-left:6px}
+ol.tl li::before{content:"";position:absolute;left:-31px;top:.55em;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--red)}
+ol.tl b.y{display:block;color:var(--red);font-family:"Noto Serif TC",serif}
+.master{display:grid;gap:12px}
+.master .card{margin:0}
+.master h3{margin:.1em 0 .3em}
+.pill{display:inline-block;font-size:.8rem;background:#efe3c8;border-radius:6px;padding:0 8px;margin:0 4px 4px 0;color:#4a3920}
+.fig{margin:16px 0}
+.fig svg{display:block;width:100%;height:auto}
+.fig figcaption{font-size:.9rem;color:var(--muted);margin-top:6px}
+.guards{display:grid;gap:14px}
+@media(min-width:620px){.guards{grid-template-columns:1fr 1fr}}
+.guard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px 14px;box-shadow:var(--shadow)}
+.guard svg{display:block;width:100%;max-width:300px;height:auto;margin:0 auto;background:linear-gradient(#fffdf7,#f7ecd4);border-radius:10px}
+.guard h3{margin:.5em 0 .2em}
+.guard h3 .de{font-size:.85em}
+.strikes{display:grid;gap:12px}
+.strike{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow)}
+.strike h3{margin:.1em 0 .3em}
+.strike .breaks{display:inline-block;background:#7a1f16;color:#fff;border-radius:6px;padding:0 8px;font-size:.88rem;margin-left:4px}
+.anim{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow);margin:22px 0}
+.anim h3{margin:.1em 0 .5em}
+.stage{background:linear-gradient(#fffefa,#f6ead0);border-radius:12px;border:1px solid #e6d6b4}
+.stage svg{display:block;width:100%;height:auto}
+.ctl{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 6px}
+.ctl button{min-height:48px;min-width:44px;border-radius:12px;border:1px solid #c7ad7a;background:#f3e6c8;color:#2a1a0e;font:inherit;font-size:1.05rem;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1;padding:4px 2px;touch-action:manipulation}
+.ctl button span{font-size:.74rem;font-weight:500;margin-top:2px}
+.ctl button.b-play{background:var(--red);color:#fff;border-color:var(--red)}
+.ctl button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ctl button:active{transform:translateY(1px)}
+.dots{display:flex;gap:6px;justify-content:center;margin:4px 0 8px}
+.dots i{width:22px;height:6px;border-radius:3px;background:#e2d3b3}
+.dots i.done{background:#c9a35d}
+.dots i.on{background:var(--red)}
+.cap{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start}
+.mm{width:96px;height:auto;display:block}
+.mm-bg{fill:#f4ead4;stroke:#d6c29a}.mm-ax{stroke:#c9b48a;stroke-dasharray:3 3}
+.mm-a{fill:#1f4fa3}.mm-b{fill:#b8261c}.mm-da{stroke:#1f4fa3;stroke-width:2.4;stroke-linecap:round}.mm-db{stroke:#b8261c;stroke-width:2.4;stroke-linecap:round}
+.captxt p{margin:0}
+.ph{font-weight:700;color:#7a1f16;font-size:1rem;line-height:1.5}
+.ct{margin-top:4px!important;min-height:5.2em}
+.mmlab{font-size:.75rem;color:var(--muted);text-align:center;margin-top:2px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.88rem;color:var(--muted);margin:2px 0 8px}
+.legend b{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:-2px;margin-right:4px}
+.plays{display:grid;gap:12px}
+@media(min-width:700px){.plays{grid-template-columns:1fr 1fr}}
+.plays .card{margin:0}
+.plays h3{margin:.1em 0 .3em}
+ul.tight{padding-left:1.3em;margin:.4em 0}
+ul.tight li{margin:.25em 0}
+ol.refs{padding-left:1.6em;font-size:.95rem}
+ol.refs li{margin:.45em 0}
+ol.refs li:target{background:#fff1c7;border-radius:6px}
+footer{padding:28px 0 40px;font-size:.88rem;color:var(--muted)}
+dl.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:8px 0}
+dl.kv dt{font-weight:700;color:#4a3920}dl.kv dd{margin:0}
+@media(max-width:380px){.wrap{padding:0 14px}.cap{grid-template-columns:76px 1fr;gap:10px}.mm{width:76px}.card,.anim{padding:12px}}
+@media(min-width:860px){.player{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-template-areas:"stage cap" "ctl cap" "dots cap";column-gap:18px;align-items:start}.stage{grid-area:stage}.ctl{grid-area:ctl}.dots{grid-area:dots}.cap{grid-area:cap;grid-template-columns:1fr;gap:8px}.mm{width:120px}.ct{min-height:0}nav.chips{justify-content:center}}
+.fz .lg,.fz .arm,.fz .tor,.fz .ft,.fz .nk{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gnd{stroke:#8a7350;stroke-width:2;stroke-dasharray:6 5}
+.fz line,.fz polyline{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.fa{--c:#1f4fa3;--c2:#6f93d6}.fb{--c:#b8261c;--c2:#e07a6f}
+.fz .lg,.fz .tor,.fz .arm{stroke:var(--c);stroke-width:5}
+.fz .tor{stroke-width:6.5}
+.fz .back{stroke:var(--c2)}
+.fz .ft{stroke:var(--c);stroke-width:4.5}
+.fz .hd{fill:var(--c2);stroke:var(--c);stroke-width:3}
+.fz .bl{stroke:#5d6670;stroke-width:3.6}
+.fz .blst{stroke:#3c434b;stroke-width:4.4}
+.fz .grip{stroke:#4a2f1a;stroke-width:5}
+.fz .cg{stroke:var(--c);stroke-width:4.2}
+.fz .pm{fill:var(--c);stroke:#222;stroke-width:1}
+.fz .hand{fill:#f1c9a5;stroke:var(--c);stroke-width:1.6}
+.fz .tag{font:700 13px sans-serif;fill:var(--c);text-anchor:middle}
+.ghost{opacity:.28}
+.spark line{stroke:#f0a500;stroke-width:2.6;stroke-linecap:round}
+.hit circle{fill:none;stroke:#e01e5a;stroke-width:2.4}
+.hit circle+circle{stroke-width:1.3;opacity:.6}
+.fz .nk{stroke:var(--c);stroke-width:4.5}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="wrap">
+  <p class="kicker">圖解 · 歐洲歷史武術（HEMA）</p>
+  <h1>德式長劍術<small>Liechtenauer 傳統的「擊劍藝術」（Kunst des Fechtens）</small></h1>
+  <p class="lede">14 世紀末到 16 世紀，德語地區留下了大量劍術書（Fechtbücher）。其中影響最大的一支，奉一位名叫 Johannes Liechtenauer 的大師為宗師。這一頁用火柴人動畫和自繪插圖，帶你看懂這套長劍術：它的歷史與手稿、「先／後／同時」等核心觀念、四種架式、五大師斬，以及它和遊戲《天國：拯救2》的關係。</p>
+  <div class="fig" aria-hidden="true"><svg viewBox="0 70 400 214"><line class="gnd" x1="0" y1="262" x2="400" y2="262"/><g class="fz fb"><polyline class="lg back" points="276,180 276.4,225 302,262"/><line class="ft back" x1="302" y1="262" x2="291" y2="262"/><polyline class="arm back" points="271.8,130.5 267.3,160.2 245.5,141"/><line class="tor" x1="276" y1="180" x2="268.8" y2="128.5"/><polyline class="lg" points="276,180 250.4,217 250,262"/><line class="ft" x1="250" y1="262" x2="237" y2="262"/><circle class="hd" cx="266.3" cy="111.2" r="11.5"/><line class="nk" x1="268.8" y1="128.5" x2="267.7" y2="120.7"/><text class="tag" x="276" y="279">乙</text></g><g class="fz fa"><polyline class="lg back" points="126,180 123.5,224.9 98,262"/><line class="ft back" x1="98" y1="262" x2="109" y2="262"/><polyline class="arm back" points="130.2,130.5 140.8,158.6 157.5,134.9"/><line class="tor" x1="126" y1="180" x2="133.2" y2="128.5"/><polyline class="lg" points="126,180 151.6,217 152,262"/><line class="ft" x1="152" y1="262" x2="165" y2="262"/><circle class="hd" cx="135.7" cy="111.2" r="11.5"/><line class="nk" x1="133.2" y1="128.5" x2="134.3" y2="120.7"/><text class="tag" x="125" y="279">甲</text></g><g class="fz fb"><line class="bl" x1="230.8" y1="132.5" x2="151.1" y2="86.5"/><line class="blst" x1="230.8" y1="132.5" x2="190.9" y2="109.5"/><line class="grip" x1="230.8" y1="132.5" x2="248.9" y2="143"/><line class="cg" x1="225.8" y1="141.2" x2="235.8" y2="123.8"/><circle class="pm" cx="248.9" cy="143" r="3.6"/><polyline class="arm" points="266.8,129.5 253.3,156.3 234.2,134.5"/><circle class="hand" cx="234.2" cy="134.5" r="3.4"/><circle class="hand" cx="245.5" cy="141" r="3.4"/></g><g class="fz fa"><line class="bl" x1="173.2" y1="128.5" x2="258.5" y2="94"/><line class="blst" x1="173.2" y1="128.5" x2="215.9" y2="111.3"/><line class="grip" x1="173.2" y1="128.5" x2="153.8" y2="136.4"/><line class="cg" x1="177" y1="137.8" x2="169.5" y2="119.2"/><circle class="pm" cx="153.8" cy="136.4" r="3.6"/><polyline class="arm" points="135.2,129.5 152.9,153.8 169.5,130"/><circle class="hand" cx="169.5" cy="130" r="3.4"/><circle class="hand" cx="157.5" cy="134.9" r="3.4"/></g><g class="spark" transform="translate(204.7,116.4)"><line x1="3" y1="0" x2="12" y2="0"/><line x1="2.1" y1="2.1" x2="5.7" y2="5.7"/><line x1="0" y1="3" x2="0" y2="12"/><line x1="-2.1" y1="2.1" x2="-5.7" y2="5.7"/><line x1="-3" y1="0" x2="-12" y2="0"/><line x1="-2.1" y1="-2.1" x2="-5.7" y2="-5.7"/><line x1="0" y1="-3" x2="0" y2="-12"/><line x1="2.1" y1="-2.1" x2="5.7" y2="-5.7"/></g></svg></div>
+  <div class="legend"><span><b style="background:#1f4fa3"></b>甲（藍）：示範技法的一方</span><span><b style="background:#b8261c"></b>乙（紅）：對手</span></div>
+  <p class="src">本頁所有插圖和動畫都是本站自繪的簡化示意，不是手稿原圖。每段說明後的方括號數字連到文末的參考資料。</p>
+ </div>
+</header>
+<nav class="chips" aria-label="章節導覽">
+ <a href="#history">歷史</a><a href="#debates">爭議</a><a href="#principles">核心原理</a><a href="#guards">四架式</a><a href="#strikes">五大師斬</a><a href="#anims">動畫解析</a><a href="#plays">技法</a><a href="#kcd2">天國：拯救2</a><a href="#refs">參考資料</a>
+</nav>
+<main class="wrap">
+<section id="history">
+ <h2>歷史與傳承</h2>
+ <p>Johannes Liechtenauer 是 14 世紀晚期的德國劍術大師<sup class="c">[<a href="#r1" aria-label="參考資料 1">1</a>]</sup>。關於他生平的唯一記述，出自俗稱「Pol Hausbuch」的手稿（紐倫堡日耳曼國家博物館藏 Hs. 3227a）第 13v 頁。書裡說，這門藝術不是他發明的，他是為了學習它而遊歷了許多地方<sup class="c">[<a href="#r1" aria-label="參考資料 1">1</a>,<a href="#r4" aria-label="參考資料 4">4</a>]</sup>。</p>
+ <p>他把教學內容濃縮成一首刻意寫得很隱晦的押韻口訣，叫作 <span class="term">Zettel</span>（「紙條」），讓學生記住口頭傳授的內容。後來的大師形容這些詩句是「秘密而隱藏的字句」<sup class="c">[<a href="#r2" aria-label="參考資料 2">2</a>]</sup>。早期的長劍手稿大多是同一種結構：先抄一段口訣，再附上注釋（gloss）逐句解說<sup class="c">[<a href="#r2" aria-label="參考資料 2">2</a>]</sup>。</p>
+ <p>口訣的開頭是一段倫理勸勉：「年輕的騎士啊，要學會愛上帝、尊敬女性，你的榮譽就會增長……」<span class="de">（Jung Ritter lere / got lip haben / frawen io ere）</span><sup class="c">[<a href="#r2" aria-label="參考資料 2">2</a>]</sup>。長劍的部分分成 17 個「主要篇章」（Hauptstücke）<sup class="c">[<a href="#r2" aria-label="參考資料 2">2</a>]</sup>：</p>
+ <div class="card">
+  <ul class="tight">
+   <li><span class="term">五大師斬：</span>憤怒斬 Zornhau、曲斬 Krumphau、橫斬 Zwerchhau、斜視斬 Schielhau、頭頂斬 Scheitelhau</li>
+   <li><span class="term">四種架式：</span>犁式 Pflug、牛式 Ochs、屋頂式 Vom Tag、愚者式 Alber</li>
+   <li><span class="term">其他技法：</span>Versetzen（格擋）、Nachreisen（追擊）、Überlaufen（越過）、Absetzen（偏開）、Durchwechseln（穿換）、Zucken（抽回）、Durchlaufen（穿入，接摔跤）、Abschneiden（切割）、Händedrücken（壓手）、四種 Hängen（懸劍）、二十四種 Winden（絞劍）</li>
+  </ul>
+  <p class="src">中文譯名為本頁採用的意譯，學界和社群並沒有統一的中文譯名。來源：<sup class="c">[<a href="#r2" aria-label="參考資料 2">2</a>]</sup></p>
+ </div>
+ <h3>重要時間線</h3>
+ <ol class="tl">
+  <li><b class="y">約 1389 年以後（有爭議）</b>Pol Hausbuch（Hs. 3227a）：現存最早記錄 Liechtenauer 口訣和注釋的手稿。書中曆表涵蓋 1390–1495 年，所以常被定為「1389 年」，但學者看法不一，詳見下一節<sup class="c">[<a href="#r4" aria-label="參考資料 4">4</a>,<a href="#r6" aria-label="參考資料 6">6</a>]</sup>。</li>
+  <li><b class="y">約 1418–1428 年</b>H. Beringer 的口訣片段（MS G.B.f.18a），是 Wiktenauer 列出的早期口訣證據之一<sup class="c">[<a href="#r1" aria-label="參考資料 1">1</a>]</sup>。</li>
+  <li><b class="y">約 1443 或 1448 年</b>Hans Talhoffer 的 MS Chart.A.558，內含最早有明確內部日期的口訣。年代方面，Wiktenauer 寫約 1448 年，Wikipedia 寫約 1443 年<sup class="c">[<a href="#r1" aria-label="參考資料 1">1</a>,<a href="#r10" aria-label="參考資料 10">10</a>,<a href="#r11" aria-label="參考資料 11">11</a>]</sup>。</li>
+  <li><b class="y">1452 年</b>Cod. 44 A 8，俗稱「Peter von Danzig 手稿」，收錄流傳最廣的長劍注釋<sup class="c">[<a href="#r2" aria-label="參考資料 2">2</a>,<a href="#r8" aria-label="參考資料 8">8</a>,<a href="#r9" aria-label="參考資料 9">9</a>]</sup>。</li>
+  <li><b class="y">1459、1467 年</b>Talhoffer 的 Thott 290.2º（1459），以及為 Eberhard 製作的 Cod.icon. 394a（1467）<sup class="c">[<a href="#r11" aria-label="參考資料 11">11</a>]</sup>。</li>
+  <li><b class="y">約 1470 年</b>Paulus Kal 的手稿列出「Liechtenauer 同道會」（Geselschaft Liechtenauers）17 位大師的名單<sup class="c">[<a href="#r1" aria-label="參考資料 1">1</a>,<a href="#r2" aria-label="參考資料 2">2</a>,<a href="#r12" aria-label="參考資料 12">12</a>]</sup>。</li>
+  <li><b class="y">1504–1519 年（以浮水印推定）</b>Dresden 手稿 C.487，收錄 Sigmund ain Ringeck 的注釋<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</li>
+  <li><b class="y">1570 年</b>Joachim Meyer 出版《Gründtliche Beschreibung》，插圖出自 Hans Christoff Stimmer 的工作室<sup class="c">[<a href="#r13" aria-label="參考資料 13">13</a>]</sup>。</li>
+  <li><b class="y">17 世紀</b>到了 17 世紀，這個傳統已經被細劍（rapier）擊劍取代<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</li>
+ </ol>
+ <h3>主要大師與手稿</h3>
+ <div class="master">
+  <div class="card"><h3>Johannes Liechtenauer</h3><span class="pill">宗師</span><span class="pill">口訣作者</span>
+   <p>活躍於 14 世紀晚期。Pol Hausbuch 提到他時，沒有用上「願上帝垂憐他」這類悼念亡者的套語，所以 Wiktenauer 推測他當時可能還在世<sup class="c">[<a href="#r1" aria-label="參考資料 1">1</a>]</sup>。他的出身地不明。19 世紀學者 Massmann 列出幾個叫 Lichtenau 的候選地，認為法蘭克尼亞和上奧地利的 Lichtenau 最有可能<sup class="c">[<a href="#r2" aria-label="參考資料 2">2</a>]</sup>。</p></div>
+  <div class="card"><h3>「Döbringer」與 Hs. 3227a</h3><span class="pill">最早手稿</span><span class="pill">作者誤認</span>
+   <p>Pol Hausbuch 是一本 169 葉的雜記手稿，現藏紐倫堡日耳曼國家博物館<sup class="c">[<a href="#r4" aria-label="參考資料 4">4</a>,<a href="#r6" aria-label="參考資料 6">6</a>]</sup>。過去學者（Wierschin 1965、Hils 1985）認為書中長劍注釋的作者是 Hanko Döbringer，但這是誤會：他的名字只出現在 43r 頁邊的一份四位大師名單裡（Hanko Döbringer、Andres Jud、Jost von der Neißen、Niklaus Preuss）。所以現在多把作者稱為「Pseudo-Hans Döbringer」（偽 Döbringer）<sup class="c">[<a href="#r5" aria-label="參考資料 5">5</a>,<a href="#r6" aria-label="參考資料 6">6</a>]</sup>。</p>
+   <p>書中名句：「練習勝過藝術」（15r）<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p></div>
+  <div class="card"><h3>Sigmund ain Ringeck</h3><span class="pill">注釋家</span><span class="pill">本頁動畫主要依據</span>
+   <p>巴伐利亞公爵 Albrecht 的劍術教師（Schirmaister）。不過究竟是 Albrecht 一世、三世還是四世，並不清楚<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。他的注釋存於 Dresden C.487（以浮水印推定為 1504–1519 年），另有 Glasgow 抄本（1508）和一份曾經屬於 Meyer 的 Rostock 抄本。Wiktenauer 指出，Ringeck 和 Pseudo-Peter von Danzig 可能是同一位作者<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</p></div>
+  <div class="card"><h3>Peter von Danzig</h3><span class="pill">常被誤植</span>
+   <p>生於但澤，住在英戈爾施塔特，卒於 1452 年到約 1470 年之間。Cod. 44 A 8（1452）長期以他命名，但他其實只寫了其中的短劍部分注釋<sup class="c">[<a href="#r9" aria-label="參考資料 9">9</a>]</sup>。書中的長劍注釋作者不明，稱為 Pseudo-Peter von Danzig。這份注釋成書早於 1452 年，是流傳最廣的長劍注釋<sup class="c">[<a href="#r8" aria-label="參考資料 8">8</a>,<a href="#r9" aria-label="參考資料 9">9</a>]</sup>。</p></div>
+  <div class="card"><h3>Hans Talhoffer</h3><span class="pill">插圖劍術書</span><span class="pill">司法決鬥</span>
+   <p>Wiktenauer 寫他活躍於 1433–1467 年；Wikipedia 則寫他約 1410–1415 年出生，卒於 1482 年之後<sup class="c">[<a href="#r10" aria-label="參考資料 10">10</a>,<a href="#r11" aria-label="參考資料 11">11</a>]</sup>。他至少留下五部手稿，也曾訓練人準備司法決鬥<sup class="c">[<a href="#r11" aria-label="參考資料 11">11</a>]</sup>。</p></div>
+  <div class="card"><h3>Paulus Kal</h3><span class="pill">同道會名單</span>
+   <p>約 1420 年代生於丁戈爾芬（Dingolfing），卒於 1485 年之後。他師從 Hans Stettner von Mörnsheim，1450 年起為 Ludwig 九世效力。他的手稿留下「同道會」名單，也是目前所知最早嘗試為口訣配圖的作品<sup class="c">[<a href="#r12" aria-label="參考資料 12">12</a>]</sup>。</p></div>
+  <div class="card"><h3>Joachim Meyer</h3><span class="pill">集大成</span><span class="pill">16 世紀</span>
+   <p>1537 年 8 月 16 日在巴塞爾受洗，1571 年 2 月卒於什未林（Schwerin）。他是刀匠，也是史特拉斯堡的自由劍士（Freifechter）。1570 年出版的《Gründtliche Beschreibung》插圖出自 Stimmer 工作室。他被視為這個傳統最後一位重要人物，也把義大利細劍的內容納入了著作<sup class="c">[<a href="#r13" aria-label="參考資料 13">13</a>]</sup>。</p></div>
+ </div>
+</section>
+<section id="debates">
+ <h2>爭議與不確定之處</h2>
+ <p>這段歷史有很多空白，下面這些點，不同來源之間有出入，或者學界還沒有定論：</p>
+ <div class="warn">
+  <ul class="tight">
+   <li><span class="term">Liechtenauer 的年代：</span>如果 Pol Hausbuch 真的寫於 1390 年前後，他就活躍於 14 世紀末。但最早有內部日期的口訣在約 1448 年的 Talhoffer 手稿裡；加上 Kal 名單中的 Huntsfeld、Lignitzer、Ott 到 1452 年都已經過世，所以 Wiktenauer 的結論是：他的活動期大概從 14 世紀末延續到 15 世紀初<sup class="c">[<a href="#r1" aria-label="參考資料 1">1</a>]</sup>。</li>
+   <li><span class="term">Hs. 3227a 的年代：</span>「1389」這個年代來自曆表。Kleinau 推測是 1410–1420 年；Tobler 認為定在 1390 年缺乏根據；可以確定的最晚年限是 1532 年（Pol 去世）<sup class="c">[<a href="#r4" aria-label="參考資料 4">4</a>,<a href="#r6" aria-label="參考資料 6">6</a>]</sup>。</li>
+   <li><span class="term">Hs. 3227a 的作者：</span>「Döbringer」是誤認。Vodička 認為這份文本是分階段口述、最後沒有完成的<sup class="c">[<a href="#r5" aria-label="參考資料 5">5</a>,<a href="#r6" aria-label="參考資料 6">6</a>]</sup>。</li>
+   <li><span class="term">Talhoffer 的日期：</span>他的生卒年，以及 MS Chart.A.558 是 1443 還是 1448 年，Wiktenauer 和 Wikipedia 說法不同<sup class="c">[<a href="#r10" aria-label="參考資料 10">10</a>,<a href="#r11" aria-label="參考資料 11">11</a>]</sup>。</li>
+   <li><span class="term">Ringeck 的身分：</span>他的雇主是哪一位 Albrecht 公爵並不清楚；他是不是就是 Pseudo-Peter von Danzig，也沒有定論<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</li>
+   <li><span class="term">Peter von Danzig：</span>整本 Cod. 44 A 8 掛在他名下是誤植，他只寫了短劍部分<sup class="c">[<a href="#r9" aria-label="參考資料 9">9</a>]</sup>。</li>
+   <li><span class="term">非長劍口訣：</span>騎戰、甲冑戰和摔跤的詩句大概不是 Liechtenauer 寫的。Jaquet 和 Walczak（2014）認為，可能出自 Liegnitzer、Hundsfeld 或 Lew 等人<sup class="c">[<a href="#r2" aria-label="參考資料 2">2</a>]</sup>。</li>
+   <li><span class="term">名稱的含義：</span>Hans Medel 認為，大師斬的名稱是上段斬（Oberhau）、中段斬（Mittelhau）、換斬（Wechselhau）、Sturzhau 等一般斬法的隱語。Scheitel 是頭頂的「分髮線」，英文常譯作 scalp cut 其實是誤譯。另外，注釋暗示斜視斬可能是 Liechtenauer 自己發明的<sup class="c">[<a href="#r1" aria-label="參考資料 1">1</a>,<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</li>
+   <li><span class="term">頭頂斬的收勢：</span>Wikipedia 的概述說它收在愚者式；但 Ringeck 的注釋強調手臂保持在高處，讓劍尖懸向臉部。本頁動畫依照 Ringeck<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>,<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</li>
+   <li><span class="term">翻譯差異：</span>曲斬的注釋裡，有的英譯寫「從你的右側」，有的寫「從他的右側」<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</li>
+   <li><span class="term">本頁動畫：</span>這是本站依注釋文字做的簡化詮釋。現代練習者對同一段口訣的身體動作，詮釋並不一致。</li>
+  </ul>
+ </div>
+</section>
+<section id="principles">
+ <h2>核心原理</h2>
+ <div class="note">
+  <p style="margin:0">「先、後、弱、強、同時——<span class="de">vor, nach, swach, stark, Indes</span>——大師 Liechtenauer 的整套藝術都繫於這五個字。它們是一切戰鬥的根基與核心，不論步戰或馬上、穿甲或不穿甲。」</p>
+  <p class="src">Hs. 3227a，20r（引自 Wikipedia 英譯）<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup></p>
+ </div>
+ <h3>先（Vor）與後（Nach）</h3>
+ <p>Ringeck 說，先與後是「整套擊劍藝術的源頭」。<span class="term">先</span>，就是在對方出手之前，你先用斬擊或刺擊攻向他的空隙，逼他非擋不可；他擋的時候，你就從一個空隙換打到另一個空隙，讓他沒機會使出自己的招式<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</p>
+ <p>如果搶不到先手，就要「等待後手」。<span class="term">後</span>，就是在被迫格擋的同時，立刻轉攻最近的空隙，趕在對方完成動作之前打中他。Ringeck 說這是「破解一切招式」的方法<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。Wikipedia 的概述也指出，按照 Liechtenauer 的體系，劍士應該永遠設法掌握先手<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p>
+ <figure class="fig card">
+  <svg viewBox="0 0 360 250" role="img" aria-label="先、後、同時的時間示意圖">
+   <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#5b5142"/></marker></defs>
+   <g font-family="Noto Sans TC, sans-serif" font-size="13">
+    <text x="8" y="22" font-weight="700" fill="#7a1f16" font-size="15">先 Vor</text>
+    <rect x="8" y="32" width="112" height="30" rx="6" fill="#1f4fa3"/><text x="64" y="52" fill="#fff" text-anchor="middle">甲先攻空隙</text>
+    <rect x="124" y="32" width="104" height="30" rx="6" fill="#b8261c"/><text x="176" y="52" fill="#fff" text-anchor="middle">乙被迫格擋</text>
+    <rect x="232" y="32" width="120" height="30" rx="6" fill="#1f4fa3"/><text x="292" y="52" fill="#fff" text-anchor="middle">甲換打下一空隙</text>
+    <text x="8" y="98" font-weight="700" fill="#7a1f16" font-size="15">後 Nach → 同時 Indes</text>
+    <rect x="8" y="108" width="112" height="30" rx="6" fill="#b8261c"/><text x="64" y="128" fill="#fff" text-anchor="middle">乙先攻</text>
+    <rect x="124" y="108" width="228" height="30" rx="6" fill="#1f4fa3"/><text x="238" y="128" fill="#fff" text-anchor="middle">甲在格擋的同時打最近空隙</text>
+    <text x="8" y="174" font-weight="700" fill="#7a1f16" font-size="15">交劍時：感知 Fühlen → 同時 Indes</text>
+    <rect x="8" y="184" width="150" height="30" rx="6" fill="#9a6b00"/><text x="83" y="204" fill="#fff" text-anchor="middle">雙劍相碰：軟或硬？</text>
+    <line x1="162" y1="199" x2="196" y2="199" stroke="#5b5142" stroke-width="2" marker-end="url(#ar)"/>
+    <rect x="200" y="184" width="152" height="30" rx="6" fill="#1f4fa3"/><text x="276" y="204" fill="#fff" text-anchor="middle">立刻攻最近的空隙</text>
+    <line x1="8" y1="236" x2="352" y2="236" stroke="#5b5142" stroke-width="1.5" marker-end="url(#ar)"/><text x="350" y="230" text-anchor="end" fill="#5b5142" font-size="12">時間 →</text>
+   </g>
+  </svg>
+  <figcaption>示意圖：依 Ringeck 對先、後、感知與同時的注釋重繪<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</figcaption>
+ </figure>
+ <h3>感知（Fühlen）與同時（Indes）</h3>
+ <p>Ringeck 把感知和「同時」（Indes）並稱為「擊劍中最了不起的藝術」，說這兩者是一體的。雙劍碰撞、「火花迸出」的那一刻，你就要感覺對方交劍是軟還是硬；一感覺到，就在同一個瞬間攻向最近的空隙，在他回過神之前打中他<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。Wikipedia 也把 Indes 解釋為「在此同時」，指對方完成動作所需的那段時間<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p>
+ <h3>強段（Stärke）與弱段（Schwäche）</h3>
+ <p>「強」和「弱」有兩層意思。第一層是劍身的部位：Ringeck 說，從劍柄到劍身中段是劍的強段，用它可以頂住對方；從中段到劍尖是弱段，在那裡頂不住<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。第二層是交劍時用的力道：強要用弱來對付，弱要用強來對付，兩者沒有哪個比較好<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p>
+ <figure class="fig card">
+  <svg viewBox="0 0 360 132" role="img" aria-label="長劍的強段與弱段示意圖">
+   <g font-family="Noto Sans TC, sans-serif" font-size="13">
+    <line x1="74" y1="62" x2="207" y2="62" stroke="#3c434b" stroke-width="9" stroke-linecap="butt"/>
+    <path d="M207,57.5 L340,60.5 L350,62 L340,63.5 L207,66.5z" fill="#9aa3ad"/>
+    <line x1="30" y1="62" x2="70" y2="62" stroke="#4a2f1a" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="22" cy="62" r="8" fill="#7a1f16"/>
+    <line x1="72" y1="40" x2="72" y2="84" stroke="#7a1f16" stroke-width="6" stroke-linecap="round"/>
+    <line x1="207" y1="44" x2="207" y2="80" stroke="#9a6b00" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="140" y="34" text-anchor="middle" font-weight="700" fill="#2a1a0e" font-size="15">強段 Stärke</text>
+    <text x="278" y="34" text-anchor="middle" font-weight="700" fill="#2a1a0e" font-size="15">弱段 Schwäche</text>
+    <text x="140" y="102" text-anchor="middle" fill="#3b2b17">護手到中段</text><text x="140" y="120" text-anchor="middle" fill="#3b2b17">交劍時頂得住</text>
+    <text x="278" y="102" text-anchor="middle" fill="#3b2b17">中段到劍尖</text><text x="278" y="120" text-anchor="middle" fill="#3b2b17">在這裡頂不住</text>
+    <text x="207" y="96" text-anchor="middle" fill="#9a6b00" font-size="11">中段</text>
+    <text x="22" y="92" text-anchor="middle" fill="#5b5142" font-size="11">劍首</text><text x="50" y="92" text-anchor="middle" fill="#5b5142" font-size="11">握柄</text>
+   </g>
+  </svg>
+  <figcaption>示意圖：依 Ringeck 的定義重繪<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</figcaption>
+ </figure>
+ <h3>交劍（Bind）與絞劍（Winden）</h3>
+ <p>兩把劍相碰並保持接觸，就是交劍。這時的關鍵動作之一是<span class="term">絞劍</span>：用自己劍身的強段去對付對方劍的弱段，取得槓桿優勢，同時讓劍尖保持對準對方的空隙<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。Ringeck 在憤怒斬的注釋裡也說，如果對方在交劍時很強，就沿著他的劍「絞」進去，刺他的臉<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</p>
+</section>
+<section id="guards">
+ <h2>四種架式（Huten / Leger）</h2>
+ <p>Liechtenauer 只教四種架式，並且強調這四種就夠了；其他大師教的各種架式，都可以從這四種衍生出來<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。下面的描述以 Ringeck 的注釋為主<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>，Wikipedia 的概述為輔<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。圖中人物面朝右方。</p>
+ <div class="guards">
+  <div class="guard"><svg viewBox="20 2 230 282" role="img" aria-label="屋頂式示意圖"><line class="gnd" x1="22" y1="262" x2="248" y2="262"/><g class="ghost"><g class="fz fa"><line class="bl" x1="129.6" y1="118.1" x2="107.4" y2="28.9"/><line class="blst" x1="129.6" y1="118.1" x2="118.5" y2="73.5"/><line class="grip" x1="129.6" y1="118.1" x2="134.7" y2="138.5"/><line class="cg" x1="139.3" y1="115.7" x2="119.9" y2="120.5"/><circle class="pm" cx="134.7" cy="138.5" r="3.6"/><polyline class="arm" points="115.6,129.1 136.9,150.3 130.6,122"/><circle class="hand" cx="130.6" cy="122" r="3.4"/><circle class="hand" cx="133.7" cy="134.6" r="3.4"/></g></g><g class="fz fa"><polyline class="lg back" points="110,180 109.6,225 84,262"/><line class="ft back" x1="84" y1="262" x2="95" y2="262"/><polyline class="arm back" points="110.6,130.1 138.5,119 135.6,90.1"/><line class="tor" x1="110" y1="180" x2="113.6" y2="128.1"/><polyline class="lg" points="110,180 135.6,217 134,262"/><line class="ft" x1="134" y1="262" x2="147" y2="262"/><circle class="hd" cx="114.8" cy="110.7" r="11.5"/><line class="nk" x1="113.6" y1="128.1" x2="114.2" y2="120.3"/></g><g class="fz fa"><line class="bl" x1="123.6" y1="78.1" x2="58.6" y2="13.1"/><line class="blst" x1="123.6" y1="78.1" x2="91.1" y2="45.6"/><line class="grip" x1="123.6" y1="78.1" x2="138.5" y2="93"/><line class="cg" x1="130.7" y1="71.1" x2="116.6" y2="85.2"/><circle class="pm" cx="138.5" cy="93" r="3.6"/><polyline class="arm" points="115.6,129.1 136.9,108 126.5,81"/><circle class="hand" cx="126.5" cy="81" r="3.4"/><circle class="hand" cx="135.6" cy="90.1" r="3.4"/></g></svg>
+   <h3>屋頂式 <span class="de">Vom Tag</span></h3>
+   <p>左腳在前，劍放在右肩上，或者雙臂伸直把劍高舉在頭上（圖中半透明的劍是放在肩上的變化）<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。Wikipedia 補充，劍身可以垂直，也可以約成 45 度<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p></div>
+  <div class="guard"><svg viewBox="20 2 230 282" role="img" aria-label="牛式示意圖"><line class="gnd" x1="22" y1="262" x2="248" y2="262"/><g class="fz fa"><polyline class="lg back" points="110,180 109.6,225 84,262"/><line class="ft back" x1="84" y1="262" x2="95" y2="262"/><polyline class="arm back" points="110.6,130.1 139.4,121.7 123.9,97.2"/><line class="tor" x1="110" y1="180" x2="113.6" y2="128.1"/><polyline class="lg" points="110,180 135.6,217 134,262"/><line class="ft" x1="134" y1="262" x2="147" y2="262"/><circle class="hd" cx="114.8" cy="110.7" r="11.5"/><line class="nk" x1="113.6" y1="128.1" x2="114.2" y2="120.3"/></g><g class="fz fa"><line class="bl" x1="140.6" y1="100.1" x2="231.2" y2="116.1"/><line class="blst" x1="140.6" y1="100.1" x2="185.9" y2="108.1"/><line class="grip" x1="140.6" y1="100.1" x2="119.9" y2="96.5"/><line class="cg" x1="138.9" y1="110" x2="142.4" y2="90.3"/><circle class="pm" cx="119.9" cy="96.5" r="3.6"/><polyline class="arm" points="115.6,129.1 145.6,127 136.7,99.4"/><circle class="hand" cx="136.7" cy="99.4" r="3.4"/><circle class="hand" cx="123.9" cy="97.2" r="3.4"/></g></svg>
+   <h3>牛式 <span class="de">Ochs</span></h3>
+   <p>左腳在前，劍柄放在頭部右側，劍尖指向對方的臉<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。Wikipedia 把它比作「牛角」，也可以擺在頭的另一側<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p></div>
+  <div class="guard"><svg viewBox="20 2 230 282" role="img" aria-label="犁式示意圖"><line class="gnd" x1="22" y1="262" x2="248" y2="262"/><g class="fz fa"><polyline class="lg back" points="110,180 109.6,225 84,262"/><line class="ft back" x1="84" y1="262" x2="95" y2="262"/><polyline class="arm back" points="110.6,130.1 99.9,158.1 122.6,176.1"/><line class="tor" x1="110" y1="180" x2="113.6" y2="128.1"/><polyline class="lg" points="110,180 135.6,217 134,262"/><line class="ft" x1="134" y1="262" x2="147" y2="262"/><circle class="hd" cx="114.8" cy="110.7" r="11.5"/><line class="nk" x1="113.6" y1="128.1" x2="114.2" y2="120.3"/></g><g class="fz fa"><line class="bl" x1="137.6" y1="168.1" x2="218.9" y2="124.9"/><line class="blst" x1="137.6" y1="168.1" x2="178.2" y2="146.5"/><line class="grip" x1="137.6" y1="168.1" x2="119.1" y2="178"/><line class="cg" x1="142.3" y1="177" x2="132.9" y2="159.3"/><circle class="pm" cx="119.1" cy="178" r="3.6"/><polyline class="arm" points="115.6,129.1 107.7,158.1 134.1,170"/><circle class="hand" cx="134.1" cy="170" r="3.4"/><circle class="hand" cx="122.6" cy="176.1" r="3.4"/></g></svg>
+   <h3>犁式 <span class="de">Pflug</span></h3>
+   <p>左腳在前，雙手交叉握劍放在右膝旁，劍尖指向對方的臉<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。Wikipedia 補充，劍首靠近後側的髖部，劍尖指向對方的胸口或臉<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p></div>
+  <div class="guard"><svg viewBox="20 2 230 282" role="img" aria-label="愚者式示意圖"><line class="gnd" x1="22" y1="262" x2="248" y2="262"/><g class="fz fa"><polyline class="lg back" points="110,180 105.2,224.7 80,262"/><line class="ft back" x1="80" y1="262" x2="91" y2="262"/><polyline class="arm back" points="110.6,130.1 112.3,160.1 141.1,157.4"/><line class="tor" x1="110" y1="180" x2="113.6" y2="128.1"/><polyline class="lg" points="110,180 135.2,217.3 140,262"/><line class="ft" x1="140" y1="262" x2="153" y2="262"/><circle class="hd" cx="114.8" cy="110.7" r="11.5"/><line class="nk" x1="113.6" y1="128.1" x2="114.2" y2="120.3"/></g><g class="fz fa"><line class="bl" x1="149.6" y1="172.1" x2="195.6" y2="251.8"/><line class="blst" x1="149.6" y1="172.1" x2="172.6" y2="212"/><line class="grip" x1="149.6" y1="172.1" x2="139.1" y2="153.9"/><line class="cg" x1="141" y1="177.1" x2="158.3" y2="167.1"/><circle class="pm" cx="139.1" cy="153.9" r="3.6"/><polyline class="arm" points="115.6,129.1 120.4,158.7 147.6,168.7"/><circle class="hand" cx="147.6" cy="168.7" r="3.4"/><circle class="hand" cx="141.1" cy="157.4" r="3.4"/></g></svg>
+   <h3>愚者式 <span class="de">Alber</span></h3>
+   <p>右腳在前，雙臂伸直，劍尖朝地<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。這個架式看似「愚蠢地」露出整個上半身，其實是在引誘對方進攻，而下半身防護得很好<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p></div>
+ </div>
+</section>
+<section id="strikes">
+ <h2>五大師斬（Meisterhäue）</h2>
+ <p>3227a 稱它們為「五斬」，後來的手稿稱為「隱藏的斬擊」，更晚的手稿才稱為「大師斬」。它們很可能原本是 Liechtenauer 體系裡出其不意的秘技<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。Ringeck 在四種架式之後談「四種格擋」（vier Versetzen）：能破解四種架式的四種格擋，其實就是四記斬擊<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。也就是說，四記大師斬各自破解一種架式<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p>
+ <figure class="fig card">
+  <svg viewBox="0 0 360 300" role="img" aria-label="五大師斬的斬擊線示意圖（從攻擊者角度看對手）">
+   <defs><marker id="ah0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#7a1f16"/></marker><marker id="ah1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#1f4fa3"/></marker><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#9a6b00"/></marker><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#2f7d3a"/></marker><marker id="ah4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#6b2fa0"/></marker></defs>
+   <g stroke="#b8261c" stroke-width="6" stroke-linecap="round" fill="none" opacity=".9">
+    <line x1="180" y1="132" x2="180" y2="214"/><polyline points="180,214 158,286"/><polyline points="180,214 202,286"/>
+    <polyline points="180,134 138,176 160,194"/><polyline points="180,134 222,176 200,194"/>
+   </g>
+   <circle cx="180" cy="104" r="24" fill="#e07a6f" stroke="#b8261c" stroke-width="4"/>
+   <rect x="164" y="186" width="32" height="14" rx="5" fill="#f1c9a5" stroke="#b8261c" stroke-width="2"/>
+   <g fill="none" stroke-width="4" stroke-linecap="round">
+    <path d="M180,12 L180,72" stroke="#7a1f16" marker-end="url(#ah0)"/>
+    <path d="M346,104 L212,104" stroke="#1f4fa3" marker-end="url(#ah1)"/>
+    <path d="M330,22 L216,132" stroke="#9a6b00" marker-end="url(#ah2)"/>
+    <path d="M250,18 Q150,10 140,124" stroke="#2f7d3a" marker-end="url(#ah3)"/>
+    <path d="M24,96 Q120,120 160,186" stroke="#6b2fa0" marker-end="url(#ah4)"/>
+   </g>
+   <g font-family="Noto Sans TC, sans-serif" font-size="13" font-weight="700">
+    <circle cx="198" cy="28" r="11" fill="#7a1f16"/><text x="198" y="33" fill="#fff" text-anchor="middle">5</text>
+    <circle cx="330" cy="88" r="11" fill="#1f4fa3"/><text x="330" y="93" fill="#fff" text-anchor="middle">3</text>
+    <circle cx="340" cy="40" r="11" fill="#9a6b00"/><text x="340" y="45" fill="#fff" text-anchor="middle">1</text>
+    <circle cx="262" cy="30" r="11" fill="#2f7d3a"/><text x="262" y="35" fill="#fff" text-anchor="middle">4</text>
+    <circle cx="24" cy="78" r="11" fill="#6b2fa0"/><text x="24" y="83" fill="#fff" text-anchor="middle">2</text>
+    <text x="104" y="212" fill="#5b5142" font-weight="500" font-size="12">雙手</text>
+   </g>
+  </svg>
+  <figcaption>從攻擊者的角度看對手的斬擊線示意圖（攻擊者站在右手持劍的位置）：1 憤怒斬斜劈對方左側；2 曲斬交叉打手；3 橫斬水平打頭側；4 斜視斬用短刃落在對方右肩；5 頭頂斬垂直劈頭頂。本站依 <sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>,<a href="#r7" aria-label="參考資料 7">7</a>]</sup> 的文字描述繪製，只是方向示意。</figcaption>
+ </figure>
+ <div class="strikes">
+  <div class="strike"><h3>1. 憤怒斬 <span class="de">Zornhau</span></h3>
+   <p>口訣：「誰從上方斬你，憤怒斬的劍尖就威脅他。」<span class="de">（Wer dir oberhauwet, Zornhaw ort dem drawet）</span><sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup></p>
+   <p>對方從他的右側斬來時，你也從右肩用長刃憤怒地斜斬回去，同時擋住他的劍<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。Wikipedia 的描述是：一記從屋頂式出手、力道很大的斜斬；如果用來格擋對方的上段斬，交劍後會停在身體中線的低懸位置<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。<span class="breaks">對付上段斬</span></p></div>
+  <div class="strike"><h3>2. 曲斬 <span class="de">Krumphau</span></h3>
+   <p>口訣：「靈巧地曲斬，把劍尖拋到對方手上。」<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup></p>
+   <p>對方從右側斬來時，用右腳往他的左側遠遠跳開，雙臂交叉，用劍尖打他的雙手<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。Wikipedia 說，它是越過正面直線的斬擊，幾乎總是配合大幅度的斜向側步<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。<span class="breaks">破牛式</span></p></div>
+  <div class="strike"><h3>3. 橫斬 <span class="de">Zwerchhau</span></h3>
+   <p>口訣：「橫斬奪走一切來自屋頂之物。」<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup></p>
+   <p>它破解所有從上往下的斬擊。對方從上方斬向你頭部時，你用右腳往他的左側跳開，同時翻轉劍，讓劍柄高舉在頭前、拇指朝下，用短刃斬他的左側。這樣你用劍柄接住了他的斬擊，同時打中他的頭<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。從右側出手時用短刃，從左側出手時用長刃<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。<span class="breaks">破屋頂式</span></p></div>
+  <div class="strike"><h3>4. 斜視斬 <span class="de">Schielhau</span></h3>
+   <p>口訣：「斜視斬破解『水牛』的斬與刺。」<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup></p>
+   <p>「水牛」指的是只靠蠻力取勝的人。對方從右側上段斬來時，你也從右側迎上去，雙臂伸直，用短刃斬入他劍的弱段，落在他的右肩上，擋與打一次完成。如果他穿換脫開，就順勢長伸刺他的胸口<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。它也能破長尖式（Langort），並且可以反擊強力的上段斬<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。<span class="breaks">破犁式</span></p></div>
+  <div class="strike"><h3>5. 頭頂斬 <span class="de">Scheitelhau</span></h3>
+   <p>口訣：「頭頂斬對臉部是威脅。」Ringeck 說它對臉和胸口都很危險<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</p>
+   <p>對方站在愚者式時，從自己頭頂的分髮線往下，用長刃斬下，斬擊時手臂保持在高處，讓劍尖懸向他的臉<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。Wikipedia 說，它是透過「越過」（Überlaufen）的原理來破愚者式<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。<span class="breaks">破愚者式</span></p></div>
+ </div>
+ <div class="note"><p style="margin:0"><span class="term">四記斬擊破四種架式：</span>曲斬→牛式；橫斬→屋頂式；斜視斬→犁式；頭頂斬→愚者式。憤怒斬則是用來對付上段斬的反擊斬<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>,<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</p></div>
+</section>
+<section id="anims">
+ <h2>動畫解析：五大師斬實戰示意</h2>
+ <p>下面五段動畫依照 Ringeck 注釋的文字描述製作<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。每段都可以播放、暫停，也能用「上一步／下一步」逐格檢視；每一步都配有說明。說明左邊的小圖是<span class="term">俯視步法圖</span>：藍點是甲、紅點是乙，短線是面向。動畫捲到畫面中央時會自動播放；如果裝置設定了「減少動態效果」，動畫會停在第一步，等你自己操作。</p>
+ <div class="legend"><span><b style="background:#1f4fa3"></b>甲（藍）</span><span><b style="background:#b8261c"></b>乙（紅）</span><span><b style="background:#f0a500"></b>交劍點</span><span><b style="background:#e01e5a"></b>命中點</span></div>
+ <div class="anim" id="anim-zorn">
+  <h3>① 憤怒斬（Zornhau）對上段斬（Oberhau）</h3>
+  <div class="player"></div>
+  <p class="src">依據：<a href="https://wiktenauer.com/wiki/Sigmund_ain_Ringeck" rel="noopener">Sigmund ain Ringeck 注釋（Wiktenauer；Trosclair、Farrell 英譯）</a><sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。動作是本站依文字描述做的簡化詮釋。</p>
+ </div>
+ <div class="anim" id="anim-zwerch">
+  <h3>② 橫斬（Zwerchhau）破屋頂式（Vom Tag）</h3>
+  <div class="player"></div>
+  <p class="src">依據：<a href="https://wiktenauer.com/wiki/Sigmund_ain_Ringeck" rel="noopener">Sigmund ain Ringeck 注釋（Wiktenauer；Trosclair、Farrell 英譯）</a><sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>,<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。動作是本站依文字描述做的簡化詮釋。</p>
+ </div>
+ <div class="anim" id="anim-krump">
+  <h3>③ 曲斬（Krumphau）對右側來的斬擊</h3>
+  <div class="player"></div>
+  <p class="src">依據：<a href="https://wiktenauer.com/wiki/Sigmund_ain_Ringeck" rel="noopener">Sigmund ain Ringeck 注釋（Wiktenauer；Trosclair、Farrell 英譯）</a><sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>,<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。動作是本站依文字描述做的簡化詮釋。</p>
+ </div>
+ <div class="anim" id="anim-schiel">
+  <h3>④ 斜視斬（Schielhau）對上段斬</h3>
+  <div class="player"></div>
+  <p class="src">依據：<a href="https://wiktenauer.com/wiki/Sigmund_ain_Ringeck" rel="noopener">Sigmund ain Ringeck 注釋（Wiktenauer；Trosclair、Farrell 英譯）</a><sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。動作是本站依文字描述做的簡化詮釋。</p>
+ </div>
+ <div class="anim" id="anim-scheitel">
+  <h3>⑤ 頭頂斬（Scheitelhau）破愚者式（Alber）</h3>
+  <div class="player"></div>
+  <p class="src">依據：<a href="https://wiktenauer.com/wiki/Sigmund_ain_Ringeck" rel="noopener">Sigmund ain Ringeck 注釋（Wiktenauer；Trosclair、Farrell 英譯）</a><sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>,<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。動作是本站依文字描述做的簡化詮釋。</p>
+ </div>
+ <p class="src">提醒：火柴人是平面側視圖，只能大致表現劍和身體的位置；實際的角度、步伐和刃向，請以原始手稿和有經驗的教練為準。</p>
+</section>
+<section id="plays">
+ <h2>常見技法與破解</h2>
+ <div class="plays">
+  <div class="card"><h3>憤怒斬接刺擊 <span class="de">Zornhau-Ort</span></h3>
+   <p>用憤怒斬交劍之後，如果對方在劍上是「軟」的，就把劍尖直直往前推，刺他的臉<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。對應上方動畫 ① 的第 4 步。</p></div>
+  <div class="card"><h3>從上取下 <span class="de">Abnehmen</span></h3>
+   <p>如果對方察覺到劍尖並用力擋開，就把劍從他的劍上往上取下，再從另一側沿著他的劍斬他的頭<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。對應動畫 ① 的第 5、6 步。</p></div>
+  <div class="card"><h3>加倍 <span class="de">Duplieren</span></h3>
+   <p>Wikipedia 的定義是：被擋開的斬擊立刻再補一擊<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。Ringeck 的做法是：用憤怒斬或其他斬擊斬入、對方用力格擋時，就「同時」用左手把劍首推到右臂下方，雙手交叉，從他的劍身後方、在劍和人之間斬他的嘴，或者斬他的頭<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。口訣說「上方用加倍」，也就是針對對方劍的強段、攻上方空隙<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</p></div>
+  <div class="card"><h3>變換 <span class="de">Mutieren</span></h3>
+   <p>Wikipedia 的定義是：把被擋開的斬擊轉成刺擊，或把被擋開的刺擊轉成斬擊<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。Ringeck 的做法是：用上段斬交劍之後，把短刃絞向對方的劍，雙臂充分抬高，讓劍身從外側懸到他的劍上方，再刺他的下方空隙；左右兩側都可以用<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。口訣說「下方用變換」<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</p></div>
+  <div class="card"><h3>穿換、抽回、越過、追擊</h3>
+   <ul class="tight">
+    <li><span class="term">穿換 Durchwechseln：</span>劍尖從對方劍下滑出、脫離交劍，再刺另一個空隙<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</li>
+    <li><span class="term">抽回 Zucken：</span>在強力交劍時故意放軟，抽劍脫開，再從對方劍的另一側斬或刺<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</li>
+    <li><span class="term">越過 Überlaufen：</span>用上方的攻擊對付從下方來的斬或刺，較高的一擊搆得比較遠<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</li>
+    <li><span class="term">追擊 Nachreisen：</span>趁對方收劍準備攻擊、或者攻擊落空時，跟上去攻擊<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</li>
+   </ul></div>
+  <div class="card"><h3>破解的破解</h3>
+   <ul class="tight">
+    <li><span class="term">冠式（Krone）破頭頂斬：</span>從愚者式舉起劍柄，把頭頂斬推上去；而冠式本身可以用從下方切入雙手的「下切」來破解<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</li>
+    <li><span class="term">反制上段橫斬：</span>你從右側交劍，如果對方用橫斬繞到你的另一側，你也用橫斬從他的劍下方打他的脖子，讓他「用你的劍打到自己」<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>。</li>
+    <li><span class="term">斜視斬對穿換：</span>對方從斜視斬下方穿換脫開時，就把斬擊順勢變成長伸的刺擊<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>（動畫 ④ 第 4 步）。</li>
+   </ul></div>
+ </div>
+</section>
+<section id="kcd2">
+ <h2>與《天國：拯救2》的關係</h2>
+ <div class="card">
+  <dl class="kv">
+   <dt>開發／發行</dt><dd>Warhorse Studios／Deep Silver<sup class="c">[<a href="#r14" aria-label="參考資料 14">14</a>]</sup></dd>
+   <dt>發售</dt><dd>2025 年 2 月 4 日，PS5、Windows、Xbox Series X/S<sup class="c">[<a href="#r14" aria-label="參考資料 14">14</a>]</sup></dd>
+   <dt>背景</dt><dd>1403 年的波希米亞<sup class="c">[<a href="#r14" aria-label="參考資料 14">14</a>]</sup></dd>
+   <dt>引擎</dt><dd>CryEngine<sup class="c">[<a href="#r14" aria-label="參考資料 14">14</a>]</sup></dd>
+  </dl>
+ </div>
+ <h3>遊戲裡的劍術系統</h3>
+ <p>遊戲的戰鬥可以選擇攻擊方向，也有格擋、連段和反擊<sup class="c">[<a href="#r14" aria-label="參考資料 14">14</a>]</sup>。IGN 報導，前作的五個攻擊方向在續作裡精簡成上、下、左、右四個；劍可以用全部四個方向，基本攻擊大多是斬擊，刺擊只出現在合理武器的連段裡<sup class="c">[<a href="#r15" aria-label="參考資料 15">15</a>]</sup>。</p>
+ <p>遊戲中的「Master Strike」（大師一擊）是一種反擊：向 Tomcat 學會之後，在對手出手時從相反方向攻擊，就能攔截他的攻擊並同時打中他；普通難度下，綠色盾牌圖示會提示時機<sup class="c">[<a href="#r18" aria-label="參考資料 18">18</a>,<a href="#r19" aria-label="參考資料 19">19</a>]</sup>。首席設計師 Prokop Jirsa 說，前作裡只要防守得好，完美格擋和大師一擊幾乎能解決一切；續作「仍然有大師一擊，但難用得多，而且也有對付大師一擊的防禦」<sup class="c">[<a href="#r15" aria-label="參考資料 15">15</a>]</sup>。</p>
+ <p>長劍連段的名稱也借用了德式劍術的術語，例如「Oben Abnehmen」（左、下、右）、「Zorn Ort」（右、右、右、左）和「Mittelhaw」<sup class="c">[<a href="#r19" aria-label="參考資料 19">19</a>]</sup>。Abnehmen 和 Zornhau-Ort 都是上面介紹過的技法<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>]</sup>；Mittelhau（中段斬）則是德式劍術的基本斬擊之一<sup class="c">[<a href="#r3" aria-label="參考資料 3">3</a>]</sup>。</p>
+ <h3>真實的武術顧問</h3>
+ <p>Warhorse 為前作拍了紀錄片《Fechtbuch: The Real Swordfighting behind Kingdom Come》（2019 年 2 月 5 日上架 Steam）。官方介紹說，布爾諾 House of Knightly Virtues 的 Robert Waschka 是前作的首席戰鬥顧問，遊戲裡所有劍術動作都來自他的動作；片中 Petr Vytopil 介紹德式劍術強調的「Vor」（先手）原則；武打指導 Petr Nůsek 也擔任顧問並編排戰鬥場面<sup class="c">[<a href="#r17" aria-label="參考資料 17">17</a>]</sup>。</p>
+ <p>續作方面，Warhorse 的公關經理 Tobias Stolz-Zwilling 受訪時說：前作只請一位本地劍術專家做動作捕捉，結果各種武器看起來都差不多；續作找來更多專精不同武器的武術師傅。他也承認，遊戲裡較慢、較大的動作不完全寫實，但這樣畫面比較好讀、手感比較好<sup class="c">[<a href="#r16" aria-label="參考資料 16">16</a>]</sup>。我們沒有找到具名列出續作武術顧問的公開資料。</p>
+ <div class="note"><p style="margin:0"><span class="term">本站的比較（非官方說法）：</span>遊戲的「大師一擊」是一種時機反擊機制，用法和本頁的五大師斬並不一一對應。不過，「在對方出手時從另一個方向迎擊、擋與打同時完成」的想法，和 Ringeck 描述的橫斬、斜視斬那種「擋與打一次完成」的做法，精神上相近<sup class="c">[<a href="#r7" aria-label="參考資料 7">7</a>,<a href="#r18" aria-label="參考資料 18">18</a>]</sup>。</p></div>
+</section>
+<section id="refs">
+ <h2>參考資料</h2>
+ <p>以下都是本頁實際查閱過的資料（查閱日期：2026 年 10 月 8 日）。手稿譯文多數來自 Wiktenauer 收錄的英譯本。</p>
+ <ol class="refs">
+  <li id="r1"><a href="https://wiktenauer.com/wiki/Johannes_Liechtenauer" rel="noopener">Wiktenauer：Johannes Liechtenauer</a>：生平、年代爭議、大師斬名稱注記</li>
+  <li id="r2"><a href="https://en.wikipedia.org/wiki/Johannes_Liechtenauer" rel="noopener">Wikipedia：Johannes Liechtenauer</a>：口訣（Zettel）結構、17 主要篇章、同道會、作者問題</li>
+  <li id="r3"><a href="https://en.wikipedia.org/wiki/German_school_of_fencing" rel="noopener">Wikipedia：German school of fencing</a>：五字原則、大師斬、架式與技法定義</li>
+  <li id="r4"><a href="https://wiktenauer.com/wiki/Pol_Hausbuch_(MS_3227a)" rel="noopener">Wiktenauer：Pol Hausbuch（MS 3227a）</a>：手稿描述、年代討論</li>
+  <li id="r5"><a href="https://wiktenauer.com/wiki/Pseudo-Hans_D%C3%B6bringer" rel="noopener">Wiktenauer：Pseudo-Hans Döbringer</a>：作者誤認、文本成書方式</li>
+  <li id="r6"><a href="https://en.wikipedia.org/wiki/MS_3227a" rel="noopener">Wikipedia：MS 3227a</a>：館藏、葉數、曆表與年代、Döbringer 歸屬</li>
+  <li id="r7"><a href="https://wiktenauer.com/wiki/Sigmund_ain_Ringeck" rel="noopener">Wiktenauer：Sigmund ain Ringeck（含 Trosclair、Farrell 等英譯）</a>：生平、抄本，以及本頁引用的全部長劍注釋</li>
+  <li id="r8"><a href="https://wiktenauer.com/wiki/Pseudo-Peter_von_Danzig" rel="noopener">Wiktenauer：Pseudo-Peter von Danzig</a>：流傳最廣的長劍注釋</li>
+  <li id="r9"><a href="https://wiktenauer.com/wiki/Peter_von_Danzig_zum_Ingolstadt" rel="noopener">Wiktenauer：Peter von Danzig zum Ingolstadt</a>：生平、Cod. 44 A 8 的誤植</li>
+  <li id="r10"><a href="https://wiktenauer.com/wiki/Hans_Talhoffer" rel="noopener">Wiktenauer：Hans Talhoffer</a>：活躍年代、MS Chart.A.558</li>
+  <li id="r11"><a href="https://en.wikipedia.org/wiki/Hans_Talhoffer" rel="noopener">Wikipedia：Hans Talhoffer</a>：生卒年、手稿、司法決鬥</li>
+  <li id="r12"><a href="https://wiktenauer.com/wiki/Paulus_Kal" rel="noopener">Wiktenauer：Paulus Kal</a>：生平、同道會名單</li>
+  <li id="r13"><a href="https://wiktenauer.com/wiki/Joachim_Meyer" rel="noopener">Wiktenauer：Joachim Meyer</a>：生平、1570 年著作</li>
+  <li id="r14"><a href="https://en.wikipedia.org/wiki/Kingdom_Come:_Deliverance_II" rel="noopener">Wikipedia：Kingdom Come: Deliverance II</a>：開發、發行、背景、戰鬥概述</li>
+  <li id="r15"><a href="https://www.ign.com/articles/how-kingdom-come-deliverance-2-evolves-its-combat" rel="noopener">IGN：How Kingdom Come: Deliverance 2 Evolves Its Combat</a>：四方向攻擊、Prokop Jirsa 談大師一擊</li>
+  <li id="r16"><a href="https://www.gadgetguy.com.au/kingdom-come-deliverance-2-swordplay-interview/" rel="noopener">GadgetGuy：Why Kingdom Come: Deliverance 2’s swordplay differs from reality（2024/12/05）</a>：Tobias Stolz-Zwilling 訪談：動作捕捉與武術師傅</li>
+  <li id="r17"><a href="https://store.steampowered.com/app/970070/Fechtbuch_The_Real_Swordfighting_behind_Kingdom_Come/" rel="noopener">Steam：Fechtbuch: The Real Swordfighting behind Kingdom Come</a>：Warhorse 紀錄片官方介紹與顧問</li>
+  <li id="r18"><a href="https://gamerant.com/kingdom-come-deliverance-2-kcd2-how-master-strikes-explained/" rel="noopener">Game Rant：Kingdom Come: Deliverance 2 – Master Strike, Explained</a>：大師一擊的學習與使用</li>
+  <li id="r19"><a href="https://www.pcgamesn.com/kingdom-come-deliverance-2/combat-combos" rel="noopener">PCGamesN：Kingdom Come Deliverance 2 combat and combos guide</a>：戰鬥機制、長劍連段名稱</li>
+ </ol>
+</section>
+</main>
+<footer class="wrap">
+ <p>製作：Jesse Tsai 的網頁工作室 · 2026 年 10 月。所有插圖和動畫都是自繪 SVG，沒有轉貼手稿圖片。內容僅供歷史與文化介紹，不能取代實際的劍術指導。</p>
+</footer>
+
+<script>
+/* Stick-fencer engine: pose solver + SVG string renderer (shared by node prerender and browser) */
+(function (root) {
+  var W = 400, G = 262;
+  var T = 52, TH = 45, SH = 45, UA = 30, FA = 29, BL = 92, GR = 21, HR = 11.5, NECK = 6;
+  var BASE = { hx: 110, hy: G - 82, lean: 4, ff: 134, bf: 84, ffy: 0, bfy: 0, gx: 8, gy: -42, ang: 135, fs: 1, eb1: 1, eb2: 1 };
+  function rad(d) { return d * Math.PI / 180; }
+  function ik(ax, ay, bx, by, l1, l2, bend) {
+    var dx = bx - ax, dy = by - ay, d = Math.hypot(dx, dy);
+    var maxd = l1 + l2 - 0.5, mind = Math.abs(l1 - l2) + 0.5;
+    if (d > maxd) d = maxd; if (d < mind) d = mind;
+    var c = (l1 * l1 + d * d - l2 * l2) / (2 * l1 * d); c = Math.max(-1, Math.min(1, c));
+    var a = Math.acos(c), base = Math.atan2(dy, dx), ang = base + bend * a;
+    return [ax + l1 * Math.cos(ang), ay + l1 * Math.sin(ang)];
+  }
+  function merge(a, b) { var o = {}, k; for (k in a) o[k] = a[k]; if (b) for (k in b) o[k] = b[k]; return o; }
+  function solve(p0) {
+    var p = merge(BASE, p0), L = rad(p.lean);
+    var hip = [p.hx, p.hy];
+    var sh = [hip[0] + T * Math.sin(L), hip[1] - T * Math.cos(L)];
+    var head = [sh[0] + (NECK + HR) * Math.sin(L), sh[1] - (NECK + HR) * Math.cos(L)];
+    var ff = [p.ff, G - p.ffy], bf = [p.bf, G - p.bfy];
+    var kf = ik(hip[0], hip[1], ff[0], ff[1], TH, SH, -1), kb = ik(hip[0], hip[1], bf[0], bf[1], TH, SH, -1);
+    var a = rad(p.ang), fs = p.fs, dir = [Math.cos(a), -Math.sin(a)], nrm = [-dir[1], dir[0]];
+    var hilt = [sh[0] + p.gx, sh[1] + p.gy];
+    var gfs = Math.max(0.55, fs);
+    var tip = [hilt[0] + dir[0] * BL * fs, hilt[1] + dir[1] * BL * fs];
+    var pom = [hilt[0] - dir[0] * GR * gfs, hilt[1] - dir[1] * GR * gfs];
+    var h1 = [hilt[0] - dir[0] * 4 * gfs, hilt[1] - dir[1] * 4 * gfs];
+    var h2 = [hilt[0] - dir[0] * (GR - 4) * gfs, hilt[1] - dir[1] * (GR - 4) * gfs];
+    var s1 = [sh[0] + 2, sh[1] + 1], s2 = [sh[0] - 3, sh[1] + 2];
+    var e1 = ik(s1[0], s1[1], h1[0], h1[1], UA, FA, p.eb1), e2 = ik(s2[0], s2[1], h2[0], h2[1], UA, FA, p.eb2);
+    var cw = 10;
+    var cg1 = [hilt[0] + nrm[0] * cw, hilt[1] + nrm[1] * cw], cg2 = [hilt[0] - nrm[0] * cw, hilt[1] - nrm[1] * cw];
+    var str = [hilt[0] + dir[0] * BL * fs * 0.5, hilt[1] + dir[1] * BL * fs * 0.5];
+    return { hip: hip, sh: sh, head: head, ff: ff, bf: bf, kf: kf, kb: kb, hilt: hilt, tip: tip, pom: pom, h1: h1, h2: h2,
+      s1: s1, s2: s2, e1: e1, e2: e2, cg1: cg1, cg2: cg2, mid: str, lean: p.lean,
+      reach1: Math.hypot(h1[0] - s1[0], h1[1] - s1[1]), reach2: Math.hypot(h2[0] - s2[0], h2[1] - s2[1]) };
+  }
+  function mir(S, m) {
+    if (!m) return S; var o = {}, k;
+    for (k in S) { var v = S[k]; o[k] = (v && v.length === 2) ? [W - v[0], v[1]] : v; }
+    return o;
+  }
+  function f(n) { return (Math.round(n * 10) / 10).toString(); }
+  function P(pt) { return f(pt[0]) + ',' + f(pt[1]); }
+  function line(a, b, cls, extra) { return '<line class="' + cls + '" x1="' + f(a[0]) + '" y1="' + f(a[1]) + '" x2="' + f(b[0]) + '" y2="' + f(b[1]) + '"' + (extra || '') + '/>'; }
+  function poly(pts, cls) { return '<polyline class="' + cls + '" points="' + pts.map(P).join(' ') + '"/>'; }
+  /* body (behind) and sword+hands (front) as separate strings so swords can overlay both bodies */
+  function body(S, c, facing, label) {
+    var toe = facing; var s = '<g class="fz ' + c + '">';
+    s += poly([S.hip, S.kb, S.bf], 'lg back');
+    s += line(S.bf, [S.bf[0] + 11 * toe, S.bf[1]], 'ft back');
+    s += poly([S.s2, S.e2, S.h2], 'arm back');
+    s += line(S.hip, S.sh, 'tor');
+    s += poly([S.hip, S.kf, S.ff], 'lg');
+    s += line(S.ff, [S.ff[0] + 13 * toe, S.ff[1]], 'ft');
+    s += '<circle class="hd" cx="' + f(S.head[0]) + '" cy="' + f(S.head[1]) + '" r="' + HR + '"/>';
+    s += line(S.sh, [S.sh[0] + (S.head[0] - S.sh[0]) * 0.45, S.sh[1] + (S.head[1] - S.sh[1]) * 0.45], 'nk');
+    if (label) s += '<text class="tag" x="' + f((S.ff[0] + S.bf[0]) / 2) + '" y="' + (G + 17) + '">' + label + '</text>';
+    s += '</g>';
+    return s;
+  }
+  function sword(S, c) {
+    var s = '<g class="fz ' + c + '">';
+    s += line(S.hilt, S.tip, 'bl');
+    s += line(S.hilt, S.mid, 'blst');
+    s += line(S.hilt, S.pom, 'grip');
+    s += line(S.cg1, S.cg2, 'cg');
+    s += '<circle class="pm" cx="' + f(S.pom[0]) + '" cy="' + f(S.pom[1]) + '" r="3.6"/>';
+    s += poly([S.s1, S.e1, S.h1], 'arm');
+    s += '<circle class="hand" cx="' + f(S.h1[0]) + '" cy="' + f(S.h1[1]) + '" r="3.4"/>';
+    s += '<circle class="hand" cx="' + f(S.h2[0]) + '" cy="' + f(S.h2[1]) + '" r="3.4"/>';
+    s += '</g>';
+    return s;
+  }
+  function segClosest(p1, p2, q1, q2) {
+    var best = null, n = 24, i, j;
+    for (i = 0; i <= n; i++) {
+      var a = [p1[0] + (p2[0] - p1[0]) * i / n, p1[1] + (p2[1] - p1[1]) * i / n];
+      for (j = 0; j <= n; j++) {
+        var b = [q1[0] + (q2[0] - q1[0]) * j / n, q1[1] + (q2[1] - q1[1]) * j / n];
+        var d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+        if (!best || d < best.d) best = { d: d, x: (a[0] + b[0]) / 2, y: (a[1] + b[1]) / 2 };
+      }
+    }
+    return best;
+  }
+  function spark(x, y) {
+    var s = '<g class="spark" transform="translate(' + f(x) + ',' + f(y) + ')">', i;
+    for (i = 0; i < 8; i++) { var a = i * Math.PI / 4, r1 = 3, r2 = (i % 2 ? 8 : 12); s += '<line x1="' + f(Math.cos(a) * r1) + '" y1="' + f(Math.sin(a) * r1) + '" x2="' + f(Math.cos(a) * r2) + '" y2="' + f(Math.sin(a) * r2) + '"/>'; }
+    return s + '</g>';
+  }
+  function hitmark(x, y) { return '<g class="hit"><circle cx="' + f(x) + '" cy="' + f(y) + '" r="9"/><circle cx="' + f(x) + '" cy="' + f(y) + '" r="15"/></g>'; }
+  function lerp(a, b, t) {
+    var o = {}, k; var all = merge(merge(BASE, a), merge(BASE, b));
+    for (k in all) { var va = (a && k in a) ? a[k] : BASE[k], vb = (b && k in b) ? b[k] : BASE[k]; o[k] = va + (vb - va) * t; }
+    return o;
+  }
+  /* scene: {A:pose, B:pose, spark:bool, hit:bool|'B', alpha} */
+  function scene(sc) {
+    var SA = solve(sc.A), SB = mir(solve(sc.B), true);
+    var s = body(SB, 'fb', -1, sc.labels === false ? '' : '乙') + body(SA, 'fa', 1, sc.labels === false ? '' : '甲');
+    s += sword(SB, 'fb') + sword(SA, 'fa');
+    if (sc.spark) { var c = segClosest(SA.hilt, SA.tip, SB.hilt, SB.tip); if (c && c.d < 16) s += spark(c.x, c.y); }
+    if (sc.hit) { var hp = sc.hit === 'B' ? SB.tip : SA.tip; s += hitmark(hp[0], hp[1]); }
+    return { svg: s, SA: SA, SB: SB };
+  }
+  function single(pose, cls, ghost) {
+    var S = solve(pose), s = '';
+    if (ghost) { var Sg = solve(ghost); s += '<g class="ghost">' + sword(Sg, cls) + '</g>'; }
+    return s + body(S, cls, 1, '') + sword(S, cls);
+  }
+  function ground() { return '<line class="gnd" x1="0" y1="' + G + '" x2="' + W + '" y2="' + G + '"/>'; }
+  var api = { W: W, G: G, BASE: BASE, solve: solve, scene: scene, single: single, lerp: lerp, merge: merge, ground: ground, mir: mir };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.FZ = api;
+})(this);
+
+/* Animation data. Poses are in each fencer's local frame (facing right); B is mirrored. Phase poses inherit from the previous phase. */
+var GUARD = {
+  TAG:  { gx: 10, gy: -50, ang: 135 },
+  TAGS: { gx: 16, gy: -10, ang: 104 },
+  OCHS: { gx: 27, gy: -28, ang: -10 },
+  PFLUG:{ gx: 24, gy: 40,  ang: 28 },
+  ALBER:{ gx: 36, gy: 44,  ang: -60 }
+};
+function G_(n, extra) { var o = {}, k; for (k in GUARD[n]) o[k] = GUARD[n][k]; if (extra) for (k in extra) o[k] = extra[k]; return o; }
+var SRC_RINGECK = { t: 'Sigmund ain Ringeck 注釋（Wiktenauer；Trosclair、Farrell 英譯）', h: 'https://wiktenauer.com/wiki/Sigmund_ain_Ringeck' };
+var ANIMS = [
+ { id: 'zorn', title: '① 憤怒斬（Zornhau）對上段斬（Oberhau）', src: SRC_RINGECK, phases: [
+  { t: '起始：雙方對峙', c: '甲（藍）與乙（紅）都站在「屋頂式」(Vom Tag)，劍高舉在頭上。雙方距離還在劍尖之外，這是接近階段（Zufechten）。',
+    A: G_('TAG', { hx: 104, ff: 128, bf: 78 }), B: G_('TAG', { hx: 104, ff: 128, bf: 78 }) },
+  { t: '乙斬出上段斬（Oberhau）', c: '乙從自己的右側，往甲的頭部斬下。Liechtenauer 的口訣說：「誰從上方斬你，憤怒斬的劍尖就威脅他。」所以甲不是單純格擋。',
+    B: { hx: 122, ff: 150, bf: 96, lean: 8, gx: 30, gy: -32, ang: 62 } },
+  { t: '甲同時斬出憤怒斬（Zornhau）', c: '甲從右肩用長刃強力斜斬，同時踏步向前。兩把劍在中線「交劍」(Bind)：甲這一斬擋住了乙的劍，劍尖也正指著乙的臉。',
+    A: { hx: 126, ff: 152, bf: 98, lean: 8, gx: 40, gy: 0, ang: 22 }, B: { hx: 124, ff: 150, bf: 98, gx: 38, gy: 4, ang: 30 }, spark: true },
+  { t: '感知對方：乙「軟」→ 憤怒斬接刺擊', c: '交劍的瞬間，甲用手去「感知」(Fühlen) 對方的力道。Ringeck 寫道：如果對方在劍上是軟的，就把劍尖直直往前推，刺向他的臉。這就是常說的 Zornhau-Ort（憤怒斬接刺擊）。',
+    A: { hx: 130, ff: 156, lean: 10, gx: 48, gy: -6, ang: 11 }, B: { gx: 32, gy: 8, ang: 62 }, hit: true },
+  { t: '變化：乙用力擋開 → 從上取下（Abnehmen）', c: '如果乙察覺劍尖、用力把刺擊擋開，甲不硬碰硬。Ringeck 說要把劍從對方的劍上往上「取下」(nim oben ab)⋯⋯',
+    A: { lean: 6, gx: 24, gy: -36, ang: 72 }, B: { gx: 42, gy: -10, ang: 16 } },
+  { t: '從另一側再斬頭部', c: '⋯⋯接著從另一側，沿著對方的劍朝他頭上斬下。對方還在用力推的時候，甲的劍早已離開，他的力氣就落空了。',
+    A: { lean: 10, gx: 42, gy: -22, ang: 2 }, B: { gx: 38, gy: 0, ang: 24 }, hit: true }
+ ]},
+ { id: 'zwerch', title: '② 橫斬（Zwerchhau）破屋頂式（Vom Tag）', src: SRC_RINGECK, phases: [
+  { t: '起始', c: '乙站在「屋頂式」(Vom Tag)，劍高舉。甲左腳在前，劍放在右肩上，這是 Ringeck 描述橫斬時的起手。',
+    A: G_('TAGS', { hx: 104, ff: 128, bf: 78 }), B: G_('TAG', { hx: 104, ff: 128, bf: 78 }), map: { A: [28, 32], B: [72, 32] } },
+  { t: '乙從屋頂式劈下', c: '乙朝甲的頭部斬出上段斬。口訣是：「橫斬奪走一切來自屋頂之物。」在四大格擋裡，橫斬破的就是屋頂式。',
+    B: { hx: 122, ff: 150, bf: 96, lean: 8, gx: 30, gy: -34, ang: 64 }, map: { B: [68, 32] } },
+  { t: '甲跳步，同時翻轉劍', c: '甲用右腳往乙的左側跳出，離開對方的斬擊線（看俯視圖）。同時把劍翻過來：劍柄高舉在頭前，拇指朝下。',
+    A: { hx: 122, ff: 148, bf: 96, lean: 6, gx: 16, gy: -52, ang: 24, fs: 0.8 }, map: { A: [40, 42] } },
+  { t: '短刃橫斬命中，劍柄接住來劍', c: '甲用短刃橫斬乙頭部的左側，乙的下劈則被甲高舉的劍柄和強段接住。擋與打在同一個動作裡完成，這就是 Indes（同時）。',
+    A: { hx: 134, ff: 160, bf: 104, lean: 10, gx: 32, gy: -46, ang: -4, fs: 0.92 }, B: { gx: 24, gy: -34, ang: 60 }, spark: true, hit: true, map: { A: [48, 45] } },
+  { t: '續攻：橫斬下段', c: 'Ringeck 還描述可以在左右兩側連續橫斬，上下交替（他稱為「打向牛式」「打向犁式」），最後用一記上段斬脫離。這裡示意轉向下方空隙的橫斬。',
+    A: { gx: 34, gy: -6, ang: -8, fs: 0.92 }, B: { gx: 24, gy: -40, ang: 80 }, hit: true, map: { A: [50, 40] } }
+ ]},
+ { id: 'krump', title: '③ 曲斬（Krumphau）對右側來的斬擊', src: SRC_RINGECK, phases: [
+  { t: '起始', c: '雙方準備交鋒：甲劍放在右肩，乙在屋頂式。',
+    A: G_('TAGS', { hx: 104, ff: 128, bf: 78 }), B: G_('TAG', { hx: 104, ff: 128, bf: 78 }), map: { A: [28, 32], B: [72, 32] } },
+  { t: '乙從右側斬來', c: '乙從自己的右側朝甲的空隙斬來。Ringeck（Farrell 譯本）說上段斬或下段斬都適用。',
+    B: { hx: 122, ff: 150, bf: 96, lean: 8, gx: 30, gy: -28, ang: 56 }, map: { B: [68, 32] } },
+  { t: '甲用右腳往乙左側遠跳', c: '甲用右腳往乙的左側遠遠跳開，身體離開對方的斬擊線（看俯視圖）。劍從右肩往前上方帶起。',
+    A: { hx: 118, ff: 144, bf: 94, lean: 4, gx: 26, gy: -34, ang: 76 }, map: { A: [40, 48] } },
+  { t: '交叉雙臂，劍尖打在對方手上', c: '甲雙臂交叉斬出曲斬，用劍尖打在乙的雙手上。Ringeck 說，對方站在「牛式」時也可以這樣打。在四大格擋裡，曲斬破的就是牛式。',
+    A: { hx: 126, ff: 152, lean: 10, gx: 40, gy: -14, ang: -26 }, B: { gx: 40, gy: 2, ang: 20 }, hit: true, map: { A: [44, 50] } },
+  { t: '另一種用法：壓劍形成柵欄式', c: '另一段注釋說，也可以用曲斬「放置」對方的上段斬：落在他的劍上，劍尖朝地，形成「柵欄式」(Schrankhut)。之後也可以從這個位置再斬頭。',
+    A: { gx: 42, gy: 10, ang: -58 }, B: { gx: 40, gy: 22, ang: -28 }, spark: true, map: { A: [44, 50] } }
+ ]},
+ { id: 'schiel', title: '④ 斜視斬（Schielhau）對上段斬', src: SRC_RINGECK, phases: [
+  { t: '起始', c: '甲劍放在右肩，乙在屋頂式。斜視斬被描述為專門用來對付「水牛」的一斬，也就是只靠蠻力取勝的人。',
+    A: G_('TAGS', { hx: 104, ff: 128, bf: 78 }), B: G_('TAG', { hx: 104, ff: 128, bf: 78 }) },
+  { t: '乙用力從右側上段斬', c: '乙從自己的右側朝甲頭部斬下。',
+    B: { hx: 122, ff: 150, bf: 96, lean: 8, gx: 30, gy: -32, ang: 62 } },
+  { t: '短刃斬入對方的弱段，命中右肩', c: '甲從自己的右側迎著乙的斬擊，用短刃、雙臂伸直，斬向乙劍的「弱段」，一路落到乙的右肩上。Ringeck 的說法是「同時擋開又命中」。',
+    A: { hx: 126, ff: 152, bf: 98, lean: 10, gx: 44, gy: -30, ang: -22 }, B: { hx: 124, gx: 30, gy: -14, ang: 48 }, spark: true, hit: true },
+  { t: '如果乙穿換，就長伸刺胸', c: '如果乙「穿換」(Durchwechseln)，從下方脫開，甲就把斬擊順勢變成長伸的刺擊，刺向胸口。Ringeck 也說，對方站在「犁式」或想從下方刺你時，也可以用這一斬。在四大格擋裡，斜視斬破的就是犁式。',
+    A: { hx: 130, ff: 156, lean: 12, gx: 50, gy: -8, ang: -9 }, B: { gx: 26, gy: 30, ang: 8 }, hit: true }
+ ]},
+ { id: 'scheitel', title: '⑤ 頭頂斬（Scheitelhau）破愚者式（Alber）', src: SRC_RINGECK, phases: [
+  { t: '起始', c: '乙站在「愚者式」(Alber)，劍尖朝地，看起來上半身毫無防備，其實是在引誘對方進攻。甲把劍高舉在頭上。',
+    A: G_('TAG', { hx: 104, ff: 128, bf: 78 }), B: G_('ALBER', { hx: 104, ff: 128, bf: 80 }) },
+  { t: '從頭頂伸長手臂往下劈', c: '甲從頭頂上方伸長手臂，用長刃垂直往下劈，斬擊過程中手臂保持在高處（Ringeck）。在四大格擋裡，頭頂斬破的就是愚者式。',
+    A: { hx: 120, ff: 146, bf: 94, lean: 8, gx: 34, gy: -48, ang: 42 } },
+  { t: '劍尖懸向臉部', c: '因為手臂一直保持在高處，劍尖自然「懸」向乙的臉。Liechtenauer 的口訣：「頭頂斬對臉部是威脅。」',
+    A: { hx: 126, ff: 152, bf: 98, gx: 44, gy: -32, ang: -22 }, hit: true },
+  { t: '乙用「冠式」(Krone) 高架上推', c: '乙從愚者式舉起劍柄、劍身直立，用劍柄把甲的劍尖往上推開。這種格擋叫作「冠」。',
+    A: { hx: 138, ff: 164, bf: 110, gx: 40, gy: -46, ang: -4 }, B: { hx: 124, ff: 148, bf: 100, gx: 14, gy: -52, ang: 92, lean: 2 }, spark: true },
+  { t: '翻轉劍柄，往下刺胸', c: '甲把劍柄高舉到頭前翻轉，讓劍尖從上往下落到乙的胸口，這是 Ringeck 給頭頂斬的後續。另一種破「冠」的方法，是從下方切入對方手臂（下切）。',
+    A: { hx: 146, ff: 172, bf: 118, lean: 12, gx: 40, gy: -34, ang: -50 }, B: { hx: 130, ff: 154, bf: 106 }, hit: true }
+ ]}
+];
+/* resolve inheritance */
+ANIMS.forEach(function (an) {
+  var pa = {}, pb = {}, ma = [28, 32], mb = [72, 32];
+  an.phases.forEach(function (ph) {
+    pa = FZ.merge(pa, ph.A); pb = FZ.merge(pb, ph.B);
+    if (ph.map && ph.map.A) ma = ph.map.A; if (ph.map && ph.map.B) mb = ph.map.B;
+    ph.A = pa; ph.B = pb; ph.mA = ma; ph.mB = mb;
+  });
+});
+
+/* Animation player UI */
+(function () {
+  var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var TWEEN = 1000, STEP = 420;
+  function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function mapSVG(a, b) {
+    var dx = b[0] - a[0], dy = b[1] - a[1], d = Math.hypot(dx, dy) || 1, ux = dx / d * 9, uy = dy / d * 9;
+    return '<rect x="1" y="1" width="98" height="62" rx="6" class="mm-bg"/>' +
+      '<line x1="10" y1="32" x2="90" y2="32" class="mm-ax"/>' +
+      '<line x1="' + a[0] + '" y1="' + a[1] + '" x2="' + (a[0] + ux) + '" y2="' + (a[1] + uy) + '" class="mm-da"/>' +
+      '<line x1="' + b[0] + '" y1="' + b[1] + '" x2="' + (b[0] - ux) + '" y2="' + (b[1] - uy) + '" class="mm-db"/>' +
+      '<circle cx="' + a[0] + '" cy="' + a[1] + '" r="5" class="mm-a"/><circle cx="' + b[0] + '" cy="' + b[1] + '" r="5" class="mm-b"/>';
+  }
+  function Player(root, an) {
+    var self = this;
+    this.an = an; this.n = an.phases.length; this.i = 0; this.playing = false; this.tw = null; this.timer = null;
+    root.innerHTML =
+      '<div class="stage"><svg viewBox="0 0 400 284" role="img" aria-label="' + esc(an.title) + ' 火柴人示意動畫"><g class="g-ground">' + FZ.ground() + '</g><g class="g-fig"></g></svg></div>' +
+      '<div class="ctl" role="group" aria-label="動畫控制">' +
+      '<button type="button" class="b-prev" aria-label="上一步">⏮<span>上一步</span></button>' +
+      '<button type="button" class="b-play" aria-label="播放">▶<span>播放</span></button>' +
+      '<button type="button" class="b-next" aria-label="下一步">⏭<span>下一步</span></button>' +
+      '<button type="button" class="b-replay" aria-label="重播">↻<span>重播</span></button></div>' +
+      '<div class="dots" aria-hidden="true">' + an.phases.map(function () { return '<i></i>'; }).join('') + '</div>' +
+      '<div class="cap"><svg class="mm" viewBox="0 0 100 64" role="img" aria-label="俯視步法圖"></svg>' +
+      '<div class="captxt" aria-live="polite"><p class="ph"></p><p class="ct"></p></div></div>';
+    this.fig = root.querySelector('.g-fig'); this.mm = root.querySelector('.mm');
+    this.ph = root.querySelector('.ph'); this.ct = root.querySelector('.ct');
+    this.dots = root.querySelectorAll('.dots i'); this.bPlay = root.querySelector('.b-play');
+    root.querySelector('.b-prev').addEventListener('click', function () { self.pause(); self.go(self.target() - 1, STEP); });
+    root.querySelector('.b-next').addEventListener('click', function () { self.pause(); self.go(self.target() + 1, STEP); });
+    root.querySelector('.b-replay').addEventListener('click', function () { self.pause(); self.snap(0); self.play(); });
+    this.bPlay.addEventListener('click', function () { if (self.playing) self.pause(); else self.play(); });
+    this.snap(0);
+  }
+  Player.prototype.target = function () { return this.tw ? this.tw.to : this.i; };
+  Player.prototype.draw = function (from, to, t) {
+    var P = this.an.phases, a = P[from], b = P[to], e = ease(t);
+    var sc = { A: FZ.lerp(a.A, b.A, e), B: FZ.lerp(a.B, b.B, e) };
+    if (t >= 0.999) { sc.spark = b.spark; sc.hit = b.hit; }
+    this.fig.innerHTML = FZ.scene(sc).svg;
+    var ma = [a.mA[0] + (b.mA[0] - a.mA[0]) * e, a.mA[1] + (b.mA[1] - a.mA[1]) * e];
+    var mb = [a.mB[0] + (b.mB[0] - a.mB[0]) * e, a.mB[1] + (b.mB[1] - a.mB[1]) * e];
+    this.mm.innerHTML = mapSVG(ma, mb);
+  };
+  Player.prototype.label = function (k) {
+    var p = this.an.phases[k];
+    this.ph.textContent = '步驟 ' + (k + 1) + ' / ' + this.n + '：' + p.t;
+    this.ct.textContent = p.c;
+    for (var j = 0; j < this.dots.length; j++) this.dots[j].className = j === k ? 'on' : (j < k ? 'done' : '');
+  };
+  Player.prototype.snap = function (k) {
+    this.tw = null; this.i = k; this.draw(k, k, 1); this.label(k);
+  };
+  Player.prototype.go = function (k, dur) {
+    var self = this;
+    if (k < 0 || k >= this.n) return false;
+    var from = this.tw ? this.tw.to : this.i;
+    if (this.tw) { this.snap(this.tw.to); from = this.i; }
+    if (RM || !dur) { this.snap(k); return true; }
+    this.label(k);
+    var tw = this.tw = { from: from, to: k, t0: performance.now(), dur: dur };
+    function frame(now) {
+      if (self.tw !== tw) return;
+      var t = Math.min(1, (now - tw.t0) / tw.dur);
+      self.draw(tw.from, tw.to, t);
+      if (t < 1) requestAnimationFrame(frame); else { self.tw = null; self.i = k; if (tw.done) tw.done(); }
+    }
+    requestAnimationFrame(frame);
+    return true;
+  };
+  Player.prototype.hold = function (k) { return Math.min(7000, 1600 + this.an.phases[k].c.length * 42); };
+  Player.prototype.setBtn = function () {
+    this.bPlay.innerHTML = this.playing ? '⏸<span>暫停</span>' : '▶<span>播放</span>';
+    this.bPlay.setAttribute('aria-label', this.playing ? '暫停' : '播放');
+  };
+  Player.prototype.play = function () {
+    var self = this;
+    if (this.target() >= this.n - 1) this.snap(0);
+    this.playing = true; this.setBtn();
+    function step() {
+      if (!self.playing) return;
+      var k = self.target() + 1;
+      if (k >= self.n) { self.playing = false; self.setBtn(); return; }
+      self.go(k, TWEEN);
+      if (self.tw) self.tw.done = function () { self.timer = setTimeout(step, self.hold(k)); };
+      else self.timer = setTimeout(step, self.hold(k));
+    }
+    this.timer = setTimeout(step, this.i === 0 ? 900 : 300);
+  };
+  Player.prototype.pause = function () {
+    this.playing = false; clearTimeout(this.timer); this.timer = null;
+    if (this.tw) this.snap(this.tw.to);
+    this.setBtn();
+  };
+  window.addEventListener('DOMContentLoaded', function () {
+    var players = [];
+    ANIMS.forEach(function (an) {
+      var el = document.getElementById('anim-' + an.id);
+      if (el) { var p = new Player(el.querySelector('.player'), an); players.push(p); el._p = p; }
+    });
+    if (!RM && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (ents) {
+        ents.forEach(function (en) {
+          var p = en.target._p; if (!p) return;
+          if (en.isIntersecting && !p.auto) { p.auto = true; p.play(); }
+          else if (!en.isIntersecting && p.playing) p.pause();
+        });
+      }, { threshold: 0.55 });
+      players.forEach(function (p, k) { io.observe(document.getElementById('anim-' + ANIMS[k].id)); });
+    }
+    /* active chip in nav */
+    var links = document.querySelectorAll('.chips a'), map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    if ('IntersectionObserver' in window) {
+      var so = new IntersectionObserver(function (ents) {
+        ents.forEach(function (en) {
+          if (en.isIntersecting && map[en.target.id]) {
+            links.forEach(function (a) { a.classList.remove('on'); });
+            var a = map[en.target.id]; a.classList.add('on');
+            var nav = a.parentNode; nav.scrollTo({ left: a.offsetLeft - 16, behavior: RM ? 'auto' : 'smooth' });
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      document.querySelectorAll('main section[id]').forEach(function (s) { so.observe(s); });
+    }
+  });
+  window.__players = function () { return document.querySelectorAll('.anim').length; };
+})();
+
+</script>
+</body>
+</html>
