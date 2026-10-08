@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>天空裡的不明光點：X 上近兩週 UFO／UAP 目擊整理（2026/9/24–10/8）</title>
+<meta name="description" content="整理 2026 年 9 月 24 日至 10 月 8 日 X 上流傳的 UFO／UAP 目擊：地圖、時間軸、可信度判定與常見誤認解說。">
+<meta name="theme-color" content="#0b1026">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='36' rx='26' ry='9' fill='%237cc4ff'/%3E%3Cpath d='M18 34a14 12 0 0 1 28 0z' fill='%23c9e6ff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+:root{--bg:#0b1026;--bg2:#121a3a;--card:#161f45;--line:#2a3566;--fg:#e9edfb;--mut:#aab3d6;--acc:#7cc4ff;--acc2:#ffd27a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;font-size:17px;line-height:1.75;overflow-wrap:anywhere;word-break:normal}
+img,svg{max-width:100%}
+a{color:var(--acc)}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+.b-explained{background:#2fae66}.v-explained{color:#2fae66}.b-plausible{background:#e0a526}.v-plausible{color:#e0a526}.b-unexplained{background:#e05252}.v-unexplained{color:#e05252}.b-insufficient{background:#8d96a3}.v-insufficient{color:#8d96a3}.b-recycled{background:#9b6bd6}.v-recycled{color:#9b6bd6}
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#050817 0%,#0d1640 60%,#1b2a63 100%)}
+.hero svg.sky{display:block;width:100%;height:auto}@media(min-width:700px){.hero svg.sky{height:clamp(220px,28vw,300px)}}
+.hero-txt{padding:4px 16px 26px;max-width:860px;margin:0 auto}
+.kicker{display:inline-block;font-size:14px;letter-spacing:.08em;color:var(--acc2);border:1px solid #5a4a20;border-radius:999px;padding:2px 12px;margin-bottom:8px}
+h1{font-size:clamp(1.6rem,6.2vw,2.6rem);line-height:1.3;margin:.1em 0 .35em;font-weight:800}
+.lead{color:var(--mut);margin:0}.nw{white-space:nowrap}
+.lead b{color:var(--fg)}
+/* nav */
+nav.chips{position:sticky;top:0;z-index:1000;background:rgba(11,16,38,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.chips .row{display:flex;gap:8px;overflow-x:auto;padding:8px 12px;scrollbar-width:none;max-width:860px;margin:0 auto}
+nav.chips .row::-webkit-scrollbar{display:none}
+nav.chips a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--fg);text-decoration:none;font-size:15px;white-space:nowrap}
+nav.chips a.act{background:var(--acc);color:#06122a;border-color:var(--acc);font-weight:700}
+section{padding:28px 0 8px;scroll-margin-top:64px}
+h2{font-size:clamp(1.3rem,4.8vw,1.75rem);margin:0 0 12px;line-height:1.35}
+h2 small{display:block;font-size:14px;color:var(--mut);font-weight:400}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 10px;text-align:center;position:relative;overflow:hidden}
+.stat:before{content:"";position:absolute;left:0;top:0;right:0;height:4px}
+.s-explained:before{background:#2fae66}.s-plausible:before{background:#e0a526}.s-unexplained:before{background:#e05252}.s-insufficient:before{background:#8d96a3}.s-recycled:before{background:#9b6bd6}
+.stat b{display:block;font-size:30px;line-height:1.2}
+.stat span{font-size:14px;color:var(--mut)}
+.bar{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:14px 0 6px;border:1px solid var(--line)}
+.bar .seg{display:block;height:100%}
+.note{font-size:15px;color:var(--mut)}
+.callout{background:linear-gradient(135deg,#1a2554,#1a1f3f);border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:12px;padding:12px 14px;margin:14px 0 0}
+.callout p{margin:.2em 0}
+/* map */
+#map{height:min(62vh,440px);min-height:300px;border-radius:14px;border:1px solid var(--line);background:#0e1533;z-index:1}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:10px 0 0;font-size:15px;color:var(--mut)}
+.lg{display:inline-flex;align-items:center;gap:6px}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;flex:0 0 12px;box-shadow:0 0 0 2px rgba(255,255,255,.18)}
+.leaflet-popup-content{font-size:15px;line-height:1.6;margin:12px 14px}
+.leaflet-popup-content a{display:inline-block;padding:8px 0;min-height:44px;line-height:28px}
+.map-fallback{padding:24px;color:var(--mut)}
+/* timeline */
+ol.tl{list-style:none;margin:0;padding:0 0 0 6px;border-left:2px dashed var(--line)}
+ol.tl li{position:relative;padding:0 0 14px 18px}
+ol.tl li:before{content:"";position:absolute;left:-8px;top:10px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
+.tl-date{font-weight:800;font-size:18px;color:var(--acc2)}
+.tl-date em{font-style:normal;font-size:13px;color:var(--mut);font-weight:400}
+.tl-list{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.tl-item{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;color:var(--fg);text-decoration:none}
+.tl-t{flex:1 1 auto;min-width:0}
+.tl-v{flex:0 0 auto;font-size:13px;font-weight:700}
+/* filters + cards */
+.filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.chip-f{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--fg);font:inherit;font-size:15px;cursor:pointer;white-space:nowrap}
+.chip-f.on{background:#e9edfb;color:#0b1026;font-weight:700}
+.cards{display:flex;flex-direction:column;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 14px 16px;scroll-margin-top:70px}
+.card[hidden]{display:none}
+.card-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:8px}
+.num{font-weight:800;color:var(--c);font-size:15px;letter-spacing:.05em}
+.badge{display:inline-block;color:#0b1026;font-weight:800;font-size:14px;padding:3px 12px;border-radius:999px}
+.b-insufficient.badge,.b-unexplained.badge,.b-recycled.badge{color:#fff}
+.card h3{font-size:clamp(1.1rem,4.4vw,1.3rem);line-height:1.45;margin:10px 0 6px}
+.meta{margin:0 0 6px;font-size:15px}
+.meta div{display:flex;gap:8px;padding:2px 0}
+.meta dt{flex:0 0 auto;color:var(--mut)}
+.meta dd{margin:0;min-width:0}
+.unc{display:inline-block;font-size:12px;border:1px dashed var(--acc2);color:var(--acc2);border-radius:6px;padding:0 6px;margin-left:4px}
+.sum{margin:8px 0}
+.why{border-radius:10px;padding:10px 12px;margin:10px 0;background:#0f173a;border-left:4px solid #8d96a3}
+.why p{margin:.2em 0 0;font-size:16px}
+.why .k{font-weight:800}
+.why-explained{border-color:#2fae66}.why-explained .k{color:#58d18d}
+.why-plausible{border-color:#e0a526}.why-plausible .k{color:#f0c35a}
+.why-unexplained{border-color:#e05252}.why-unexplained .k{color:#ff8a8a}
+.why-insufficient .k{color:#c3cad6}
+.why-recycled{border-color:#9b6bd6}.why-recycled .k{color:#c3a2f2}
+.news .k{font-size:14px;color:var(--mut);margin-top:6px}
+.news ul{margin:4px 0 8px;padding-left:1.2em}
+.news li{padding:5px 0}
+.news a{display:inline;line-height:1.9}
+.btns{display:grid;grid-template-columns:1fr;gap:8px;margin-top:8px}
+@media(min-width:560px){.btns{grid-template-columns:1fr 1fr}}
+.btn{display:flex;flex-direction:column;justify-content:center;min-height:52px;padding:8px 14px;border-radius:12px;background:linear-gradient(135deg,#2b6fd6,#3b8cf0);color:#fff;text-decoration:none;box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.btn-main{font-weight:800;font-size:16px}
+.btn-main:before{content:"𝕏 ";}
+.btn-sub{font-size:13px;opacity:.92}
+.btn:active{transform:translateY(1px)}
+/* explainers */
+.exps{display:flex;flex-direction:column;gap:12px}
+.exp{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.exp-ic{flex:0 0 44px;height:44px;border-radius:12px;background:#0f173a;display:flex;align-items:center;justify-content:center;font-size:24px}
+.exp h3{margin:0 0 2px;font-size:18px}
+.exp p{margin:.2em 0}
+.exp .src{font-size:14px;color:var(--mut)}
+.exp .src a{display:inline-block;padding:6px 0}
+.method li{margin:.3em 0}
+footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);color:var(--mut);font-size:15px}
+.totop{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);color:var(--fg);text-decoration:none;margin-top:10px}
+@media(min-width:900px){body{font-size:18px}}
+@media (prefers-reduced-motion:no-preference){.tw{animation:tw 3s ease-in-out infinite}.tw2{animation:tw 4.2s ease-in-out infinite .8s}@keyframes tw{0%,100%{opacity:1}50%{opacity:.35}}.ufo{animation:hov 6s ease-in-out infinite}@keyframes hov{0%,100%{transform:translate(0,0)}50%{transform:translate(0,-6px)}}}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+<svg class="sky" viewBox="0 0 800 300" preserveAspectRatio="xMidYMax meet" role="img" aria-label="插畫：夜空中的星星、一串星鍊衛星、火箭羽流、月亮與拿著手機拍攝的人">
+  <defs>
+    <radialGradient id="moon" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff9e0"/><stop offset="1" stop-color="#ffe7a3"/></radialGradient>
+    <radialGradient id="jelly" cx="50%" cy="30%" r="70%"><stop offset="0" stop-color="#bff3ff" stop-opacity=".95"/><stop offset=".6" stop-color="#6fb8ff" stop-opacity=".45"/><stop offset="1" stop-color="#6f7bff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8f1ff" stop-opacity=".0"/><stop offset="1" stop-color="#c8f1ff" stop-opacity=".35"/></linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16204a"/><stop offset="1" stop-color="#0b1026"/></linearGradient>
+  </defs>
+  <g fill="#fff">
+    <circle class="tw" cx="40" cy="30" r="1.6"/><circle cx="90" cy="70" r="1"/><circle class="tw2" cx="150" cy="22" r="1.4"/><circle cx="210" cy="96" r="1"/><circle class="tw" cx="260" cy="40" r="1.2"/><circle cx="330" cy="18" r="1"/><circle class="tw2" cx="420" cy="60" r="1.5"/><circle cx="470" cy="20" r="1"/><circle cx="560" cy="44" r="1.1"/><circle class="tw" cx="610" cy="16" r="1.3"/><circle cx="700" cy="70" r="1"/><circle class="tw2" cx="760" cy="30" r="1.6"/><circle cx="120" cy="140" r=".9"/><circle cx="380" cy="120" r=".9"/><circle cx="650" cy="130" r="1"/><circle cx="520" cy="150" r=".8"/>
+  </g>
+  <circle cx="690" cy="62" r="26" fill="url(#moon)"/>
+  <circle cx="680" cy="56" r="4" fill="#f2d98c" opacity=".6"/><circle cx="698" cy="72" r="3" fill="#f2d98c" opacity=".5"/>
+  <circle cx="742" cy="78" r="2.4" fill="#ffb27a"/><text x="748" y="94" fill="#ffcf9e" font-size="10" font-family="sans-serif">軒轅十四</text>
+  <g fill="#e8f4ff"><circle cx="70" cy="120" r="2"/><circle cx="96" cy="113" r="2"/><circle cx="122" cy="106" r="2"/><circle cx="148" cy="99" r="2"/><circle cx="174" cy="92" r="2"/><circle cx="200" cy="85" r="2"/><circle cx="226" cy="78" r="2"/><circle cx="252" cy="71" r="2"/><circle cx="278" cy="64" r="2"/></g>
+  <text x="70" y="140" fill="#9fc6ff" font-size="11" font-family="sans-serif">星鍊衛星列車</text>
+  <path d="M470 250 C468 200 474 170 480 140" stroke="#ffd9a0" stroke-width="2" fill="none" opacity=".8"/>
+  <ellipse cx="482" cy="118" rx="70" ry="44" fill="url(#jelly)"/>
+  <path d="M430 128 q12 30 0 60 M455 136 q8 26 -2 52 M510 136 q-6 26 4 52 M535 128 q-10 30 2 60" stroke="#9fdcff" stroke-width="1.4" fill="none" opacity=".55"/>
+  <text x="446" y="80" fill="#bfe8ff" font-size="11" font-family="sans-serif">火箭「太空水母」</text>
+  <g class="ufo"><polygon points="330,150 300,262 360,262" fill="url(#beam)"/><ellipse cx="330" cy="150" rx="30" ry="8" fill="#7cc4ff"/><path d="M314 148 a16 13 0 0 1 32 0z" fill="#d6ecff"/><circle cx="318" cy="152" r="2" fill="#ffd27a"/><circle cx="330" cy="154" r="2" fill="#ffd27a"/><circle cx="342" cy="152" r="2" fill="#ffd27a"/><text x="300" y="132" fill="#cfe6ff" font-size="11" font-family="sans-serif">？？？</text></g>
+  <path d="M-900 252 Q-600 236 -300 256 T0 262 Q120 236 240 254 T480 250 T800 246 Q1000 236 1200 252 T1700 248 V300 H-900Z" fill="url(#hill)"/><g fill="#fff"><circle class="tw" cx="-60" cy="50" r="1.4"/><circle cx="-160" cy="120" r="1"/><circle class="tw2" cx="-260" cy="30" r="1.3"/><circle cx="-380" cy="90" r="1"/><circle cx="860" cy="40" r="1.3"/><circle class="tw" cx="950" cy="110" r="1"/><circle cx="1060" cy="26" r="1.4"/><circle class="tw2" cx="1180" cy="80" r="1"/></g>
+  <g fill="#0b1026"><circle cx="612" cy="226" r="8"/><path d="M604 236 h16 l4 28 h-24z"/><path d="M618 240 l18 -16 l3 3 l-17 18z"/><rect x="634" y="216" width="9" height="14" rx="2" fill="#2a3566"/><rect x="636" y="218" width="5" height="9" fill="#7cc4ff"/></g>
+</svg>
+<div class="hero-txt">
+  <span class="kicker">X 目擊整理 · 2026/9/24–10/8</span>
+  <h1>天空裡的不明光點：<br>X 上近兩週的 <span class="nw">UFO／UAP 目擊</span></h1>
+  <p class="lead">從 X 上的多語貼文中整理出 <b>20 起事件</b>（39 則原始貼文），逐一對照新聞、發射紀錄與專家說法，標上可信度。結論先講：其中 <b>6 起已有明確解釋</b>，包括火箭、星鍊衛星、流星、亮星和演唱會燈光。</p>
+</div>
+</header>
+
+<nav class="chips" aria-label="頁面導覽"><div class="row">
+  <a href="#overview">總覽</a><a href="#map-sec">地圖</a><a href="#timeline">時間軸</a><a href="#events">事件</a><a href="#explain">常見誤認</a><a href="#method">方法說明</a>
+</div></nav>
+
+<main class="wrap">
+<section id="overview">
+  <h2>總覽<small>依本頁判定的可信度分類</small></h2>
+  <div class="stats"><div class="stat s-explained"><b>6</b><span>已解釋</span></div><div class="stat s-plausible"><b>4</b><span>可能解釋</span></div><div class="stat s-unexplained"><b>2</b><span>尚未解釋</span></div><div class="stat s-insufficient"><b>6</b><span>證據不足</span></div><div class="stat s-recycled"><b>2</b><span>舊片重傳</span></div></div>
+  <div class="bar" aria-hidden="true"><i class="seg b-explained" style="flex:6" title="已解釋 6"></i><i class="seg b-plausible" style="flex:4" title="可能解釋 4"></i><i class="seg b-unexplained" style="flex:2" title="尚未解釋 2"></i><i class="seg b-insufficient" style="flex:6" title="證據不足 6"></i><i class="seg b-recycled" style="flex:2" title="舊片重傳 2"></i></div>
+  <p class="note">已解釋＝有新聞、官方、發射紀錄或發文者本人等來源支持；可能解釋＝有專家或社群的合理解讀、或本頁自行研判，但未完全證實；尚未解釋＝有較多影像與報導但身分未明；證據不足＝資訊太少無法判斷；舊片重傳＝舊影片被當成新目擊轉傳。</p>
+  <div class="callout"><p>📌 <b>兩週裡最熱門的話題</b>：德黑蘭彩色光團（尚未解釋）、星艦直播「母艦」（火箭排氣）、奧蘭多「張翅火團」（Falcon Heavy 發射）、10/7「預言日」吉薩紅星（軒轅十四與月亮）。</p></div>
+</section>
+
+<section id="map-sec">
+  <h2>目擊地圖<small>點擊標記看事件；顏色＝可信度</small></h2>
+  <div id="map" role="region" aria-label="事件地點地圖"><div class="map-fallback">地圖載入中…若無法顯示，請直接往下看事件列表。</div></div>
+  <div class="legend"><span class="lg"><i class="dot b-explained"></i>已解釋</span><span class="lg"><i class="dot b-plausible"></i>可能解釋</span><span class="lg"><i class="dot b-unexplained"></i>尚未解釋</span><span class="lg"><i class="dot b-insufficient"></i>證據不足</span><span class="lg"><i class="dot b-recycled"></i>舊片重傳</span></div>
+  <p class="note">部分地點僅為示意（例如「中東三國」標在巴林）。</p>
+</section>
+
+<section id="timeline">
+  <h2>時間軸<small>依事件發生日（當地日期）排列；點一下跳到事件卡</small></h2>
+  <ol class="tl"><li><div class="tl-date">9/20 <em>（區間前）</em></div><div class="tl-list"><a class="tl-item" href="#ev-tehran"><span class="dot b-unexplained"></span><span class="tl-t">德黑蘭夜空的彩色弧形光團</span><span class="tl-v v-unexplained">尚未解釋</span></a></div></li><li><div class="tl-date">9/23 <em>（區間前）</em></div><div class="tl-list"><a class="tl-item" href="#ev-dujiangyan"><span class="dot b-unexplained"></span><span class="tl-t">都江堰上空「半透明飛艇」長時間懸停</span><span class="tl-v v-unexplained">尚未解釋</span></a></div></li><li><div class="tl-date">9/25</div><div class="tl-list"><a class="tl-item" href="#ev-cody"><span class="dot b-plausible"></span><span class="tl-t">科迪山脊上「回來了」的發光球體</span><span class="tl-v v-plausible">可能解釋</span></a></div></li><li><div class="tl-date">9/26</div><div class="tl-list"><a class="tl-item" href="#ev-alabama"><span class="dot b-plausible"></span><span class="tl-t">阿拉巴馬上空的「燃燒物體」</span><span class="tl-v v-plausible">可能解釋</span></a><a class="tl-item" href="#ev-ohio"><span class="dot b-plausible"></span><span class="tl-t">俄亥俄「會停在空中的火球」</span><span class="tl-v v-plausible">可能解釋</span></a></div></li><li><div class="tl-date">9/28</div><div class="tl-list"><a class="tl-item" href="#ev-riposto"><span class="dot b-insufficient"></span><span class="tl-t">西西里海邊「高速飛行後急停」的物體</span><span class="tl-v v-insufficient">證據不足</span></a><a class="tl-item" href="#ev-starship"><span class="dot b-explained"></span><span class="tl-t">星艦直播中的「母艦」藍色光條</span><span class="tl-v v-explained">已解釋</span></a></div></li><li><div class="tl-date">9/29</div><div class="tl-list"><a class="tl-item" href="#ev-starlink"><span class="dot b-explained"></span><span class="tl-t">一串等距光點劃過夜空：星鍊衛星列車</span><span class="tl-v v-explained">已解釋</span></a></div></li><li><div class="tl-date">9/30</div><div class="tl-list"><a class="tl-item" href="#ev-haywood"><span class="dot b-insufficient"></span><span class="tl-t">西田納西忽隱忽現的低空光點</span><span class="tl-v v-insufficient">證據不足</span></a></div></li><li><div class="tl-date">10/1</div><div class="tl-list"><a class="tl-item" href="#ev-orlando"><span class="dot b-explained"></span><span class="tl-t">奧蘭多夜空「張開翅膀的火團」</span><span class="tl-v v-explained">已解釋</span></a></div></li><li><div class="tl-date">10/2</div><div class="tl-list"><a class="tl-item" href="#ev-longbeach"><span class="dot b-recycled"></span><span class="tl-t">長灘「巨大白色光球艦隊」——2017 年舊片</span><span class="tl-v v-recycled">舊片重傳</span></a><a class="tl-item" href="#ev-maizuru"><span class="dot b-plausible"></span><span class="tl-t">舞鶴東北方「七色變換」的神秘光點</span><span class="tl-v v-plausible">可能解釋</span></a><a class="tl-item" href="#ev-mideast"><span class="dot b-insufficient"></span><span class="tl-t">中東三國接連出現的「不明物體」</span><span class="tl-v v-insufficient">證據不足</span></a></div></li><li><div class="tl-date">10/3</div><div class="tl-list"><a class="tl-item" href="#ev-chilca"><span class="dot b-insufficient"></span><span class="tl-t">「秘魯 UFO 之都」奇爾卡的多角度光點群</span><span class="tl-v v-insufficient">證據不足</span></a><a class="tl-item" href="#ev-mandurah"><span class="dot b-insufficient"></span><span class="tl-t">曼杜拉夜空四顆旋轉、脈動的光球</span><span class="tl-v v-insufficient">證據不足</span></a><a class="tl-item" href="#ev-njny"><span class="dot b-explained"></span><span class="tl-t">紐澤西、紐約上空旋轉的神祕光點</span><span class="tl-v v-explained">已解釋</span></a></div></li><li><div class="tl-date">10/4</div><div class="tl-list"><a class="tl-item" href="#ev-tripoli"><span class="dot b-explained"></span><span class="tl-t">的黎波里夜空一道強光與爆炸聲</span><span class="tl-v v-explained">已解釋</span></a></div></li><li><div class="tl-date">10/5</div><div class="tl-list"><a class="tl-item" href="#ev-tayninh"><span class="dot b-recycled"></span><span class="tl-t">越南兩個黑色懸浮物——2024 年舊片</span><span class="tl-v v-recycled">舊片重傳</span></a></div></li><li><div class="tl-date">10/6</div><div class="tl-list"><a class="tl-item" href="#ev-boulder"><span class="dot b-insufficient"></span><span class="tl-t">波德上空八顆紅色光球排成直線緩降</span><span class="tl-v v-insufficient">證據不足</span></a></div></li><li><div class="tl-date">10/7</div><div class="tl-list"><a class="tl-item" href="#ev-giza"><span class="dot b-explained"></span><span class="tl-t">「10 月 7 日預言」：吉薩黎明前的紅色亮星</span><span class="tl-v v-explained">已解釋</span></a></div></li></ol>
+</section>
+
+<section id="events">
+  <h2>事件卡<small>每則都附原始貼文連結；可依可信度篩選</small></h2>
+  <div class="filters" role="toolbar" aria-label="依可信度篩選"><button class="chip-f on" data-f="all" aria-pressed="true">全部 20</button><button class="chip-f" data-f="explained" aria-pressed="false"><i class="dot b-explained"></i>已解釋 6</button><button class="chip-f" data-f="plausible" aria-pressed="false"><i class="dot b-plausible"></i>可能解釋 4</button><button class="chip-f" data-f="unexplained" aria-pressed="false"><i class="dot b-unexplained"></i>尚未解釋 2</button><button class="chip-f" data-f="insufficient" aria-pressed="false"><i class="dot b-insufficient"></i>證據不足 6</button><button class="chip-f" data-f="recycled" aria-pressed="false"><i class="dot b-recycled"></i>舊片重傳 2</button></div>
+  <div class="cards">
+<article class="card" id="ev-tehran" data-v="unexplained">
+  <div class="card-top" style="--c:#e05252">
+    <span class="num">#01</span><span class="badge b-unexplained">尚未解釋</span>
+  </div>
+  <h3>德黑蘭夜空的彩色弧形光團</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>9/20 晚間（德黑蘭當地 19:30 ≈ 台北 9/21 00:00）；9/24–10/6 持續被轉傳</dd></div>
+    <div><dt>📍 地點</dt><dd>伊朗 德黑蘭（Azadegan 快速道路附近，另有馬什哈德） </dd></div>
+  </dl>
+  <p class="sum">影片顯示藍、白、紫、綠、紅等多色光點排成弧形，在夜空中似乎懸停或緩慢移動。同晚馬什哈德也有類似影片。9/27 原始上傳者 Ali Sedaghati 又貼出標示「9/27 19:04 德黑蘭」的新片段；10/5 前後美國眾議員 Burchett 在節目上表示不認為是惡作劇，討論再度升溫。</p>
+  <div class="why why-unexplained"><div class="k">判定：尚未解釋</div><p>伊朗官方未認定物體身分，影片無法判斷大小、高度與距離。多家媒體與伊朗天文機構指出「裝 LED 的無人機」或「發光風箏」外觀吻合，但都未獲證實。注意：首支影片拍攝日 9/20 早於本頁統計區間，列入是因為區間內仍大量流傳。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://www.intellinews.com/unidentified-ufo-over-tehran-and-mashhad-spread-fear-across-iranian-social-media-469062/" target="_blank" rel="noopener">bne IntelliNews：德黑蘭、馬什哈德不明光體</a></li><li><a href="https://www.ibtimes.co.uk/tehran-lights-ufo-footage-led-drone-speculation-1821658" target="_blank" rel="noopener">IBTimes UK：外觀近似 LED 消費級無人機</a></li><li><a href="https://theprint.in/theprint-essential/mystery-lights-over-tehran-revive-memories-of-irans-1976-ufo-encounter/3049629/" target="_blank" rel="noopener">ThePrint：喚起 1976 年德黑蘭事件記憶</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/UniverseNow00/status/2103314145043255772" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@UniverseNow00 · 2026-09-25 10:42</span></a><a class="btn" href="https://x.com/Japejournal/status/2104088651907170448" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Japejournal · 2026-09-27 14:00</span></a><a class="btn" href="https://x.com/AliiiiiSeda/status/2104465985054871833" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@AliiiiiSeda · 2026-09-28 14:59</span></a><a class="btn" href="https://x.com/TheDefiantGhost/status/2107219527734043059" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@TheDefiantGhost · 2026-10-06 05:21</span></a></div>
+</article>
+<article class="card" id="ev-dujiangyan" data-v="unexplained">
+  <div class="card-top" style="--c:#e05252">
+    <span class="num">#02</span><span class="badge b-unexplained">尚未解釋</span>
+  </div>
+  <h3>都江堰上空「半透明飛艇」長時間懸停</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>9/23 早上（四川當地＝台北時間）；9/24–9/28 在 X 擴散</dd></div>
+    <div><dt>📍 地點</dt><dd>中國 四川 成都都江堰市 </dd></div>
+  </dl>
+  <p class="sum">多名市民拍到天空中一個細長、白色半透明、形似飛艇的物體，長時間停在空中、移動緩慢。影片在中文圈 X 帳號間大量轉傳，也有人把它和海南的類似畫面相提並論。</p>
+  <div class="why why-unexplained"><div class="k">判定：尚未解釋</div><p>四川觀察引述氣象部門說法：成都探空氣球只在溫江國家氣候觀象台定時施放，此物「並非氣象探空氣球」。官方尚未公布最終身分；繫留浮空器（系留氣球）是網路上常見推測，但未經證實。事件日 9/23 位於統計區間邊緣。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://finance.sina.com.cn/tech/discovery/2026-09-23/doc-inisvivz5263889.shtml" target="_blank" rel="noopener">新浪科技：氣象部門回應（簡體）</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/dajiyuan/status/2102910895596634170" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@dajiyuan · 2026-09-24 08:00</span></a><a class="btn" href="https://x.com/Renminbao1/status/2103146187830210808" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Renminbao1 · 2026-09-24 23:35</span></a><a class="btn" href="https://x.com/zmx8067/status/2104383088939987150" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@zmx8067 · 2026-09-28 09:30</span></a></div>
+</article>
+<article class="card" id="ev-cody" data-v="plausible">
+  <div class="card-top" style="--c:#e0a526">
+    <span class="num">#03</span><span class="badge b-plausible">可能解釋</span>
+  </div>
+  <h3>科迪山脊上「回來了」的發光球體</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>9/25 報導（目擊者稱「最近兩三晚」再度出現）</dd></div>
+    <div><dt>📍 地點</dt><dd>美國 懷俄明州 科迪（Cody），望向 Cedar Mountain </dd></div>
+  </dl>
+  <p class="sum">居民 Jezriah Krubeck 說去年 11 月到今年 2 月，每晚都看到近二十顆白色光球從山後升起、互相靠近、沿山脊移動，消失數月後最近又出現；懷俄明 MUFON 負責人看了影片表示「目前無法解釋」。</p>
+  <div class="why why-plausible"><div class="k">判定：可能解釋</div><p>Metabunk 社群用星圖比對，認為畫面中多是天鷹座的恆星，加上衛星（含星鍊）反光閃爍；季節性也吻合星鍊閃光的出現規律。他們還找到與新聞照片相同的 NUFORC 通報，日期是 2025-12-14，顯示影像可能是舊片。屬社群分析，非官方結論。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://cowboystatedaily.com/2026/09/25/mystery-orbs-are-back-over-cody-and-ufo-authority-cant-explain-them/" target="_blank" rel="noopener">Cowboy State Daily：神秘光球回到科迪</a></li><li><a href="https://www.metabunk.org/threads/wyoming-mystery-orbs.15112/" target="_blank" rel="noopener">Metabunk：Wyoming Mystery Orbs 討論串</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/ParanormalWH/status/2103969540472275410" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@ParanormalWH · 2026-09-27 06:06</span></a><a class="btn" href="https://x.com/TheBlurryReport/status/2106004183811785115" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@TheBlurryReport · 2026-10-02 20:51</span></a></div>
+</article>
+<article class="card" id="ev-alabama" data-v="plausible">
+  <div class="card-top" style="--c:#e0a526">
+    <span class="num">#04</span><span class="badge b-plausible">可能解釋</span>
+  </div>
+  <h3>阿拉巴馬上空的「燃燒物體」</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>9/26 22:15 美中部時間（≈ 台北 9/27 11:15）</dd></div>
+    <div><dt>📍 地點</dt><dd>美國 阿拉巴馬州 卡爾曼（Cullman）、哈茨爾（Hartselle） </dd></div>
+  </dl>
+  <p class="sum">同一晚（滿月「收穫月」之夜）阿拉巴馬北部民眾拍到一個燃燒中的物體緩緩落下。資深氣象主播 James Spann 整理當晚天象：傍晚 6:45 有火流星劃過美國南部、東南部 Dothan 上空有約 6 萬 2 千英尺高的研究氣球、10:15 則是這個燃燒物體。</p>
+  <div class="why why-plausible"><div class="k">判定：可能解釋</div><p>James Spann 判斷「最可能是夜間煙火跳傘」——跳傘員身上掛著燃燒的煙火降落；並強調當晚三件事彼此無關。屬專家研判，未見主辦單位證實。</p></div>
+  
+  <div class="btns"><a class="btn" href="https://x.com/spann/status/2104244585648009414" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@spann · 2026-09-28 00:19</span></a></div>
+</article>
+<article class="card" id="ev-ohio" data-v="plausible">
+  <div class="card-top" style="--c:#e0a526">
+    <span class="num">#05</span><span class="badge b-plausible">可能解釋</span>
+  </div>
+  <h3>俄亥俄「會停在空中的火球」</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>9/26 夜間美東（≈ 台北 9/27 上午）</dd></div>
+    <div><dt>📍 地點</dt><dd>美國 俄亥俄州 辛辛那提至邁阿密斯堡一帶 </dd></div>
+  </dl>
+  <p class="sum">多段影片顯示一團明亮火光在夜空中下降、拖出光跡，有人說還聽到三聲巨響。熱門貼文問「什麼樣的流星會停在空中？」，觀看數約 15 萬。</p>
+  <div class="why why-plausible"><div class="k">判定：可能解釋</div><p>BriefGlo 引述 Al Bawaba 報導：當晚辛辛那提大學（UC）有帶煙火的跳傘表演；UC 校刊照片顯示當晚對堪薩斯州大比賽前確有跳傘員降落球場。跳傘煙火與火光下降的外觀相符，但時間、方位尚未被獨立比對，也有人提出流星或太空碎片，因此列為「可能解釋」。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://briefglo.com/ohio-fireball-ufo-2026/" target="_blank" rel="noopener">BriefGlo：俄亥俄火球是什麼？</a></li><li><a href="https://www.albawaba.me/node/video-massive-fireball-over-ohio-sparks-1637867" target="_blank" rel="noopener">Al Bawaba：火球影片與三聲巨響</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/digijordan/status/2104085204470317401" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@digijordan · 2026-09-27 13:46</span></a></div>
+</article>
+<article class="card" id="ev-riposto" data-v="insufficient">
+  <div class="card-top" style="--c:#8d96a3">
+    <span class="num">#06</span><span class="badge b-insufficient">證據不足</span>
+  </div>
+  <h3>西西里海邊「高速飛行後急停」的物體</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>9/28 約 07:00（義大利時間，≈ 台北 13:00）— 依貼文所述</dd></div>
+    <div><dt>📍 地點</dt><dd>義大利 西西里島 里波斯托（Riposto） <span class="unc">地點不確定</span></dd></div>
+  </dl>
+  <p class="sum">巴西 UFO 雜誌帳號轉述：一名目擊者早上 7 點看到物體高速劃過天空、突然停住、幾秒後又飛走並被拍下；照片交給西西里 UFO 中心，負責人表示沒有發現造假跡象。</p>
+  <div class="why why-insufficient"><div class="k">判定：證據不足</div><p>查不到 2026 年的原始報導；同一地點、同一機構「照片沒有造假」的敘述與 La Sicilia 2016 年的舊報導高度相似，貼文也提到「距上次目擊五年」。日期與來源都存疑，暫列證據不足。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://www.lasicilia.it/news/archivio-storico/1016060/avvistato-ufo-nel-cielo-di-riposto-la-foto-non-e-contraffatta.html" target="_blank" rel="noopener">La Sicilia（2016 年舊報導，供比對）</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/TLTufologo/status/2104999434358571222" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@TLTufologo · 2026-09-30 02:19</span></a></div>
+</article>
+<article class="card" id="ev-starship" data-v="explained">
+  <div class="card-top" style="--c:#2fae66">
+    <span class="num">#07</span><span class="badge b-explained">已解釋</span>
+  </div>
+  <h3>星艦直播中的「母艦」藍色光條</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>9/28 07:48 美中部時間升空（≈ 台北 9/28 20:48），升空約 8 分鐘時</dd></div>
+    <div><dt>📍 地點</dt><dd>SpaceX Starship 第 14 次試飛直播畫面（自美國德州 Starbase 發射） </dd></div>
+  </dl>
+  <p class="sum">Starship 第 14 次試飛（首次入軌）直播約 7 分 55 秒時，畫面背景出現一道略彎、淡藍色、尖端發白的光條，社群上有人稱「像外星母艦」「比城市還大」。</p>
+  <div class="why why-explained"><div class="k">判定：已解釋</div><p>IBTimes UK、Daily Mail 引述觀察者分析：這是 Super Heavy 助推器分離後回推點火留下的排氣，升到有陽光照射的高空而發亮，與常見的「太空水母」同一原理；稍早 6 分 35 秒的畫面已可見一團模糊藍白雲氣。屬專家／觀察者解讀，SpaceX 未針對光條發表說明。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://www.ibtimes.co.uk/mysterious-blue-streak-starship-spacex-livestream-1822595" target="_blank" rel="noopener">IBTimes UK：直播中的神秘藍色光條</a></li><li><a href="https://www.dailymail.com/sciencetech/article-16167439/spacex-starship-ufo-texas-livestream.html" target="_blank" rel="noopener">Daily Mail：網友稱像母艦</a></li><li><a href="https://www.spacex.com/launches/starship-flight-14/" target="_blank" rel="noopener">SpaceX：Starship Flight 14 飛行紀錄</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/theinformant_x/status/2104948272221565123" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@theinformant_x · 2026-09-29 22:55</span></a><a class="btn" href="https://x.com/CGhostie/status/2104559186688221343" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@CGhostie · 2026-09-28 21:09</span></a><a class="btn" href="https://x.com/PoliticPrepper/status/2105497517232185719" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@PoliticPrepper · 2026-10-01 11:18</span></a></div>
+</article>
+<article class="card" id="ev-starlink" data-v="explained">
+  <div class="card-top" style="--c:#2fae66">
+    <span class="num">#08</span><span class="badge b-explained">已解釋</span>
+  </div>
+  <h3>一串等距光點劃過夜空：星鍊衛星列車</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>約 9/29–9/30（麥凱，未註明時刻）；10/1–10/2 連續兩晚（西里古里）</dd></div>
+    <div><dt>📍 地點</dt><dd>澳洲 昆士蘭 麥凱；印度 西孟加拉邦 西里古里 </dd></div>
+  </dl>
+  <p class="sum">澳洲麥凱有人拍到一長串光點等速越過夜空，貼文指出是 Starship 第 14 次試飛剛部署的新一代 Starlink V3 衛星；印度西里古里也有民眾連續兩晚看到「排成一列移動的亮點」，起初覺得神祕。</p>
+  <div class="why why-explained"><div class="k">判定：已解釋</div><p>兩則貼文本身就辨識為星鍊衛星；SpaceX 飛行紀錄確認 9/28 部署了 26 顆 Starlink V3。剛發射的星鍊衛星會在入夜後或黎明前排成一列反射陽光，是最常見的 UFO 誤認之一。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://www.space.com/starlink-satellite-train-how-to-see-and-track-it" target="_blank" rel="noopener">Space.com：如何辨認星鍊衛星列車</a></li><li><a href="https://www.spacex.com/launches/starship-flight-14/" target="_blank" rel="noopener">SpaceX：Flight 14 部署 Starlink V3</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/Stellarixorine/status/2105243488812146774" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Stellarixorine · 2026-09-30 18:28</span></a><a class="btn" href="https://x.com/iRahulsingh_IND/status/2106097392814883192" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@iRahulsingh_IND · 2026-10-03 03:02</span></a></div>
+</article>
+<article class="card" id="ev-haywood" data-v="insufficient">
+  <div class="card-top" style="--c:#8d96a3">
+    <span class="num">#09</span><span class="badge b-insufficient">證據不足</span>
+  </div>
+  <h3>西田納西忽隱忽現的低空光點</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>約 9/30（WBBJ 9/30–10/1 播出；實際拍攝日未公布）</dd></div>
+    <div><dt>📍 地點</dt><dd>美國 田納西州 海伍德郡（布朗斯維爾以北，望向霍爾斯） </dd></div>
+  </dl>
+  <p class="sum">廣播主持人 Mickey Utley 拍到地平線附近一個明亮光點忽暗忽亮、像消失又重現，完全無聲；他說手機的國際太空站與星鍊提醒都沒有對應，於是叫妻子一起作證。地方電視台 WBBJ 7 播出畫面。</p>
+  <div class="why why-insufficient"><div class="k">判定：證據不足</div><p>影片只有一個光點，缺乏方位與時間資料。UAP Globe 的分析認為可能是亮星大角星（Arcturus）在低空閃爍，但因不知道確切拍攝日期而無法確認。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://www.wbbjtv.com/2026/10/01/radio-host-shares-possible-ufo-sighting-with-wbbj/" target="_blank" rel="noopener">WBBJ：海伍德郡主持人拍到疑似 UFO</a></li><li><a href="https://uapglobe.com/cases/haywood-county-2026" target="_blank" rel="noopener">UAP Globe：個案分析（大角星假說）</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/PoliticPrepper/status/2106607345430085966" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@PoliticPrepper · 2026-10-04 12:48</span></a></div>
+</article>
+<article class="card" id="ev-orlando" data-v="explained">
+  <div class="card-top" style="--c:#2fae66">
+    <span class="num">#10</span><span class="badge b-explained">已解釋</span>
+  </div>
+  <h3>奧蘭多夜空「張開翅膀的火團」</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>10/1 23:54 美東時間（≈ 台北 10/2 11:54）前後</dd></div>
+    <div><dt>📍 地點</dt><dd>美國 佛羅里達州 奧蘭多／中佛州 </dd></div>
+  </dl>
+  <p class="sum">目擊者說天空突然亮得像清晨，看到一大團火光「翅膀一開一合、拖著尾巴」，還有人看到三個光點旋轉合一、再有兩顆像太陽一樣亮的光點從月亮下方落下。影片在 UFO 帳號上獲得上萬次觀看。</p>
+  <div class="why why-explained"><div class="k">判定：已解釋</div><p>SpaceX 紀錄：Falcon Heavy 於 10/1 23:54（美東）從甘迺迪太空中心發射 NROL-97，約 8 分鐘後兩枚側助推器返回卡納維爾角降落。「張翅」的光團是羽流受光擴散，「兩顆落下的亮點」是側助推器降落點火。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://www.spacex.com/launches/nrol97" target="_blank" rel="noopener">SpaceX：NROL-97 任務</a></li><li><a href="https://www.floridatoday.com/picture-gallery/tech/science/space/2026/10/02/spacex-falcon-heavy-launches-nrol-97-mission-at-nasa-kennedy-space-center/92025001007/" target="_blank" rel="noopener">Florida Today：Falcon Heavy 發射 NROL-97 照片</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/maniaUFO/status/2105902803684126956" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@maniaUFO · 2026-10-02 14:08</span></a><a class="btn" href="https://x.com/CINNALA4sru/status/2105871395506811194" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@CINNALA4sru · 2026-10-02 12:04</span></a><a class="btn" href="https://x.com/carollockemd/status/2106012926079304079" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@carollockemd · 2026-10-02 21:26</span></a></div>
+</article>
+<article class="card" id="ev-longbeach" data-v="recycled">
+  <div class="card-top" style="--c:#9b6bd6">
+    <span class="num">#11</span><span class="badge b-recycled">舊片重傳</span>
+  </div>
+  <h3>長灘「巨大白色光球艦隊」——2017 年舊片</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>原片拍攝於 2017-10-21；10/2–10/6 再度被轉傳</dd></div>
+    <div><dt>📍 地點</dt><dd>美國 加州 長灘 </dd></div>
+  </dl>
+  <p class="sum">一段長灘上空大型白色光球的影片在 10 月初被當成新片轉傳，甚至被誤植為知名 UFO 人物的素材。</p>
+  <div class="why why-recycled"><div class="k">判定：舊片重傳</div><p>轉傳帳號事後更正，引述原拍攝者 @JimFilmsUFOs：「2017 年 10 月 21 日在長灘舊家拍的」；另一帳號也查到 2017 年 12 月的 YouTube 原始上傳。屬舊片重傳，不是本期新目擊。</p></div>
+  
+  <div class="btns"><a class="btn" href="https://x.com/UAPLuigi/status/2106148984209486252" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@UAPLuigi · 2026-10-03 06:27</span></a><a class="btn" href="https://x.com/mario1973p/status/2107583620223582439" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@mario1973p · 2026-10-07 05:27</span></a></div>
+</article>
+<article class="card" id="ev-maizuru" data-v="plausible">
+  <div class="card-top" style="--c:#e0a526">
+    <span class="num">#12</span><span class="badge b-plausible">可能解釋</span>
+  </div>
+  <h3>舞鶴東北方「七色變換」的神秘光點</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>10/2–10/3 深夜（日本時間 10/3 約 00:44 ≈ 台北 10/2 23:44）</dd></div>
+    <div><dt>📍 地點</dt><dd>日本 京都府 舞鶴市（東北方天空） </dd></div>
+  </dl>
+  <p class="sum">發文者在舞鶴東北方夜空看到一個光點不停在紫、藍、白、黃、紅之間變色，拍下影片請大家幫忙判斷是 UFO 還是星星。</p>
+  <div class="why why-plausible"><div class="k">判定：可能解釋</div><p>本頁判斷（無外部來源）：低仰角亮星或行星的光線穿過較厚大氣，會因「大氣閃爍」快速變色，手機放大拍攝時尤其明顯；深夜東北方低空常有亮星。底下也有網友回覆「是 U.F.O.（不明），但不是飛碟」。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://en.wikipedia.org/wiki/Twinkling" target="_blank" rel="noopener">Wikipedia：星光閃爍（Twinkling）</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/Maja_Watanabe/status/2106047706699641008" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Maja_Watanabe · 2026-10-02 23:44</span></a></div>
+</article>
+<article class="card" id="ev-mideast" data-v="insufficient">
+  <div class="card-top" style="--c:#8d96a3">
+    <span class="num">#13</span><span class="badge b-insufficient">證據不足</span>
+  </div>
+  <h3>中東三國接連出現的「不明物體」</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>10/2（伊拉克）、10/3（巴林）、10/5（約旦）</dd></div>
+    <div><dt>📍 地點</dt><dd>伊拉克、巴林、約旦（確切城市未註明） <span class="unc">地點不確定</span></dd></div>
+  </dl>
+  <p class="sum">同一帳號接連貼出影片，稱伊拉克、巴林、約旦夜空先後出現不明物體，兩則貼文合計觀看數超過 4 萬。發文者自己也寫「可能是無人機」。</p>
+  <div class="why why-insufficient"><div class="k">判定：證據不足</div><p>沒有確切地點、時間或獨立報導；當地正處軍事衝突與無人機頻繁活動期間。地圖標記位置為巴林，僅作示意。</p></div>
+  
+  <div class="btns"><a class="btn" href="https://x.com/RyanRozbiani/status/2106410091167863015" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@RyanRozbiani · 2026-10-03 23:44</span></a><a class="btn" href="https://x.com/RyanRozbiani/status/2107160789610020973" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@RyanRozbiani · 2026-10-06 01:27</span></a></div>
+</article>
+<article class="card" id="ev-chilca" data-v="insufficient">
+  <div class="card-top" style="--c:#8d96a3">
+    <span class="num">#14</span><span class="badge b-insufficient">證據不足</span>
+  </div>
+  <h3>「秘魯 UFO 之都」奇爾卡的多角度光點群</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>約 10/3–10/4（貼文時間；拍攝日期未註明）</dd></div>
+    <div><dt>📍 地點</dt><dd>秘魯 利馬南方 奇爾卡（Chilca）；利馬亦有光球報告 <span class="unc">地點不確定</span></dd></div>
+  </dl>
+  <p class="sum">熱門貼文稱「百分之百真實」的一群 UFO，以多個角度拍攝夜空中的光點，觀看數超過 1 萬；另有帳號說利馬近日也看到發光球體。奇爾卡自 1970 年代起就以「UFO 觀光」聞名。</p>
+  <div class="why why-insufficient"><div class="k">判定：證據不足</div><p>影片只見遠處光點，沒有可驗證的時間與地點細節。回覆中有人認為是星鍊，X 上的 AI 助手也說可能是飛機、無人機、衛星或恆星，但都只是推測。秘魯在地媒體 9 月底報導的利馬光點與奇爾卡地面圖案同樣沒有確定解釋。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://lanoticia.com.pe/misteriosas-luces-fueron-captadas-en-el-cielo-de-lima-y-una-extrana-figura-aparecio-en-chilca/" target="_blank" rel="noopener">La Noticia（秘魯）：利馬怪光與奇爾卡地面圖案</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/Montecristo17xy/status/2106622942985548009" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Montecristo17xy · 2026-10-04 13:50</span></a><a class="btn" href="https://x.com/Filtrandomiste1/status/2105332243027956163" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Filtrandomiste1 · 2026-10-01 00:21</span></a></div>
+</article>
+<article class="card" id="ev-mandurah" data-v="insufficient">
+  <div class="card-top" style="--c:#8d96a3">
+    <span class="num">#15</span><span class="badge b-insufficient">證據不足</span>
+  </div>
+  <h3>曼杜拉夜空四顆旋轉、脈動的光球</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>10/3 晚間（西澳時間＝台北時間）</dd></div>
+    <div><dt>📍 地點</dt><dd>澳洲 西澳 曼杜拉（北曼杜拉） </dd></div>
+  </dl>
+  <p class="sum">一名居民貼出兩段影片：四顆會旋轉、發光脈動的球體，後來排成鬆散隊形；他說航班追蹤網站上查不到對應飛機。</p>
+  <div class="why why-insufficient"><div class="k">判定：證據不足</div><p>影片無法判斷距離與大小，也找不到新聞報導或其他目擊。本頁判斷：無人機、天燈或遠處飛機燈光都有可能，無法下結論。</p></div>
+  
+  <div class="btns"><a class="btn" href="https://x.com/cryptoratss/status/2106526486597685493" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@cryptoratss · 2026-10-04 07:27</span></a><a class="btn" href="https://x.com/cryptoratss/status/2106533882518790379" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@cryptoratss · 2026-10-04 07:56</span></a></div>
+</article>
+<article class="card" id="ev-njny" data-v="explained">
+  <div class="card-top" style="--c:#2fae66">
+    <span class="num">#16</span><span class="badge b-explained">已解釋</span>
+  </div>
+  <h3>紐澤西、紐約上空旋轉的神祕光點</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>10/3 晚間美東（≈ 台北 10/4 上午）</dd></div>
+    <div><dt>📍 地點</dt><dd>美國 紐澤西州／紐約市（史坦頓島等地可見） </dd></div>
+  </dl>
+  <p class="sum">多人拍到夜空中數個白色亮點旋轉、閃爍，貼文問「這到底是什麼？」，TikTok 上也有從史坦頓島朝紐澤西方向拍的類似影片。</p>
+  <div class="why why-explained"><div class="k">判定：已解釋</div><p>USA Today 報導：光源是當晚 MetLife 體育場 AC/DC 演唱會的燈光照亮夜空。史坦頓島在地媒體 SILive 也報導了這段影片與「演唱會燈光」的解釋。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://www.usatoday.com/videos/entertainment/2026/10/05/see-the-mysterious-lights-that-sparked-ufo-rumors/92106254007/" target="_blank" rel="noopener">USA Today：神祕光束原來是 AC/DC 演唱會</a></li><li><a href="https://www.silive.com/news/2026/10/aliens-or-acdc-strange-lights-seen-from-staten-island-send-tiktok-into-a-frenzy.html" target="_blank" rel="noopener">SILive：外星人還是 AC/DC？</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/VintageNJ1/status/2106851997051932773" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@VintageNJ1 · 2026-10-05 05:00</span></a><a class="btn" href="https://x.com/PMorris185/status/2107214449161519145" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@PMorris185 · 2026-10-06 05:00</span></a></div>
+</article>
+<article class="card" id="ev-tripoli" data-v="explained">
+  <div class="card-top" style="--c:#2fae66">
+    <span class="num">#17</span><span class="badge b-explained">已解釋</span>
+  </div>
+  <h3>的黎波里夜空一道強光與爆炸聲</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>10/4 深夜（利比亞當地，≈ 台北 10/5 清晨）</dd></div>
+    <div><dt>📍 地點</dt><dd>利比亞 的黎波里與西部地區 </dd></div>
+  </dl>
+  <p class="sum">居民描述午夜時一道刺眼閃光把夜晚照得像白天，接著一聲巨響震動房屋；影片顯示長長的火光軌跡，最後碎裂成數塊後熄滅。一開始被稱為「神祕飛行物」。</p>
+  <div class="why why-explained"><div class="k">判定：已解釋</div><p>利比亞遙測與太空科學中心（LCRSSS）證實這是一顆流星：小型流星體高速進入大氣層、摩擦生熱燃燒發光。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://libyaobserver.ly/inbrief/lcrsss-bright-object-seen-over-tripoli-was-meteor" target="_blank" rel="noopener">The Libya Observer：LCRSSS 證實是流星</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/nexta_tv/status/2107067079006240976" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@nexta_tv · 2026-10-05 19:15</span></a><a class="btn" href="https://x.com/Rana009/status/2106938850207769057" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Rana009 · 2026-10-05 10:45</span></a><a class="btn" href="https://x.com/Moktarkareem55/status/2107042152752546132" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Moktarkareem55 · 2026-10-05 17:36</span></a></div>
+</article>
+<article class="card" id="ev-tayninh" data-v="recycled">
+  <div class="card-top" style="--c:#9b6bd6">
+    <span class="num">#18</span><span class="badge b-recycled">舊片重傳</span>
+  </div>
+  <h3>越南兩個黑色懸浮物——2024 年舊片</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>原片拍攝於 2024-10-29；10/5 再度爆紅</dd></div>
+    <div><dt>📍 地點</dt><dd>越南 西寧省（Tây Ninh） </dd></div>
+  </dl>
+  <p class="sum">一段兩個深色、形狀奇特的物體懸停在空中的影片在 10 月初再度流傳。</p>
+  <div class="why why-recycled"><div class="k">判定：舊片重傳</div><p>轉傳的貼文本身就註明影片據稱拍攝於 2024 年 10 月 29 日的越南西寧，屬舊片重傳。</p></div>
+  
+  <div class="btns"><a class="btn" href="https://x.com/Dreamrideguard/status/2107225103482122427" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Dreamrideguard · 2026-10-06 05:43</span></a></div>
+</article>
+<article class="card" id="ev-boulder" data-v="insufficient">
+  <div class="card-top" style="--c:#8d96a3">
+    <span class="num">#19</span><span class="badge b-insufficient">證據不足</span>
+  </div>
+  <h3>波德上空八顆紅色光球排成直線緩降</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>10/6 晚間山區時間（≈ 台北 10/7 上午）</dd></div>
+    <div><dt>📍 地點</dt><dd>美國 科羅拉多州 波德（Boulder） </dd></div>
+  </dl>
+  <p class="sum">目擊者說開始錄影前，約 8 顆紅色光球先橫向排列，幾秒內變成上下一列，然後慢慢下降，問「還有誰看到？」。</p>
+  <div class="why why-insufficient"><div class="k">判定：證據不足</div><p>只有單一目擊者與一段影片，沒有新聞或官方說明。本頁判斷：紅光排列後緩慢下降，外觀與帶紅色煙火的跳傘、照明彈或無人機編隊相似，但沒有證據支持任何一種。</p></div>
+  
+  <div class="btns"><a class="btn" href="https://x.com/gmovestr/status/2107719699454980133" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@gmovestr · 2026-10-07 14:28</span></a></div>
+</article>
+<article class="card" id="ev-giza" data-v="explained">
+  <div class="card-top" style="--c:#2fae66">
+    <span class="num">#20</span><span class="badge b-explained">已解釋</span>
+  </div>
+  <h3>「10 月 7 日預言」：吉薩黎明前的紅色亮星</h3>
+  <dl class="meta">
+    <div><dt>📅 日期</dt><dd>10/7 黎明前（埃及當地，≈ 台北 10/7 上午）</dd></div>
+    <div><dt>📍 地點</dt><dd>埃及 吉薩（人面獅身像一帶） </dd></div>
+  </dl>
+  <p class="sum">UFO 社群名人 Chris Bledsoe 先前的「10/7 預言」引發大量討論與「當天要抬頭看」的呼籲。他在 10/7 發文說「黎明前我們看到了」，附上吉薩上空的照片，並在串文第二則寫明是「月亮旁的軒轅十四（Regulus）」。這則串文觀看數超過 16 萬。</p>
+  <div class="why why-explained"><div class="k">判定：已解釋</div><p>發文者本人在串文中指出拍到的是恆星軒轅十四與月亮；中東媒體 Ajel 也報導 10/7 黎明前殘月、軒轅十四、木星、火星排成一線的天象（視覺上的排列，不是真正靠近）。屬已知天體。</p></div>
+  <div class="news"><div class="k">新聞／參考來源</div><ul><li><a href="https://english.ajel.sa/lifestyle/9uf2sgspq" target="_blank" rel="noopener">Ajel English：月亮、木星、火星與軒轅十四同框</a></li></ul></div>
+  <div class="btns"><a class="btn" href="https://x.com/chrisbledsoeufo/status/2107914373788516586" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@chrisbledsoeufo · 2026-10-08 03:22</span></a><a class="btn" href="https://x.com/chrisbledsoeufo/status/2107914429308268743" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@chrisbledsoeufo · 2026-10-08 03:22</span></a></div>
+</article></div>
+</section>
+
+<section id="explain">
+  <h2>最常見的「UFO」其實是什麼？<small>這兩週的案例幾乎都落在這幾類</small></h2>
+  <div class="exps"><div class="exp"><div class="exp-ic" aria-hidden="true">🛰️</div><div><h3>星鍊衛星列車</h3><p>剛發射的星鍊衛星會排成一長串等距光點，在日落後或日出前反射陽光、安靜地劃過天空；之後幾天會逐漸散開、變暗。衛星表面偶爾也會像鏡子一樣「閃」一下。</p><p class="src">來源：<a href="https://www.space.com/starlink-satellite-train-how-to-see-and-track-it" target="_blank" rel="noopener">Space.com</a></p></div></div><div class="exp"><div class="exp-ic" aria-hidden="true">🚀</div><div><h3>火箭發射與「太空水母」</h3><p>黎明前或黃昏後發射的火箭，排氣羽流升到仍有陽光的高空，會擴散成發光的傘狀、翅膀狀或環狀，地面看起來像巨大的發光生物；回收的助推器降落點火也像「兩顆光點落下」。</p><p class="src">來源：<a href="https://en.wikipedia.org/wiki/Space_jellyfish" target="_blank" rel="noopener">Wikipedia：Space jellyfish</a></p></div></div><div class="exp"><div class="exp-ic" aria-hidden="true">☄️</div><div><h3>流星與火流星</h3><p>特別亮的流星（火流星）可能照亮整片天空、碎裂成數塊，甚至傳出音爆；與重返大氣層的太空碎片一樣，常被當成墜落的飛行器。</p><p class="src">來源：<a href="https://www.amsmeteors.org/fireballs/faqf/" target="_blank" rel="noopener">American Meteor Society</a></p></div></div><div class="exp"><div class="exp-ic" aria-hidden="true">✨</div><div><h3>亮星、行星與大氣閃爍</h3><p>低仰角的亮星（如大角星、天狼星）或金星、木星，光線穿過厚大氣會快速閃爍、變色，用手機放大拍攝時看起來像在跳動或變形。</p><p class="src">來源：<a href="https://en.wikipedia.org/wiki/Twinkling" target="_blank" rel="noopener">Wikipedia：Twinkling</a></p></div></div><div class="exp"><div class="exp-ic" aria-hidden="true">🪂</div><div><h3>無人機、燈光與煙火</h3><p>LED 無人機、發光風箏、天燈、帶煙火的跳傘表演、演唱會或活動的探照燈，都會在夜空製造排列整齊或會移動的光點。</p><p class="src">來源：<a href="https://www.usatoday.com/videos/entertainment/2026/10/05/see-the-mysterious-lights-that-sparked-ufo-rumors/92106254007/" target="_blank" rel="noopener">USA Today：AC/DC 燈光案例</a></p></div></div><div class="exp"><div class="exp-ic" aria-hidden="true">🎞️</div><div><h3>舊片重傳與 AI 生成</h3><p>很多「最新目擊」其實是多年前的影片換上新說明；也有 CGI 或 AI 生成畫面。先找原始上傳日期、拍攝者與地點，再看有沒有第二個獨立角度。</p><p class="src">來源：<a href="https://www.metabunk.org/threads/wyoming-mystery-orbs.15112/" target="_blank" rel="noopener">Metabunk 案例：科迪光球</a>、<a href="https://en.wikipedia.org/wiki/Identified_flying_object" target="_blank" rel="noopener">Wikipedia：Identified flying object</a></p></div></div></div>
+</section>
+
+<section id="method">
+  <h2>方法與限制</h2>
+  <ul class="method">
+    <li>資料於 <b>2026-10-08</b> 透過 X 搜尋整理，關鍵字涵蓋英、中、日、西、葡、俄、德等語言（UFO、UAP、orbs、lights in the sky、Starlink train、不明飛行物、未確認飛行物体、OVNI、НЛО 等）。</li>
+    <li>同一事件的多則貼文合併為一張卡片；明顯的舊片若列出會標示「舊片重傳」。另有許多貼文只寫「美國」「2026」而沒有地點或日期，未列入。</li>
+    <li>時間：貼文時間皆換算為台北時間（UTC+8）；事件日期以當地日期為準，括號內附台北時間參考。</li>
+    <li>「已解釋」必須有來源支持；只有本頁自行推論的，會明確寫「本頁判斷」並列為「可能解釋」或「證據不足」。</li>
+    <li>本頁不轉載貼文圖片或影片，請點「看原始貼文」到 X 觀看。貼文可能被刪除或修改。</li>
+  </ul>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p>資料蒐集：2026-10-08（台北時間），來源為 X 平台公開貼文與文中所列新聞。<b>目擊內容皆為使用者自行回報</b>，本頁的判定僅代表依現有資料的整理，不代表任何官方結論。</p>
+  <p>地圖：<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>，圖資 © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> 貢獻者。</p>
+  <a class="totop" href="#top">↑ 回到頂端</a>
+</div></footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+  var DATA = [{"id": "tehran", "t": "德黑蘭夜空的彩色弧形光團", "v": "unexplained", "c": "#e05252", "l": "尚未解釋", "d": "9/20", "p": "伊朗 德黑蘭（Azadegan 快速道路附近，另有馬什哈德）", "pts": [[35.69, 51.39]]}, {"id": "dujiangyan", "t": "都江堰上空「半透明飛艇」長時間懸停", "v": "unexplained", "c": "#e05252", "l": "尚未解釋", "d": "9/23", "p": "中國 四川 成都都江堰市", "pts": [[31.0, 103.62]]}, {"id": "cody", "t": "科迪山脊上「回來了」的發光球體", "v": "plausible", "c": "#e0a526", "l": "可能解釋", "d": "9/25", "p": "美國 懷俄明州 科迪（Cody），望向 Cedar Mountain", "pts": [[44.53, -109.06]]}, {"id": "alabama", "t": "阿拉巴馬上空的「燃燒物體」", "v": "plausible", "c": "#e0a526", "l": "可能解釋", "d": "9/26", "p": "美國 阿拉巴馬州 卡爾曼（Cullman）、哈茨爾（Hartselle）", "pts": [[34.17, -86.84]]}, {"id": "ohio", "t": "俄亥俄「會停在空中的火球」", "v": "plausible", "c": "#e0a526", "l": "可能解釋", "d": "9/26", "p": "美國 俄亥俄州 辛辛那提至邁阿密斯堡一帶", "pts": [[39.13, -84.51]]}, {"id": "riposto", "t": "西西里海邊「高速飛行後急停」的物體", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "9/28", "p": "義大利 西西里島 里波斯托（Riposto）", "pts": [[37.73, 15.21]]}, {"id": "starship", "t": "星艦直播中的「母艦」藍色光條", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "9/28", "p": "SpaceX Starship 第 14 次試飛直播畫面（自美國德州 Starbase 發射）", "pts": [[25.997, -97.157]]}, {"id": "starlink", "t": "一串等距光點劃過夜空：星鍊衛星列車", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "9/29", "p": "澳洲 昆士蘭 麥凱；印度 西孟加拉邦 西里古里", "pts": [[-21.14, 149.19], [26.73, 88.4]]}, {"id": "haywood", "t": "西田納西忽隱忽現的低空光點", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "9/30", "p": "美國 田納西州 海伍德郡（布朗斯維爾以北，望向霍爾斯）", "pts": [[35.59, -89.26]]}, {"id": "orlando", "t": "奧蘭多夜空「張開翅膀的火團」", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "10/1", "p": "美國 佛羅里達州 奧蘭多／中佛州", "pts": [[28.54, -81.38]]}, {"id": "longbeach", "t": "長灘「巨大白色光球艦隊」——2017 年舊片", "v": "recycled", "c": "#9b6bd6", "l": "舊片重傳", "d": "10/2", "p": "美國 加州 長灘", "pts": [[33.77, -118.19]]}, {"id": "maizuru", "t": "舞鶴東北方「七色變換」的神秘光點", "v": "plausible", "c": "#e0a526", "l": "可能解釋", "d": "10/2", "p": "日本 京都府 舞鶴市（東北方天空）", "pts": [[35.47, 135.39]]}, {"id": "mideast", "t": "中東三國接連出現的「不明物體」", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "10/2", "p": "伊拉克、巴林、約旦（確切城市未註明）", "pts": [[26.07, 50.55]]}, {"id": "chilca", "t": "「秘魯 UFO 之都」奇爾卡的多角度光點群", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "10/3", "p": "秘魯 利馬南方 奇爾卡（Chilca）；利馬亦有光球報告", "pts": [[-12.52, -76.74]]}, {"id": "mandurah", "t": "曼杜拉夜空四顆旋轉、脈動的光球", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "10/3", "p": "澳洲 西澳 曼杜拉（北曼杜拉）", "pts": [[-32.53, 115.72]]}, {"id": "njny", "t": "紐澤西、紐約上空旋轉的神祕光點", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "10/3", "p": "美國 紐澤西州／紐約市（史坦頓島等地可見）", "pts": [[40.813, -74.074]]}, {"id": "tripoli", "t": "的黎波里夜空一道強光與爆炸聲", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "10/4", "p": "利比亞 的黎波里與西部地區", "pts": [[32.89, 13.19]]}, {"id": "tayninh", "t": "越南兩個黑色懸浮物——2024 年舊片", "v": "recycled", "c": "#9b6bd6", "l": "舊片重傳", "d": "10/5", "p": "越南 西寧省（Tây Ninh）", "pts": [[11.31, 106.1]]}, {"id": "boulder", "t": "波德上空八顆紅色光球排成直線緩降", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "10/6", "p": "美國 科羅拉多州 波德（Boulder）", "pts": [[40.015, -105.27]]}, {"id": "giza", "t": "「10 月 7 日預言」：吉薩黎明前的紅色亮星", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "10/7", "p": "埃及 吉薩（人面獅身像一帶）", "pts": [[29.975, 31.137]]}];
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  // map
+  function initMap(){
+    var el=document.getElementById('map');
+    if(!window.L){el.innerHTML='<div class="map-fallback">地圖元件無法載入（可能是網路限制），請直接往下看時間軸與事件卡。</div>';return;}
+    el.innerHTML='';
+    var touch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+    var map=L.map(el,{worldCopyJump:true,scrollWheelZoom:false,dragging:!touch,tap:false,zoomSnap:0.5});
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:12,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+    var group=[];
+    DATA.forEach(function(e){
+      e.pts.forEach(function(p){
+        var m=L.circleMarker(p,{radius:9,color:'#ffffff',weight:2,fillColor:e.c,fillOpacity:.95});
+        m.bindPopup('<b>'+esc(e.t)+'</b><br>'+esc(e.d)+'・'+esc(e.p)+'<br><span style="color:'+e.c+';font-weight:700">● '+esc(e.l)+'</span><br><a href="#ev-'+e.id+'">看事件卡 →</a>');
+        m.addTo(map); group.push(p);
+      });
+    });
+    map.fitBounds(group,{padding:[18,18]});
+    if(map.getZoom()>2) map.setZoom(Math.max(1,map.getZoom()));
+    window.__markerCount=group.length;
+    if(touch){
+      var hint=L.control({position:'bottomleft'});
+      hint.onAdd=function(){var d=L.DomUtil.create('div');d.style.cssText='background:rgba(11,16,38,.85);color:#e9edfb;font-size:13px;padding:4px 8px;border-radius:8px';d.textContent='雙指縮放，點標記看詳情';return d;};
+      hint.addTo(map);
+    }
+    map.on('popupopen',function(ev){var a=ev.popup.getElement().querySelector('a[href^="#ev-"]');if(a){a.addEventListener('click',function(){map.closePopup();});}});
+  }
+  try{initMap();}catch(err){var el=document.getElementById('map');el.innerHTML='<div class="map-fallback">地圖暫時無法顯示。</div>';}
+  // filters
+  var btns=document.querySelectorAll('.chip-f'), cards=document.querySelectorAll('.card');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.getAttribute('data-f');
+    btns.forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b?'true':'false');});
+    cards.forEach(function(c){c.hidden=!(f==='all'||c.getAttribute('data-v')===f);});
+  });});
+  // links to hidden cards: reset filter
+  document.querySelectorAll('a[href^="#ev-"]').forEach(function(a){a.addEventListener('click',function(){
+    var c=document.querySelector(a.getAttribute('href')); if(c&&c.hidden){btns[0].click();}
+  });});
+  // active nav chip
+  var navs=[].slice.call(document.querySelectorAll('nav.chips a'));
+  var secs=navs.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function onScroll(){
+    var y=window.scrollY+90, idx=0;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)idx=i;});
+    navs.forEach(function(a,i){
+      var on=i===idx; if(on!==a.classList.contains('act')){a.classList.toggle('act',on); if(on&&a.scrollIntoView){var r=a.parentNode; r.scrollTo({left:a.offsetLeft-r.clientWidth/2+a.clientWidth/2,behavior:'smooth'});}}
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>
