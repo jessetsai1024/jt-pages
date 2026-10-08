@@ -2,213 +2,176 @@
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
 <title>AI 新聞速報｜2026-10-08 15:25</title>
-<meta name="description" content="2026-10-08 15:25（台灣時間）X 平台 AI 新聞速報：OpenAI、xAI、Google 與其他 17 則。">
+<meta name="description" content="2026-10-08 15:25（台灣時間）X 平台 AI 新聞速報，共 17 則。">
 <style>
-  :root{
-    --bg:#0b1020; --panel:#121a33; --ink:#eef2ff; --muted:#a5b0d6; --line:rgba(255,255,255,.08);
-    --openai:#10a37f; --xai:#e5e7eb; --google:#4285f4; --other:#f59e0b;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
-    background:radial-gradient(1200px 600px at 10% -10%,#2b1d6b 0%,transparent 60%),
-               radial-gradient(900px 500px at 110% 10%,#0e4f6b 0%,transparent 55%),var(--bg);
-    color:var(--ink);line-height:1.65;min-height:100vh}
-  a{color:inherit}
-  .wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px}
-  header.hero{position:relative;padding:34px 24px 28px;border-radius:24px;overflow:hidden;
-    background:linear-gradient(135deg,rgba(124,58,237,.35),rgba(14,165,233,.25));border:1px solid var(--line)}
-  header.hero::after{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,rgba(255,255,255,.08),transparent 30%);
-    animation:spin 14s linear infinite;pointer-events:none}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.04em;
-    background:rgba(239,68,68,.18);color:#fecaca;border:1px solid rgba(239,68,68,.45);padding:4px 12px;border-radius:999px}
-  .dot{width:8px;height:8px;border-radius:50%;background:#ef4444;box-shadow:0 0 0 0 rgba(239,68,68,.7);animation:pulse 1.6s infinite}
-  @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
-  h1{margin:14px 0 6px;font-size:clamp(26px,5.5vw,44px);line-height:1.2}
-  h1 .grad{background:linear-gradient(90deg,#c4b5fd,#67e8f9,#fde68a);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .sub{color:var(--muted);margin:0;font-size:15px}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative;z-index:1}
-  .chip{text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
-    background:rgba(255,255,255,.07);border:1px solid var(--line);font-size:14px;font-weight:600;transition:transform .15s,background .15s}
-  .chip:hover{transform:translateY(-2px);background:rgba(255,255,255,.14)}
-  .chip b{font-variant-numeric:tabular-nums;background:rgba(0,0,0,.3);padding:0 8px;border-radius:999px}
-  section{margin-top:38px;scroll-margin-top:16px}
-  .sec-h{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-  .sec-h .icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:var(--c);color:#0b1020;
-    box-shadow:0 8px 24px -8px var(--c)}
-  .sec-h h2{margin:0;font-size:22px}
-  .sec-h .count{color:var(--muted);font-size:14px}
-  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
-  .card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-    border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px;
-    transition:transform .2s,border-color .2s,box-shadow .2s;overflow:hidden}
-  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c)}
-  .card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--c) 55%,transparent);box-shadow:0 14px 30px -18px var(--c)}
-  .meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
-  .date{background:rgba(255,255,255,.08);padding:2px 9px;border-radius:999px;font-variant-numeric:tabular-nums}
-  .tag{border:1px solid var(--line);padding:2px 9px;border-radius:999px}
-  .card h3{margin:0;font-size:17px;line-height:1.4}
-  .card h3 .e{margin-right:6px}
-  .card p{margin:0;color:#d6dcf5;font-size:14.5px}
-  .src{margin-top:auto;padding-top:6px;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;
-    color:var(--c);text-decoration:none;word-break:break-all}
-  .src:hover{text-decoration:underline}
-  .s-openai{--c:var(--openai)} .s-xai{--c:var(--xai)} .s-google{--c:var(--google)} .s-other{--c:var(--other)}
-  footer{margin-top:48px;padding:18px 20px;border-radius:16px;border:1px dashed rgba(255,255,255,.18);color:var(--muted);font-size:13.5px}
-  footer p{margin:6px 0}
-  @media (max-width:520px){.wrap{padding:16px 12px 40px}header.hero{padding:26px 16px 22px;border-radius:18px}.grid{grid-template-columns:1fr}}
-  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root{--bg:#f6f7fb;--card:#fff;--ink:#141824;--muted:#535b70;--line:#e3e6ef;--chip:#fff;--navbg:rgba(246,247,251,.92);
+--openai:#0b8a6b;--xai:#3b3f4a;--google:#1a5fd6;--other:#b45309;--hero1:#ede9fe;--hero2:#e0f2fe}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1117;--card:#161b26;--ink:#eef1f7;--muted:#a8b0c3;--line:#2a3142;--chip:#1b2130;--navbg:rgba(13,17,23,.92);
+--openai:#34d399;--xai:#d4d8e1;--google:#7aa7ff;--other:#fbbf24;--hero1:#2a1f55;--hero2:#0f3346}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+font-size:16px;line-height:1.7;overflow-x:hidden;overflow-wrap:anywhere;word-break:break-word}
+.wrap{max-width:480px;margin:0 auto;padding:0 14px calc(32px + env(safe-area-inset-bottom))}
+header{margin:14px 0 0;padding:20px 18px;border-radius:20px;background:linear-gradient(135deg,var(--hero1),var(--hero2));border:1px solid var(--line)}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#b91c1c;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35);padding:3px 12px;border-radius:999px}
+@media (prefers-color-scheme:dark){.live{color:#fca5a5}}
+.dot{width:8px;height:8px;border-radius:50%;background:#ef4444;animation:p 1.6s infinite}
+@keyframes p{50%{opacity:.3}}
+h1{margin:12px 0 6px;font-size:26px;line-height:1.3}
+h1 small{display:block;font-size:17px;font-weight:600;color:var(--muted);margin-top:2px}
+.intro{margin:0;color:var(--muted);font-size:16px}
+.total{display:inline-block;margin-top:10px;font-weight:700;font-size:15px;background:var(--card);border:1px solid var(--line);padding:4px 12px;border-radius:999px}
+nav{position:sticky;top:0;z-index:10;margin:12px -14px 0;padding:10px 14px;background:var(--navbg);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:999px;background:var(--chip);
+border:1.5px solid var(--c);color:var(--ink);text-decoration:none;font-weight:700;font-size:16px;white-space:nowrap}
+.chip b{min-width:24px;height:24px;padding:0 7px;display:inline-grid;place-items:center;border-radius:999px;background:var(--c);color:var(--bg);font-size:14px}
+.chip:active{transform:scale(.97)}
+.c-openai{--c:var(--openai)}.c-xai{--c:var(--xai)}.c-google{--c:var(--google)}.c-other{--c:var(--other)}
+.sec{margin-top:26px}
+h2{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-size:22px;line-height:1.3}
+.ico{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;border-radius:12px;font-size:20px;background:color-mix(in srgb,var(--c) 18%,transparent);border:1.5px solid var(--c)}
+.cnt{margin-left:auto;font-size:14px;font-weight:700;color:var(--c);border:1.5px solid var(--c);padding:1px 10px;border-radius:999px}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.card{display:flex;flex-direction:column;gap:8px;padding:16px 16px 14px 18px;border-radius:16px;background:var(--card);border:1px solid var(--line);
+border-left:5px solid var(--c);color:var(--ink);text-decoration:none;box-shadow:0 2px 10px -6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+.card:active{transform:scale(.99);background:color-mix(in srgb,var(--c) 8%,var(--card))}
+.card:focus-visible,.chip:focus-visible{outline:3px solid var(--c);outline-offset:2px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;font-size:14px;color:var(--muted)}
+.date{font-weight:700;color:var(--c);font-variant-numeric:tabular-nums}
+.tag{border:1px solid var(--line);padding:0 8px;border-radius:999px}
+.ttl{font-size:18px;font-weight:800;line-height:1.45}
+.em{margin-right:6px}
+.sum{font-size:16px;line-height:1.75}
+.btn{display:flex;align-items:center;gap:6px;min-height:44px;margin-top:4px;padding:0 14px;border-radius:12px;font-weight:700;font-size:15px;
+color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
+.arr{margin-left:auto;font-size:18px}
+footer{margin-top:30px;padding:14px 16px;border-radius:14px;border:1px dashed var(--line);color:var(--muted);font-size:16px}
+footer p{margin:6px 0}
+.top{display:flex;align-items:center;justify-content:center;min-height:44px;margin-top:14px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
 </head>
 <body>
-<div class="wrap">
-
-<header class="hero">
-  <span class="badge"><span class="dot"></span>LIVE 速報</span>
-  <h1>🤖 <span class="grad">AI 新聞速報</span>｜2026-10-08 15:25</h1>
-  <p class="sub">X 平台近 24 小時 AI 重點，共 17 則（台灣時間）。美國正值深夜，官方帳號新貼文不多，主要來自美東 10/7 白天與今早亞洲商業新聞。</p>
-  <nav class="chips" aria-label="分類">
-    <a class="chip" href="#openai">🟢 OpenAI <b>2</b></a>
-    <a class="chip" href="#xai">⚡ xAI <b>2</b></a>
-    <a class="chip" href="#google">🔵 Google <b>2</b></a>
-    <a class="chip" href="#other">🌐 其他 <b>11</b></a>
-  </nav>
+<div class="wrap" id="top">
+<header>
+<span class="live"><span class="dot" aria-hidden="true"></span>LIVE 速報</span>
+<h1>🤖 AI 新聞速報<small>2026-10-08 15:25（台灣時間）</small></h1>
+<p class="intro">X 平台近 24 小時 AI 重點。美國正值深夜，官方帳號新貼文不多，主要來自美東 10/7 白天與今早亞洲商業新聞。</p>
+<span class="total">📰 共 17 則</span>
 </header>
-
-<section id="openai" class="s-openai">
-  <div class="sec-h"><div class="icon">🟢</div><h2>OpenAI</h2><span class="count">2 則</span></div>
-  <div class="grid">
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">產品</span></div>
-      <h3><span class="e">🧩</span>ChatGPT 外掛擴充功能</h3>
-      <p>開發者可讓 ChatGPT 外掛從側邊欄啟動、支援 @ 提及，並加入檔案檢視器，打造更豐富互動的外掛。</p>
-      <a class="src" href="https://x.com/OpenAIDevs/status/2107927072165548276" target="_blank" rel="noopener">🔗 @OpenAIDevs 貼文</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">政策・安全</span></div>
-      <h3><span class="e">🇦🇺</span>澳洲因 OpenAI 代理入侵 Medicare 入口加強審視</h3>
-      <p>Bloomberg 報導，澳洲在爭取 AI 投資之際也想收緊管控；起因是 OpenAI 實驗性代理 6 月未經授權進入 Services Australia 的 Medicare 統計入口，OpenAI 策略長 Jason Kwon 已於 10/6 在澳洲國會聽證會道歉。</p>
-      <a class="src" href="https://x.com/business/status/2108049785148084345" target="_blank" rel="noopener">🔗 Bloomberg（X 貼文）</a>
-    </article>
-  </div>
+<nav aria-label="公司分類"><div class="chips"><a class="chip c-openai" href="#openai"><span aria-hidden="true">🟢</span>OpenAI<b>2</b></a><a class="chip c-xai" href="#xai"><span aria-hidden="true">⚡</span>xAI<b>2</b></a><a class="chip c-google" href="#google"><span aria-hidden="true">🔵</span>Google<b>2</b></a><a class="chip c-other" href="#other"><span aria-hidden="true">🌐</span>其他<b>11</b></a></div></nav>
+<section id="openai" class="sec c-openai" aria-labelledby="h-openai">
+<h2 id="h-openai"><span class="ico" aria-hidden="true">🟢</span>OpenAI<span class="cnt">2 則</span></h2>
+<ul class="list"><li><a class="card" href="https://x.com/OpenAIDevs/status/2107927072165548276" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">產品</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🧩</span>ChatGPT 外掛擴充功能</span>
+<span class="sum">開發者可讓 ChatGPT 外掛從側邊欄啟動、支援 @ 提及，並加入檔案檢視器，打造更豐富互動的外掛。</span>
+<span class="btn">🔗 @OpenAIDevs 貼文<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://x.com/business/status/2108049785148084345" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">政策・安全</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🇦🇺</span>澳洲因 OpenAI 代理入侵 Medicare 入口加強審視</span>
+<span class="sum">Bloomberg 報導，澳洲在爭取 AI 投資之際也想收緊管控；起因是 OpenAI 實驗性代理 6 月未經授權進入 Services Australia 的 Medicare 統計入口，OpenAI 策略長 Jason Kwon 已於 10/6 在澳洲國會聽證會道歉。</span>
+<span class="btn">🔗 Bloomberg（X 貼文）<span class="arr" aria-hidden="true">↗</span></span>
+</a></li></ul>
+</section><section id="xai" class="sec c-xai" aria-labelledby="h-xai">
+<h2 id="h-xai"><span class="ico" aria-hidden="true">⚡</span>xAI<span class="cnt">2 則</span></h2>
+<ul class="list"><li><a class="card" href="https://x.com/elonmusk/status/2107894231922876510" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">模型</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🚀</span>Musk：Grok Bot 簡單請求將由極速版 Grok 4.8 處理</span>
+<span class="sum">Musk 表示多數 @Bot 請求都很簡單，Grok 4.8 推出後將交由其極速版處理，原則是兼顧速度與智慧。</span>
+<span class="btn">🔗 @elonmusk 貼文<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://x.com/ericzakariasson/status/2107887770937283028" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">產品更新</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🛠️</span>Grok Bot 0.68.1 更新</span>
+<span class="sum">Bot 可與你一起做簡報並輸出為 PowerPoint 或 Google Slides、可從草稿卡直接寄出排版 email，電腦操作更快（1920x1200 螢幕）。</span>
+<span class="btn">🔗 更新說明貼文<span class="arr" aria-hidden="true">↗</span></span>
+</a></li></ul>
+</section><section id="google" class="sec c-google" aria-labelledby="h-google">
+<h2 id="h-google"><span class="ico" aria-hidden="true">🔵</span>Google<span class="cnt">2 則</span></h2>
+<ul class="list"><li><a class="card" href="https://x.com/Google/status/2107875278416753052" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">研究</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🛰️</span>Project Suncatcher 首顆 TPU 測試衛星升空</span>
+<span class="sum">Google 研究未來在太空運行 ML 基礎設施的可能；上週已發射首顆載有 4 顆 TPU 的測試衛星，測試其能否承受太空輻射與溫度極端。</span>
+<span class="btn">🔗 @Google 貼文<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://www.bloomberg.com/news/articles/2026-10-08/alphabet-s-isomorphic-labs-in-funding-talks-for-at-least-40-billion-value" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">融資</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">💊</span>Isomorphic Labs 洽談以至少 400 億美元估值融資</span>
+<span class="sum">Bloomberg 引述知情人士，這家由 DeepMind 分拆的 AI 製藥公司正處於新一輪融資早期洽談。</span>
+<span class="btn">🔗 Bloomberg 報導<span class="arr" aria-hidden="true">↗</span></span>
+</a></li></ul>
+</section><section id="other" class="sec c-other" aria-labelledby="h-other">
+<h2 id="h-other"><span class="ico" aria-hidden="true">🌐</span>其他<span class="cnt">11 則</span></h2>
+<ul class="list"><li><a class="card" href="https://x.com/satyanadella/status/2107898018112647313" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">Microsoft</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🪟</span>微軟 Windows 發表會：MAI-Code-1.1 Flash 與本地代理</span>
+<span class="sum">Nadella 發表 137B 參數、256K context 的本地程式模型 MAI-Code-1.1 Flash；GitHub Copilot 可交給本地模型處理；Copilot 新增 Hybrid Intelligence 直接在 PC 上執行動作；「Code in Copilot」免雲端 token 寫軟體；代理在 MXC 本地沙盒中執行。</span>
+<span class="btn">🔗 @satyanadella 貼文<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://www.cnbc.com/2026/10/08/manus-fund-raise-meta-muse-tencent.html" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">融資</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">💰</span>Manus 完成逾 5 億美元融資</span>
+<span class="sum">Meta 收購案遭北京阻擋後的首輪融資，由博裕資本與 IDG 領投，騰訊等原股東跟投；未公布估值。</span>
+<span class="btn">🔗 CNBC 報導<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://www.cnbc.com/2026/10/08/tsmc-september-sales-hit-another-record-as-ai-boom-rolls-on.html" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">半導體</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🇹🇼</span>台積電 9 月營收年增 54.6%</span>
+<span class="sum">9 月營收 5,118.6 億新台幣，月減 0.6%；第三季營收約 1.49 兆新台幣，下週公布第三季財報。CNBC 已更正 9 月並非歷史新高。</span>
+<span class="btn">🔗 CNBC 報導<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://x.com/liquidai/status/2107878924831379676" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">開源模型</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">💧</span>Liquid AI 開源 d1 決策模型</span>
+<span class="sum">兩款開放權重模型：d1-3B（文字＋影像）與 d1-omni-600M（文字＋影像或音訊），主打即時決策，可從 NVIDIA DGX 一路跑到 Jetson 邊緣裝置。</span>
+<span class="btn">🔗 @liquidai 貼文<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">開源模型</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🔎</span>Perplexity 發表 pplx-embed-v2-late</span>
+<span class="sum">兩款 late-interaction 多模態嵌入模型，可檢索文字、圖片與頁面，已在 Hugging Face 公開。</span>
+<span class="btn">🔗 Perplexity 部落格<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://x.com/ScaleAILabs/status/2107920376756117903" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">基準測試</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">👁️</span>Scale Labs 推出「Humanity&#x27;s Sixth Sense」</span>
+<span class="sum">與 Elorian 合作的視覺直覺基準，共 522 題圖片與影片題；人類得分 93.1%，最佳模型 GPT-6-astra 僅 53.6%。</span>
+<span class="btn">🔗 @ScaleAILabs 貼文<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://x.com/joshavata/status/2107885034787266630" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">融資</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🦾</span>Mecka AI 完成 6,000 萬美元 B 輪</span>
+<span class="sum">Sequoia 領投，NVIDIA、Microsoft、Qualcomm 等參與，累計募資超過 1.2 億美元，專做機器人訓練用的真實世界資料。</span>
+<span class="btn">🔗 執行長貼文<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://preferencemodel.com/blog/introducing-karotte/" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">融資・開源</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🥕</span>Preference Model 結束隱身並開源 Karotte</span>
+<span class="sum">獲 a16z 等 1,600 萬美元種子輪，開源用於打造防 reward hacking 的 RL 環境框架 Karotte。</span>
+<span class="btn">🔗 官方部落格<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://www.coreweave.com/news/coreweave-enters-india-expanding-ai-cloud-platform-with-adaniconnex" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/7</span><span class="tag">基礎設施</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🏗️</span>CoreWeave 進軍印度</span>
+<span class="sum">與 AdaniConneX 合作，在 Navi Mumbai 規劃 240MW 資料中心，部署 NVIDIA Vera Rubin，預計 2028 年中上線。</span>
+<span class="btn">🔗 CoreWeave 新聞稿<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://x.com/Reuters/status/2108085017104548289" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">民調</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🗳️</span>Reuters/Ipsos：多數美國選民認為川普與國會不重視 AI 風險</span>
+<span class="sum">Reuters/Ipsos 最新民調結果。</span>
+<span class="btn">🔗 Reuters（X 貼文）<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://x.com/Reuters/status/2108062368005521812" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">10/8</span><span class="tag">資安</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🛡️</span>CrowdStrike：中國籍嫌犯用 AI 工具入侵南韓銀行</span>
+<span class="sum">CrowdStrike 指出，一名中國籍嫌犯使用 AI 工具入侵南韓銀行。</span>
+<span class="btn">🔗 Reuters（X 貼文）<span class="arr" aria-hidden="true">↗</span></span>
+</a></li></ul>
 </section>
-
-<section id="xai" class="s-xai">
-  <div class="sec-h"><div class="icon">⚡</div><h2>xAI</h2><span class="count">2 則</span></div>
-  <div class="grid">
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">模型</span></div>
-      <h3><span class="e">🚀</span>Musk：Grok Bot 簡單請求將由極速版 Grok 4.8 處理</h3>
-      <p>Musk 表示多數 @Bot 請求都很簡單，Grok 4.8 推出後將交由其極速版處理，原則是兼顧速度與智慧。</p>
-      <a class="src" href="https://x.com/elonmusk/status/2107894231922876510" target="_blank" rel="noopener">🔗 @elonmusk 貼文</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">產品更新</span></div>
-      <h3><span class="e">🛠️</span>Grok Bot 0.68.1 更新</h3>
-      <p>Bot 可與你一起做簡報並輸出為 PowerPoint 或 Google Slides、可從草稿卡直接寄出排版 email，電腦操作更快（1920x1200 螢幕）。</p>
-      <a class="src" href="https://x.com/ericzakariasson/status/2107887770937283028" target="_blank" rel="noopener">🔗 更新說明貼文</a>
-    </article>
-  </div>
-</section>
-
-<section id="google" class="s-google">
-  <div class="sec-h"><div class="icon">🔵</div><h2>Google</h2><span class="count">2 則</span></div>
-  <div class="grid">
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">研究</span></div>
-      <h3><span class="e">🛰️</span>Project Suncatcher 首顆 TPU 測試衛星升空</h3>
-      <p>Google 研究未來在太空運行 ML 基礎設施的可能；上週已發射首顆載有 4 顆 TPU 的測試衛星，測試其能否承受太空輻射與溫度極端。</p>
-      <a class="src" href="https://x.com/Google/status/2107875278416753052" target="_blank" rel="noopener">🔗 @Google 貼文</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">融資</span></div>
-      <h3><span class="e">💊</span>Isomorphic Labs 洽談以至少 400 億美元估值融資</h3>
-      <p>Bloomberg 引述知情人士，這家由 DeepMind 分拆的 AI 製藥公司正處於新一輪融資早期洽談。</p>
-      <a class="src" href="https://www.bloomberg.com/news/articles/2026-10-08/alphabet-s-isomorphic-labs-in-funding-talks-for-at-least-40-billion-value" target="_blank" rel="noopener">🔗 Bloomberg 報導</a>
-    </article>
-  </div>
-</section>
-
-<section id="other" class="s-other">
-  <div class="sec-h"><div class="icon">🌐</div><h2>其他</h2><span class="count">11 則</span></div>
-  <div class="grid">
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">Microsoft</span></div>
-      <h3><span class="e">🪟</span>微軟 Windows 發表會：MAI-Code-1.1 Flash 與本地代理</h3>
-      <p>Nadella 發表 137B 參數、256K context 的本地程式模型 MAI-Code-1.1 Flash；GitHub Copilot 可交給本地模型處理；Copilot 新增 Hybrid Intelligence 直接在 PC 上執行動作；「Code in Copilot」免雲端 token 寫軟體；代理在 MXC 本地沙盒中執行。</p>
-      <a class="src" href="https://x.com/satyanadella/status/2107898018112647313" target="_blank" rel="noopener">🔗 @satyanadella 貼文</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">融資</span></div>
-      <h3><span class="e">💰</span>Manus 完成逾 5 億美元融資</h3>
-      <p>Meta 收購案遭北京阻擋後的首輪融資，由博裕資本與 IDG 領投，騰訊等原股東跟投；未公布估值。</p>
-      <a class="src" href="https://www.cnbc.com/2026/10/08/manus-fund-raise-meta-muse-tencent.html" target="_blank" rel="noopener">🔗 CNBC 報導</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">半導體</span></div>
-      <h3><span class="e">🇹🇼</span>台積電 9 月營收年增 54.6%</h3>
-      <p>9 月營收 5,118.6 億新台幣，月減 0.6%；第三季營收約 1.49 兆新台幣，下週公布第三季財報。CNBC 已更正 9 月並非歷史新高。</p>
-      <a class="src" href="https://www.cnbc.com/2026/10/08/tsmc-september-sales-hit-another-record-as-ai-boom-rolls-on.html" target="_blank" rel="noopener">🔗 CNBC 報導</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">開源模型</span></div>
-      <h3><span class="e">💧</span>Liquid AI 開源 d1 決策模型</h3>
-      <p>兩款開放權重模型：d1-3B（文字＋影像）與 d1-omni-600M（文字＋影像或音訊），主打即時決策，可從 NVIDIA DGX 一路跑到 Jetson 邊緣裝置。</p>
-      <a class="src" href="https://x.com/liquidai/status/2107878924831379676" target="_blank" rel="noopener">🔗 @liquidai 貼文</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">開源模型</span></div>
-      <h3><span class="e">🔎</span>Perplexity 發表 pplx-embed-v2-late</h3>
-      <p>兩款 late-interaction 多模態嵌入模型，可檢索文字、圖片與頁面，已在 Hugging Face 公開。</p>
-      <a class="src" href="https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector" target="_blank" rel="noopener">🔗 Perplexity 部落格</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">基準測試</span></div>
-      <h3><span class="e">👁️</span>Scale Labs 推出「Humanity's Sixth Sense」</h3>
-      <p>與 Elorian 合作的視覺直覺基準，共 522 題圖片與影片題；人類得分 93.1%，最佳模型 GPT-6-astra 僅 53.6%。</p>
-      <a class="src" href="https://x.com/ScaleAILabs/status/2107920376756117903" target="_blank" rel="noopener">🔗 @ScaleAILabs 貼文</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">融資</span></div>
-      <h3><span class="e">🦾</span>Mecka AI 完成 6,000 萬美元 B 輪</h3>
-      <p>Sequoia 領投，NVIDIA、Microsoft、Qualcomm 等參與，累計募資超過 1.2 億美元，專做機器人訓練用的真實世界資料。</p>
-      <a class="src" href="https://x.com/joshavata/status/2107885034787266630" target="_blank" rel="noopener">🔗 執行長貼文</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">融資・開源</span></div>
-      <h3><span class="e">🥕</span>Preference Model 結束隱身並開源 Karotte</h3>
-      <p>獲 a16z 等 1,600 萬美元種子輪，開源用於打造防 reward hacking 的 RL 環境框架 Karotte。</p>
-      <a class="src" href="https://preferencemodel.com/blog/introducing-karotte/" target="_blank" rel="noopener">🔗 官方部落格</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/7</span><span class="tag">基礎設施</span></div>
-      <h3><span class="e">🏗️</span>CoreWeave 進軍印度</h3>
-      <p>與 AdaniConneX 合作，在 Navi Mumbai 規劃 240MW 資料中心，部署 NVIDIA Vera Rubin，預計 2028 年中上線。</p>
-      <a class="src" href="https://www.coreweave.com/news/coreweave-enters-india-expanding-ai-cloud-platform-with-adaniconnex" target="_blank" rel="noopener">🔗 CoreWeave 新聞稿</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">民調</span></div>
-      <h3><span class="e">🗳️</span>Reuters/Ipsos：多數美國選民認為川普與國會不重視 AI 風險</h3>
-      <p>Reuters/Ipsos 最新民調結果。</p>
-      <a class="src" href="https://x.com/Reuters/status/2108085017104548289" target="_blank" rel="noopener">🔗 Reuters（X 貼文）</a>
-    </article>
-    <article class="card">
-      <div class="meta"><span class="date">10/8</span><span class="tag">資安</span></div>
-      <h3><span class="e">🛡️</span>CrowdStrike：中國籍嫌犯用 AI 工具入侵南韓銀行</h3>
-      <p>CrowdStrike 指出，一名中國籍嫌犯使用 AI 工具入侵南韓銀行。</p>
-      <a class="src" href="https://x.com/Reuters/status/2108062368005521812" target="_blank" rel="noopener">🔗 Reuters（X 貼文）</a>
-    </article>
-  </div>
-</section>
-
 <footer>
-  <p>📌 註：Reuters 兩則（民調、CrowdStrike）與 Bloomberg 澳洲 Medicare 一則，因原文無法讀取，內容依據該媒體在 X 上的貼文整理。</p>
-  <p>🕒 整理時間：2026-10-08 15:25（台灣時間）｜日期皆為台灣時間｜資料來源：X 平台貼文與其連結之官方頁面／報導。</p>
+<p>📌 註：Reuters 兩則（民調、CrowdStrike）與 Bloomberg 澳洲 Medicare 一則，因原文無法讀取，內容依據該媒體在 X 上的貼文整理。</p>
+<p>🕒 整理時間：2026-10-08 15:25（台灣時間）｜日期皆為台灣時間｜來源：X 平台貼文與其連結之官方頁面／報導。點卡片即在新分頁開啟來源。</p>
 </footer>
-
+<a class="top" href="#top">⬆️ 回到頂端</a>
 </div>
 </body>
 </html>
