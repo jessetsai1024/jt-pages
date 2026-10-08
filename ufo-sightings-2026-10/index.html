@@ -12,108 +12,113 @@
 :root{--bg:#0b1026;--bg2:#121a3a;--card:#161f45;--line:#2a3566;--fg:#e9edfb;--mut:#aab3d6;--acc:#7cc4ff;--acc2:#ffd27a}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;font-size:17px;line-height:1.75;overflow-wrap:anywhere;word-break:normal}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;font-size:19px;line-height:1.75;overflow-wrap:anywhere;word-break:normal}
 img,svg{max-width:100%}
 a{color:var(--acc)}
 .wrap{max-width:860px;margin:0 auto;padding:0 16px}
-.b-explained{background:#2fae66}.v-explained{color:#2fae66}.b-plausible{background:#e0a526}.v-plausible{color:#e0a526}.b-unexplained{background:#e05252}.v-unexplained{color:#e05252}.b-insufficient{background:#8d96a3}.v-insufficient{color:#8d96a3}.b-recycled{background:#9b6bd6}.v-recycled{color:#9b6bd6}
+.b-explained{background:#3ddc84}.v-explained{color:#3ddc84}.b-plausible{background:#ffc53d}.v-plausible{color:#ffc53d}.b-unexplained{background:#ff5a5f}.v-unexplained{color:#ff5a5f}.b-insufficient{background:#b8c2d3}.v-insufficient{color:#b8c2d3}.b-recycled{background:#c08cff}.v-recycled{color:#c08cff}
 /* hero */
 .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#050817 0%,#0d1640 60%,#1b2a63 100%)}
 .hero svg.sky{display:block;width:100%;height:auto}@media(min-width:700px){.hero svg.sky{height:clamp(220px,28vw,300px)}}
 .hero-txt{padding:4px 16px 26px;max-width:860px;margin:0 auto}
-.kicker{display:inline-block;font-size:14px;letter-spacing:.08em;color:var(--acc2);border:1px solid #5a4a20;border-radius:999px;padding:2px 12px;margin-bottom:8px}
-h1{font-size:clamp(1.6rem,6.2vw,2.6rem);line-height:1.3;margin:.1em 0 .35em;font-weight:800}
+.kicker{display:inline-block;font-size:16px;letter-spacing:.08em;color:var(--acc2);border:1px solid #5a4a20;border-radius:999px;padding:2px 12px;margin-bottom:8px}
+h1{font-size:clamp(30px,8vw,48px);line-height:1.3;margin:.1em 0 .35em;font-weight:800}
 .lead{color:var(--mut);margin:0}.nw{white-space:nowrap}
 .lead b{color:var(--fg)}
 /* nav */
 nav.chips{position:sticky;top:0;z-index:1000;background:rgba(11,16,38,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav.chips .row{display:flex;gap:8px;overflow-x:auto;padding:8px 12px;scrollbar-width:none;max-width:860px;margin:0 auto}
 nav.chips .row::-webkit-scrollbar{display:none}
-nav.chips a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--fg);text-decoration:none;font-size:15px;white-space:nowrap}
+nav.chips a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--fg);text-decoration:none;font-size:17px;white-space:nowrap}
 nav.chips a.act{background:var(--acc);color:#06122a;border-color:var(--acc);font-weight:700}
 section{padding:28px 0 8px;scroll-margin-top:64px}
-h2{font-size:clamp(1.3rem,4.8vw,1.75rem);margin:0 0 12px;line-height:1.35}
-h2 small{display:block;font-size:14px;color:var(--mut);font-weight:400}
+h2{font-size:clamp(26px,7vw,32px);margin:0 0 12px;line-height:1.35}
+h2 small{display:block;font-size:17px;margin-top:2px;color:var(--mut);font-weight:400}
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:10px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 10px;text-align:center;position:relative;overflow:hidden}
 .stat:before{content:"";position:absolute;left:0;top:0;right:0;height:4px}
-.s-explained:before{background:#2fae66}.s-plausible:before{background:#e0a526}.s-unexplained:before{background:#e05252}.s-insufficient:before{background:#8d96a3}.s-recycled:before{background:#9b6bd6}
-.stat b{display:block;font-size:30px;line-height:1.2}
-.stat span{font-size:14px;color:var(--mut)}
+.s-explained:before{background:#3ddc84}.s-plausible:before{background:#ffc53d}.s-unexplained:before{background:#ff5a5f}.s-insufficient:before{background:#b8c2d3}.s-recycled:before{background:#c08cff}
+.stat b{display:block;font-size:36px;line-height:1.2}
+.stat span{font-size:17px;color:var(--mut)}
 .bar{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:14px 0 6px;border:1px solid var(--line)}
 .bar .seg{display:block;height:100%}
-.note{font-size:15px;color:var(--mut)}
+.note{font-size:17px;color:var(--mut)}
 .callout{background:linear-gradient(135deg,#1a2554,#1a1f3f);border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:12px;padding:12px 14px;margin:14px 0 0}
 .callout p{margin:.2em 0}
 /* map */
-#map{height:min(62vh,440px);min-height:300px;border-radius:14px;border:1px solid var(--line);background:#0e1533;z-index:1}
-.legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:10px 0 0;font-size:15px;color:var(--mut)}
+#map{height:min(60vh,440px);min-height:340px;border-radius:14px;border:1px solid var(--line);background:#aad3df;z-index:1}
+.regions{display:flex;gap:8px;overflow-x:auto;padding:0 0 10px;scrollbar-width:none}.regions::-webkit-scrollbar{display:none}.rg{flex:0 0 auto;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--fg);font:inherit;font-size:17px;cursor:pointer;white-space:nowrap}.rg.on{background:var(--acc);color:#06122a;border-color:var(--acc);font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:12px 0 0;font-size:17px;color:var(--mut)}
 .lg{display:inline-flex;align-items:center;gap:6px}
-.dot{display:inline-block;width:12px;height:12px;border-radius:50%;flex:0 0 12px;box-shadow:0 0 0 2px rgba(255,255,255,.18)}
-.leaflet-popup-content{font-size:15px;line-height:1.6;margin:12px 14px}
+.dot{display:inline-block;width:16px;height:16px;border-radius:50%;flex:0 0 16px;box-shadow:0 0 0 2px rgba(255,255,255,.18)}
+.leaflet-container{font-size:16px}.leaflet-popup-content{font-size:17px;line-height:1.6;margin:14px 16px}.leaflet-popup-content .pt{font-size:19px;font-weight:800;display:block;margin-bottom:4px}.leaflet-container .leaflet-control-attribution{font-size:15px;line-height:1.5}.leaflet-control-zoom a{width:44px!important;height:44px!important;line-height:44px!important;font-size:24px!important}
 .leaflet-popup-content a{display:inline-block;padding:8px 0;min-height:44px;line-height:28px}
 .map-fallback{padding:24px;color:var(--mut)}
 /* timeline */
 ol.tl{list-style:none;margin:0;padding:0 0 0 6px;border-left:2px dashed var(--line)}
 ol.tl li{position:relative;padding:0 0 14px 18px}
 ol.tl li:before{content:"";position:absolute;left:-8px;top:10px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
-.tl-date{font-weight:800;font-size:18px;color:var(--acc2)}
-.tl-date em{font-style:normal;font-size:13px;color:var(--mut);font-weight:400}
+.tl-date{font-weight:800;font-size:21px;color:var(--acc2)}
+.tl-date em{font-style:normal;font-size:16px;color:var(--mut);font-weight:400}
 .tl-list{display:flex;flex-direction:column;gap:6px;margin-top:4px}
 .tl-item{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;color:var(--fg);text-decoration:none}
 .tl-t{flex:1 1 auto;min-width:0}
-.tl-v{flex:0 0 auto;font-size:13px;font-weight:700}
+.tl-v{flex:0 0 auto;font-size:16px;font-weight:700}
 /* filters + cards */
 .filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
-.chip-f{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--fg);font:inherit;font-size:15px;cursor:pointer;white-space:nowrap}
+.chip-f{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--fg);font:inherit;font-size:17px;cursor:pointer;white-space:nowrap}
 .chip-f.on{background:#e9edfb;color:#0b1026;font-weight:700}
 .cards{display:flex;flex-direction:column;gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 14px 16px;scroll-margin-top:70px}
 .card[hidden]{display:none}
 .card-top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:8px}
-.num{font-weight:800;color:var(--c);font-size:15px;letter-spacing:.05em}
-.badge{display:inline-block;color:#0b1026;font-weight:800;font-size:14px;padding:3px 12px;border-radius:999px}
-.b-insufficient.badge,.b-unexplained.badge,.b-recycled.badge{color:#fff}
-.card h3{font-size:clamp(1.1rem,4.4vw,1.3rem);line-height:1.45;margin:10px 0 6px}
-.meta{margin:0 0 6px;font-size:15px}
+.num{font-weight:800;color:var(--c);font-size:18px;letter-spacing:.05em}
+.badge{display:inline-block;color:#0b1026;font-weight:800;font-size:16px;padding:4px 14px;border-radius:999px}
+
+.card h3{font-size:clamp(22px,6vw,26px);line-height:1.4;margin:10px 0 6px}
+.meta{margin:0 0 6px;font-size:17px}
 .meta div{display:flex;gap:8px;padding:2px 0}
 .meta dt{flex:0 0 auto;color:var(--mut)}
 .meta dd{margin:0;min-width:0}
-.unc{display:inline-block;font-size:12px;border:1px dashed var(--acc2);color:var(--acc2);border-radius:6px;padding:0 6px;margin-left:4px}
+.unc{display:inline-block;font-size:15px;border:1px dashed var(--acc2);color:var(--acc2);border-radius:6px;padding:0 6px;margin-left:4px}
 .sum{margin:8px 0}
-.why{border-radius:10px;padding:10px 12px;margin:10px 0;background:#0f173a;border-left:4px solid #8d96a3}
-.why p{margin:.2em 0 0;font-size:16px}
+.why{border-radius:10px;padding:10px 12px;margin:10px 0;background:#0f173a;border-left:4px solid #b8c2d3}
+.why p{margin:.2em 0 0;font-size:inherit}
 .why .k{font-weight:800}
-.why-explained{border-color:#2fae66}.why-explained .k{color:#58d18d}
-.why-plausible{border-color:#e0a526}.why-plausible .k{color:#f0c35a}
-.why-unexplained{border-color:#e05252}.why-unexplained .k{color:#ff8a8a}
+.why-explained{border-color:#3ddc84}.why-explained .k{color:#58d18d}
+.why-plausible{border-color:#ffc53d}.why-plausible .k{color:#f0c35a}
+.why-unexplained{border-color:#ff5a5f}.why-unexplained .k{color:#ff8a8a}
 .why-insufficient .k{color:#c3cad6}
-.why-recycled{border-color:#9b6bd6}.why-recycled .k{color:#c3a2f2}
-.news .k{font-size:14px;color:var(--mut);margin-top:6px}
+.why-recycled{border-color:#c08cff}.why-recycled .k{color:#c3a2f2}
+.news .k{font-size:17px;color:var(--mut);margin-top:6px}
 .news ul{margin:4px 0 8px;padding-left:1.2em}
 .news li{padding:5px 0}
 .news a{display:inline;line-height:1.9}
 .btns{display:grid;grid-template-columns:1fr;gap:8px;margin-top:8px}
 @media(min-width:560px){.btns{grid-template-columns:1fr 1fr}}
 .btn{display:flex;flex-direction:column;justify-content:center;min-height:52px;padding:8px 14px;border-radius:12px;background:linear-gradient(135deg,#2b6fd6,#3b8cf0);color:#fff;text-decoration:none;box-shadow:0 2px 0 rgba(0,0,0,.25)}
-.btn-main{font-weight:800;font-size:16px}
+.btn-main{font-weight:800;font-size:18px}
 .btn-main:before{content:"𝕏 ";}
-.btn-sub{font-size:13px;opacity:.92}
+.btn-sub{font-size:16px;opacity:.92}
 .btn:active{transform:translateY(1px)}
 /* explainers */
 .exps{display:flex;flex-direction:column;gap:12px}
 .exp{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
 .exp-ic{flex:0 0 44px;height:44px;border-radius:12px;background:#0f173a;display:flex;align-items:center;justify-content:center;font-size:24px}
-.exp h3{margin:0 0 2px;font-size:18px}
+.exp h3{margin:0 0 2px;font-size:22px;line-height:1.4}
 .exp p{margin:.2em 0}
-.exp .src{font-size:14px;color:var(--mut)}
+.exp .src{font-size:17px;color:var(--mut)}
 .exp .src a{display:inline-block;padding:6px 0}
 .method li{margin:.3em 0}
-footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);color:var(--mut);font-size:15px}
+footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);color:var(--mut);font-size:17px}
 .totop{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);color:var(--fg);text-decoration:none;margin-top:10px}
-@media(min-width:900px){body{font-size:18px}}
+@media(min-width:900px){body{font-size:20px}.card h3{font-size:27px}.meta,.note,.legend,.stat span,.exp .src,footer,.news .k,h2 small{font-size:18px}}
+.sky text{display:none}@media(min-width:700px){.sky text{display:inline}}
+.mk{background:none;border:0}.mk b{position:absolute;left:7px;top:7px;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 16px/1 -apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#0b1026;border:3px solid #fff;box-shadow:0 0 0 2px rgba(11,16,38,.9),0 0 12px 3px var(--g),0 2px 6px rgba(0,0,0,.6)}
+#map img.leaflet-tile{mix-blend-mode:plus-lighter}.mk:focus{outline:none}.mk:focus b{outline:3px solid #fff;outline-offset:3px}
+
 @media (prefers-reduced-motion:no-preference){.tw{animation:tw 3s ease-in-out infinite}.tw2{animation:tw 4.2s ease-in-out infinite .8s}@keyframes tw{0%,100%{opacity:1}50%{opacity:.35}}.ufo{animation:hov 6s ease-in-out infinite}@keyframes hov{0%,100%{transform:translate(0,0)}50%{transform:translate(0,-6px)}}}
 </style>
 </head>
@@ -131,14 +136,14 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   </g>
   <circle cx="690" cy="62" r="26" fill="url(#moon)"/>
   <circle cx="680" cy="56" r="4" fill="#f2d98c" opacity=".6"/><circle cx="698" cy="72" r="3" fill="#f2d98c" opacity=".5"/>
-  <circle cx="742" cy="78" r="2.4" fill="#ffb27a"/><text x="748" y="94" fill="#ffcf9e" font-size="10" font-family="sans-serif">軒轅十四</text>
+  <circle cx="742" cy="78" r="2.4" fill="#ffb27a"/><text x="710" y="114" fill="#ffcf9e" font-size="20" font-family="sans-serif">軒轅十四</text>
   <g fill="#e8f4ff"><circle cx="70" cy="120" r="2"/><circle cx="96" cy="113" r="2"/><circle cx="122" cy="106" r="2"/><circle cx="148" cy="99" r="2"/><circle cx="174" cy="92" r="2"/><circle cx="200" cy="85" r="2"/><circle cx="226" cy="78" r="2"/><circle cx="252" cy="71" r="2"/><circle cx="278" cy="64" r="2"/></g>
-  <text x="70" y="140" fill="#9fc6ff" font-size="11" font-family="sans-serif">星鍊衛星列車</text>
+  <text x="60" y="146" fill="#9fc6ff" font-size="20" font-family="sans-serif">星鍊衛星列車</text>
   <path d="M470 250 C468 200 474 170 480 140" stroke="#ffd9a0" stroke-width="2" fill="none" opacity=".8"/>
   <ellipse cx="482" cy="118" rx="70" ry="44" fill="url(#jelly)"/>
   <path d="M430 128 q12 30 0 60 M455 136 q8 26 -2 52 M510 136 q-6 26 4 52 M535 128 q-10 30 2 60" stroke="#9fdcff" stroke-width="1.4" fill="none" opacity=".55"/>
-  <text x="446" y="80" fill="#bfe8ff" font-size="11" font-family="sans-serif">火箭「太空水母」</text>
-  <g class="ufo"><polygon points="330,150 300,262 360,262" fill="url(#beam)"/><ellipse cx="330" cy="150" rx="30" ry="8" fill="#7cc4ff"/><path d="M314 148 a16 13 0 0 1 32 0z" fill="#d6ecff"/><circle cx="318" cy="152" r="2" fill="#ffd27a"/><circle cx="330" cy="154" r="2" fill="#ffd27a"/><circle cx="342" cy="152" r="2" fill="#ffd27a"/><text x="300" y="132" fill="#cfe6ff" font-size="11" font-family="sans-serif">？？？</text></g>
+  <text x="420" y="66" fill="#bfe8ff" font-size="20" font-family="sans-serif">火箭「太空水母」</text>
+  <g class="ufo"><polygon points="330,150 300,262 360,262" fill="url(#beam)"/><ellipse cx="330" cy="150" rx="30" ry="8" fill="#7cc4ff"/><path d="M314 148 a16 13 0 0 1 32 0z" fill="#d6ecff"/><circle cx="318" cy="152" r="2" fill="#ffd27a"/><circle cx="330" cy="154" r="2" fill="#ffd27a"/><circle cx="342" cy="152" r="2" fill="#ffd27a"/><text x="306" y="130" fill="#cfe6ff" font-size="20" font-family="sans-serif">？？？</text></g>
   <path d="M-900 252 Q-600 236 -300 256 T0 262 Q120 236 240 254 T480 250 T800 246 Q1000 236 1200 252 T1700 248 V300 H-900Z" fill="url(#hill)"/><g fill="#fff"><circle class="tw" cx="-60" cy="50" r="1.4"/><circle cx="-160" cy="120" r="1"/><circle class="tw2" cx="-260" cy="30" r="1.3"/><circle cx="-380" cy="90" r="1"/><circle cx="860" cy="40" r="1.3"/><circle class="tw" cx="950" cy="110" r="1"/><circle cx="1060" cy="26" r="1.4"/><circle class="tw2" cx="1180" cy="80" r="1"/></g>
   <g fill="#0b1026"><circle cx="612" cy="226" r="8"/><path d="M604 236 h16 l4 28 h-24z"/><path d="M618 240 l18 -16 l3 3 l-17 18z"/><rect x="634" y="216" width="9" height="14" rx="2" fill="#2a3566"/><rect x="636" y="218" width="5" height="9" fill="#7cc4ff"/></g>
 </svg>
@@ -163,10 +168,11 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
 </section>
 
 <section id="map-sec">
-  <h2>目擊地圖<small>點擊標記看事件；顏色＝可信度</small></h2>
+  <h2>目擊地圖<small>點擊標記看事件；數字＝事件卡編號，顏色＝可信度</small></h2>
+  <div class="regions" role="toolbar" aria-label="地圖區域"><button class="rg on" data-r="all" aria-pressed="true">全球</button><button class="rg" data-r="am" aria-pressed="false">美洲</button><button class="rg" data-r="eu" aria-pressed="false">歐洲・中東・非洲</button><button class="rg" data-r="ap" aria-pressed="false">亞洲・澳洲</button></div>
   <div id="map" role="region" aria-label="事件地點地圖"><div class="map-fallback">地圖載入中…若無法顯示，請直接往下看事件列表。</div></div>
   <div class="legend"><span class="lg"><i class="dot b-explained"></i>已解釋</span><span class="lg"><i class="dot b-plausible"></i>可能解釋</span><span class="lg"><i class="dot b-unexplained"></i>尚未解釋</span><span class="lg"><i class="dot b-insufficient"></i>證據不足</span><span class="lg"><i class="dot b-recycled"></i>舊片重傳</span></div>
-  <p class="note">部分地點僅為示意（例如「中東三國」標在巴林）。</p>
+  <p class="note">部分地點僅為示意（例如「中東三國」標在巴林）。標記太擠時會稍微錯開，虛線連到實際位置的小白點。</p>
 </section>
 
 <section id="timeline">
@@ -179,7 +185,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="filters" role="toolbar" aria-label="依可信度篩選"><button class="chip-f on" data-f="all" aria-pressed="true">全部 20</button><button class="chip-f" data-f="explained" aria-pressed="false"><i class="dot b-explained"></i>已解釋 6</button><button class="chip-f" data-f="plausible" aria-pressed="false"><i class="dot b-plausible"></i>可能解釋 4</button><button class="chip-f" data-f="unexplained" aria-pressed="false"><i class="dot b-unexplained"></i>尚未解釋 2</button><button class="chip-f" data-f="insufficient" aria-pressed="false"><i class="dot b-insufficient"></i>證據不足 6</button><button class="chip-f" data-f="recycled" aria-pressed="false"><i class="dot b-recycled"></i>舊片重傳 2</button></div>
   <div class="cards">
 <article class="card" id="ev-tehran" data-v="unexplained">
-  <div class="card-top" style="--c:#e05252">
+  <div class="card-top" style="--c:#ff5a5f">
     <span class="num">#01</span><span class="badge b-unexplained">尚未解釋</span>
   </div>
   <h3>德黑蘭夜空的彩色弧形光團</h3>
@@ -193,7 +199,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/UniverseNow00/status/2103314145043255772" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@UniverseNow00 · 2026-09-25 10:42</span></a><a class="btn" href="https://x.com/Japejournal/status/2104088651907170448" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Japejournal · 2026-09-27 14:00</span></a><a class="btn" href="https://x.com/AliiiiiSeda/status/2104465985054871833" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@AliiiiiSeda · 2026-09-28 14:59</span></a><a class="btn" href="https://x.com/TheDefiantGhost/status/2107219527734043059" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@TheDefiantGhost · 2026-10-06 05:21</span></a></div>
 </article>
 <article class="card" id="ev-dujiangyan" data-v="unexplained">
-  <div class="card-top" style="--c:#e05252">
+  <div class="card-top" style="--c:#ff5a5f">
     <span class="num">#02</span><span class="badge b-unexplained">尚未解釋</span>
   </div>
   <h3>都江堰上空「半透明飛艇」長時間懸停</h3>
@@ -207,7 +213,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/dajiyuan/status/2102910895596634170" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@dajiyuan · 2026-09-24 08:00</span></a><a class="btn" href="https://x.com/Renminbao1/status/2103146187830210808" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Renminbao1 · 2026-09-24 23:35</span></a><a class="btn" href="https://x.com/zmx8067/status/2104383088939987150" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@zmx8067 · 2026-09-28 09:30</span></a></div>
 </article>
 <article class="card" id="ev-cody" data-v="plausible">
-  <div class="card-top" style="--c:#e0a526">
+  <div class="card-top" style="--c:#ffc53d">
     <span class="num">#03</span><span class="badge b-plausible">可能解釋</span>
   </div>
   <h3>科迪山脊上「回來了」的發光球體</h3>
@@ -221,7 +227,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/ParanormalWH/status/2103969540472275410" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@ParanormalWH · 2026-09-27 06:06</span></a><a class="btn" href="https://x.com/TheBlurryReport/status/2106004183811785115" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@TheBlurryReport · 2026-10-02 20:51</span></a></div>
 </article>
 <article class="card" id="ev-alabama" data-v="plausible">
-  <div class="card-top" style="--c:#e0a526">
+  <div class="card-top" style="--c:#ffc53d">
     <span class="num">#04</span><span class="badge b-plausible">可能解釋</span>
   </div>
   <h3>阿拉巴馬上空的「燃燒物體」</h3>
@@ -235,7 +241,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/spann/status/2104244585648009414" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@spann · 2026-09-28 00:19</span></a></div>
 </article>
 <article class="card" id="ev-ohio" data-v="plausible">
-  <div class="card-top" style="--c:#e0a526">
+  <div class="card-top" style="--c:#ffc53d">
     <span class="num">#05</span><span class="badge b-plausible">可能解釋</span>
   </div>
   <h3>俄亥俄「會停在空中的火球」</h3>
@@ -249,7 +255,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/digijordan/status/2104085204470317401" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@digijordan · 2026-09-27 13:46</span></a></div>
 </article>
 <article class="card" id="ev-riposto" data-v="insufficient">
-  <div class="card-top" style="--c:#8d96a3">
+  <div class="card-top" style="--c:#b8c2d3">
     <span class="num">#06</span><span class="badge b-insufficient">證據不足</span>
   </div>
   <h3>西西里海邊「高速飛行後急停」的物體</h3>
@@ -263,7 +269,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/TLTufologo/status/2104999434358571222" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@TLTufologo · 2026-09-30 02:19</span></a></div>
 </article>
 <article class="card" id="ev-starship" data-v="explained">
-  <div class="card-top" style="--c:#2fae66">
+  <div class="card-top" style="--c:#3ddc84">
     <span class="num">#07</span><span class="badge b-explained">已解釋</span>
   </div>
   <h3>星艦直播中的「母艦」藍色光條</h3>
@@ -277,7 +283,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/theinformant_x/status/2104948272221565123" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@theinformant_x · 2026-09-29 22:55</span></a><a class="btn" href="https://x.com/CGhostie/status/2104559186688221343" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@CGhostie · 2026-09-28 21:09</span></a><a class="btn" href="https://x.com/PoliticPrepper/status/2105497517232185719" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@PoliticPrepper · 2026-10-01 11:18</span></a></div>
 </article>
 <article class="card" id="ev-starlink" data-v="explained">
-  <div class="card-top" style="--c:#2fae66">
+  <div class="card-top" style="--c:#3ddc84">
     <span class="num">#08</span><span class="badge b-explained">已解釋</span>
   </div>
   <h3>一串等距光點劃過夜空：星鍊衛星列車</h3>
@@ -291,7 +297,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/Stellarixorine/status/2105243488812146774" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Stellarixorine · 2026-09-30 18:28</span></a><a class="btn" href="https://x.com/iRahulsingh_IND/status/2106097392814883192" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@iRahulsingh_IND · 2026-10-03 03:02</span></a></div>
 </article>
 <article class="card" id="ev-haywood" data-v="insufficient">
-  <div class="card-top" style="--c:#8d96a3">
+  <div class="card-top" style="--c:#b8c2d3">
     <span class="num">#09</span><span class="badge b-insufficient">證據不足</span>
   </div>
   <h3>西田納西忽隱忽現的低空光點</h3>
@@ -305,7 +311,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/PoliticPrepper/status/2106607345430085966" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@PoliticPrepper · 2026-10-04 12:48</span></a></div>
 </article>
 <article class="card" id="ev-orlando" data-v="explained">
-  <div class="card-top" style="--c:#2fae66">
+  <div class="card-top" style="--c:#3ddc84">
     <span class="num">#10</span><span class="badge b-explained">已解釋</span>
   </div>
   <h3>奧蘭多夜空「張開翅膀的火團」</h3>
@@ -319,7 +325,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/maniaUFO/status/2105902803684126956" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@maniaUFO · 2026-10-02 14:08</span></a><a class="btn" href="https://x.com/CINNALA4sru/status/2105871395506811194" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@CINNALA4sru · 2026-10-02 12:04</span></a><a class="btn" href="https://x.com/carollockemd/status/2106012926079304079" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@carollockemd · 2026-10-02 21:26</span></a></div>
 </article>
 <article class="card" id="ev-longbeach" data-v="recycled">
-  <div class="card-top" style="--c:#9b6bd6">
+  <div class="card-top" style="--c:#c08cff">
     <span class="num">#11</span><span class="badge b-recycled">舊片重傳</span>
   </div>
   <h3>長灘「巨大白色光球艦隊」——2017 年舊片</h3>
@@ -333,7 +339,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/UAPLuigi/status/2106148984209486252" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@UAPLuigi · 2026-10-03 06:27</span></a><a class="btn" href="https://x.com/mario1973p/status/2107583620223582439" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@mario1973p · 2026-10-07 05:27</span></a></div>
 </article>
 <article class="card" id="ev-maizuru" data-v="plausible">
-  <div class="card-top" style="--c:#e0a526">
+  <div class="card-top" style="--c:#ffc53d">
     <span class="num">#12</span><span class="badge b-plausible">可能解釋</span>
   </div>
   <h3>舞鶴東北方「七色變換」的神秘光點</h3>
@@ -347,7 +353,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/Maja_Watanabe/status/2106047706699641008" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Maja_Watanabe · 2026-10-02 23:44</span></a></div>
 </article>
 <article class="card" id="ev-mideast" data-v="insufficient">
-  <div class="card-top" style="--c:#8d96a3">
+  <div class="card-top" style="--c:#b8c2d3">
     <span class="num">#13</span><span class="badge b-insufficient">證據不足</span>
   </div>
   <h3>中東三國接連出現的「不明物體」</h3>
@@ -361,7 +367,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/RyanRozbiani/status/2106410091167863015" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@RyanRozbiani · 2026-10-03 23:44</span></a><a class="btn" href="https://x.com/RyanRozbiani/status/2107160789610020973" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@RyanRozbiani · 2026-10-06 01:27</span></a></div>
 </article>
 <article class="card" id="ev-chilca" data-v="insufficient">
-  <div class="card-top" style="--c:#8d96a3">
+  <div class="card-top" style="--c:#b8c2d3">
     <span class="num">#14</span><span class="badge b-insufficient">證據不足</span>
   </div>
   <h3>「秘魯 UFO 之都」奇爾卡的多角度光點群</h3>
@@ -375,7 +381,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/Montecristo17xy/status/2106622942985548009" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Montecristo17xy · 2026-10-04 13:50</span></a><a class="btn" href="https://x.com/Filtrandomiste1/status/2105332243027956163" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Filtrandomiste1 · 2026-10-01 00:21</span></a></div>
 </article>
 <article class="card" id="ev-mandurah" data-v="insufficient">
-  <div class="card-top" style="--c:#8d96a3">
+  <div class="card-top" style="--c:#b8c2d3">
     <span class="num">#15</span><span class="badge b-insufficient">證據不足</span>
   </div>
   <h3>曼杜拉夜空四顆旋轉、脈動的光球</h3>
@@ -389,7 +395,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/cryptoratss/status/2106526486597685493" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@cryptoratss · 2026-10-04 07:27</span></a><a class="btn" href="https://x.com/cryptoratss/status/2106533882518790379" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@cryptoratss · 2026-10-04 07:56</span></a></div>
 </article>
 <article class="card" id="ev-njny" data-v="explained">
-  <div class="card-top" style="--c:#2fae66">
+  <div class="card-top" style="--c:#3ddc84">
     <span class="num">#16</span><span class="badge b-explained">已解釋</span>
   </div>
   <h3>紐澤西、紐約上空旋轉的神祕光點</h3>
@@ -403,7 +409,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/VintageNJ1/status/2106851997051932773" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@VintageNJ1 · 2026-10-05 05:00</span></a><a class="btn" href="https://x.com/PMorris185/status/2107214449161519145" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@PMorris185 · 2026-10-06 05:00</span></a></div>
 </article>
 <article class="card" id="ev-tripoli" data-v="explained">
-  <div class="card-top" style="--c:#2fae66">
+  <div class="card-top" style="--c:#3ddc84">
     <span class="num">#17</span><span class="badge b-explained">已解釋</span>
   </div>
   <h3>的黎波里夜空一道強光與爆炸聲</h3>
@@ -417,7 +423,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/nexta_tv/status/2107067079006240976" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@nexta_tv · 2026-10-05 19:15</span></a><a class="btn" href="https://x.com/Rana009/status/2106938850207769057" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Rana009 · 2026-10-05 10:45</span></a><a class="btn" href="https://x.com/Moktarkareem55/status/2107042152752546132" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Moktarkareem55 · 2026-10-05 17:36</span></a></div>
 </article>
 <article class="card" id="ev-tayninh" data-v="recycled">
-  <div class="card-top" style="--c:#9b6bd6">
+  <div class="card-top" style="--c:#c08cff">
     <span class="num">#18</span><span class="badge b-recycled">舊片重傳</span>
   </div>
   <h3>越南兩個黑色懸浮物——2024 年舊片</h3>
@@ -431,7 +437,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/Dreamrideguard/status/2107225103482122427" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@Dreamrideguard · 2026-10-06 05:43</span></a></div>
 </article>
 <article class="card" id="ev-boulder" data-v="insufficient">
-  <div class="card-top" style="--c:#8d96a3">
+  <div class="card-top" style="--c:#b8c2d3">
     <span class="num">#19</span><span class="badge b-insufficient">證據不足</span>
   </div>
   <h3>波德上空八顆紅色光球排成直線緩降</h3>
@@ -445,7 +451,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
   <div class="btns"><a class="btn" href="https://x.com/gmovestr/status/2107719699454980133" target="_blank" rel="noopener"><span class="btn-main">看原始貼文</span><span class="btn-sub">@gmovestr · 2026-10-07 14:28</span></a></div>
 </article>
 <article class="card" id="ev-giza" data-v="explained">
-  <div class="card-top" style="--c:#2fae66">
+  <div class="card-top" style="--c:#3ddc84">
     <span class="num">#20</span><span class="badge b-explained">已解釋</span>
   </div>
   <h3>「10 月 7 日預言」：吉薩黎明前的紅色亮星</h3>
@@ -486,7 +492,7 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 (function(){
-  var DATA = [{"id": "tehran", "t": "德黑蘭夜空的彩色弧形光團", "v": "unexplained", "c": "#e05252", "l": "尚未解釋", "d": "9/20", "p": "伊朗 德黑蘭（Azadegan 快速道路附近，另有馬什哈德）", "pts": [[35.69, 51.39]]}, {"id": "dujiangyan", "t": "都江堰上空「半透明飛艇」長時間懸停", "v": "unexplained", "c": "#e05252", "l": "尚未解釋", "d": "9/23", "p": "中國 四川 成都都江堰市", "pts": [[31.0, 103.62]]}, {"id": "cody", "t": "科迪山脊上「回來了」的發光球體", "v": "plausible", "c": "#e0a526", "l": "可能解釋", "d": "9/25", "p": "美國 懷俄明州 科迪（Cody），望向 Cedar Mountain", "pts": [[44.53, -109.06]]}, {"id": "alabama", "t": "阿拉巴馬上空的「燃燒物體」", "v": "plausible", "c": "#e0a526", "l": "可能解釋", "d": "9/26", "p": "美國 阿拉巴馬州 卡爾曼（Cullman）、哈茨爾（Hartselle）", "pts": [[34.17, -86.84]]}, {"id": "ohio", "t": "俄亥俄「會停在空中的火球」", "v": "plausible", "c": "#e0a526", "l": "可能解釋", "d": "9/26", "p": "美國 俄亥俄州 辛辛那提至邁阿密斯堡一帶", "pts": [[39.13, -84.51]]}, {"id": "riposto", "t": "西西里海邊「高速飛行後急停」的物體", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "9/28", "p": "義大利 西西里島 里波斯托（Riposto）", "pts": [[37.73, 15.21]]}, {"id": "starship", "t": "星艦直播中的「母艦」藍色光條", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "9/28", "p": "SpaceX Starship 第 14 次試飛直播畫面（自美國德州 Starbase 發射）", "pts": [[25.997, -97.157]]}, {"id": "starlink", "t": "一串等距光點劃過夜空：星鍊衛星列車", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "9/29", "p": "澳洲 昆士蘭 麥凱；印度 西孟加拉邦 西里古里", "pts": [[-21.14, 149.19], [26.73, 88.4]]}, {"id": "haywood", "t": "西田納西忽隱忽現的低空光點", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "9/30", "p": "美國 田納西州 海伍德郡（布朗斯維爾以北，望向霍爾斯）", "pts": [[35.59, -89.26]]}, {"id": "orlando", "t": "奧蘭多夜空「張開翅膀的火團」", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "10/1", "p": "美國 佛羅里達州 奧蘭多／中佛州", "pts": [[28.54, -81.38]]}, {"id": "longbeach", "t": "長灘「巨大白色光球艦隊」——2017 年舊片", "v": "recycled", "c": "#9b6bd6", "l": "舊片重傳", "d": "10/2", "p": "美國 加州 長灘", "pts": [[33.77, -118.19]]}, {"id": "maizuru", "t": "舞鶴東北方「七色變換」的神秘光點", "v": "plausible", "c": "#e0a526", "l": "可能解釋", "d": "10/2", "p": "日本 京都府 舞鶴市（東北方天空）", "pts": [[35.47, 135.39]]}, {"id": "mideast", "t": "中東三國接連出現的「不明物體」", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "10/2", "p": "伊拉克、巴林、約旦（確切城市未註明）", "pts": [[26.07, 50.55]]}, {"id": "chilca", "t": "「秘魯 UFO 之都」奇爾卡的多角度光點群", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "10/3", "p": "秘魯 利馬南方 奇爾卡（Chilca）；利馬亦有光球報告", "pts": [[-12.52, -76.74]]}, {"id": "mandurah", "t": "曼杜拉夜空四顆旋轉、脈動的光球", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "10/3", "p": "澳洲 西澳 曼杜拉（北曼杜拉）", "pts": [[-32.53, 115.72]]}, {"id": "njny", "t": "紐澤西、紐約上空旋轉的神祕光點", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "10/3", "p": "美國 紐澤西州／紐約市（史坦頓島等地可見）", "pts": [[40.813, -74.074]]}, {"id": "tripoli", "t": "的黎波里夜空一道強光與爆炸聲", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "10/4", "p": "利比亞 的黎波里與西部地區", "pts": [[32.89, 13.19]]}, {"id": "tayninh", "t": "越南兩個黑色懸浮物——2024 年舊片", "v": "recycled", "c": "#9b6bd6", "l": "舊片重傳", "d": "10/5", "p": "越南 西寧省（Tây Ninh）", "pts": [[11.31, 106.1]]}, {"id": "boulder", "t": "波德上空八顆紅色光球排成直線緩降", "v": "insufficient", "c": "#8d96a3", "l": "證據不足", "d": "10/6", "p": "美國 科羅拉多州 波德（Boulder）", "pts": [[40.015, -105.27]]}, {"id": "giza", "t": "「10 月 7 日預言」：吉薩黎明前的紅色亮星", "v": "explained", "c": "#2fae66", "l": "已解釋", "d": "10/7", "p": "埃及 吉薩（人面獅身像一帶）", "pts": [[29.975, 31.137]]}];
+  var DATA = [{"n": 1, "id": "tehran", "t": "德黑蘭夜空的彩色弧形光團", "v": "unexplained", "c": "#ff5a5f", "l": "尚未解釋", "d": "9/20", "p": "伊朗 德黑蘭（Azadegan 快速道路附近，另有馬什哈德）", "pts": [[35.69, 51.39]]}, {"n": 2, "id": "dujiangyan", "t": "都江堰上空「半透明飛艇」長時間懸停", "v": "unexplained", "c": "#ff5a5f", "l": "尚未解釋", "d": "9/23", "p": "中國 四川 成都都江堰市", "pts": [[31.0, 103.62]]}, {"n": 3, "id": "cody", "t": "科迪山脊上「回來了」的發光球體", "v": "plausible", "c": "#ffc53d", "l": "可能解釋", "d": "9/25", "p": "美國 懷俄明州 科迪（Cody），望向 Cedar Mountain", "pts": [[44.53, -109.06]]}, {"n": 4, "id": "alabama", "t": "阿拉巴馬上空的「燃燒物體」", "v": "plausible", "c": "#ffc53d", "l": "可能解釋", "d": "9/26", "p": "美國 阿拉巴馬州 卡爾曼（Cullman）、哈茨爾（Hartselle）", "pts": [[34.17, -86.84]]}, {"n": 5, "id": "ohio", "t": "俄亥俄「會停在空中的火球」", "v": "plausible", "c": "#ffc53d", "l": "可能解釋", "d": "9/26", "p": "美國 俄亥俄州 辛辛那提至邁阿密斯堡一帶", "pts": [[39.13, -84.51]]}, {"n": 6, "id": "riposto", "t": "西西里海邊「高速飛行後急停」的物體", "v": "insufficient", "c": "#b8c2d3", "l": "證據不足", "d": "9/28", "p": "義大利 西西里島 里波斯托（Riposto）", "pts": [[37.73, 15.21]]}, {"n": 7, "id": "starship", "t": "星艦直播中的「母艦」藍色光條", "v": "explained", "c": "#3ddc84", "l": "已解釋", "d": "9/28", "p": "SpaceX Starship 第 14 次試飛直播畫面（自美國德州 Starbase 發射）", "pts": [[25.997, -97.157]]}, {"n": 8, "id": "starlink", "t": "一串等距光點劃過夜空：星鍊衛星列車", "v": "explained", "c": "#3ddc84", "l": "已解釋", "d": "9/29", "p": "澳洲 昆士蘭 麥凱；印度 西孟加拉邦 西里古里", "pts": [[-21.14, 149.19], [26.73, 88.4]]}, {"n": 9, "id": "haywood", "t": "西田納西忽隱忽現的低空光點", "v": "insufficient", "c": "#b8c2d3", "l": "證據不足", "d": "9/30", "p": "美國 田納西州 海伍德郡（布朗斯維爾以北，望向霍爾斯）", "pts": [[35.59, -89.26]]}, {"n": 10, "id": "orlando", "t": "奧蘭多夜空「張開翅膀的火團」", "v": "explained", "c": "#3ddc84", "l": "已解釋", "d": "10/1", "p": "美國 佛羅里達州 奧蘭多／中佛州", "pts": [[28.54, -81.38]]}, {"n": 11, "id": "longbeach", "t": "長灘「巨大白色光球艦隊」——2017 年舊片", "v": "recycled", "c": "#c08cff", "l": "舊片重傳", "d": "10/2", "p": "美國 加州 長灘", "pts": [[33.77, -118.19]]}, {"n": 12, "id": "maizuru", "t": "舞鶴東北方「七色變換」的神秘光點", "v": "plausible", "c": "#ffc53d", "l": "可能解釋", "d": "10/2", "p": "日本 京都府 舞鶴市（東北方天空）", "pts": [[35.47, 135.39]]}, {"n": 13, "id": "mideast", "t": "中東三國接連出現的「不明物體」", "v": "insufficient", "c": "#b8c2d3", "l": "證據不足", "d": "10/2", "p": "伊拉克、巴林、約旦（確切城市未註明）", "pts": [[26.07, 50.55]]}, {"n": 14, "id": "chilca", "t": "「秘魯 UFO 之都」奇爾卡的多角度光點群", "v": "insufficient", "c": "#b8c2d3", "l": "證據不足", "d": "10/3", "p": "秘魯 利馬南方 奇爾卡（Chilca）；利馬亦有光球報告", "pts": [[-12.52, -76.74]]}, {"n": 15, "id": "mandurah", "t": "曼杜拉夜空四顆旋轉、脈動的光球", "v": "insufficient", "c": "#b8c2d3", "l": "證據不足", "d": "10/3", "p": "澳洲 西澳 曼杜拉（北曼杜拉）", "pts": [[-32.53, 115.72]]}, {"n": 16, "id": "njny", "t": "紐澤西、紐約上空旋轉的神祕光點", "v": "explained", "c": "#3ddc84", "l": "已解釋", "d": "10/3", "p": "美國 紐澤西州／紐約市（史坦頓島等地可見）", "pts": [[40.813, -74.074]]}, {"n": 17, "id": "tripoli", "t": "的黎波里夜空一道強光與爆炸聲", "v": "explained", "c": "#3ddc84", "l": "已解釋", "d": "10/4", "p": "利比亞 的黎波里與西部地區", "pts": [[32.89, 13.19]]}, {"n": 18, "id": "tayninh", "t": "越南兩個黑色懸浮物——2024 年舊片", "v": "recycled", "c": "#c08cff", "l": "舊片重傳", "d": "10/5", "p": "越南 西寧省（Tây Ninh）", "pts": [[11.31, 106.1]]}, {"n": 19, "id": "boulder", "t": "波德上空八顆紅色光球排成直線緩降", "v": "insufficient", "c": "#b8c2d3", "l": "證據不足", "d": "10/6", "p": "美國 科羅拉多州 波德（Boulder）", "pts": [[40.015, -105.27]]}, {"n": 20, "id": "giza", "t": "「10 月 7 日預言」：吉薩黎明前的紅色亮星", "v": "explained", "c": "#3ddc84", "l": "已解釋", "d": "10/7", "p": "埃及 吉薩（人面獅身像一帶）", "pts": [[29.975, 31.137]]}];
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
   // map
   function initMap(){
@@ -494,22 +500,59 @@ footer{margin-top:28px;padding:22px 0 40px;border-top:1px solid var(--line);colo
     if(!window.L){el.innerHTML='<div class="map-fallback">地圖元件無法載入（可能是網路限制），請直接往下看時間軸與事件卡。</div>';return;}
     el.innerHTML='';
     var touch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
-    var map=L.map(el,{worldCopyJump:true,scrollWheelZoom:false,dragging:!touch,tap:false,zoomSnap:0.5});
+    var map=L.map(el,{worldCopyJump:true,scrollWheelZoom:false,dragging:!touch,tap:false,zoomSnap:0.25,zoomDelta:1});
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:12,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-    var group=[];
+    var group=[], marks=[];
     DATA.forEach(function(e){
       e.pts.forEach(function(p){
-        var m=L.circleMarker(p,{radius:9,color:'#ffffff',weight:2,fillColor:e.c,fillOpacity:.95});
-        m.bindPopup('<b>'+esc(e.t)+'</b><br>'+esc(e.d)+'・'+esc(e.p)+'<br><span style="color:'+e.c+';font-weight:700">● '+esc(e.l)+'</span><br><a href="#ev-'+e.id+'">看事件卡 →</a>');
-        m.addTo(map); group.push(p);
+        var ic=L.divIcon({className:'mk',html:'<b style="background:'+e.c+';--g:'+e.c+'">'+e.n+'</b>',iconSize:[44,44],iconAnchor:[22,22],popupAnchor:[0,-16]});
+        var m=L.marker(p,{icon:ic,title:'#'+e.n+' '+e.t+'（'+e.l+'）',keyboard:true,riseOnHover:true});
+        m.bindPopup('<span class="pt">#'+String(e.n).padStart(2,'0')+' '+esc(e.t)+'</span>📅 '+esc(e.d)+'<br>📍 '+esc(e.p)+'<br><span style="display:inline-block;margin-top:4px;padding:2px 10px;border-radius:999px;background:'+e.c+';color:#0b1026;font-weight:800">'+esc(e.l)+'</span><br><a href="#ev-'+e.id+'" style="font-weight:700">看事件卡 #'+String(e.n).padStart(2,'0')+' →</a>',{maxWidth:280,minWidth:200,autoPanPaddingTopLeft:L.point(60,12),autoPanPaddingBottomRight:L.point(12,40)});
+        m.addTo(map); m._home=L.latLng(p); marks.push(m); group.push(p);
       });
     });
-    map.fitBounds(group,{padding:[18,18]});
-    if(map.getZoom()>2) map.setZoom(Math.max(1,map.getZoom()));
-    window.__markerCount=group.length;
+    map.fitBounds(group,{padding:[16,16]});
+    // declutter: nudge overlapping markers apart (min 42px between centres) and draw a leader line to the true spot
+    var guides=L.layerGroup().addTo(map);
+    function declutter(){
+      guides.clearLayers();
+      var MIN=42, home=marks.map(function(m){return map.latLngToLayerPoint(m._home);}), pos=home.map(function(p){return L.point(p.x,p.y);});
+      for(var it=0;it<300;it++){
+        var moved=false;
+        for(var i=0;i<pos.length;i++)for(var j=i+1;j<pos.length;j++){
+          var dx=pos[j].x-pos[i].x, dy=pos[j].y-pos[i].y, d=Math.sqrt(dx*dx+dy*dy);
+          if(d<MIN){ if(d<0.01){var an=(i*2.4+j);dx=Math.cos(an);dy=Math.sin(an);d=1;} var s=(MIN-d)/2/d; pos[i].x-=dx*s;pos[i].y-=dy*s;pos[j].x+=dx*s;pos[j].y+=dy*s;moved=true;}
+        }
+        for(var k=0;k<pos.length;k++){pos[k].x+=(home[k].x-pos[k].x)*0.03;pos[k].y+=(home[k].y-pos[k].y)*0.03;}
+        if(!moved&&it>5)break;
+      }
+      marks.forEach(function(m,k){
+        var ll=map.layerPointToLatLng(pos[k]); m.setLatLng(ll);
+        if(pos[k].distanceTo(home[k])>14){
+          L.polyline([m._home,ll],{color:'#ffffff',weight:2,opacity:.85,dashArray:'3 4',interactive:false}).addTo(guides);
+          L.circleMarker(m._home,{radius:4,color:'#0b1026',weight:2,fillColor:'#ffffff',fillOpacity:1,interactive:false}).addTo(guides);
+        }
+      });
+    }
+    // region quick-zoom chips (computed from event coordinates)
+    var regions={all:group,am:[],eu:[],ap:[]};
+    group.forEach(function(p){(p[1]<-30?regions.am:p[1]<70?regions.eu:regions.ap).push(p);});
+    document.querySelectorAll('.rg').forEach(function(btn){btn.addEventListener('click',function(){
+      var r=regions[btn.getAttribute('data-r')]; if(!r||!r.length)return;
+      document.querySelectorAll('.rg').forEach(function(x){x.classList.toggle('on',x===btn);x.setAttribute('aria-pressed',x===btn?'true':'false');});
+      map.closePopup(); map.fitBounds(r,{padding:[36,36],maxZoom:6});
+    });});
+    declutter(); map.on('zoomend',declutter);
+    // make sure nudged markers stay inside the visible map (a few refits at most)
+    function keepInView(pts,n){
+      if(n>3)return; var view=map.getPixelBounds(), pad=26, out=marks.some(function(m){var p=map.project(m.getLatLng());return p.x<view.min.x+pad||p.x>view.max.x-pad||p.y<view.min.y+pad||p.y>view.max.y-pad;});
+      if(!out)return; map.setZoom(map.getZoom()-0.25,{animate:false}); keepInView(pts,n+1);
+    }
+    var b0=L.latLngBounds(marks.map(function(m){return m.getLatLng();})); map.fitBounds(b0,{padding:[30,30],animate:false}); keepInView(null,0);
+    window.__markerCount=marks.length;
     if(touch){
-      var hint=L.control({position:'bottomleft'});
-      hint.onAdd=function(){var d=L.DomUtil.create('div');d.style.cssText='background:rgba(11,16,38,.85);color:#e9edfb;font-size:13px;padding:4px 8px;border-radius:8px';d.textContent='雙指縮放，點標記看詳情';return d;};
+      var hint=L.control({position:'topright'});
+      hint.onAdd=function(){var d=L.DomUtil.create('div');d.style.cssText='background:rgba(11,16,38,.85);color:#e9edfb;font-size:15px;padding:4px 10px;border-radius:8px';d.textContent='雙指縮放，點標記看詳情';return d;};
       hint.addTo(map);
     }
     map.on('popupopen',function(ev){var a=ev.popup.getElement().querySelector('a[href^="#ev-"]');if(a){a.addEventListener('click',function(){map.closePopup();});}});
