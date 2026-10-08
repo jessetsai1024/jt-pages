@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4f46e5">
+<title>Grok Bot 使用說明書｜圖解版</title>
+<meta name="description" content="Grok Bot 圖解使用說明書：Bot 團隊、Bot 的電腦、連接服務、例行公事、記憶與技能、安全與授權、實用範例指令與常見問題。">
+<style>
+:root{--bg:#f6f6fb;--ink:#1e293b;--muted:#5b6475;--card:#fff;--line:#e4e7ee;--brand:#4f46e5;--brand-soft:#eef2ff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:"Noto Sans TC","Noto Sans CJK TC","PingFang TC","Heiti TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.75;color:var(--ink);background:var(--bg);overflow-wrap:anywhere;overflow-x:hidden}
+svg{display:block;max-width:100%;height:auto}
+svg text{font-family:inherit}
+a{color:var(--brand)}
+p{margin:.5em 0 .9em}
+ul,ol{padding-left:1.3em;margin:.4em 0 1em}
+li{margin:.3em 0}
+strong{color:#0f172a}
+.hero{background:radial-gradient(120% 90% at 10% 0%,#e0e7ff 0%,#f5f3ff 45%,#fdf2f8 100%);padding:28px 18px 18px}
+.hero-inner{max-width:860px;margin:0 auto}
+.eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.06em;color:#4338ca;background:#fff;border-radius:999px;padding:4px 12px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+h1{font-size:clamp(2rem,8.2vw,3.1rem);line-height:1.22;margin:.45em 0 .3em;letter-spacing:.01em}
+h1 .accent{background:linear-gradient(90deg,#4f46e5,#db2777);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.05rem;color:#334155;margin:0 0 12px}
+.meta{font-size:14px;color:var(--muted)}
+.hero-art{margin:14px auto 0;max-width:520px}
+nav.chips{position:sticky;top:0;z-index:20;display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:8px 12px;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+nav.chips::-webkit-scrollbar{display:none}
+nav.chips a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;background:var(--brand-soft);color:#3730a3;text-decoration:none;font-size:15px;font-weight:700;overflow-wrap:normal}
+nav.chips a:active,nav.chips a:focus-visible{background:#c7d2fe}
+main{max-width:860px;margin:0 auto;padding:0 16px 48px}
+section{padding-top:34px}
+h2{display:flex;align-items:center;gap:12px;font-size:clamp(1.35rem,5.2vw,1.9rem);line-height:1.3;margin:0 0 12px}
+h2 .ico{flex:0 0 auto;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--c,#4f46e5);color:#fff;box-shadow:0 4px 12px -4px var(--c,#4f46e5)}
+h2 .ico svg{width:24px;height:24px}
+h3{font-size:1.12rem;line-height:1.4;margin:1.1em 0 .4em}
+.card{background:var(--card);border-radius:18px;padding:16px 18px;margin:14px 0;border:1px solid var(--line);box-shadow:0 1px 2px rgba(15,23,42,.04)}
+figure{margin:16px 0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 12px 10px}
+figure svg{margin:0 auto;width:100%;max-width:540px}
+figcaption{font-size:14px;line-height:1.6;color:var(--muted);text-align:center;margin-top:8px}
+.tag-illus{display:inline-block;font-size:12px;font-weight:700;color:#9a3412;background:#ffedd5;border-radius:6px;padding:0 6px;margin-right:4px}
+.callout{display:flex;gap:12px;align-items:flex-start;border-radius:14px;padding:14px 16px;margin:14px 0;border-left:5px solid}
+.callout>svg{flex:0 0 26px;width:26px;height:26px;margin-top:2px}
+.callout>div{min-width:0}
+.callout p{margin:.2em 0}
+.callout .t{font-weight:800;display:block;margin-bottom:2px}
+.tip{background:#ecfdf5;border-color:#10b981;color:#064e3b}.tip>svg{color:#059669}
+.note{background:#eff6ff;border-color:#3b82f6;color:#1e3a8a}.note>svg{color:#2563eb}
+.warn{background:#fffbeb;border-color:#f59e0b;color:#78350f}.warn>svg{color:#d97706}
+.steps{list-style:none;padding:0;margin:12px 0;counter-reset:s}
+.steps li{position:relative;padding:12px 14px 12px 60px;background:#fff;border:1px solid var(--line);border-radius:16px;margin:10px 0;counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;left:14px;top:12px;width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;display:grid;place-items:center;font-size:16px}
+.legend{list-style:none;padding:0;margin:10px 0 0}
+.legend li{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+.legend .n{flex:0 0 28px;height:28px;border-radius:50%;background:#f43f5e;color:#fff;font-weight:800;font-size:15px;display:grid;place-items:center;margin-top:2px}
+.legend li>span:last-child{min-width:0}
+.grid{display:grid;gap:12px}
+.grid>.card{margin:0}
+.bot{display:flex;gap:14px;align-items:flex-start}
+.bot svg.av{flex:0 0 56px;width:56px;height:56px}
+.bot>div{min-width:0}
+.bot h3{margin:0 0 4px}
+.bot p{margin:0 0 6px}
+.chip{display:inline-block;font-size:13px;font-weight:700;padding:1px 10px;border-radius:999px;background:#f1f5f9;color:#334155;margin:2px 4px 2px 0}
+.ui{font-weight:700;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:6px;padding:0 6px;color:#0f172a}
+kbd{font-family:inherit;font-size:.9em;background:#fff;border:1px solid #cbd5e1;border-bottom-width:3px;border-radius:7px;padding:0 6px;white-space:nowrap}
+.timeline{list-style:none;padding:0;margin:12px 0 12px 10px;border-left:3px solid #c7d2fe}
+.timeline li{position:relative;padding:4px 0 12px 22px}
+.timeline li::before{content:"";position:absolute;left:-9px;top:10px;width:15px;height:15px;border-radius:50%;background:var(--d,#6366f1);border:3px solid #fff;box-shadow:0 0 0 2px var(--d,#6366f1)}
+.timeline .time{font-weight:800;color:#3730a3}
+.tree{list-style:none;padding:0;margin:8px 0}
+.tree>li{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:10px 0}
+.tree>li>b{display:flex;align-items:center;gap:8px;font-size:1.05rem}
+.tree ul{margin:.4em 0 0;padding-left:1.2em}
+.badge{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:0 6px;margin-left:4px;background:#fee2e2;color:#991b1b}
+.badge.soft{background:#e0f2fe;color:#075985}
+.prompts h3{display:flex;align-items:center;gap:8px}
+.prompt{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 8px 8px 14px;margin:8px 0}
+.prompt q{quotes:"「" "」";min-width:0;font-weight:600}
+.copy{flex:0 0 auto;min-height:44px;min-width:64px;border-radius:12px;border:1px solid #c7d2fe;background:var(--brand-soft);color:#3730a3;font:inherit;font-size:15px;font-weight:700;cursor:pointer;padding:0 12px}
+.copy:active{background:#c7d2fe}
+.copy.ok{background:#d1fae5;border-color:#6ee7b7;color:#065f46}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;margin:10px 0}
+summary{min-height:48px;padding:12px 16px;cursor:pointer;font-weight:800;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";flex:0 0 auto;color:var(--brand);font-size:20px;line-height:1}
+details[open] summary::after{content:"－"}
+details>div{padding:0 16px 12px}
+footer{max-width:860px;margin:0 auto;padding:20px 16px 48px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+.top{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;background:#fff;border:1px solid var(--line);text-decoration:none;font-weight:700;margin-top:8px}
+@media (min-width:720px){
+  body{font-size:18px}
+  .grid.two{grid-template-columns:1fr 1fr}
+  .hero{padding:44px 24px 24px}
+  .hero-inner{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:center}
+  .hero-art{margin:0}
+  nav.chips{justify-content:center;flex-wrap:wrap;white-space:normal}
+  main{padding:0 24px 56px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="bot" viewBox="0 0 64 64">
+      <line x1="32" y1="6" x2="32" y2="15" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="32" cy="6" r="4" fill="currentColor"/>
+      <rect x="3" y="29" width="6" height="12" rx="3" fill="currentColor"/>
+      <rect x="55" y="29" width="6" height="12" rx="3" fill="currentColor"/>
+      <rect x="8" y="14" width="48" height="42" rx="15" fill="currentColor"/>
+      <rect x="15" y="23" width="34" height="23" rx="10" fill="#fff"/>
+      <circle cx="25" cy="33" r="3.6" fill="#1e293b"/>
+      <circle cx="39" cy="33" r="3.6" fill="#1e293b"/>
+      <path d="M26 39.5q6 5 12 0" stroke="#1e293b" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+    <symbol id="i-slide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19h10a4.5 4.5 0 0 0 .6-8.96A6 6 0 0 0 6.1 11.6 3.8 3.8 0 0 0 7 19z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol>
+    <symbol id="i-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-term" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12 15h5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.3 3 14.7 0 18M12 3c-3 3.3-3 14.7 0 18"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></symbol>
+    <symbol id="i-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1 1-1.1 1.8"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h12l-2.5 4L17 12H5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.6A5 5 0 0 1 21.5 19"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18h.01"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></symbol>
+    <symbol id="i-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6366f1"/></marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker>
+  </defs>
+</svg>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">圖解使用說明書</span>
+      <h1><span class="accent">Grok Bot</span><br>使用說明書</h1>
+      <p class="lead">一份給 Jesse 的手機友善導覽：認識你的 Bot 團隊、它們的電腦、連接服務、例行公事，以及怎麼開口請它們幫忙。</p>
+      <p class="meta">更新：2026 年 10 月 8 日（台北時間）・約 8 分鐘讀完</p>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 360 210" role="img" aria-labelledby="hero-t">
+        <title id="hero-t">插圖：四個 Bot 圍繞在聊天氣泡旁</title>
+        <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eef2ff"/></linearGradient></defs>
+        <rect x="6" y="6" width="348" height="198" rx="26" fill="url(#hg)" stroke="#c7d2fe"/>
+        <rect x="104" y="26" width="152" height="58" rx="20" fill="#4f46e5"/>
+        <path d="M168 84l12 14 6-14z" fill="#4f46e5"/>
+        <text x="180" y="52" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">嗨 Jesse！</text>
+        <text x="180" y="72" text-anchor="middle" font-size="13" fill="#e0e7ff">今天想做什麼？</text>
+        <use href="#bot" x="22" y="110" width="64" height="64" style="color:#f97316"/>
+        <use href="#bot" x="104" y="110" width="64" height="64" style="color:#3b82f6"/>
+        <use href="#bot" x="192" y="110" width="64" height="64" style="color:#8b5cf6"/>
+        <use href="#bot" x="274" y="110" width="64" height="64" style="color:#10b981"/>
+        <g font-size="12" font-weight="700" fill="#334155" text-anchor="middle">
+          <text x="54" y="192">網頁小工坊</text><text x="136" y="192">郵件小幫手</text><text x="224" y="192">AI 新聞</text><text x="306" y="192">毛毛</text>
+        </g>
+        <g fill="#fbbf24"><circle cx="40" cy="40" r="4"/><circle cx="320" cy="34" r="5"/><circle cx="300" cy="78" r="3"/><circle cx="62" cy="80" r="3"/></g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<nav class="chips" aria-label="章節導覽">
+  <a href="#what">什麼是 Grok Bot</a>
+  <a href="#start">快速開始</a>
+  <a href="#team">Bot 團隊</a>
+  <a href="#computer">Bot 的電腦</a>
+  <a href="#connectors">連接服務</a>
+  <a href="#routines">例行公事</a>
+  <a href="#memory">記憶與技能</a>
+  <a href="#safety">安全與授權</a>
+  <a href="#settings">介面與設定</a>
+  <a href="#prompts">範例指令</a>
+  <a href="#faq">常見問題</a>
+</nav>
+
+<main>
+<section id="what">
+  <h2><span class="ico" style="--c:#4f46e5"><svg><use href="#i-chat"/></svg></span>什麼是 Grok Bot</h2>
+  <p>Grok Bot 是一個讓你擁有<strong>一整隊 AI 助理</strong>的 app。你可以建立好幾個 bot，每一個都有自己的對話、名字與個性，還有自己的記憶。它們會列在側邊欄，你點進去就能像傳訊息一樣交代事情。</p>
+  <p>和一般聊天機器人不同的是：每個 bot 都有<strong>自己的電腦</strong>可以寫程式、做檔案、上網查資料；也能透過<strong>連接服務</strong>（例如 Gmail、Google 日曆）替你處理事情；還能照<strong>排程自動工作</strong>，你不在的時候也一樣。</p>
+  <figure>
+    <svg viewBox="0 0 340 330" role="img" aria-labelledby="ov-t">
+      <title id="ov-t">架構圖：你 → Bot 團隊 → Bot 的電腦與連接服務</title>
+      <circle cx="170" cy="34" r="25" fill="#fde68a"/>
+      <use href="#i-person" x="156" y="20" width="28" height="28" style="color:#92400e"/>
+      <text x="170" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">你（Jesse）</text>
+      <g stroke="#a5b4fc" stroke-width="2" fill="none">
+        <path d="M150 80 L56 98" marker-end="url(#arr)"/><path d="M162 82 L134 98" marker-end="url(#arr)"/>
+        <path d="M178 82 L206 98" marker-end="url(#arr)"/><path d="M190 80 L284 98" marker-end="url(#arr)"/>
+      </g>
+      <use href="#bot" x="28" y="100" width="44" height="44" style="color:#f97316"/>
+      <use href="#bot" x="108" y="100" width="44" height="44" style="color:#3b82f6"/>
+      <use href="#bot" x="188" y="100" width="44" height="44" style="color:#8b5cf6"/>
+      <use href="#bot" x="268" y="100" width="44" height="44" style="color:#10b981"/>
+      <g font-size="11.5" font-weight="700" fill="#334155" text-anchor="middle">
+        <text x="50" y="160">網頁小工坊</text><text x="130" y="160">郵件小幫手</text><text x="210" y="160">AI 新聞</text><text x="290" y="160">毛毛</text>
+      </g>
+      <g stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="4 4" fill="none">
+        <path d="M76 124 H104" marker-start="url(#arr-g)" marker-end="url(#arr-g)"/>
+        <path d="M156 124 H184" marker-start="url(#arr-g)" marker-end="url(#arr-g)"/>
+        <path d="M236 124 H264" marker-start="url(#arr-g)" marker-end="url(#arr-g)"/>
+      </g>
+      <text x="170" y="182" text-anchor="middle" font-size="11.5" fill="#64748b">Bot 之間可以互傳訊息、交接工作</text>
+      <g stroke="#cbd5e1" stroke-width="2" fill="none"><path d="M88 188 V198"/><path d="M252 188 V198"/></g>
+      <rect x="12" y="200" width="152" height="118" rx="16" fill="#ecfeff" stroke="#06b6d4"/>
+      <text x="88" y="224" text-anchor="middle" font-size="14" font-weight="800" fill="#155e75">Bot 的電腦</text>
+      <g style="color:#0891b2">
+        <use href="#i-term" x="26" y="238" width="26" height="26"/><use href="#i-globe" x="75" y="238" width="26" height="26"/><use href="#i-doc" x="124" y="238" width="26" height="26"/>
+      </g>
+      <g font-size="11" fill="#155e75" text-anchor="middle"><text x="39" y="282">執行程式</text><text x="88" y="282">瀏覽網頁</text><text x="137" y="282">製作檔案</text></g>
+      <text x="88" y="304" text-anchor="middle" font-size="10.5" fill="#0e7490">你也能在旁觀看、協助</text>
+      <rect x="176" y="200" width="152" height="118" rx="16" fill="#f5f3ff" stroke="#8b5cf6"/>
+      <text x="252" y="224" text-anchor="middle" font-size="14" font-weight="800" fill="#5b21b6">連接服務</text>
+      <g font-size="11" font-weight="700" fill="#5b21b6" text-anchor="middle">
+        <rect x="186" y="236" width="64" height="24" rx="12" fill="#ede9fe"/><text x="218" y="252">Gmail</text>
+        <rect x="256" y="236" width="62" height="24" rx="12" fill="#ede9fe"/><text x="287" y="252">日曆</text>
+        <rect x="186" y="264" width="64" height="24" rx="12" fill="#ede9fe"/><text x="218" y="280">雲端硬碟</text>
+        <rect x="256" y="264" width="62" height="24" rx="12" fill="#ede9fe"/><text x="287" y="280">GitHub</text>
+      </g>
+      <text x="252" y="306" text-anchor="middle" font-size="10.5" fill="#6d28d9">⋯ 還有更多</text>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>你交代任務 → bot 用自己的電腦與連接服務完成</figcaption>
+  </figure>
+  <div class="callout tip"><svg><use href="#i-bulb"/></svg><div><span class="t">一句話記住</span><p>把每個 bot 想成一位<strong>有自己電腦的專職助理</strong>：用說話的方式交代，它做完會回報給你。</p></div></div>
+</section>
+
+<section id="start">
+  <h2><span class="ico" style="--c:#0ea5e9"><svg><use href="#i-flag"/></svg></span>快速開始</h2>
+  <p>先認識畫面上最常用的幾個地方，再照下面五個步驟開始。</p>
+  <figure>
+    <svg viewBox="0 0 340 252" role="img" aria-labelledby="ui-t">
+      <title id="ui-t">介面位置示意圖，以編號標出側邊欄、帳號按鈕、聊天標題、資訊面板等</title>
+      <rect x=".5" y=".5" width="339" height="251" rx="14" fill="#fff" stroke="#cbd5e1"/>
+      <g fill="#e2e8f0"><circle cx="14" cy="12" r="3.5"/><circle cx="25" cy="12" r="3.5"/><circle cx="36" cy="12" r="3.5"/></g>
+      <text x="196" y="16" text-anchor="middle" font-size="10" fill="#94a3b8">示意圖・非實際畫面・位置僅供參考</text>
+      <rect x="8" y="24" width="86" height="220" rx="10" fill="#f1f5f9"/>
+      <rect x="12" y="30" width="78" height="24" rx="7" fill="#e0e7ff"/>
+      <circle cx="25" cy="42" r="8" fill="#f97316"/><rect x="38" y="39" width="44" height="6" rx="3" fill="#a5b4fc"/>
+      <circle cx="25" cy="72" r="8" fill="#3b82f6"/><rect x="38" y="69" width="44" height="6" rx="3" fill="#cbd5e1"/>
+      <circle cx="25" cy="102" r="8" fill="#8b5cf6"/><rect x="38" y="99" width="44" height="6" rx="3" fill="#cbd5e1"/>
+      <circle cx="25" cy="132" r="8" fill="#10b981"/><rect x="38" y="129" width="44" height="6" rx="3" fill="#cbd5e1"/>
+      <rect x="12" y="212" width="78" height="26" rx="8" fill="#fff" stroke="#cbd5e1"/>
+      <circle cx="26" cy="225" r="8" fill="#64748b"/><rect x="40" y="222" width="42" height="6" rx="3" fill="#94a3b8"/>
+      <rect x="100" y="24" width="134" height="28" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+      <circle cx="115" cy="38" r="8" fill="#f97316"/><rect x="129" y="35" width="52" height="7" rx="3" fill="#334155"/>
+      <rect x="152" y="62" width="76" height="24" rx="10" fill="#3b82f6"/>
+      <rect x="104" y="94" width="100" height="38" rx="10" fill="#f1f5f9" stroke="#e2e8f0"/>
+      <rect x="112" y="104" width="76" height="5" rx="2.5" fill="#94a3b8"/><rect x="112" y="116" width="56" height="5" rx="2.5" fill="#cbd5e1"/>
+      <g fill="#eef2ff" stroke="#818cf8"><rect x="104" y="138" width="40" height="16" rx="8"/><rect x="148" y="138" width="40" height="16" rx="8"/></g>
+      <rect x="172" y="162" width="56" height="22" rx="10" fill="#3b82f6"/>
+      <rect x="104" y="216" width="126" height="22" rx="11" fill="#fff" stroke="#cbd5e1"/>
+      <rect x="240" y="24" width="92" height="220" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+      <g stroke="#475569" stroke-width="2" stroke-linecap="round"><path d="M316 32l8 8M324 32l-8 8"/></g>
+      <circle cx="304" cy="36" r="5" fill="none" stroke="#475569" stroke-width="2"/>
+      <rect x="248" y="52" width="76" height="54" rx="6" fill="#0f172a"/>
+      <rect x="254" y="58" width="44" height="30" rx="3" fill="#334155"/><rect x="270" y="70" width="48" height="30" rx="3" fill="#e2e8f0"/>
+      <rect x="268" y="134" width="40" height="6" rx="3" fill="#475569"/>
+      <g fill="#fff" stroke="#e2e8f0"><rect x="248" y="146" width="76" height="22" rx="6"/><rect x="248" y="172" width="76" height="22" rx="6"/><rect x="248" y="198" width="76" height="22" rx="6"/></g>
+      <g fill="#a5b4fc"><circle cx="258" cy="157" r="4"/><circle cx="258" cy="183" r="4"/><circle cx="258" cy="209" r="4"/></g>
+      <g fill="#cbd5e1"><rect x="268" y="154" width="46" height="5" rx="2.5"/><rect x="268" y="180" width="40" height="5" rx="2.5"/><rect x="268" y="206" width="44" height="5" rx="2.5"/></g>
+      <g font-size="12" font-weight="800" fill="#fff" text-anchor="middle">
+        <circle cx="52" cy="164" r="11" fill="#f43f5e"/><text x="52" y="168">1</text>
+        <circle cx="86" cy="202" r="11" fill="#f43f5e"/><text x="86" y="206">2</text>
+        <circle cx="200" cy="38" r="11" fill="#f43f5e"/><text x="200" y="42">3</text>
+        <circle cx="254" cy="120" r="11" fill="#f43f5e"/><text x="254" y="124">4</text>
+        <circle cx="288" cy="36" r="9" fill="#f43f5e"/><text x="288" y="40" font-size="11">5</text>
+        <circle cx="140" cy="198" r="11" fill="#f43f5e"/><text x="140" y="202">6</text>
+      </g>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>只為標示「大概在哪」，不是 app 的真實截圖</figcaption>
+  </figure>
+  <ul class="legend">
+    <li><span class="n">1</span><span><strong>側邊欄</strong>：你所有的 bot 都列在這裡，點一下就進入它的對話。</span></li>
+    <li><span class="n">2</span><span><strong>帳號按鈕</strong>（側邊欄左下角，頭像＋帳號名稱）：點它開啟<strong>設定</strong>。</span></li>
+    <li><span class="n">3</span><span><strong>聊天標題上的 bot 名稱</strong>：點一下開啟這個 bot 的<strong>資訊面板</strong>（快捷鍵 <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>）。</span></li>
+    <li><span class="n">4</span><span><strong>資訊面板</strong>：上方是這個 bot 電腦的<strong>即時預覽</strong>（點它可看全螢幕），下方是它的 <span class="ui">Routines</span>（例行公事）列表。</span></li>
+    <li><span class="n">5</span><span>面板標題列的 <span class="ui">X</span> 用來關閉面板；旁邊的<strong>齒輪</strong>是這個 bot 專屬的設定頁（頭像、名稱、職稱、描述、通知）。</span></li>
+    <li><span class="n">6</span><span><strong>對話區</strong>：在這裡打字交代事情，bot 的回覆、檔案、按鈕選項都會出現在這裡。</span></li>
+  </ul>
+  <h3>五個步驟開始使用</h3>
+  <ol class="steps">
+    <li><strong>選一個 bot</strong>：在側邊欄點選，例如「網頁小工坊」。</li>
+    <li><strong>像傳訊息一樣交代</strong>：直接用中文寫你要什麼、給誰看、什麼時候要。</li>
+    <li><strong>回答它的問題</strong>：bot 有時會附上<strong>選項按鈕</strong>讓你點選，或先按個表情符號表示「收到」。</li>
+    <li><strong>想看進度就打開資訊面板</strong>：看電腦即時預覽，必要時點開全螢幕幫忙（例如登入網站）。</li>
+    <li><strong>確認後再送出</strong>：寄信、發訊息這類動作，bot 會先擬好草稿，由你決定是否按下傳送。</li>
+  </ol>
+  <div class="callout note"><svg><use href="#i-info"/></svg><div><span class="t">關於建立新 bot</span><p>你可以建立多個 bot，每個都有獨立的名字、個性與記憶。本說明書的參考資料沒有列出「新增 bot」按鈕的確切位置，所以這裡不寫點擊路徑；找不到的話，直接問任一個現有的 bot 就好。</p></div></div>
+</section>
+
+<section id="team">
+  <h2><span class="ico" style="--c:#f97316"><svg><use href="#i-users"/></svg></span>你的 Bot 團隊</h2>
+  <p>目前你的側邊欄裡有四位 bot，各有專長：</p>
+  <div class="grid two">
+    <div class="card bot">
+      <svg class="av" viewBox="0 0 64 64" aria-hidden="true"><use href="#bot" style="color:#f97316"/></svg>
+      <div><h3>網頁小工坊</h3><p>給它一個主題，它會上網研究、做成一頁好讀的網頁並發布，再把網址傳給你。</p>
+      <span class="chip">研究＋做網頁</span><span class="chip">10 天後自動刪除（可要求保留）</span></div>
+    </div>
+    <div class="card bot">
+      <svg class="av" viewBox="0 0 64 64" aria-hidden="true"><use href="#bot" style="color:#3b82f6"/></svg>
+      <div><h3>郵件小幫手</h3><p>每天清晨約 5:52 檢查你的 Gmail，找出帳單與繳費通知。</p>
+      <span class="chip">每天 ~05:52</span><span class="chip">帳單提醒</span></div>
+    </div>
+    <div class="card bot">
+      <svg class="av" viewBox="0 0 64 64" aria-hidden="true"><use href="#bot" style="color:#8b5cf6"/></svg>
+      <div><h3>X 上的 AI 新聞</h3><p>追蹤 AI 產業的最新動態，幫你整理重點。</p>
+      <span class="chip">AI 產業新聞</span></div>
+    </div>
+    <div class="card bot">
+      <svg class="av" viewBox="0 0 64 64" aria-hidden="true"><use href="#bot" style="color:#10b981"/></svg>
+      <div><h3>毛毛</h3><p>萬用小幫手：不知道該找誰的事，先問毛毛。</p>
+      <span class="chip">什麼都能問</span></div>
+    </div>
+  </div>
+  <h3>Bot 之間會互相合作</h3>
+  <p>Bot 可以互傳訊息，把工作交接給更適合的同伴。例如：</p>
+  <figure>
+    <svg viewBox="0 0 340 150" role="img" aria-labelledby="ho-t">
+      <title id="ho-t">交接示意：郵件小幫手整理帳單後交給網頁小工坊，做成網頁給你</title>
+      <use href="#bot" x="14" y="26" width="58" height="58" style="color:#3b82f6"/>
+      <text x="43" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">郵件小幫手</text>
+      <path d="M80 60 H140" stroke="#6366f1" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+      <rect x="84" y="30" width="52" height="20" rx="10" fill="#eef2ff"/><text x="110" y="44" text-anchor="middle" font-size="11" fill="#3730a3">交接</text>
+      <use href="#bot" x="146" y="26" width="58" height="58" style="color:#f97316"/>
+      <text x="175" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="#9a3412">網頁小工坊</text>
+      <path d="M212 60 H254" stroke="#6366f1" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+      <rect x="262" y="22" width="64" height="70" rx="10" fill="#fff" stroke="#cbd5e1"/>
+      <rect x="262" y="22" width="64" height="14" rx="7" fill="#e2e8f0"/>
+      <rect x="270" y="44" width="48" height="6" rx="3" fill="#f97316"/><rect x="270" y="56" width="40" height="5" rx="2.5" fill="#cbd5e1"/><rect x="270" y="66" width="44" height="5" rx="2.5" fill="#cbd5e1"/><rect x="270" y="76" width="30" height="5" rx="2.5" fill="#cbd5e1"/>
+      <text x="294" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">網頁給你</text>
+      <text x="170" y="138" text-anchor="middle" font-size="11.5" fill="#64748b">例：「本月帳單整理」→ 做成一頁手機好讀的清單</text>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>交接的範例情境</figcaption>
+  </figure>
+</section>
+
+<section id="computer">
+  <h2><span class="ico" style="--c:#0891b2"><svg><use href="#i-monitor"/></svg></span>Bot 的電腦</h2>
+  <p>每個 bot 都能使用一台 <strong>Linux 電腦</strong>，有瀏覽器和桌面。它在這台電腦上<strong>執行程式、製作檔案</strong>（試算表、圖片、網頁…）、<strong>上網查資料</strong>。這台電腦是 bot 們共用的同一台機器，但每個 bot 有自己的桌面畫面。</p>
+  <figure>
+    <svg viewBox="0 0 340 236" role="img" aria-labelledby="pc-t">
+      <title id="pc-t">插圖：Bot 的電腦上同時有終端機、瀏覽器與檔案，你可以在旁觀看與協助登入</title>
+      <rect x="14" y="14" width="224" height="152" rx="14" fill="#0f172a"/>
+      <rect x="24" y="24" width="204" height="124" rx="7" fill="#1e293b"/>
+      <rect x="32" y="32" width="96" height="66" rx="6" fill="#020617"/>
+      <g font-family="ui-monospace,monospace" font-size="9" fill="#4ade80"><text x="38" y="48">$ run chart</text><text x="38" y="62" fill="#94a3b8">✓ chart.png</text><text x="38" y="76">$ git push</text><text x="38" y="90" fill="#94a3b8">✓ done</text></g>
+      <rect x="104" y="56" width="116" height="84" rx="6" fill="#fff"/>
+      <rect x="104" y="56" width="116" height="14" rx="6" fill="#e2e8f0"/>
+      <g fill="#94a3b8"><circle cx="112" cy="63" r="2.5"/><circle cx="120" cy="63" r="2.5"/><circle cx="128" cy="63" r="2.5"/></g>
+      <rect x="112" y="78" width="64" height="8" rx="4" fill="#6366f1"/>
+      <rect x="112" y="92" width="98" height="5" rx="2.5" fill="#cbd5e1"/><rect x="112" y="102" width="86" height="5" rx="2.5" fill="#cbd5e1"/>
+      <rect x="112" y="114" width="44" height="18" rx="4" fill="#fde68a"/><rect x="160" y="114" width="50" height="18" rx="4" fill="#bae6fd"/>
+      <rect x="108" y="166" width="36" height="14" fill="#334155"/><rect x="82" y="180" width="88" height="8" rx="4" fill="#334155"/>
+      <path d="M256 22h30l10 10v34h-40z" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/><path d="M286 22v10h10" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="276" y="52" text-anchor="middle" font-size="10" font-weight="700" fill="#ea580c">HTML</text>
+      <path d="M256 78h30l10 10v34h-40z" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/><path d="M286 78v10h10" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="276" y="108" text-anchor="middle" font-size="10" font-weight="700" fill="#0284c7">PNG</text>
+      <path d="M256 134h30l10 10v34h-40z" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/><path d="M286 134v10h10" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="276" y="164" text-anchor="middle" font-size="10" font-weight="700" fill="#16a34a">CSV</text>
+      <text x="318" y="100" font-size="11" fill="#475569" text-anchor="middle" transform="rotate(90 318 100)">做出的檔案</text>
+      <rect x="20" y="198" width="300" height="32" rx="16" fill="#ecfeff" stroke="#67e8f9"/>
+      <use href="#i-eye" x="32" y="204" width="20" height="20" style="color:#0891b2"/>
+      <text x="60" y="219" font-size="12" font-weight="700" fill="#155e75">你可以在旁觀看，需要時幫忙登入網站</text>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>bot 在自己的電腦上工作的樣子</figcaption>
+  </figure>
+  <h3>怎麼看 bot 正在做什麼？</h3>
+  <p>點聊天標題上的 bot 名稱（或按 <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>）打開<strong>資訊面板</strong>，最上方就是它電腦的<strong>即時預覽</strong>；點一下預覽會開啟<strong>全螢幕畫面</strong>。遇到需要你親自輸入帳密或驗證碼的網站時，你可以在那裡接手幫忙。</p>
+  <div class="callout warn"><svg><use href="#i-warn"/></svg><div><span class="t">電腦卡住了？</span><p>到 設定 → <span class="ui">Computer</span> → <span class="ui">Update Grok Bot's Computer</span>，按 <span class="ui">Update</span>，再按一次 <span class="ui">Click Again to Confirm</span>。它會把電腦搬到新的環境，<strong>保留檔案與登入狀態</strong>，但安裝過的軟體需要重新安裝。</p><p>下方的 <span class="ui">Reset</span> 是最後手段：會還原到上次的快照，可能遺失最近的工作，<strong>請優先用 Update</strong>。</p></div></div>
+</section>
+<section id="connectors">
+  <h2><span class="ico" style="--c:#8b5cf6"><svg><use href="#i-plug"/></svg></span>連接服務</h2>
+  <p>「連接服務」（Connectors）讓 bot 能用你的帳號操作各種服務，例如讀信、查行事曆、在雲端硬碟建立文件、在 GitHub 發布網頁。連接之後，bot 就能<strong>代表你</strong>使用這些服務。</p>
+  <figure>
+    <svg viewBox="0 0 340 300" role="img" aria-labelledby="cn-t">
+      <title id="cn-t">連接服務示意圖：中間是 Bot，周圍連著 Gmail、日曆、雲端硬碟、文件、簡報、GitHub、Cloudflare</title>
+      <g stroke="#c4b5fd" stroke-width="2" stroke-dasharray="5 5">
+        <line x1="170" y1="150" x2="170" y2="50"/><line x1="170" y1="150" x2="248" y2="88"/><line x1="170" y1="150" x2="268" y2="172"/><line x1="170" y1="150" x2="213" y2="240"/><line x1="170" y1="150" x2="127" y2="240"/><line x1="170" y1="150" x2="72" y2="172"/><line x1="170" y1="150" x2="92" y2="88"/>
+      </g>
+      <circle cx="170" cy="150" r="40" fill="#fff" stroke="#8b5cf6" stroke-width="2.5"/>
+      <use href="#bot" x="146" y="124" width="48" height="48" style="color:#8b5cf6"/>
+      <circle cx="170" cy="50" r="24" fill="#ef4444"/><use href="#i-mail" x="158" y="38" width="24" height="24" style="color:#fff"/>
+      <circle cx="248" cy="88" r="24" fill="#3b82f6"/><use href="#i-cal" x="236" y="76" width="24" height="24" style="color:#fff"/>
+      <circle cx="268" cy="172" r="24" fill="#16a34a"/><use href="#i-folder" x="256" y="160" width="24" height="24" style="color:#fff"/>
+      <circle cx="213" cy="240" r="24" fill="#2563eb"/><use href="#i-doc" x="201" y="228" width="24" height="24" style="color:#fff"/>
+      <circle cx="127" cy="240" r="24" fill="#f59e0b"/><use href="#i-slide" x="115" y="228" width="24" height="24" style="color:#fff"/>
+      <circle cx="72" cy="172" r="24" fill="#334155"/><use href="#i-code" x="60" y="160" width="24" height="24" style="color:#fff"/>
+      <circle cx="92" cy="88" r="24" fill="#f97316"/><use href="#i-cloud" x="80" y="76" width="24" height="24" style="color:#fff"/>
+      <g font-size="11.5" font-weight="700" fill="#334155" text-anchor="middle">
+        <text x="170" y="17">Gmail</text><text x="296" y="70">日曆</text><text x="268" y="212">雲端硬碟</text><text x="213" y="282">文件</text><text x="127" y="282">簡報</text><text x="72" y="212">GitHub</text><text x="48" y="62">Cloudflare</text>
+      </g>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>常見的連接服務（圖示為示意，非官方標誌）</figcaption>
+  </figure>
+  <div class="grid two">
+    <div class="card"><h3 style="margin-top:0">📬 Gmail</h3><p>郵件小幫手每天用它找帳單與繳費通知。也可以請 bot 搜尋信件、幫你擬回信草稿。</p></div>
+    <div class="card"><h3 style="margin-top:0">📅 Google 日曆</h3><p>查行程、找空檔、安排活動。</p></div>
+    <div class="card"><h3 style="margin-top:0">📁 雲端硬碟・文件・簡報</h3><p>把整理好的內容存成 Google 文件或簡報、讀取你雲端上的檔案。</p></div>
+    <div class="card"><h3 style="margin-top:0">🛠 GitHub・Cloudflare</h3><p>網頁小工坊用 GitHub 發布網頁；Cloudflare 可用於網站相關的工作。</p></div>
+  </div>
+  <div class="callout note"><svg><use href="#i-info"/></svg><div><span class="t">怎麼新增連接？</span><p>本說明書的參考資料沒有列出新增連接服務的確切選單，所以不寫點擊路徑。若有可用的「頻道」類連接服務，bot 的資訊面板會出現 <span class="ui">Channels</span> 區塊。不確定時，直接問 bot：「我要怎麼連接 Google 日曆？」</p></div></div>
+</section>
+
+<section id="routines">
+  <h2><span class="ico" style="--c:#6366f1"><svg><use href="#i-clock"/></svg></span>例行公事（Routines）</h2>
+  <p>Routine 是<strong>存起來的指令</strong>，會<strong>依排程</strong>或<strong>在某些事件發生時</strong>自動執行——就算你不在，bot 也會照常工作，做完再回報。</p>
+  <figure>
+    <svg viewBox="0 0 300 300" role="img" aria-labelledby="rt-t">
+      <title id="rt-t">24 小時時鐘示意：05:52 郵件小幫手查帳單、09:08 清理過期網頁</title>
+      <defs><clipPath id="clk"><circle cx="150" cy="150" r="124"/></clipPath></defs>
+      <g clip-path="url(#clk)"><rect x="0" y="0" width="300" height="150" fill="#1e1b4b"/><rect x="0" y="150" width="300" height="150" fill="#fef3c7"/></g>
+      <circle cx="150" cy="150" r="124" fill="none" stroke="#c7d2fe" stroke-width="4"/>
+      <circle cx="150" cy="150" r="78" fill="#fff" stroke="#e2e8f0"/>
+      <g stroke="#94a3b8" stroke-width="2"><line x1="150" y1="28" x2="150" y2="40"/><line x1="272" y1="150" x2="260" y2="150"/><line x1="150" y1="272" x2="150" y2="260"/><line x1="28" y1="150" x2="40" y2="150"/></g>
+      <g font-size="12" font-weight="700" text-anchor="middle">
+        <text x="150" y="58" fill="#e0e7ff">0 時</text><text x="287" y="154" fill="#475569">6</text><text x="150" y="250" fill="#92400e">12 時</text><text x="13" y="154" fill="#475569">18</text>
+      </g>
+      <circle cx="88" cy="72" r="10" fill="#fde68a"/><circle cx="93" cy="68" r="9" fill="#1e1b4b"/>
+      <g fill="#fff"><circle cx="196" cy="82" r="1.6"/><circle cx="222" cy="92" r="1.3"/><circle cx="62" cy="118" r="1.3"/><circle cx="120" cy="44" r="1.2"/></g>
+      <circle cx="80" cy="215" r="9" fill="#f59e0b"/>
+      <g stroke="#f59e0b" stroke-width="2" stroke-linecap="round"><path d="M80 199v4M80 227v4M64 215h4M92 215h4M69 204l3 3M88 223l3 3M69 226l3-3M88 207l3-3"/></g>
+      <line x1="150" y1="150" x2="250" y2="146.5" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="250" cy="146.5" r="11" fill="#3b82f6" stroke="#fff" stroke-width="3"/>
+      <line x1="150" y1="150" x2="218" y2="223" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="218" cy="223" r="11" fill="#f97316" stroke="#fff" stroke-width="3"/>
+      <circle cx="150" cy="150" r="5" fill="#334155"/>
+      <text x="150" y="112" text-anchor="middle" font-size="12.5" font-weight="800" fill="#334155">每天自動執行</text>
+      <text x="150" y="130" text-anchor="middle" font-size="11" fill="#64748b">你不在也照跑</text>
+      <rect x="196" y="110" width="58" height="22" rx="11" fill="#dbeafe"/><text x="225" y="125" text-anchor="middle" font-size="11.5" font-weight="800" fill="#1d4ed8">05:52</text>
+      <rect x="176" y="248" width="58" height="22" rx="11" fill="#ffedd5"/><text x="205" y="263" text-anchor="middle" font-size="11.5" font-weight="800" fill="#c2410c">09:08</text>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>24 小時制：上半圈是夜晚、下半圈是白天（台北時間）</figcaption>
+  </figure>
+  <ul class="timeline">
+    <li style="--d:#3b82f6"><span class="time">約 05:52</span>　<strong>郵件小幫手</strong>檢查 Gmail，找出帳單與繳費通知。</li>
+    <li style="--d:#f97316"><span class="time">09:08</span>　<strong>清理例行公事</strong>：清掉超過保存期限、沒有標記保留的網頁。</li>
+    <li style="--d:#8b5cf6"><span class="time">每天</span>　<strong>每日摘要</strong>：例如把新聞或待辦整理成一則重點訊息。</li>
+    <li style="--d:#10b981"><span class="time">事件觸發</span>　當某件事發生時自動執行，不必等固定時間。</li>
+  </ul>
+  <div class="callout tip"><svg><use href="#i-bulb"/></svg><div><span class="t">在哪裡看？怎麼建立？</span><p>每個 bot 的 Routines 列在它的<strong>資訊面板</strong>裡（點聊天標題上的名稱打開）。想新增，直接用一句話跟 bot 描述就好，例如：「每天早上 8 點提醒我看今天的行程」。</p></div></div>
+</section>
+
+<section id="memory">
+  <h2><span class="ico" style="--c:#d97706"><svg><use href="#i-note"/></svg></span>記憶與技能</h2>
+  <figure>
+    <svg viewBox="0 0 340 226" role="img" aria-labelledby="mem-t">
+      <title id="mem-t">左邊是 bot 的記憶筆記本，右邊是所有 bot 共用的技能工具箱</title>
+      <rect x="10" y="12" width="154" height="202" rx="14" fill="#fffbeb" stroke="#f59e0b"/>
+      <g stroke="#f59e0b" stroke-width="3" stroke-linecap="round"><line x1="10" y1="40" x2="22" y2="40"/><line x1="10" y1="80" x2="22" y2="80"/><line x1="10" y1="120" x2="22" y2="120"/><line x1="10" y1="160" x2="22" y2="160"/></g>
+      <use href="#i-note" x="30" y="22" width="22" height="22" style="color:#b45309"/>
+      <text x="58" y="39" font-size="14" font-weight="800" fill="#92400e">記憶</text>
+      <g font-size="11.5" fill="#78350f">
+        <text x="30" y="70">• 常用手機看網頁</text>
+        <text x="38" y="90" fill="#b45309">→ 網頁手機優先</text>
+        <text x="30" y="116">• 使用繁體中文</text>
+        <text x="30" y="142">• 時間用台北時區</text>
+        <text x="30" y="168">• 喜歡的風格…</text>
+      </g>
+      <text x="87" y="200" text-anchor="middle" font-size="10.5" fill="#a16207">每個 bot 有自己的記憶</text>
+      <rect x="176" y="12" width="154" height="202" rx="14" fill="#f0fdf4" stroke="#22c55e"/>
+      <use href="#i-tool" x="194" y="22" width="22" height="22" style="color:#15803d"/>
+      <text x="222" y="39" font-size="14" font-weight="800" fill="#166534">技能</text>
+      <rect x="196" y="54" width="114" height="44" rx="10" fill="#fff" stroke="#86efac"/>
+      <text x="253" y="73" text-anchor="middle" font-size="11.5" font-weight="700" fill="#166534">發布網頁流程</text>
+      <text x="253" y="89" text-anchor="middle" font-size="10" fill="#4d7c0f">步驟 1 → 2 → 3</text>
+      <g stroke="#86efac" stroke-width="2" fill="none"><path d="M253 98 L206 140"/><path d="M253 98 V140"/><path d="M253 98 L300 140"/></g>
+      <use href="#bot" x="188" y="140" width="36" height="36" style="color:#f97316"/>
+      <use href="#bot" x="235" y="140" width="36" height="36" style="color:#3b82f6"/>
+      <use href="#bot" x="282" y="140" width="36" height="36" style="color:#10b981"/>
+      <text x="253" y="200" text-anchor="middle" font-size="10.5" fill="#15803d">所有 bot 共用</text>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>記憶記「你是誰、喜歡什麼」；技能記「事情怎麼做」</figcaption>
+  </figure>
+  <div class="grid two">
+    <div class="card"><h3 style="margin-top:0">🧠 記憶</h3><p>Bot 會記住你的偏好，下次不用再交代。例如它記得你習慣用<strong>手機</strong>看網頁，所以做出來的網頁都是<strong>手機優先</strong>排版。</p><p>想讓它記住什麼，直接說：「記住：…」。</p></div>
+    <div class="card"><h3 style="margin-top:0">🧰 技能</h3><p>技能是<strong>可重複使用的固定流程</strong>，存起來後<strong>所有 bot 都能用</strong>。適合「每次都要照同樣步驟做」的事情。</p></div>
+  </div>
+</section>
+
+<section id="safety">
+  <h2><span class="ico" style="--c:#059669"><svg><use href="#i-shield"/></svg></span>安全與授權</h2>
+  <p>Bot 會幫你把事情準備好，但<strong>對外送出的最後一步由你決定</strong>。寄信、傳訊息時，bot 會先擬好草稿，讓你檢查後自己按「傳送」；有風險的動作則需要你批准。</p>
+  <figure>
+    <svg viewBox="0 0 340 196" role="img" aria-labelledby="sf-t">
+      <title id="sf-t">安全流程：Bot 擬草稿 → 你檢查 → 你按傳送</title>
+      <rect x="8" y="14" width="96" height="104" rx="14" fill="#eff6ff" stroke="#93c5fd"/>
+      <use href="#bot" x="36" y="22" width="40" height="40" style="color:#3b82f6"/>
+      <rect x="26" y="68" width="60" height="6" rx="3" fill="#93c5fd"/><rect x="26" y="80" width="46" height="6" rx="3" fill="#bfdbfe"/>
+      <text x="56" y="106" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1e40af">① 擬草稿</text>
+      <path d="M106 66 H118" stroke="#6366f1" stroke-width="2.5" marker-end="url(#arr)"/>
+      <rect x="122" y="14" width="96" height="104" rx="14" fill="#fefce8" stroke="#fde047"/>
+      <use href="#i-eye" x="150" y="26" width="40" height="40" style="color:#a16207"/>
+      <text x="170" y="86" text-anchor="middle" font-size="11" fill="#854d0e">看內容、改字</text>
+      <text x="170" y="106" text-anchor="middle" font-size="12.5" font-weight="800" fill="#854d0e">② 你檢查</text>
+      <path d="M220 66 H232" stroke="#6366f1" stroke-width="2.5" marker-end="url(#arr)"/>
+      <rect x="236" y="14" width="96" height="104" rx="14" fill="#ecfdf5" stroke="#6ee7b7"/>
+      <rect x="252" y="36" width="64" height="30" rx="15" fill="#10b981"/>
+      <text x="284" y="56" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">傳送</text>
+      <text x="284" y="86" text-anchor="middle" font-size="11" fill="#065f46">由你按下</text>
+      <text x="284" y="106" text-anchor="middle" font-size="12.5" font-weight="800" fill="#065f46">③ 你送出</text>
+      <rect x="8" y="134" width="324" height="50" rx="14" fill="#f8fafc" stroke="#cbd5e1"/>
+      <use href="#i-shield" x="20" y="145" width="28" height="28" style="color:#059669"/>
+      <text x="58" y="156" font-size="12.5" font-weight="800" fill="#0f172a">有風險的動作 → 先請你批准</text>
+      <text x="58" y="174" font-size="11" fill="#475569">例如刪除、分享、付款這類難以復原的事</text>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>「草稿 → 你確認 → 你送出」</figcaption>
+  </figure>
+  <div class="callout tip"><svg><use href="#i-bulb"/></svg><div><span class="t">放心交代</span><p>你可以說「幫我回信給房東」，bot 會準備好草稿；真正寄出前，決定權都在你手上。</p></div></div>
+  <div class="callout note"><svg><use href="#i-info"/></svg><div><span class="t">相關設定</span><p>設定的 <span class="ui">General</span> 分頁裡有 Auto-review（自動審查）與其規則，以及 Security keys（安全金鑰）等安全相關項目。部分項目只會出現在某些帳號或版本。</p></div></div>
+</section>
+<section id="settings">
+  <h2><span class="ico" style="--c:#475569"><svg><use href="#i-sliders"/></svg></span>介面與設定導覽</h2>
+  <h3>打開設定的三種方法</h3>
+  <ol class="steps">
+    <li>點側邊欄<strong>左下角的帳號按鈕</strong>（頭像＋帳號名稱）。</li>
+    <li>按快捷鍵 <kbd>Cmd</kbd>+<kbd>,</kbd>。</li>
+    <li>在指令面板（command palette）選 <span class="ui">Open settings</span>。</li>
+  </ol>
+  <div class="callout warn"><svg><use href="#i-warn"/></svg><div><span class="t">沒有齒輪圖示</span><p>全域設定<strong>沒有</strong>齒輪按鈕，也沒有 macOS 的「偏好設定」選單項目。（資訊面板裡的齒輪是<strong>單一 bot 的設定</strong>，不是全域設定。）</p></div></div>
+  <h3>設定的四個分頁</h3>
+  <ul class="tree">
+    <li><b>⚙️ General（一般）</b>
+      <ul>
+        <li>帳號卡片（登入／登出）</li>
+        <li><span class="ui">Theme</span> 主題：Follow System／Light／Dark</li>
+        <li><span class="ui">Language</span> 語言、拼字檢查、麥克風</li>
+        <li>通知音效、時區（timezone）</li>
+        <li>Auto-review 與規則、Security keys</li>
+      </ul></li>
+    <li><b>💻 Computer（電腦）</b>
+      <ul>
+        <li>已登記的電腦（registered machines）</li>
+        <li><span class="ui">Update Grok Bot's Computer</span>：按 <span class="ui">Update</span> → <span class="ui">Click Again to Confirm</span>。保留檔案與登入，軟體需重裝。<span class="badge soft">優先用這個</span></li>
+        <li><span class="ui">Reset Grok Bot's Computer</span>：還原到上次快照，可能遺失最近的工作。<span class="badge">最後手段</span></li>
+      </ul></li>
+    <li><b>💳 Usage &amp; Billing（用量與帳務）</b>
+      <ul><li>用量與方案相關設定。<strong>只在帳號有開放時才會出現。</strong></li></ul></li>
+    <li><b>⬆️ Updates（更新）</b>
+      <ul>
+        <li><span class="ui">Update Track</span>：Stable／Nightly</li>
+        <li><span class="ui">Check for Updates</span>：更新 <strong>Grok Bot app 本身</strong>（和「更新 bot 的電腦」是兩回事）</li>
+      </ul></li>
+  </ul>
+  <h3>單一 bot 的資訊面板</h3>
+  <p>點聊天標題上的 bot 名稱（或 <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>）打開，用面板標題列的 <span class="ui">X</span> 關閉。裡面有：</p>
+  <ul>
+    <li>這個 bot 電腦的<strong>即時預覽</strong>（點一下開全螢幕）</li>
+    <li><strong>Routines</strong> 列表</li>
+    <li><strong>Channels</strong>（有可連接或已連接的頻道類連接服務時才出現）</li>
+    <li><strong>Members</strong>（群組對話中才出現）</li>
+    <li><span class="ui">X</span> 旁的<strong>齒輪</strong> → 這個 bot 的設定頁：頭像、名稱、職稱、描述、個別通知</li>
+  </ul>
+  <h3>刪除 bot</h3>
+  <p>在側邊欄<strong>對該 bot 按右鍵</strong> → 選 <span class="ui">Delete</span>，確認後完成。</p>
+  <div class="callout warn"><svg><use href="#i-warn"/></svg><div><span class="t">刪除是永久的</span><p>會一併刪除這個 bot 和它的所有對話紀錄，<strong>沒有封存或隱藏</strong>的選項。刪除功能不在設定裡。</p></div></div>
+  <div class="callout note"><svg><use href="#i-info"/></svg><div><p>部分設定列只會出現在某些帳號、版本或狀態下。找不到某一項時，通常代表你的帳號目前沒有它。</p></div></div>
+</section>
+
+<section id="prompts" class="prompts">
+  <h2><span class="ico" style="--c:#db2777"><svg><use href="#i-bulb"/></svg></span>實用範例指令</h2>
+  <p>直接複製、改幾個字就能用。先看一段<strong>示意對話</strong>：</p>
+  <figure>
+    <svg viewBox="0 0 340 472" role="img" aria-labelledby="ch-t">
+      <title id="ch-t">示意對話：請網頁小工坊做一頁台灣夜市小吃網頁，bot 用按鈕詢問風格，完成後傳回網址、預覽圖與語音備忘錄</title>
+      <rect x=".5" y=".5" width="339" height="471" rx="18" fill="#f8fafc" stroke="#e2e8f0"/>
+      <path d="M.5 18.5a18 18 0 0 1 18-18h303a18 18 0 0 1 18 18v28H.5z" fill="#fff"/>
+      <line x1="0" y1="46" x2="340" y2="46" stroke="#e2e8f0"/>
+      <use href="#bot" x="12" y="9" width="28" height="28" style="color:#f97316"/>
+      <text x="48" y="29" font-size="14" font-weight="800" fill="#0f172a">網頁小工坊</text>
+      <rect x="250" y="13" width="76" height="22" rx="11" fill="#ffedd5"/><text x="288" y="28" text-anchor="middle" font-size="11" font-weight="700" fill="#9a3412">示意對話</text>
+      <rect x="88" y="60" width="238" height="40" rx="15" fill="#2563eb"/>
+      <text x="207" y="85" text-anchor="middle" font-size="13" fill="#fff">幫我做一頁關於台灣夜市小吃的網頁</text>
+      <rect x="96" y="92" width="34" height="22" rx="11" fill="#fff" stroke="#cbd5e1"/><text x="113" y="108" text-anchor="middle" font-size="12">👍</text>
+      <use href="#bot" x="10" y="126" width="24" height="24" style="color:#f97316"/>
+      <rect x="40" y="124" width="232" height="58" rx="15" fill="#fff" stroke="#e2e8f0"/>
+      <text x="54" y="148" font-size="13" fill="#0f172a">收到！想要什麼風格？</text>
+      <text x="54" y="169" font-size="11.5" fill="#64748b">（點下方按鈕回答）</text>
+      <g font-size="12.5" font-weight="700" fill="#4338ca" text-anchor="middle">
+        <rect x="40" y="190" width="80" height="32" rx="16" fill="#eef2ff" stroke="#818cf8"/><text x="80" y="211">活潑插畫</text>
+        <rect x="126" y="190" width="80" height="32" rx="16" fill="#eef2ff" stroke="#818cf8"/><text x="166" y="211">簡約雜誌</text>
+        <rect x="212" y="190" width="64" height="32" rx="16" fill="#eef2ff" stroke="#818cf8"/><text x="244" y="211">你決定</text>
+      </g>
+      <rect x="236" y="236" width="90" height="36" rx="15" fill="#2563eb"/>
+      <text x="281" y="259" text-anchor="middle" font-size="13" fill="#fff">活潑插畫</text>
+      <use href="#bot" x="10" y="288" width="24" height="24" style="color:#f97316"/>
+      <rect x="40" y="286" width="256" height="116" rx="15" fill="#fff" stroke="#e2e8f0"/>
+      <text x="54" y="310" font-size="13" fill="#0f172a">完成了！網頁已發布 🎉</text>
+      <rect x="52" y="320" width="232" height="38" rx="9" fill="#f1f5f9"/>
+      <use href="#i-globe" x="60" y="329" width="20" height="20" style="color:#2563eb"/>
+      <text x="86" y="344" font-size="11.5" fill="#2563eb">jessetsai1024.github.io/…</text>
+      <rect x="52" y="366" width="118" height="26" rx="13" fill="#ecfdf5" stroke="#a7f3d0"/>
+      <text x="111" y="383" text-anchor="middle" font-size="11.5" fill="#065f46">🖼 預覽圖.png</text>
+      <rect x="40" y="414" width="176" height="42" rx="15" fill="#fff" stroke="#e2e8f0"/>
+      <circle cx="62" cy="435" r="12" fill="#f97316"/><path d="M58 429v12l10-6z" fill="#fff"/>
+      <g fill="#fdba74"><rect x="82" y="429" width="3" height="12" rx="1.5"/><rect x="89" y="425" width="3" height="20" rx="1.5"/><rect x="96" y="431" width="3" height="8" rx="1.5"/><rect x="103" y="427" width="3" height="16" rx="1.5"/><rect x="110" y="430" width="3" height="10" rx="1.5"/><rect x="117" y="426" width="3" height="18" rx="1.5"/><rect x="124" y="431" width="3" height="8" rx="1.5"/><rect x="131" y="428" width="3" height="14" rx="1.5"/></g>
+      <text x="146" y="440" font-size="11.5" fill="#64748b">語音 0:12</text>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>bot 能按表情回應、用按鈕提問、傳檔案、圖片和語音備忘錄（非實際畫面）</figcaption>
+  </figure>
+  <figure>
+    <svg viewBox="0 0 340 256" role="img" aria-labelledby="fl-t">
+      <title id="fl-t">流程：主題 → 研究 → 製作網頁 → 發布網址</title>
+      <rect x="10" y="10" width="146" height="100" rx="16" fill="#fff7ed" stroke="#fdba74"/>
+      <circle cx="34" cy="34" r="14" fill="#f97316"/><text x="34" y="39" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">1</text>
+      <use href="#i-chat" x="116" y="20" width="28" height="28" style="color:#ea580c"/>
+      <text x="24" y="76" font-size="15" font-weight="800" fill="#7c2d12">你給主題</text>
+      <text x="24" y="97" font-size="11" fill="#9a3412">「台灣夜市小吃」</text>
+      <path d="M160 60 H178" stroke="#6366f1" stroke-width="2.5" marker-end="url(#arr)"/>
+      <rect x="184" y="10" width="146" height="100" rx="16" fill="#eff6ff" stroke="#93c5fd"/>
+      <circle cx="208" cy="34" r="14" fill="#3b82f6"/><text x="208" y="39" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">2</text>
+      <use href="#i-globe" x="290" y="20" width="28" height="28" style="color:#2563eb"/>
+      <text x="198" y="76" font-size="15" font-weight="800" fill="#1e3a8a">上網研究</text>
+      <text x="198" y="97" font-size="11" fill="#1d4ed8">搜尋、查證資料</text>
+      <path d="M257 114 V138" stroke="#6366f1" stroke-width="2.5" marker-end="url(#arr)"/>
+      <rect x="184" y="146" width="146" height="100" rx="16" fill="#f5f3ff" stroke="#c4b5fd"/>
+      <circle cx="208" cy="170" r="14" fill="#8b5cf6"/><text x="208" y="175" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">3</text>
+      <use href="#i-code" x="290" y="156" width="28" height="28" style="color:#7c3aed"/>
+      <text x="198" y="212" font-size="15" font-weight="800" fill="#4c1d95">製作網頁</text>
+      <text x="198" y="233" font-size="11" fill="#6d28d9">手機優先、圖文並茂</text>
+      <path d="M180 196 H162" stroke="#6366f1" stroke-width="2.5" marker-end="url(#arr)"/>
+      <rect x="10" y="146" width="146" height="100" rx="16" fill="#ecfdf5" stroke="#6ee7b7"/>
+      <circle cx="34" cy="170" r="14" fill="#10b981"/><text x="34" y="175" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">4</text>
+      <use href="#i-flag" x="116" y="156" width="28" height="28" style="color:#059669"/>
+      <text x="24" y="212" font-size="15" font-weight="800" fill="#064e3b">發布網址</text>
+      <text x="24" y="233" font-size="11" fill="#047857">連結傳到對話裡</text>
+    </svg>
+    <figcaption><span class="tag-illus">示意圖</span>網頁小工坊的工作流程</figcaption>
+  </figure>
+  <div class="callout warn"><svg><use href="#i-clock"/></svg><div><span class="t">網頁的保存期限</span><p>網頁小工坊做的網頁預設 <strong>10 天後自動刪除</strong>。想留下來，跟它說「這頁幫我保留」即可。</p></div></div>
+
+  <h3>🌐 做網頁（網頁小工坊）</h3>
+  <div class="prompt"><q>幫我做一頁關於台南小吃地圖的網頁</q><button class="copy" type="button">複製</button></div>
+  <div class="prompt"><q>把這篇文章整理成手機好讀的懶人包網頁</q><button class="copy" type="button">複製</button></div>
+  <div class="prompt"><q>剛剛那頁幫我保留，不要 10 天後刪掉</q><button class="copy" type="button">複製</button></div>
+  <h3>⏰ 提醒與排程（例行公事）</h3>
+  <div class="prompt"><q>每天早上 8 點提醒我看今天的行程</q><button class="copy" type="button">複製</button></div>
+  <div class="prompt"><q>每週五下午 5 點幫我整理這週 AI 新聞的三大重點</q><button class="copy" type="button">複製</button></div>
+  <div class="prompt"><q>我目前有哪些例行公事？列給我看</q><button class="copy" type="button">複製</button></div>
+  <h3>📬 信件與帳單（郵件小幫手）</h3>
+  <div class="prompt"><q>這個月有哪些帳單快到期？依日期排好</q><button class="copy" type="button">複製</button></div>
+  <div class="prompt"><q>幫我擬一封回信給房東，說月底前會付款，先不要寄</q><button class="copy" type="button">複製</button></div>
+  <h3>📅 行事曆</h3>
+  <div class="prompt"><q>下週二下午有空檔嗎？幫我找 30 分鐘</q><button class="copy" type="button">複製</button></div>
+  <h3>📰 新聞（X 上的 AI 新聞）</h3>
+  <div class="prompt"><q>今天 AI 圈有什麼大新聞？用三點說給我聽</q><button class="copy" type="button">複製</button></div>
+  <h3>📊 檔案與文件</h3>
+  <div class="prompt"><q>把這份 CSV 做成長條圖，給我一張 PNG</q><button class="copy" type="button">複製</button></div>
+  <div class="prompt"><q>把今天的會議重點整理成 Google 簡報</q><button class="copy" type="button">複製</button></div>
+  <h3>🧠 記憶、技能與合作</h3>
+  <div class="prompt"><q>記住：我都用手機看，所以內容要短、字要大</q><button class="copy" type="button">複製</button></div>
+  <div class="prompt"><q>把剛剛這套流程存成技能，以後大家都能用</q><button class="copy" type="button">複製</button></div>
+  <div class="prompt"><q>請郵件小幫手整理本月帳單，再交給網頁小工坊做成一頁</q><button class="copy" type="button">複製</button></div>
+  <div class="callout tip"><svg><use href="#i-bulb"/></svg><div><span class="t">寫指令的小訣竅</span><p>說清楚<strong>要做什麼、給誰看、什麼時候要、要什麼格式</strong>。不確定怎麼說也沒關係，bot 可能會用按鈕問你。</p></div></div>
+</section>
+
+<section id="faq">
+  <h2><span class="ico" style="--c:#0f766e"><svg><use href="#i-q"/></svg></span>常見問題</h2>
+  <details><summary>找不到設定的齒輪按鈕？</summary><div><p>全域設定沒有齒輪。請點側邊欄<strong>左下角的帳號按鈕</strong>、按 <kbd>Cmd</kbd>+<kbd>,</kbd>，或在指令面板選 <span class="ui">Open settings</span>。</p></div></details>
+  <details><summary>怎麼改 bot 的名字或頭像？</summary><div><p>點聊天標題上的 bot 名稱打開資訊面板 → 按 <span class="ui">X</span> 旁邊的齒輪 → 在 bot 設定頁修改頭像、名稱、職稱、描述與通知。</p></div></details>
+  <details><summary>怎麼刪除 bot？可以封存嗎？</summary><div><p>在側邊欄對 bot 按右鍵 → <span class="ui">Delete</span>，確認後永久刪除（連同對話紀錄）。<strong>沒有封存或隱藏</strong>功能。</p></div></details>
+  <details><summary>Bot 的電腦卡住或怪怪的？</summary><div><p>到 設定 → <span class="ui">Computer</span> → <span class="ui">Update Grok Bot's Computer</span>，按 <span class="ui">Update</span> 再按 <span class="ui">Click Again to Confirm</span>。檔案與登入會保留，軟體需重新安裝。除非真的沒辦法，避免使用 <span class="ui">Reset</span>。</p></div></details>
+  <details><summary>「Check for Updates」和「Update Grok Bot's Computer」差在哪？</summary><div><p><span class="ui">Check for Updates</span>（在 <span class="ui">Updates</span> 分頁）更新的是 <strong>Grok Bot app 本身</strong>；<span class="ui">Update Grok Bot's Computer</span>（在 <span class="ui">Computer</span> 分頁）是把 <strong>bot 的電腦</strong>換到新的環境。</p></div></details>
+  <details><summary>我不在的時候，例行公事會跑嗎？</summary><div><p>會。Routines 依排程或事件執行，你不在也照常進行，做完會回報給你。</p></div></details>
+  <details><summary>網頁小工坊做的網頁會一直留著嗎？</summary><div><p>預設 10 天後自動刪除。要保留，跟網頁小工坊說「這頁幫我保留」。</p></div></details>
+  <details><summary>Bot 會不會自己幫我寄信？</summary><div><p>不會。它會先擬好草稿，由你檢查後按下傳送；有風險的動作也會先請你批准。</p></div></details>
+  <details><summary>可以看到 bot 在電腦上做什麼嗎？</summary><div><p>可以。打開資訊面板就有電腦即時預覽，點一下可以全螢幕觀看；需要登入時你也能在那裡協助。</p></div></details>
+  <details><summary>某個設定我找不到？</summary><div><p>有些設定列只出現在部分帳號、版本或狀態（例如 <span class="ui">Usage &amp; Billing</span> 只在帳號有開放時才出現）。找不到通常代表你的帳號目前沒有這一項。</p></div></details>
+</section>
+
+</main>
+
+<footer>
+  <p>本頁的介面位置依據 Grok Bot 介面參考資料整理；沒有確切依據的操作（例如新增 bot、新增連接服務的入口）刻意不寫點擊路徑。所有畫面圖均為示意插圖，不是 app 的真實截圖。</p>
+  <p>製作：網頁小工坊・2026-10-08（台北時間）</p>
+  <a class="top" href="#top">↑ 回到頂端</a>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.parentElement.querySelector('q').textContent.trim();
+    function done(){b.textContent='已複製';b.classList.add('ok');setTimeout(function(){b.textContent='複製';b.classList.remove('ok');},1600);}
+    function fallback(){var a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(a);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fallback);}else{fallback();}
+  });
+});
+</script>
+</body>
+</html>
