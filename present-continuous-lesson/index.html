@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三年級英語教案：現在進行式 be + V-ing</title>
+<style>
+  :root{
+    --ink:#22253a; --muted:#5d6278; --bg:#fbf7f0; --card:#ffffff;
+    --c-goal:#5468ff; --c-goal-soft:#eef0ff;
+    --c-mat:#0f9f8f;  --c-mat-soft:#e3f7f4;
+    --c-warm:#f2711c; --c-warm-soft:#fff0e4;
+    --c-pres:#d99100; --c-pres-soft:#fff6dc;
+    --c-card:#e0457b; --c-card-soft:#ffe9f1;
+    --c-group:#2f9e44; --c-group-soft:#e7f7ea;
+    --c-exit:#8b5cf6; --c-exit-soft:#f2ecff;
+    --en:#0b7a55;
+    --radius:22px;
+    --font:"PingFang TC","Noto Sans TC","Noto Sans CJK TC","Microsoft JhengHei","Heiti TC",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font);font-size:21px;line-height:1.7;color:var(--ink);background:var(--bg);
+       background-image:radial-gradient(circle at 10% 0%,#fff3c4 0,transparent 40%),radial-gradient(circle at 100% 30%,#ffe3ee 0,transparent 35%);overflow-wrap:anywhere}
+  img,svg{max-width:100%;height:auto}
+  .wrap{max-width:900px;margin:0 auto;padding:16px 14px 56px}
+  .en{font-weight:700;color:var(--en);font-family:var(--font)}
+  b,strong{font-weight:800}
+
+  /* ---------- Header ---------- */
+  .hero{position:relative;overflow:hidden;border-radius:28px;padding:26px 22px 24px;color:#fff;
+        background:linear-gradient(140deg,#5468ff 0%,#8b5cf6 55%,#e0457b 100%);box-shadow:0 10px 30px rgba(84,104,255,.25)}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.22);border-radius:999px;padding:4px 14px;font-size:17px;font-weight:700;letter-spacing:.03em}
+  .hero h1{margin:12px 0 6px;font-size:31px;line-height:1.3}
+  .hero h1 .big{display:block;font-size:38px;letter-spacing:.01em}
+  .hero p{margin:0;font-size:19px;opacity:.96}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .hero .meta span{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 14px;font-size:17px;font-weight:700}
+  .hero svg.deco{position:absolute;right:-14px;bottom:-22px;width:130px;opacity:.85;pointer-events:none}
+  .hero .txt{position:relative}
+
+  /* ---------- Timeline ---------- */
+  .timeline{background:var(--card);border-radius:var(--radius);padding:20px 18px;margin:18px 0;box-shadow:0 4px 16px rgba(34,37,58,.07)}
+  .timeline h2{margin:0 0 12px;font-size:24px}
+  .bar{display:flex;height:46px;border-radius:14px;overflow:hidden;box-shadow:inset 0 0 0 2px rgba(0,0,0,.04)}
+  .bar a{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px;text-decoration:none;min-width:0}
+  .ticks{display:flex;justify-content:space-between;font-size:16px;color:var(--muted);margin:4px 2px 10px;font-weight:700}
+  .seglist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .seglist a{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);padding:8px 12px;border-radius:14px;background:#f7f7fb}
+  .seglist .dot{flex:0 0 auto;min-width:64px;white-space:nowrap;padding-left:6px !important;padding-right:6px !important;text-align:center;border-radius:10px;color:#fff;font-weight:800;font-size:17px;padding:2px 0}
+  .seglist .lbl{font-weight:700;line-height:1.35}
+  .seglist .lbl small{display:block;font-weight:500;color:var(--muted);font-size:17px}
+
+  /* ---------- Sections ---------- */
+  section.card{--c:var(--c-goal);--soft:var(--c-goal-soft);position:relative;background:var(--card);border-radius:var(--radius);
+       padding:20px 18px 20px;margin:18px 0;box-shadow:0 4px 16px rgba(34,37,58,.07);border-top:8px solid var(--c);scroll-margin-top:12px}
+  section.card h2{margin:0 0 12px;font-size:25px;line-height:1.35;color:var(--c);display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+  section.card h2 .num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--c);color:#fff;font-size:21px;flex:0 0 auto}
+  section.card h2 .sub{display:block;font-size:18px;color:var(--muted);font-weight:600;width:100%}
+  .time{display:inline-block;background:var(--soft);color:var(--c);border:2px solid var(--c);border-radius:999px;padding:0 12px;font-size:17px;font-weight:800;white-space:nowrap}
+  ul,ol{padding-left:1.3em;margin:6px 0}
+  li{margin:6px 0}
+  li::marker{color:var(--c);font-weight:800}
+  p{margin:8px 0}
+  .card.goal{--c:var(--c-goal);--soft:var(--c-goal-soft)}
+  .card.mat{--c:var(--c-mat);--soft:var(--c-mat-soft)}
+  .card.warm{--c:var(--c-warm);--soft:var(--c-warm-soft)}
+  .card.pres{--c:var(--c-pres);--soft:var(--c-pres-soft)}
+  .card.flash{--c:var(--c-card);--soft:var(--c-card-soft)}
+  .card.group{--c:var(--c-group);--soft:var(--c-group-soft)}
+  .card.exit{--c:var(--c-exit);--soft:var(--c-exit-soft)}
+
+  .illus{display:block;margin:4px auto 10px;width:100%;max-width:420px}
+  .note{background:var(--soft);border-radius:16px;padding:12px 16px;margin:12px 0}
+  .note .t{font-weight:800;color:var(--c)}
+  .say{background:var(--soft);border-radius:10px;padding:1px 8px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+  /* materials */
+  .mat-grid{list-style:none;padding:0;display:grid;gap:10px;margin:4px 0}
+  .mat-grid li{display:flex;gap:12px;align-items:flex-start;background:var(--soft);border-radius:16px;padding:10px 14px;margin:0}
+  .mat-grid .ico{font-size:30px;line-height:1.2;flex:0 0 auto}
+
+  /* verbs chips */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;padding:0;list-style:none}
+  .chips li{margin:0;background:var(--soft);border:2px solid var(--c);border-radius:999px;padding:2px 14px;font-weight:700}
+  .chips li .en{color:var(--ink)}
+
+  /* formula */
+  .formula{display:grid;gap:10px;margin:14px 0}
+  .frow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;text-align:center}
+  .pill{border-radius:16px;padding:10px 8px;font-weight:800;font-size:21px;line-height:1.35}
+  .pill.subj{background:#eef0ff;color:#3446d6}
+  .pill.be{background:#ffe6a3;color:#7a4b00;font-size:24px;min-width:72px}
+  .pill.ving{background:#ffe9f1;color:#b8245a}
+  .plus{font-weight:900;color:var(--c);font-size:22px}
+  .ftitle{text-align:center;font-weight:800;font-size:22px;background:var(--soft);border-radius:16px;padding:8px;color:#7a4b00}
+  .ftitle .be2{background:#ffe6a3;border-radius:10px;padding:0 8px}
+  .ftitle .ing{background:#ffe9f1;color:#b8245a;border-radius:10px;padding:0 8px}
+
+  .ex{list-style:none;padding:0;margin:10px 0;display:grid;gap:8px}
+  .ex li{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;background:#fffdf6;border:2px solid #f3e3b5;border-radius:16px;padding:8px 14px}
+  .ex .e{font-size:20px}
+  .ex .en{font-size:22px}
+  .ex .zh{color:var(--muted);font-size:19px}
+  .ex .em{font-size:28px}
+  .hl{background:#ffe6a3;border-radius:6px;padding:0 4px;color:#7a4b00}
+  .ing-hl{color:#c42662;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:3px}
+
+  .rules{display:grid;gap:10px;margin:10px 0}
+  .rule{border-radius:16px;padding:10px 14px;background:#fff;border:2px solid #f3e3b5}
+  .rule .rt{font-weight:800;color:#7a4b00}
+  .rule .en{font-size:21px}
+
+  /* action picture cards */
+  .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+  .acard{break-inside:avoid;page-break-inside:avoid;background:#fff;border:3px solid var(--k);border-radius:20px;padding:12px 8px 12px;text-align:center;box-shadow:0 4px 0 var(--k)}
+  .acard .pic{display:grid;place-items:center;height:96px;border-radius:14px;background:var(--ks);font-size:58px;line-height:1;margin-bottom:8px}
+  .acard .verb{font-size:24px;font-weight:800;color:var(--ink);line-height:1.2}
+  .acard .zh{font-size:17px;color:var(--muted);font-weight:600}
+  .acard .ving{margin-top:6px;font-size:23px;font-weight:900;color:var(--k);line-height:1.2}
+  .acard .ving u{text-decoration:none;background:var(--ks);border-radius:6px;padding:0 2px}
+  .acard .rb{display:inline-block;margin-top:6px;font-size:16px;font-weight:700;border-radius:999px;padding:0 10px;background:var(--ks);color:var(--ink)}
+  .k1{--k:#f2711c;--ks:#fff0e4}.k2{--k:#d99100;--ks:#fff6dc}.k3{--k:#e0457b;--ks:#ffe9f1}.k4{--k:#8b5cf6;--ks:#f2ecff}
+  .k5{--k:#5468ff;--ks:#eef0ff}.k6{--k:#0c8fc4;--ks:#e1f4fc}.k7{--k:#2f9e44;--ks:#e7f7ea}.k8{--k:#6b5bb5;--ks:#efecfa}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;font-size:17px;margin:4px 0 0}
+  .legend span{background:#f7f7fb;border-radius:999px;padding:2px 12px;font-weight:600}
+
+  /* dialogue */
+  .dlg{display:grid;gap:8px;margin:12px 0}
+  .bub{max-width:92%;border-radius:18px;padding:8px 14px;font-weight:700;position:relative}
+  .bub.q{background:var(--soft);justify-self:start;border-bottom-left-radius:4px}
+  .bub.a{background:#fff;border:2px solid var(--c);justify-self:end;border-bottom-right-radius:4px}
+  .bub .who{display:block;font-size:16px;color:var(--muted);font-weight:600}
+
+  /* steps */
+  .steps{list-style:none;padding:0;counter-reset:s;margin:8px 0}
+  .steps li{counter-increment:s;position:relative;padding-left:48px;margin:10px 0}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:36px;height:36px;border-radius:50%;background:var(--c);color:#fff;font-weight:800;display:grid;place-items:center;font-size:19px}
+
+  /* exit ticket */
+  .ticket{break-inside:avoid;page-break-inside:avoid;border:3px dashed var(--c);border-radius:20px;padding:16px;background:linear-gradient(#fff,#fff) padding-box;position:relative;margin:12px 0}
+  .ticket .th{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-weight:800;color:var(--c);font-size:22px;margin-bottom:6px}
+  .ticket .nm{font-size:18px;color:var(--muted);font-weight:600}
+  .ticket ol{list-style:none;padding:0;margin:0}
+  .ticket li{font-size:23px;padding:10px 0;border-bottom:2px dotted #d9cdf7;margin:0}
+  .ticket li:last-child{border-bottom:0}
+  .ticket .blank{display:inline-block;min-width:4.5em;border-bottom:3px solid var(--ink);margin:0 4px}
+  .ticket .hint{color:var(--muted);font-weight:700}
+  .chant{text-align:center;font-weight:800;font-size:22px;background:var(--soft);border-radius:18px;padding:12px;color:#5b34c9}
+  .answers{break-inside:avoid;page-break-inside:avoid;margin-top:14px;border-radius:20px;background:var(--soft);padding:14px 16px}
+  .answers h3{margin:0 0 8px;font-size:22px;color:var(--c)}
+  .answers ol{margin:0;padding-left:1.4em}
+  .answers li{font-size:22px}
+  .answers li .en{font-size:22px}
+  .toggle{display:none;font:inherit;font-size:18px;font-weight:800;color:#fff;background:var(--c);border:0;border-radius:999px;padding:8px 18px;cursor:pointer;margin-top:4px}
+  .js .toggle{display:inline-block}
+  .answers.hide .ans{filter:blur(7px);user-select:none}
+  .print-only{display:none}
+
+  footer{text-align:center;color:var(--muted);font-size:17px;margin-top:26px}
+  .totop{position:fixed;right:14px;bottom:14px;width:52px;height:52px;border-radius:50%;background:#5468ff;color:#fff;display:grid;place-items:center;
+         text-decoration:none;font-size:24px;font-weight:900;box-shadow:0 6px 16px rgba(84,104,255,.4)}
+
+  /* ---------- Tablet / desktop ---------- */
+  @media (min-width:640px){
+    body{font-size:20px}
+    .wrap{padding:28px 24px 64px}
+    .hero{padding:34px 34px 30px}
+    .hero h1{font-size:34px}.hero h1 .big{font-size:44px}
+    .hero svg.deco{width:210px;right:8px;top:6px;bottom:auto;opacity:.95}
+    .hero .txt{max-width:70%}
+    section.card,.timeline{padding:26px 30px}
+    .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .seglist{grid-template-columns:1fr 1fr}
+    .mat-grid{grid-template-columns:1fr 1fr}
+    .split{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}
+    .split .illus{margin-top:0}
+    .rules{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (min-width:1000px){ .wrap{max-width:960px} }
+
+  /* ---------- Print ---------- */
+  @page{size:A4;margin:13mm 12mm 14mm}
+  @media print{
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+    html,body{background:#fff !important;background-image:none !important;font-size:12.5pt;line-height:1.55}
+    .wrap{max-width:none;padding:0}
+    .totop,.toggle,.no-print{display:none !important}
+    .print-only{display:inline !important}
+    .hero{box-shadow:none;padding:18px 22px;border-radius:16px}
+    .hero h1{font-size:22pt}.hero h1 .big{font-size:26pt}
+    .hero svg.deco{width:130px;right:10px;top:4px;bottom:auto}
+    .hero .txt{max-width:72%}
+    .timeline,section.card{box-shadow:none;border:1px solid #e3e3ea;border-top:6px solid var(--c);margin:10px 0;padding:14px 18px}
+    .timeline{border-top:6px solid #5468ff}
+    .seglist{grid-template-columns:1fr 1fr}
+    .mat-grid{grid-template-columns:1fr 1fr}
+    .split{display:grid;grid-template-columns:1fr 220px;gap:16px;align-items:start}
+    .rules{grid-template-columns:repeat(3,1fr)}
+    .cards{grid-template-columns:repeat(4,1fr);gap:8px}
+    .acard{box-shadow:none}
+    .acard .pic{height:70px;font-size:42px}
+    section.card h2{font-size:17pt;break-after:avoid;page-break-after:avoid}
+    h2,h3,.ftitle{break-after:avoid;page-break-after:avoid}
+    .ex li,.rule,.mat-grid li,.seglist a,.bub,.note,.formula,.dlg,.illus,.timeline{break-inside:avoid;page-break-inside:avoid}
+    .card.goal,.card.mat,.card.warm,.card.group,.card.flash{break-inside:avoid;page-break-inside:avoid}
+    #pres,#flash{break-before:page;page-break-before:always}
+    .timeline{padding:10px 16px}.timeline h2{font-size:15pt;margin-bottom:6px}.bar{height:32px}.seglist{gap:5px}.seglist a{padding:4px 10px}
+    .illus{max-width:220px}
+    .ex{gap:5px}.ex li{padding:3px 12px}.ex .em{font-size:20px}.ex .en{font-size:15pt}
+    .formula{gap:6px;margin:8px 0}.pill{padding:5px 8px;font-size:14pt}.pill.be{font-size:15pt}.ftitle{padding:5px;font-size:15pt}
+    .pres .note{padding:8px 12px;margin:8px 0}.rule{padding:6px 10px}.rule .en{font-size:13pt}
+    .steps li{margin:10px 0;padding-left:40px;min-height:30px}.steps li::before{width:28px;height:28px;font-size:13pt;top:0}
+    #exit{break-before:page;page-break-before:always}
+    .answers{break-before:page;page-break-before:always;border:2px solid var(--c)}
+    .answers.hide .ans{filter:none}
+    a{color:inherit;text-decoration:none}
+    footer{margin-top:10px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+
+<!-- ================= HEADER ================= -->
+<header class="hero">
+  <svg class="deco" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="120" cy="80" r="44" fill="#ffd84d"/>
+    <g stroke="#ffd84d" stroke-width="8" stroke-linecap="round">
+      <line x1="120" y1="18" x2="120" y2="4"/><line x1="120" y1="142" x2="120" y2="156"/>
+      <line x1="58" y1="80" x2="44" y2="80"/><line x1="182" y1="80" x2="196" y2="80"/>
+      <line x1="76" y1="36" x2="66" y2="26"/><line x1="164" y1="124" x2="174" y2="134"/>
+      <line x1="164" y1="36" x2="174" y2="26"/><line x1="76" y1="124" x2="66" y2="134"/>
+    </g>
+    <circle cx="106" cy="74" r="5" fill="#5a3b00"/><circle cx="134" cy="74" r="5" fill="#5a3b00"/>
+    <path d="M102 92 Q120 110 138 92" stroke="#5a3b00" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <circle cx="96" cy="90" r="6" fill="#ff9db8" opacity=".8"/><circle cx="144" cy="90" r="6" fill="#ff9db8" opacity=".8"/>
+    <text x="40" y="180" font-size="30" font-weight="900" fill="#fff" font-family="Arial,sans-serif">-ing!</text>
+    <path d="M28 40 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5z" fill="#fff" opacity=".85"/>
+  </svg>
+  <div class="txt">
+    <span class="tag">Grade 3 English · 三年級英語教案</span>
+    <h1><span class="big">現在進行式</span>be + V-ing</h1>
+    <p>Present Continuous Tense｜中英混合教學</p>
+    <div class="meta"><span>⏱ 總時間 30 分鐘</span><span>👧👦 國小三年級</span><span>🗣 am / is / are + V-ing</span></div>
+  </div>
+</header>
+
+<!-- ================= TIMELINE ================= -->
+<nav class="timeline" aria-label="30 分鐘課程流程">
+  <h2>🗓 30 分鐘課程流程 Overview</h2>
+  <div class="bar" role="img" aria-label="暖身5分、句型8分、快問快答7分、小組活動7分、出場小卡3分">
+    <a href="#warm"  style="flex:5;background:var(--c-warm)">5′</a>
+    <a href="#pres"  style="flex:8;background:var(--c-pres)">8′</a>
+    <a href="#flash" style="flex:7;background:var(--c-card)">7′</a>
+    <a href="#group" style="flex:7;background:var(--c-group)">7′</a>
+    <a href="#exit"  style="flex:3;background:var(--c-exit)">3′</a>
+  </div>
+  <div class="ticks"><span>0′</span><span>10′</span><span>20′</span><span>30′</span></div>
+  <ul class="seglist">
+    <li><a href="#warm"><span class="dot" style="background:var(--c-warm)">0–5′</span><span class="lbl">1. 暖身 Simon Says<small>Warm-up · 5 分鐘</small></span></a></li>
+    <li><a href="#pres"><span class="dot" style="background:var(--c-pres)">5–13′</span><span class="lbl">2. am/is/are + V-ing 公式與例句<small>Presentation · 8 分鐘</small></span></a></li>
+    <li><a href="#flash"><span class="dot" style="background:var(--c-card)">13–20′</span><span class="lbl">3. 圖卡快問快答<small>Guided Practice · 7 分鐘</small></span></a></li>
+    <li><a href="#group"><span class="dot" style="background:var(--c-group)">20–27′</span><span class="lbl">4. 小組活動：猜猜我在做什麼<small>Guess What I'm Doing · 7 分鐘</small></span></a></li>
+    <li><a href="#exit"><span class="dot" style="background:var(--c-exit)">27–30′</span><span class="lbl">5. 總結與出場小卡<small>Exit Ticket · 3 分鐘</small></span></a></li>
+  </ul>
+</nav>
+
+<!-- ================= OBJECTIVES ================= -->
+<section class="card goal" id="goals">
+  <h2><span class="num">🎯</span>教學目標 Objectives</h2>
+  <ol>
+    <li>學生能說出 be 動詞 <span class="en">am / is / are</span> 搭配 <span class="en">V-ing</span>，表示「正在做」的事。</li>
+    <li>學生能用 <span class="en">I am / He is / She is / They are + V-ing</span> 說出簡單句子。</li>
+    <li>學生能聽懂並回答 <span class="en">What are you doing?</span> / <span class="en">What is he doing?</span></li>
+  </ol>
+</section>
+
+<!-- ================= MATERIALS ================= -->
+<section class="card mat" id="materials">
+  <h2><span class="num">🎒</span>教具 Materials</h2>
+  <ul class="mat-grid">
+    <li><span class="ico">🃏</span><span>動作圖卡：<span class="en">run, eat, sing, dance, read, swim, jump, sleep</span></span></li>
+    <li><span class="ico">🖍️</span><span>白板與彩色白板筆</span></li>
+    <li><span class="ico">📏</span><span>句型條：<span class="en">I am ___ing.</span></span></li>
+    <li><span class="ico">🎲</span><span>每組一份「猜猜我在做什麼」動作籤</span></li>
+    <li><span class="ico">🎟️</span><span>出場小卡（學習單）</span></li>
+  </ul>
+</section>
+
+<!-- ================= 1. WARM-UP ================= -->
+<section class="card warm" id="warm">
+  <h2><span class="num">1</span>暖身 Warm-up：Simon Says <span class="time">⏱ 5 分鐘</span></h2>
+  <div class="split">
+    <div>
+      <ul>
+        <li>老師說 <span class="say en">"Simon says jump!"</span>，學生一起跳；沒說 Simon says 就不能動。</li>
+        <li>邊做邊問 <span class="en">"What are you doing?"</span>，老師先示範回答 <span class="en">"I am jumping!"</span>，學生跟著說。</li>
+        <li>使用動詞：</li>
+      </ul>
+      <ul class="chips" aria-label="暖身動詞">
+        <li><span class="en">jump</span> → jumping</li>
+        <li><span class="en">run</span> → running</li>
+        <li><span class="en">clap</span> → clapping</li>
+        <li><span class="en">dance</span> → dancing</li>
+        <li><span class="en">sit</span> → sitting</li>
+      </ul>
+    </div>
+    <!-- Simon Says illustration -->
+    <svg class="illus" viewBox="0 0 320 230" role="img" aria-label="老師說 Simon says jump，小朋友跳起來">
+      <rect x="0" y="0" width="320" height="230" rx="22" fill="#fff0e4"/>
+      <ellipse cx="160" cy="214" rx="140" ry="10" fill="#ffd9bd"/>
+      <!-- teacher -->
+      <circle cx="70" cy="96" r="24" fill="#ffd7b5"/>
+      <path d="M46 92 Q48 64 72 66 Q96 66 94 92 Q90 78 72 78 Q54 78 46 92z" fill="#4a3426"/>
+      <path d="M48 58 l8 -16 10 12 6 -16 6 16 10 -12 8 16z" fill="#ffc83d" stroke="#e09b00" stroke-width="2"/>
+      <circle cx="62" cy="98" r="3" fill="#333"/><circle cx="78" cy="98" r="3" fill="#333"/>
+      <path d="M62 108 Q70 116 78 108" stroke="#c0392b" stroke-width="3" fill="#fff" stroke-linecap="round"/>
+      <rect x="48" y="122" width="44" height="62" rx="14" fill="#f2711c"/>
+      <path d="M90 134 L118 112" stroke="#ffd7b5" stroke-width="10" stroke-linecap="round"/>
+      <path d="M50 136 L36 164" stroke="#ffd7b5" stroke-width="10" stroke-linecap="round"/>
+      <rect x="56" y="182" width="11" height="28" rx="5" fill="#3b4a6b"/><rect x="73" y="182" width="11" height="28" rx="5" fill="#3b4a6b"/>
+      <!-- speech bubble -->
+      <rect x="112" y="16" width="190" height="56" rx="18" fill="#fff" stroke="#f2711c" stroke-width="3"/>
+      <path d="M128 70 L114 92 L146 72z" fill="#fff" stroke="#f2711c" stroke-width="3" stroke-linejoin="round"/>
+      <rect x="126" y="66" width="24" height="8" fill="#fff"/>
+      <text x="207" y="52" text-anchor="middle" font-size="21" font-weight="800" fill="#c2410c" font-family="Arial,sans-serif">Simon says jump!</text>
+      <!-- jumping kid 1 -->
+      <g transform="translate(176 92)">
+        <circle cx="30" cy="22" r="18" fill="#ffd7b5"/>
+        <path d="M12 18 Q14 0 30 2 Q48 2 48 18 Q40 8 30 8 Q18 8 12 18z" fill="#2d2d2d"/>
+        <circle cx="24" cy="24" r="2.5" fill="#333"/><circle cx="36" cy="24" r="2.5" fill="#333"/>
+        <path d="M23 31 Q30 37 37 31" stroke="#c0392b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="16" y="42" width="28" height="40" rx="10" fill="#5468ff"/>
+        <path d="M18 48 L2 24 M42 48 L58 24" stroke="#ffd7b5" stroke-width="8" stroke-linecap="round"/>
+        <path d="M22 80 L12 100 M38 80 L48 100" stroke="#3b4a6b" stroke-width="9" stroke-linecap="round"/>
+      </g>
+      <!-- jumping kid 2 -->
+      <g transform="translate(246 100)">
+        <circle cx="30" cy="22" r="18" fill="#f5c9a0"/>
+        <path d="M10 26 Q8 0 30 2 Q52 0 50 26 Q46 10 30 10 Q16 10 10 26z" fill="#6b3e1e"/>
+        <circle cx="24" cy="24" r="2.5" fill="#333"/><circle cx="36" cy="24" r="2.5" fill="#333"/>
+        <path d="M23 31 Q30 37 37 31" stroke="#c0392b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M14 82 L20 42 H40 L46 82z" fill="#e0457b"/>
+        <path d="M20 48 L4 26 M40 48 L56 26" stroke="#f5c9a0" stroke-width="8" stroke-linecap="round"/>
+        <path d="M24 82 L18 98 M36 82 L42 98" stroke="#f5c9a0" stroke-width="8" stroke-linecap="round"/>
+      </g>
+      <g fill="#f2711c"><path d="M178 196 h14 M196 204 h10" stroke="#f2711c" stroke-width="4" stroke-linecap="round"/></g>
+      <text x="168" y="88" font-size="22" font-family="Arial,sans-serif" fill="#f2711c">✦</text>
+      <text x="294" y="96" font-size="18" font-family="Arial,sans-serif" fill="#f2711c">✦</text>
+    </svg>
+  </div>
+  <div class="dlg">
+    <div class="bub q"><span class="who">老師 Teacher</span><span class="en">What are you doing?</span></div>
+    <div class="bub a"><span class="who">學生 Students</span><span class="en">I am jumping!</span></div>
+  </div>
+</section>
+
+<!-- ================= 2. PRESENTATION ================= -->
+<section class="card pres" id="pres">
+  <h2><span class="num">2</span>句型介紹 Presentation：am / is / are + V-ing <span class="time">⏱ 8 分鐘</span></h2>
+  <div class="note"><span class="t">中文說明：</span>「現在進行式就是『正在』做某件事。公式是 be 動詞 + 動詞加 ing。」</div>
+
+  <div class="formula" aria-label="公式">
+    <div class="ftitle">公式：<span class="be2">be 動詞</span> + <span class="ing">動詞 + ing</span></div>
+    <div class="frow"><div class="pill subj">I</div><div class="pill be">am</div><div class="pill ving">V-ing</div></div>
+    <div class="frow"><div class="pill subj">He / She / It</div><div class="pill be">is</div><div class="pill ving">V-ing</div></div>
+    <div class="frow"><div class="pill subj">You / We / They</div><div class="pill be">are</div><div class="pill ving">V-ing</div></div>
+  </div>
+
+  <h3 style="margin:16px 0 4px;font-size:22px;color:#7a4b00">📝 例句 Examples</h3>
+  <ul class="ex">
+    <li><span class="em">📖</span><span class="en">I <span class="hl">am</span> read<span class="ing-hl">ing</span>.</span><span class="zh">我正在讀書。</span></li>
+    <li><span class="em">🍙</span><span class="en">I <span class="hl">am</span> eat<span class="ing-hl">ing</span>.</span><span class="zh">我正在吃東西。</span></li>
+    <li><span class="em">🏃</span><span class="en">He <span class="hl">is</span> runn<span class="ing-hl">ing</span>.</span><span class="zh">他正在跑步。</span></li>
+    <li><span class="em">🎤</span><span class="en">She <span class="hl">is</span> sing<span class="ing-hl">ing</span>.</span><span class="zh">她正在唱歌。</span></li>
+    <li><span class="em">💃</span><span class="en">They <span class="hl">are</span> danc<span class="ing-hl">ing</span>.</span><span class="zh">他們正在跳舞。</span></li>
+    <li><span class="em">🐱</span><span class="en">The cat <span class="hl">is</span> sleep<span class="ing-hl">ing</span>.</span><span class="zh">貓咪正在睡覺。</span></li>
+  </ul>
+
+  <div class="note">
+    <span class="t">✏️ 小提醒：拼字規則</span>（三年級點到為止即可）
+    <div class="rules">
+      <div class="rule"><div class="rt">一般動詞 + ing</div><span class="en">read → reading</span></div>
+      <div class="rule"><div class="rt">多一個字母 + ing</div><span class="en">swim → swimming<br>run → running</span></div>
+      <div class="rule"><div class="rt">去 e 加 ing</div><span class="en">dance → dancing</span></div>
+    </div>
+  </div>
+  <p>🔁 全班跟讀每句兩次，男生、女生輪流念。</p>
+</section>
+
+<!-- ================= 3. FLASH CARDS ================= -->
+<section class="card flash" id="flash">
+  <h2><span class="num">3</span>引導練習：圖卡快問快答 <span class="time">⏱ 7 分鐘</span><span class="sub">Guided Practice · Picture Cards</span></h2>
+
+  <div class="cards" id="cards" aria-label="動作圖卡">
+    <div class="acard k1"><div class="pic" aria-hidden="true">🏃</div><div class="verb">run</div><div class="zh">跑步</div><div class="ving">run<u>n</u>ing</div><div class="rb">多一個 n</div></div>
+    <div class="acard k2"><div class="pic" aria-hidden="true">🍙</div><div class="verb">eat</div><div class="zh">吃</div><div class="ving">eating</div><div class="rb">+ ing</div></div>
+    <div class="acard k3"><div class="pic" aria-hidden="true">🎤</div><div class="verb">sing</div><div class="zh">唱歌</div><div class="ving">singing</div><div class="rb">+ ing</div></div>
+    <div class="acard k4"><div class="pic" aria-hidden="true">💃</div><div class="verb">dance</div><div class="zh">跳舞</div><div class="ving">danc<u>ing</u></div><div class="rb">去 e 加 ing</div></div>
+    <div class="acard k5"><div class="pic" aria-hidden="true">📖</div><div class="verb">read</div><div class="zh">閱讀</div><div class="ving">reading</div><div class="rb">+ ing</div></div>
+    <div class="acard k6"><div class="pic" aria-hidden="true">🏊</div><div class="verb">swim</div><div class="zh">游泳</div><div class="ving">swim<u>m</u>ing</div><div class="rb">多一個 m</div></div>
+    <div class="acard k7"><div class="pic" aria-hidden="true">🤸</div><div class="verb">jump</div><div class="zh">跳</div><div class="ving">jumping</div><div class="rb">+ ing</div></div>
+    <div class="acard k8"><div class="pic" aria-hidden="true">😴</div><div class="verb">sleep</div><div class="zh">睡覺</div><div class="ving">sleeping</div><div class="rb">+ ing</div></div>
+  </div>
+
+  <ol class="steps">
+    <li>老師舉起圖卡問 <span class="en">"What is he doing?"</span>，全班回答 <span class="en">"He is swimming."</span></li>
+    <li>接著換成 <span class="en">she</span>、<span class="en">they</span> 的圖卡練習（例：<span class="en">"What is she doing?" — "She is dancing."</span>／<span class="en">"What are they doing?" — "They are running."</span>）。</li>
+    <li>後半段請一位學生上台抽圖卡、做動作，台下問 <span class="en">"What are you doing?"</span>，台上回答 <span class="en">"I am ___ing."</span></li>
+    <li>答對的組加一分。 ⭐</li>
+  </ol>
+</section>
+
+<!-- ================= 4. GROUP ================= -->
+<section class="card group" id="group">
+  <h2><span class="num">4</span>小組活動：猜猜我在做什麼 <span class="time">⏱ 7 分鐘</span><span class="sub">Guess What I'm Doing</span></h2>
+  <div class="split">
+    <div>
+      <ol class="steps">
+        <li>四人一組，輪流抽動作籤，只能比動作、不能說話。🤫</li>
+        <li>組員猜：<span class="en">"Are you eating?"</span>，表演者回答 <span class="en">"Yes, I am."</span> 或 <span class="en">"No, I am not."</span></li>
+        <li>猜對後全組一起說完整句子，例如 <span class="en">"He is eating."</span> / <span class="en">"She is eating."</span></li>
+        <li>每人至少表演一次，老師巡視並糾正 <span class="en">am / is / are</span> 的用法。</li>
+      </ol>
+    </div>
+    <!-- group activity illustration -->
+    <svg class="illus" viewBox="0 0 320 240" role="img" aria-label="四人小組：一人比動作，三人猜">
+      <rect width="320" height="240" rx="22" fill="#e7f7ea"/>
+      <ellipse cx="160" cy="222" rx="140" ry="10" fill="#c8ecd0"/>
+      <!-- performer in middle (eating, silent) -->
+      <g transform="translate(130 70)">
+        <circle cx="30" cy="24" r="22" fill="#ffd7b5"/>
+        <path d="M8 22 Q10 0 30 2 Q52 2 52 22 Q44 10 30 10 Q16 10 8 22z" fill="#2d2d2d"/>
+        <circle cx="22" cy="24" r="3" fill="#333"/><circle cx="38" cy="24" r="3" fill="#333"/>
+        <ellipse cx="30" cy="36" rx="6" ry="5" fill="#c0392b"/>
+        <rect x="12" y="48" width="36" height="52" rx="12" fill="#2f9e44"/>
+        <path d="M14 58 Q0 50 18 36" stroke="#ffd7b5" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <circle cx="20" cy="34" r="7" fill="#ffd84d"/>
+        <path d="M46 58 L60 76" stroke="#ffd7b5" stroke-width="9" stroke-linecap="round"/>
+        <path d="M22 98 L20 140 M38 98 L40 140" stroke="#3b4a6b" stroke-width="10" stroke-linecap="round"/>
+        <text x="58" y="6" font-size="22" font-family="Arial,sans-serif">🤫</text>
+      </g>
+      <!-- card -->
+      <g transform="rotate(-10 40 46)"><rect x="18" y="20" width="48" height="62" rx="8" fill="#fff" stroke="#2f9e44" stroke-width="3"/><text x="42" y="62" font-size="30" text-anchor="middle" font-weight="900" fill="#2f9e44" font-family="Arial,sans-serif">?</text></g>
+      <!-- guessers -->
+      <g transform="translate(16 128)">
+        <circle cx="26" cy="20" r="18" fill="#f5c9a0"/><path d="M8 24 Q6 0 26 2 Q46 0 44 24 Q40 8 26 8 Q12 8 8 24z" fill="#6b3e1e"/>
+        <circle cx="20" cy="22" r="2.5" fill="#333"/><circle cx="32" cy="22" r="2.5" fill="#333"/><path d="M20 29 Q26 33 32 29" stroke="#333" stroke-width="2" fill="none"/>
+        <rect x="10" y="40" width="32" height="44" rx="10" fill="#e0457b"/>
+      </g>
+      <g transform="translate(250 128)">
+        <circle cx="26" cy="20" r="18" fill="#ffd7b5"/><path d="M10 16 Q14 0 26 2 Q42 2 42 16 Q34 8 26 8 Q16 8 10 16z" fill="#2d2d2d"/>
+        <circle cx="20" cy="22" r="2.5" fill="#333"/><circle cx="32" cy="22" r="2.5" fill="#333"/><path d="M20 29 Q26 33 32 29" stroke="#333" stroke-width="2" fill="none"/>
+        <rect x="10" y="40" width="32" height="44" rx="10" fill="#5468ff"/>
+      </g>
+      <g transform="translate(232 40)">
+        <circle cx="26" cy="20" r="16" fill="#e8b48a"/><path d="M10 18 Q12 2 26 4 Q40 2 42 18 Q36 10 26 10 Q16 10 10 18z" fill="#1f1f1f"/>
+        <circle cx="20" cy="22" r="2.5" fill="#333"/><circle cx="32" cy="22" r="2.5" fill="#333"/>
+        <rect x="12" y="36" width="28" height="30" rx="9" fill="#f2711c"/>
+      </g>
+      <!-- bubbles -->
+      <rect x="6" y="92" width="122" height="32" rx="14" fill="#fff" stroke="#2f9e44" stroke-width="2.5"/>
+      <text x="67" y="114" text-anchor="middle" font-size="16" font-weight="800" fill="#1f7a33" font-family="Arial,sans-serif">Are you eating?</text>
+      <rect x="196" y="204" width="118" height="30" rx="14" fill="#fff" stroke="#2f9e44" stroke-width="2.5"/>
+      <text x="255" y="225" text-anchor="middle" font-size="16" font-weight="800" fill="#1f7a33" font-family="Arial,sans-serif">Yes, I am!</text>
+    </svg>
+  </div>
+  <div class="dlg">
+    <div class="bub q"><span class="who">組員 Group</span><span class="en">Are you eating?</span></div>
+    <div class="bub a"><span class="who">表演者 Actor</span><span class="en">Yes, I am. ✅</span> ／ <span class="en">No, I am not. ❌</span></div>
+    <div class="bub q"><span class="who">全組 All</span><span class="en">He is eating!</span> / <span class="en">She is eating!</span></div>
+  </div>
+</section>
+
+<!-- ================= 5. EXIT TICKET ================= -->
+<section class="card exit" id="exit">
+  <h2><span class="num">5</span>總結與出場檢核 Exit Ticket <span class="time">⏱ 3 分鐘</span></h2>
+  <div class="chant">📣 全班一起念：「I am, he is, she is, they are，加上 ing！」</div>
+
+  <div class="ticket">
+    <div class="th"><span>🎟️ 出場小卡 Exit Ticket</span><span class="nm">Name 姓名：__________</span></div>
+    <p style="margin:0 0 4px;color:var(--muted);font-weight:600">填空：用正確的 am / is / are + V-ing 完成句子。</p>
+    <ol>
+      <li>1. I <span class="blank">&nbsp;</span> <span class="hint">(read)</span>.</li>
+      <li>2. She <span class="blank">&nbsp;</span> <span class="hint">(sing)</span>.</li>
+      <li>3. They <span class="blank">&nbsp;</span> <span class="hint">(run)</span>.</li>
+    </ol>
+  </div>
+
+  <p>✅ 學生交卡才下課，老師快速看最常錯的地方，下堂課再複習。</p>
+
+  <div class="answers" id="answers">
+    <h3>🔑 答案 Answer Key <span class="print-only" style="font-size:16px;color:var(--muted)">（教師用）</span></h3>
+    <ol class="ans">
+      <li><span class="en">I am reading.</span></li>
+      <li><span class="en">She is singing.</span></li>
+      <li><span class="en">They are running.</span></li>
+    </ol>
+    <button type="button" class="toggle" id="toggleAns" aria-controls="answers" aria-pressed="false">🙈 隱藏答案</button>
+  </div>
+</section>
+
+<footer>三年級英語教案｜現在進行式 be + V-ing ✨</footer>
+</div>
+<a class="totop no-print" href="#top" aria-label="回到頂部">↑</a>
+
+<script>
+  (function(){
+    document.documentElement.classList.add('js');
+    var box=document.getElementById('answers'), btn=document.getElementById('toggleAns');
+    if(!box||!btn) return;
+    btn.addEventListener('click',function(){
+      var hidden=box.classList.toggle('hide');
+      btn.textContent=hidden?'👀 顯示答案':'🙈 隱藏答案';
+      btn.setAttribute('aria-pressed',hidden?'true':'false');
+    });
+  })();
+</script>
+</body>
+</html>
