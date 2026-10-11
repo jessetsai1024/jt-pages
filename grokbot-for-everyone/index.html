@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不只聊天，還會幫你做事：推薦你試試 Grok Bot</title>
+<meta name="description" content="Jesse 寫給同事和家人的 Grok Bot 介紹：它有自己的電腦和瀏覽器，能真的上網幫你辦事。">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;font-size:22px;line-height:1.7;color:#2b2a33;background:#fffaf3;overflow-x:hidden}
+img,svg{max-width:100%;height:auto}
+a{color:#1f5fbf}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header.hero{background:linear-gradient(160deg,#ffe8c7,#fff3e2 60%,#e6f2ff);padding:28px 0 24px}
+.hero h1{font-size:34px;line-height:1.35;margin:10px 0 12px}
+.hero p{margin:0 0 12px}
+.tag{display:inline-block;background:#fff;border:2px solid #f2b56b;border-radius:999px;padding:4px 14px;font-size:18px}
+nav.chips{position:sticky;top:0;z-index:10;background:rgba(255,250,243,.96);border-bottom:1px solid #f0dcc0;backdrop-filter:blur(6px)}
+nav.chips .row{display:flex;gap:10px;overflow-x:auto;padding:10px 18px;max-width:900px;margin:0 auto;scrollbar-width:none}
+nav.chips .row::-webkit-scrollbar{display:none}
+nav.chips a{flex:0 0 auto;min-height:44px;display:inline-flex;align-items:center;padding:0 16px;border-radius:999px;background:#fff;border:2px solid #f2c48d;color:#7a4300;text-decoration:none;font-size:18px;white-space:nowrap}
+nav.chips a:focus,nav.chips a:hover{background:#ffe2bd}
+section{padding:30px 0 10px}
+h2{font-size:30px;line-height:1.4;margin:0 0 14px}
+h3{font-size:26px;line-height:1.4;margin:0 0 8px}
+.card{background:#fff;border-radius:22px;padding:20px;margin:0 0 18px;box-shadow:0 3px 14px rgba(160,100,30,.10);border:1px solid #f3e3cf}
+.card .ill{display:block;width:120px;height:auto;margin:0 0 8px}
+.mine{background:#f2f8ff;border-left:6px solid #5b9be6;border-radius:12px;padding:10px 14px;margin:10px 0 0;font-size:20px}
+.mine b{color:#1f4f99}
+.src{font-size:18px;color:#555}
+.mock{background:#eef1f6;border-radius:22px;padding:16px;margin:0 0 18px;position:relative}
+.mock .label{display:inline-block;background:#444;color:#fff;font-size:17px;border-radius:8px;padding:2px 10px;margin-bottom:10px}
+.b{max-width:88%;padding:12px 16px;border-radius:20px;margin:0 0 10px;font-size:20px;line-height:1.6;word-break:break-word}
+.b.me{margin-left:auto;background:#ffd79e;border-bottom-right-radius:6px}
+.b.bot{background:#fff;border-bottom-left-radius:6px}
+.b.ask{background:#fff;border:2px dashed #e07b39}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.btns span{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border-radius:12px;font-size:18px;background:#e8f5e9;border:1px solid #9ccc9f}
+.btns span.no{background:#fdecea;border-color:#e6a39b}
+.cmp{display:grid;gap:14px}
+.cmp .row{background:#fff;border-radius:18px;border:1px solid #f0dcc0;padding:16px}
+.cmp .q{font-weight:bold;font-size:22px;margin-bottom:8px}
+.cmp .col{display:block;padding:8px 12px;border-radius:12px;margin-top:6px;font-size:20px}
+.cmp .c1{background:#f4f4f6}
+.cmp .c2{background:#fff1dc}
+.cmp .col b{display:block;font-size:18px;color:#666}
+ol.steps{padding-left:0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;background:#fff;border-radius:18px;padding:16px 16px 16px 70px;margin-bottom:14px;position:relative;border:1px solid #f0dcc0}
+ol.steps li::before{content:counter(s);position:absolute;left:16px;top:16px;width:40px;height:40px;border-radius:50%;background:#f29a3c;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:22px}
+details{background:#fff;border-radius:16px;border:1px solid #f0dcc0;margin-bottom:12px}
+summary{min-height:44px;padding:14px 16px;font-weight:bold;cursor:pointer;font-size:22px}
+details>div{padding:0 16px 14px}
+footer{padding:26px 0 40px;font-size:18px;color:#555}
+footer li{margin-bottom:6px;word-break:break-word}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:14px;background:#f29a3c;color:#fff;text-decoration:none;font-weight:bold;font-size:20px}
+@media(min-width:760px){
+ body{font-size:20px}
+ .hero h1{font-size:44px}
+ .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+ .cmp .row{display:grid;grid-template-columns:1fr 1.3fr 1.3fr;gap:12px;align-items:start}
+ .cmp .q{margin:0}
+ .cmp .col{margin:0}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="wrap">
+  <span class="tag">Jesse 推薦 · 2026 年 10 月</span>
+  <h1>不只陪你聊天，<br>還會<span style="color:#d4691b">真的幫你把事情做完</span>：試試 Grok Bot</h1>
+  <svg viewBox="0 0 360 200" width="360" height="200" role="img" aria-label="插圖：一個機器人小幫手坐在電腦前上網">
+   <rect x="0" y="0" width="360" height="200" rx="24" fill="#fff" opacity=".6"/>
+   <rect x="150" y="40" width="180" height="120" rx="12" fill="#3b4a6b"/><rect x="160" y="50" width="160" height="96" rx="6" fill="#e9f3ff"/>
+   <rect x="160" y="50" width="160" height="16" rx="6" fill="#bcd6f5"/><circle cx="170" cy="58" r="3" fill="#ff8a7a"/><circle cx="180" cy="58" r="3" fill="#ffd166"/><circle cx="190" cy="58" r="3" fill="#7bd389"/>
+   <rect x="172" y="76" width="90" height="10" rx="5" fill="#9cc2ee"/><rect x="172" y="94" width="130" height="8" rx="4" fill="#cfe0f5"/><rect x="172" y="108" width="110" height="8" rx="4" fill="#cfe0f5"/><rect x="172" y="122" width="60" height="16" rx="8" fill="#f29a3c"/>
+   <rect x="215" y="160" width="50" height="14" fill="#3b4a6b"/><rect x="190" y="172" width="100" height="8" rx="4" fill="#3b4a6b"/>
+   <rect x="40" y="70" width="90" height="80" rx="26" fill="#ffb05c"/><rect x="52" y="86" width="66" height="40" rx="16" fill="#fff"/>
+   <circle cx="72" cy="104" r="7" fill="#2b2a33"/><circle cx="98" cy="104" r="7" fill="#2b2a33"/><path d="M74 118 q11 8 22 0" stroke="#2b2a33" stroke-width="4" fill="none" stroke-linecap="round"/>
+   <line x1="85" y1="70" x2="85" y2="52" stroke="#ffb05c" stroke-width="6"/><circle cx="85" cy="48" r="8" fill="#ff7a59"/>
+   <rect x="128" y="112" width="30" height="10" rx="5" fill="#ffb05c"/>
+   <rect x="20" y="16" width="120" height="40" rx="18" fill="#fff" stroke="#f2b56b" stroke-width="3"/><text x="80" y="42" font-size="18" text-anchor="middle" fill="#7a4300">交給我！</text>
+  </svg>
+  <p>很多人用 AI，多半是「問問題、聊聊天」。Grok Bot 不一樣：它有<b>一台屬於你的雲端電腦和瀏覽器</b>，可以真的上網幫你查、幫你比、幫你整理，做完再回來跟你報告。重要的事（寄信、付錢、下單）它會<b>先問你</b>。</p>
+ </div>
+</header>
+
+<nav class="chips" aria-label="頁面導覽"><div class="row">
+ <a href="#what">它會做什麼</a><a href="#jesse">Jesse 的用法</a><a href="#compare">跟純聊天比較</a><a href="#safe">安全嗎</a><a href="#start">怎麼開始</a><a href="#faq">常見問題</a><a href="#sources">官方資料</a>
+</div></nav>
+
+<main class="wrap">
+<section id="what">
+ <h2>它跟一般聊天 AI 哪裡不一樣？</h2>
+ <div class="grid2">
+ <div class="card">
+  <svg class="ill" viewBox="0 0 120 90" width="120" height="90" aria-hidden="true"><rect x="8" y="10" width="104" height="64" rx="8" fill="#3b4a6b"/><rect x="14" y="16" width="92" height="52" rx="4" fill="#e9f3ff"/><rect x="14" y="16" width="92" height="10" fill="#bcd6f5"/><circle cx="60" cy="46" r="12" fill="none" stroke="#f29a3c" stroke-width="4"/><line x1="69" y1="55" x2="78" y2="64" stroke="#f29a3c" stroke-width="5" stroke-linecap="round"/><rect x="44" y="76" width="32" height="8" rx="3" fill="#3b4a6b"/></svg>
+  <h3>有自己的電腦和瀏覽器</h3>
+  <p>官方說明：每個 Bot 都在一台<b>持續存在的雲端電腦</b>上工作，有瀏覽器、檔案，可以跨網站、跨 App 完成好幾個步驟的工作；<b>你的筆電關掉，它也會繼續做</b>。「雲端電腦」就是放在網路另一端、專門給它用的電腦。</p>
+  <p class="src">來源：<a href="https://docs.x.ai/grok-bot/overview">官方總覽</a></p>
+ </div>
+ <div class="card">
+  <svg class="ill" viewBox="0 0 120 90" width="120" height="90" aria-hidden="true"><rect x="10" y="14" width="60" height="62" rx="8" fill="#fff" stroke="#e0703a" stroke-width="3"/><rect x="10" y="14" width="60" height="16" rx="6" fill="#e0703a"/><g fill="#f6c9a8"><rect x="18" y="38" width="10" height="10"/><rect x="34" y="38" width="10" height="10"/><rect x="50" y="38" width="10" height="10" fill="#e0703a"/><rect x="18" y="54" width="10" height="10"/><rect x="34" y="54" width="10" height="10"/></g><rect x="62" y="40" width="50" height="38" rx="6" fill="#5b9be6"/><path d="M62 42 l25 18 l25 -18" stroke="#fff" stroke-width="3" fill="none"/></svg>
+  <h3>可以連上你的行事曆和信箱</h3>
+  <p>官方說明可以從側邊欄「Connect apps（連接應用程式）」接上支援的服務；官方範例也有讓它整理「收件匣、行事曆」重點的用法，並設定「不要寄信、不要改會議」。</p>
+  <p class="mine"><b>Jesse 的用法：</b>我把 Google 日曆和 Gmail 接上，它能幫我看行程、加行程，並摘要信箱裡重要的信。</p>
+  <p class="src">來源：<a href="https://docs.x.ai/grok-bot/get-started">開始使用</a>、<a href="https://docs.x.ai/grok-bot/use-cases">使用情境</a></p>
+ </div>
+ <div class="card">
+  <svg class="ill" viewBox="0 0 120 90" width="120" height="90" aria-hidden="true"><circle cx="50" cy="46" r="34" fill="#fff" stroke="#3b4a6b" stroke-width="5"/><line x1="50" y1="46" x2="50" y2="24" stroke="#3b4a6b" stroke-width="5" stroke-linecap="round"/><line x1="50" y1="46" x2="66" y2="54" stroke="#f29a3c" stroke-width="5" stroke-linecap="round"/><path d="M92 20 a26 26 0 0 1 0 40" stroke="#7bd389" stroke-width="5" fill="none"/><path d="M90 60 l4 6 l6 -4" stroke="#7bd389" stroke-width="5" fill="none"/></svg>
+  <h3>定時自動幫你做（例行工作）</h3>
+  <p>官方叫它 <b>routine（例行工作）</b>：告訴它「每天早上幾點做什麼」，它就照時間自動跑，筆電關著也會做。也可以先做一次，滿意了再存成「技能」，以後重複使用。</p>
+  <p class="src">來源：<a href="https://docs.x.ai/grok-bot/skills-routines-and-automations">技能與例行工作</a></p>
+ </div>
+ <div class="card">
+  <svg class="ill" viewBox="0 0 120 90" width="120" height="90" aria-hidden="true"><g><rect x="6" y="30" width="34" height="34" rx="12" fill="#ffb05c"/><circle cx="17" cy="45" r="4"/><circle cx="29" cy="45" r="4"/></g><g><rect x="43" y="20" width="34" height="34" rx="12" fill="#5b9be6"/><circle cx="54" cy="35" r="4"/><circle cx="66" cy="35" r="4"/></g><g><rect x="80" y="30" width="34" height="34" rx="12" fill="#7bd389"/><circle cx="91" cy="45" r="4"/><circle cx="103" cy="45" r="4"/></g></svg>
+  <h3>可以養好幾個專門小幫手</h3>
+  <p>官方建議：每個 Bot 有自己的名字和「一個主要工作」，專心的 Bot 會累積更有用的經驗。它們還能互相傳話、分工合作。</p>
+  <p class="mine"><b>Jesse 的用法：</b>我有「新聞」、「行程」、「做網頁」、「畫圖」幾個小幫手，各管各的事。</p>
+  <p class="src">來源：<a href="https://docs.x.ai/grok-bot/get-started">開始使用</a>、<a href="https://docs.x.ai/grok-bot/overview">官方總覽</a></p>
+ </div>
+ <div class="card">
+  <svg class="ill" viewBox="0 0 120 90" width="120" height="90" aria-hidden="true"><path d="M60 78 C20 54 14 30 34 18 C46 11 56 18 60 28 C64 18 74 11 86 18 C106 30 100 54 60 78Z" fill="#ff8a7a"/><circle cx="96" cy="20" r="10" fill="#ffd166"/></svg>
+  <h3>記得你的習慣</h3>
+  <p>官方說明：Bot 會記住穩定的偏好、重要資訊和過去工作的摘要，不用每次從頭講。官方也提醒：重要決定請它<b>重新查最新資料</b>，不要只靠記憶。</p>
+  <p class="src">來源：<a href="https://docs.x.ai/grok-bot/bots">Bot 說明</a>、<a href="https://docs.x.ai/grok-bot/overview">官方總覽</a></p>
+ </div>
+ <div class="card">
+  <svg class="ill" viewBox="0 0 120 90" width="120" height="90" aria-hidden="true"><path d="M60 6 L98 20 V44 C98 64 82 78 60 86 C38 78 22 64 22 44 V20Z" fill="#7bd389"/><path d="M42 46 l12 12 l24 -24" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <h3>重要動作先問你</h3>
+  <p>需要你同意的動作，對話裡會先顯示它打算做什麼，你可以按「Allow once（這次允許）」、「Always allow（以後都允許）」或「Deny（拒絕）」。輸入密碼、驗證碼、付款確認時，它會把電腦交給<b>你自己操作</b>。</p>
+  <p class="src">來源：<a href="https://docs.x.ai/grok-bot/approvals-security-and-privacy">核准、安全與隱私</a></p>
+ </div>
+ </div>
+</section>
+
+<section id="jesse">
+ <h2>Jesse 的真實用法（生活版）</h2>
+ <p>以下是我自己平常怎麼用的，已拿掉所有個人資料。對話畫面是<b>示意圖</b>，不是真實截圖。</p>
+
+ <div class="mock" aria-label="示意圖：找兔子獸醫">
+  <span class="label">示意圖</span>
+  <div class="b me">我家兔子毛毛最近不太吃東西，幫我找附近有看兔子的獸醫，看看這週哪天還能掛號。</div>
+  <div class="b bot">好的！我上網查了幾家有看「特殊寵物」的動物醫院，整理了門診時間和網路掛號狀況，列給你比較。要我幫你掛哪一家之前，我會先問你。</div>
+ </div>
+
+ <div class="mock" aria-label="示意圖：慢箋領藥提醒">
+  <span class="label">示意圖</span>
+  <div class="b me">我的慢性處方箋（慢箋）下次什麼時候可以去領？到時候提醒我。</div>
+  <div class="b bot">我算好了可以領藥的日期區間，也加到你的行事曆了；前一天早上會提醒你。</div>
+ </div>
+
+ <div class="mock" aria-label="示意圖：每天早上六點新聞">
+  <span class="label">示意圖</span>
+  <div class="b me">每天早上 6 點，幫我整理 AI 相關新聞的重點，做成一頁好讀的網頁。</div>
+  <div class="b bot">已設定每天 6:00（台北時間）的例行工作。明天早上第一份就會送到。</div>
+ </div>
+
+ <div class="mock" aria-label="示意圖：幫我做網頁">
+  <span class="label">示意圖</span>
+  <div class="b me">幫我做一頁給家人看的介紹，字要大、要好懂。</div>
+  <div class="b bot">做好了！網址在這裡。👉 你現在看的這一頁，就是我的「網頁小工坊」小幫手做的。</div>
+ </div>
+
+ <div class="mock" aria-label="示意圖：寄信前先確認">
+  <span class="label">示意圖</span>
+  <div class="b me">比較一下這幾個郵輪行程還有沒有海景房，價格差多少。</div>
+  <div class="b bot">整理好了，三個航次的房型和價格表在這裡。要我幫你寫信問旅行社嗎？</div>
+  <div class="b ask">✉️ 準備寄出一封信給旅行社（內容如下）。要寄嗎？
+   <div class="btns"><span>這次允許</span><span class="no">拒絕</span></div>
+  </div>
+ </div>
+ <p class="src">官方提醒：有些網站會擋自動操作、或需要你本人處理（例如驗證碼），這時 Bot 會把那一步交給你，不會硬闖。（<a href="https://docs.x.ai/grok-bot/overview">來源</a>）</p>
+</section>
+
+<section id="compare">
+ <h2>跟 ChatGPT 純聊天比較</h2>
+ <p>這裡比的是「大多數人平常的用法：打字聊天、問問題」，跟 Grok Bot「交辦任務」的差別。兩種都很好用，看你需要什麼。</p>
+ <div class="cmp">
+  <div class="row"><div class="q">你想做的事</div><div class="col c1"><b>大多數人的用法：聊天</b>怎麼回答</div><div class="col c2"><b>Grok Bot 交辦任務</b>怎麼做</div></div>
+  <div class="row"><div class="q">找獸醫、看能不能掛號</div><div class="col c1"><b>聊天</b>給你建議和搜尋方向，你再自己去查</div><div class="col c2"><b>Grok Bot</b>自己開瀏覽器去查，整理好結果給你</div></div>
+  <div class="row"><div class="q">比價、找郵輪房型</div><div class="col c1"><b>聊天</b>告訴你比價的技巧</div><div class="col c2"><b>Grok Bot</b>到網站上實際查，做成比較表</div></div>
+  <div class="row"><div class="q">每天早上的新聞</div><div class="col c1"><b>聊天</b>你想到時，打開來問</div><div class="col c2"><b>Grok Bot</b>設定例行工作，時間到自動整理好</div></div>
+  <div class="row"><div class="q">行程和信件</div><div class="col c1"><b>聊天</b>你把內容貼給它，它幫你整理</div><div class="col c2"><b>Grok Bot</b>接上行事曆、信箱後，直接幫你看、幫你排</div></div>
+  <div class="row"><div class="q">記得你的習慣</div><div class="col c1"><b>聊天</b>依你的設定而定</div><div class="col c2"><b>Grok Bot</b>每個 Bot 會保留偏好與工作摘要</div></div>
+  <div class="row"><div class="q">寄信、付錢、下單</div><div class="col c1"><b>聊天</b>通常是幫你寫好，由你自己去做</div><div class="col c2"><b>Grok Bot</b>可以幫你做，但會先跳出確認讓你決定</div></div>
+ </div>
+</section>
+
+<section id="safe">
+ <h2>交給它，安全嗎？</h2>
+ <div class="card">
+  <svg class="ill" viewBox="0 0 120 90" width="120" height="90" aria-hidden="true"><path d="M60 6 L98 20 V44 C98 64 82 78 60 86 C38 78 22 64 22 44 V20Z" fill="#5b9be6"/><rect x="46" y="40" width="28" height="22" rx="4" fill="#fff"/><path d="M50 40 v-6 a10 10 0 0 1 20 0 v6" stroke="#fff" stroke-width="5" fill="none"/></svg>
+  <ul>
+   <li><b>先問再做：</b>官方建議把「寄信、發布、購買、刪除」等重要動作都設成需要你同意。你也可以在設定裡加規則，例如「寄任何外部信件前先問我」。</li>
+   <li><b>密碼自己輸入：</b>密碼、驗證碼不要打在聊天裡；需要時它會請你接手電腦自己輸入。</li>
+   <li><b>有一層自動把關：</b>官方叫它 Auto Review（自動審查），會在有風險的動作執行前先檢查。官方也坦白說：這能降低風險，但不是萬無一失，所以重要動作還是要你點頭。</li>
+  </ul>
+  <p class="src">來源：<a href="https://docs.x.ai/grok-bot/approvals-security-and-privacy">核准、安全與隱私</a>、<a href="https://docs.x.ai/grok-bot/security">安全說明</a></p>
+ </div>
+</section>
+
+<section id="start">
+ <h2>怎麼開始</h2>
+ <p>以下依官方「開始使用」頁整理，詳細步驟以<a href="https://docs.x.ai/grok-bot/get-started">官方頁面</a>為準。</p>
+ <ol class="steps">
+  <li><b>確認方案：</b>官方說明 Grok Bot 包含在 Cursor 付費個人方案和 Cursor Teams 方案中，也可以連結 SuperGrok、SuperGrok Plus 或 SuperGrok Heavy 訂閱。</li>
+  <li><b>下載 App：</b>到官方下載頁選你的電腦（Mac、Windows、Linux）；手機也有 iPhone、iPad、Android 版。</li>
+  <li><b>登入：</b>按「Sign in」，在跳出的瀏覽器完成登入再回到 App。</li>
+  <li><b>建立第一個 Bot：</b>從推薦的「隊友」挑一個，或自己建立：取個名字、給它一個主要工作、說明它該怎麼做事。</li>
+  <li><b>交辦第一件事：</b>可以打字、用說的，或開語音聊天。講清楚：要完成什麼、去哪裡找、什麼不能做、做完交什麼。</li>
+  <li><b>需要登入網站時：</b>它會請你接手電腦，自己輸入密碼，再交還給它。</li>
+ </ol>
+ <p><a class="btn" href="https://docs.x.ai/grok-bot/get-started">看官方「開始使用」</a></p>
+</section>
+
+<section id="faq">
+ <h2>常見問題</h2>
+ <details><summary>我電腦關掉，它還會做嗎？</summary><div>會。官方說明工作是在雲端電腦上跑，關掉 App、筆電或手機，都不會中斷背景工作或例行工作。（<a href="https://docs.x.ai/grok-bot/overview">來源</a>）</div></details>
+ <details><summary>它會不會自己亂寄信、亂花錢？</summary><div>需要核准的動作，它會先在對話裡顯示要做什麼，讓你選允許或拒絕；付款確認會交給你本人操作。官方也建議在要求裡講清楚「哪些事要先問我」。（<a href="https://docs.x.ai/grok-bot/approvals-security-and-privacy">來源</a>）<p class="mine"><b>Jesse 的經驗：</b>我的 Bot 每次要寄信前都會先把收件人和內容給我看，我按同意才寄。</p></div></details>
+ <details><summary>我的資料放在哪？</summary><div>官方說明 Grok Bot 的電腦目前在美國運作，資料設定依 Cursor 帳號的隱私設定；開啟隱私模式時，資料不會被拿去訓練模型。同一個帳號的所有 Bot 共用一台電腦，所以不同 Bot 之間不算隔開的保險箱。（<a href="https://docs.x.ai/grok-bot/security">來源</a>）</div></details>
+ <details><summary>每個網站它都能用嗎？</summary><div>很多網站可以，但有些網站會擋自動操作、登入過期或需要真人步驟，這時它會交給你處理。（<a href="https://docs.x.ai/grok-bot/overview">來源</a>）</div></details>
+ <details><summary>要多少錢？</summary><div>官方說明它包含在 Cursor 付費個人方案和 Teams 方案中，或透過 SuperGrok 訂閱連結取得，用量每週重置。本頁不列價格，請以<a href="https://docs.x.ai/grok-bot/overview#how-much-does-grok-bot-cost">官方說明</a>為準。</div></details>
+</section>
+
+<section id="sources">
+ <h2>官方資料</h2>
+ <ul>
+  <li><a href="https://docs.x.ai/grok-bot/overview">Grok Bot 官方總覽</a></li>
+  <li><a href="https://docs.x.ai/grok-bot/get-started">開始使用</a></li>
+  <li><a href="https://docs.x.ai/grok-bot/skills-routines-and-automations">技能與例行工作</a></li>
+  <li><a href="https://docs.x.ai/grok-bot/bots">Bot（含記憶）</a></li>
+  <li><a href="https://docs.x.ai/grok-bot/use-cases">使用情境</a></li>
+  <li><a href="https://docs.x.ai/grok-bot/approvals-security-and-privacy">核准、安全與隱私</a></li>
+  <li><a href="https://docs.x.ai/grok-bot/security">安全說明</a></li>
+ </ul>
+</section>
+</main>
+<footer><div class="wrap">這頁由 Jesse 的 Grok Bot「網頁小工坊」製作，資料整理於 2026-10-11。標示「Jesse 的用法」的部分是個人經驗，其餘以官方文件為準；功能可能隨時更新。</div></footer>
+<script>
+document.querySelectorAll('nav.chips a').forEach(function(a){a.addEventListener('click',function(){a.scrollIntoView({inline:'center',block:'nearest'});});});
+</script>
+</body>
+</html>
