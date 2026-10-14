@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公司線上 ERP 規劃（.NET 版）</title>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:90px}
+body{margin:0;font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.65;color:#1f2933;background:#f4f6f9;overflow-wrap:anywhere;word-break:normal}
+header{background:#1e3a5f;color:#fff;padding:28px 18px 22px}
+header h1{font-size:32px;line-height:1.3;margin:0 0 8px}
+header p{margin:0;font-size:19px;opacity:.9}
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #d8dee6;display:flex;gap:8px;overflow-x:auto;padding:10px 12px;-webkit-overflow-scrolling:touch}
+nav a{flex:0 0 auto;min-height:44px;display:inline-flex;align-items:center;padding:0 16px;border-radius:22px;background:#e8eef6;color:#1e3a5f;text-decoration:none;font-size:18px;font-weight:600}
+main{max-width:980px;margin:0 auto;padding:12px 14px 40px}
+section{margin-top:26px}
+h2{font-size:30px;line-height:1.35;margin:0 0 14px;color:#1e3a5f;border-left:6px solid #2f80ed;padding-left:12px}
+.card{background:#fff;border-radius:14px;padding:18px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h3{font-size:26px;line-height:1.35;margin:0 0 8px}
+ul{padding-left:1.2em;margin:8px 0}li{margin:6px 0}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:19px;background:#eef2f7;padding:1px 6px;border-radius:6px;overflow-wrap:anywhere}
+.note{background:#fff7e0;border:1px solid #f0d58a;border-radius:12px;padding:14px 16px;font-size:19px;margin:14px 0}
+.rec{display:inline-block;background:#27ae60;color:#fff;font-size:17px;padding:2px 10px;border-radius:10px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);margin:12px 0}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #e5e9ef;vertical-align:top}
+th{background:#e8eef6;color:#1e3a5f;font-size:19px}
+td.n{white-space:nowrap}
+tr.total td{font-weight:700;background:#f0f7ff}
+a{color:#1d63c9}
+.src li{font-size:18px}
+footer{text-align:center;font-size:17px;color:#5b6775;padding:20px}
+@media (max-width:700px){
+ table,thead,tbody,tr,th,td{display:block;width:100%}
+ thead{display:none}
+ table{background:transparent;box-shadow:none}
+ tr{background:#fff;border-radius:14px;margin:0 0 12px;padding:6px 0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+ td{border:0;padding:6px 16px}
+ td::before{content:attr(data-l);display:block;font-size:17px;color:#5b6775;font-weight:600}
+ td.n{white-space:normal}
+ tr.total{background:#f0f7ff}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>公司線上 ERP 規劃（.NET 版）</h1>
+<p>部署原則・技術框架・AWS 測試環境估價｜2026-10-14</p>
+</header>
+<nav aria-label="章節">
+<a href="#deploy">部署原則</a><a href="#stack">技術框架</a><a href="#cost">AWS 估價</a><a href="#src">資料來源</a>
+</nav>
+<main>
+
+<section id="deploy">
+<h2>1. 部署原則</h2>
+<div class="card"><h3>全託管雲端，不自建機房</h3>
+<ul><li>資料庫用<strong>託管 PostgreSQL</strong>（AWS RDS、Supabase、Neon），內建自動備份。</li>
+<li>程式打包成 <strong>Docker</strong> 映像，部署到 Google Cloud Run、Azure Container Apps 或 AWS。</li></ul></div>
+<div class="card"><h3>前端防護與登入控管</h3>
+<ul><li>前面放 <strong>Cloudflare</strong>：自動 HTTPS、擋攻擊（DDoS／WAF）。</li>
+<li>內部系統再加 <strong>Cloudflare Access</strong>，只有公司帳號能登入。</li></ul></div>
+<div class="card"><h3>程式碼與自動部署</h3>
+<ul><li>程式碼放 GitHub 私有 repo，用 GitHub Actions 自動部署。</li>
+<li>正式環境（production）與測試環境（staging）分開。</li></ul></div>
+<table>
+<thead><tr><th>項目</th><th>建議</th></tr></thead>
+<tbody>
+<tr><td data-l="項目">機房區域</td><td data-l="建議">東京或新加坡；若資料必須留在台灣，選 GCP <code>asia-east1</code>（彰化縣）</td></tr>
+<tr><td data-l="項目">備份</td><td data-l="建議">每日備份，而且要<strong>實際演練還原</strong></td></tr>
+<tr><td data-l="項目">權限與稽核</td><td data-l="建議">完整角色權限＋操作稽核紀錄（audit log）</td></tr>
+<tr><td data-l="項目">先評估現成方案</td><td data-l="建議">開源 ERP：Odoo 或 ERPNext，夠用就不必從零開發</td></tr>
+</tbody></table>
+</section>
+
+<section id="stack">
+<h2>2. 技術框架（.NET）</h2>
+<table>
+<thead><tr><th>層面</th><th>選擇</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td data-l="層面">後端</td><td data-l="選擇">ASP.NET Core Web API（.NET 10 LTS）</td><td data-l="說明">.NET 10 為長期支援版，支援到 2028-11</td></tr>
+<tr><td data-l="層面">資料存取</td><td data-l="選擇">EF Core＋PostgreSQL（Npgsql）；Dapper</td><td data-l="說明">一般 CRUD 用 EF Core；報表與大量查詢用 Dapper</td></tr>
+<tr><td data-l="層面">前端</td><td data-l="選擇">Blazor＋MudBlazor，或 React／Vue</td><td data-l="說明">Blazor 全程 C#；React／Vue 則呼叫 .NET API</td></tr>
+<tr><td data-l="層面">登入驗證</td><td data-l="選擇">ASP.NET Core Identity 或 OpenID Connect</td><td data-l="說明">可用 Google／Microsoft 帳號登入；角色權限＋稽核紀錄</td></tr>
+<tr><td data-l="層面">架構</td><td data-l="選擇">模組化單體（Modular Monolith）</td><td data-l="說明">分成進銷存、訂單、會計等模組；初期不做微服務</td></tr>
+<tr><td data-l="層面">排程</td><td data-l="選擇">Hangfire 或 Quartz.NET</td><td data-l="說明">對帳、報表、通知等定時工作</td></tr>
+</tbody></table>
+<div class="note">若公司已使用 <strong>Microsoft 365</strong>，選 Azure（Entra ID 登入、Azure Container Apps）整合最順。</div>
+</section>
+
+<section id="cost">
+<h2>3. AWS 測試環境估價（東京區）</h2>
+<div class="note">⚠️ 以下皆為<strong>大約牌價，以 AWS 官網為準</strong>。月費以 730 小時估算；台幣以 1 USD ≈ NT$32 粗估，未含稅。</div>
+
+<div class="card"><h3>方案 A：Lightsail 單機 <span class="rec">建議先用</span></h3>
+<p style="margin:4px 0">一台機器用 Docker Compose 同時跑 ASP.NET Core＋PostgreSQL。</p></div>
+<table>
+<thead><tr><th>項目</th><th>規格</th><th>月費（約）</th></tr></thead>
+<tbody>
+<tr><td data-l="項目">Lightsail 主機</td><td data-l="規格">2GB RAM／2 vCPU／60GB SSD／3TB 流量，含固定 IP</td><td data-l="月費（約）" class="n">US$12（≈NT$400）</td></tr>
+<tr><td data-l="項目">升級（需要時）</td><td data-l="規格">4GB RAM／2 vCPU／80GB SSD／4TB 流量</td><td data-l="月費（約）" class="n">US$24（≈NT$770）</td></tr>
+<tr><td data-l="項目">自動快照</td><td data-l="規格">US$0.05／GB‧月，增量計費</td><td data-l="月費（約）" class="n">約 US$1–3</td></tr>
+</tbody></table>
+
+<div class="card"><h3>方案 B：EC2＋RDS（接近正式環境）</h3>
+<p style="margin:4px 0">應用程式與資料庫分開，資料庫由 RDS 託管、自動備份。</p></div>
+<table>
+<thead><tr><th>項目</th><th>規格</th><th>月費（約）</th></tr></thead>
+<tbody>
+<tr><td data-l="項目">EC2</td><td data-l="規格"><code>t4g.small</code>（ARM，2GB）US$0.0216／小時</td><td data-l="月費（約）" class="n">US$16</td></tr>
+<tr><td data-l="項目">EC2 系統磁碟</td><td data-l="規格">EBS gp3 約 8–20GB</td><td data-l="月費（約）" class="n">US$1–2</td></tr>
+<tr><td data-l="項目">RDS PostgreSQL</td><td data-l="規格"><code>db.t4g.micro</code> Single-AZ US$0.025／小時＋20GB gp3（US$0.138／GB）</td><td data-l="月費（約）" class="n">US$21</td></tr>
+<tr><td data-l="項目">公有 IPv4＋流量</td><td data-l="規格">IPv4 US$0.005／小時（≈US$3.65）＋少量對外流量</td><td data-l="月費（約）" class="n">US$4–5</td></tr>
+<tr class="total"><td data-l="項目">合計</td><td data-l="規格">—</td><td data-l="月費（約）" class="n">約 US$42–45（≈NT$1,350–1,450）</td></tr>
+</tbody></table>
+<div class="card"><h3>省錢提醒</h3>
+<ul><li>新帳號有 AWS 免費方案（Free Tier）額度可用。</li>
+<li>不用時記得<strong>關機或刪除</strong>，避免持續計費（停機的 EC2 仍收磁碟與 IPv4 費用）。</li>
+<li>建議：<strong>先用方案 A 測試，正式上線再換方案 B</strong>。</li></ul></div>
+</section>
+
+<section id="src">
+<h2>資料來源（查核日期：2026-10-14）</h2>
+<ul class="src">
+<li><a href="https://aws.amazon.com/lightsail/pricing/">Amazon Lightsail 價格</a></li>
+<li><a href="https://aws.amazon.com/ec2/pricing/on-demand/">Amazon EC2 隨需價格</a>（東京 t4g.small）</li>
+<li><a href="https://aws.amazon.com/rds/postgresql/pricing/">Amazon RDS for PostgreSQL 價格</a>（東京 db.t4g.micro、gp3）</li>
+<li><a href="https://aws.amazon.com/vpc/pricing/">Amazon VPC 價格（公有 IPv4）</a></li>
+<li><a href="https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core">.NET 支援政策</a>（.NET 10 = LTS，支援至 2028-11-14）</li>
+<li><a href="https://cloud.google.com/compute/docs/regions-zones">GCP 區域與可用區</a>（asia-east1 = 台灣彰化縣）</li>
+</ul>
+</section>
+</main>
+<footer>網頁小工坊 製作｜價格僅供規劃參考</footer>
+</body>
+</html>
