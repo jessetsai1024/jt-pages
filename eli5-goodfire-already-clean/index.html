@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>神經網路其實本來就很乾淨？｜ELI5 圖解</title>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;font-family:system-ui,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.65;color:#1d2a33;background:#f4f1ea;overflow-wrap:anywhere}
+header{padding:28px 18px 18px;background:#1b3543;color:#fff}
+header h1{font-size:32px;line-height:1.3;margin:0 0 10px}
+header p{margin:0;font-size:20px;opacity:.92}
+nav{position:sticky;top:0;z-index:5;background:#f4f1eaee;backdrop-filter:blur(4px);display:flex;gap:8px;overflow-x:auto;padding:10px 12px;border-bottom:1px solid #d9d2c3}
+nav a{flex:0 0 auto;min-height:44px;display:flex;align-items:center;padding:0 16px;border-radius:22px;background:#fff;border:2px solid #1b3543;color:#1b3543;text-decoration:none;font-size:18px;font-weight:600}
+main{max-width:760px;margin:0 auto;padding:16px 14px 40px}
+section{scroll-margin-top:90px;background:#fff;border-radius:20px;padding:20px 18px;margin:18px 0;box-shadow:0 2px 8px #0001}
+h2{font-size:30px;line-height:1.3;margin:0 0 12px;color:#1b3543}
+svg{display:block;width:100%;height:auto;margin:6px 0 14px}
+svg text{font-family:inherit}
+.key{font-size:25px;font-weight:700;color:#b5462b}
+p{margin:10px 0}
+.big{font-size:44px;font-weight:800;color:#b5462b;line-height:1.1}
+.stats{display:grid;grid-template-columns:1fr;gap:12px}
+.stat{background:#fbf6ec;border-radius:14px;padding:14px}
+.stat small{display:block;font-size:18px;color:#5a6670}
+ul{padding-left:1.1em;margin:8px 0}li{margin:8px 0}
+.src{font-size:18px}.src a{color:#1b5f8a}
+.note{font-size:18px;color:#5a6670}
+@media(min-width:760px){.stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>神經網路其實「本來就很乾淨」？</h1>
+<p>Goodfire 的 Nick Cammarata 長文圖解 · 文章發表於 2026-10-15</p>
+</header>
+<nav>
+<a href="#what">一句話</a><a href="#concept">先懂概念</a><a href="#did">他做了什麼</a><a href="#find">發現</a><a href="#why">為何重要</a><a href="#caveat">注意</a><a href="#src">來源</a>
+</nav>
+<main>
+
+<section id="what">
+<h2>一句話</h2>
+<svg viewBox="0 0 360 200" role="img" aria-label="打結的毛線變成整齊的城市">
+<path d="M30 110c20-60 60 40 80-10s-50-40-30 20 70 10 40-40-60 30-20 50" fill="none" stroke="#b5462b" stroke-width="6"/>
+<text x="75" y="185" font-size="20" text-anchor="middle" fill="#1d2a33">以為：亂結</text>
+<path d="M150 100h40" stroke="#1b3543" stroke-width="5"/><path d="M185 90l12 10-12 10" fill="#1b3543"/>
+<g fill="#2f7d6d"><rect x="225" y="60" width="28" height="80" rx="3"/><rect x="260" y="40" width="28" height="100" rx="3"/><rect x="295" y="75" width="28" height="65" rx="3"/></g>
+<text x="275" y="185" font-size="20" text-anchor="middle" fill="#1d2a33">其實：整齊城市</text>
+</svg>
+<p class="key">AI 大腦裡的「小開關」（神經元），大多數其實看得懂。</p>
+<p>作者說：以前覺得 AI 腦袋是一團亂結，是看錯了。</p>
+</section>
+
+<section id="concept">
+<h2>先懂概念</h2>
+<svg viewBox="0 0 360 170" role="img" aria-label="一個燈泡對應一件事">
+<circle cx="70" cy="70" r="40" fill="#f6c453"/><rect x="55" y="112" width="30" height="20" fill="#888"/>
+<text x="70" y="160" font-size="20" text-anchor="middle">神經元</text>
+<path d="M130 70h40" stroke="#1b3543" stroke-width="5"/><path d="M165 60l12 10-12 10" fill="#1b3543"/>
+<rect x="200" y="35" width="130" height="70" rx="14" fill="#e3f0ec"/>
+<text x="265" y="78" font-size="22" text-anchor="middle">「看到貓」</text>
+<text x="265" y="160" font-size="20" text-anchor="middle">負責一件事</text>
+</svg>
+<p><b>神經元</b>＝AI 裡的小燈泡，看到某樣東西就亮。</p>
+<svg viewBox="0 0 360 170" role="img" aria-label="一個燈泡同時對貓臉和車頭亮">
+<circle cx="180" cy="65" r="38" fill="#f6c453"/>
+<text x="60" y="70" font-size="40" text-anchor="middle">🐱</text>
+<text x="300" y="70" font-size="40" text-anchor="middle">🚗</text>
+<path d="M85 65h50M225 65h50" stroke="#b5462b" stroke-width="4" stroke-dasharray="6 5"/>
+<text x="180" y="150" font-size="20" text-anchor="middle">一顆燈，亮給兩件無關的事？</text>
+</svg>
+<p><b>多義神經元</b>：一顆燈好像管好幾件無關的事。最有名的例子：同時對貓臉和車頭亮。</p>
+<p><b>疊加（superposition）</b>：舊說法——空間不夠，AI 就把無關的東西硬塞在一起，像打結的毛線，要先拆開才能看。</p>
+</section>
+
+<section id="did">
+<h2>他做了什麼</h2>
+<svg viewBox="0 0 360 180" role="img" aria-label="放大鏡看神經元">
+<circle cx="140" cy="80" r="55" fill="#e3f0ec" stroke="#1b3543" stroke-width="7"/>
+<path d="M180 120l50 45" stroke="#1b3543" stroke-width="12" stroke-linecap="round"/>
+<g fill="#f6c453"><circle cx="120" cy="70" r="12"/><circle cx="155" cy="65" r="12"/><circle cx="138" cy="100" r="12"/></g>
+<text x="290" y="60" font-size="20" text-anchor="middle">圖片模型</text>
+<text x="290" y="100" font-size="20" text-anchor="middle">語言模型</text>
+</svg>
+<p>花好幾個月，直接一顆一顆看圖片模型和語言模型的神經元，還看它們在訓練中怎麼「長大」。</p>
+<p>用更好的工具（會反覆猜想＋測試的 AI 助手），不先「拆結」。</p>
+</section>
+
+<section id="find">
+<h2>關鍵發現</h2>
+<svg viewBox="0 0 360 190" role="img" aria-label="長條圖：以前約百分之二，現在約百分之九十">
+<line x1="40" y1="150" x2="340" y2="150" stroke="#1d2a33" stroke-width="2"/>
+<rect x="80" y="144" width="70" height="6" fill="#b5462b"/>
+<rect x="220" y="30" width="70" height="120" fill="#2f7d6d"/>
+<text x="115" y="132" font-size="20" text-anchor="middle">≈1.7%</text>
+<text x="255" y="20" font-size="20" text-anchor="middle" fill="#fff"> </text>
+<text x="255" y="95" font-size="22" text-anchor="middle" fill="#fff">≈90%</text>
+<text x="115" y="180" font-size="20" text-anchor="middle">2023 舊工具</text>
+<text x="255" y="180" font-size="20" text-anchor="middle">Qwen3-32B 新查</text>
+</svg>
+<div class="stats">
+<div class="stat"><div class="big">~90%</div>Qwen3-32B 的神經元「極」只有一個主要工作<small>另約 7% 有兩個相關工作；只有約 2–4% 還不懂（初步稽核）</small></div>
+<div class="stat"><div class="big">99–100%</div>改良後的 InceptionV1 最後一層神經元容易看懂<small>以前那層幾乎沒有看得懂的；模型大小、資料都沒變</small></div>
+<div class="stat"><div class="big">300×</div>他訓練了大小差 300 倍的版本，每種大小都大致看得懂<small>小模型的燈只是比較「粗」，例如一顆燈管所有車</small></div>
+<div class="stat"><div class="big">≈1.7%</div>2023 年 OpenAI 自動解釋專案用最寬鬆標準，覺得看得懂的比例<small>Anthropic 2023 研究給中位數神經元 0／14 分</small></div>
+</div>
+<p>兆級參數模型（如 Kimi K3）也看到類似結果，細節留給之後的配套論文。</p>
+<svg viewBox="0 0 360 190" role="img" aria-label="樹枝分岔：iy 到 diy 到 do it yourself">
+<path d="M180 180V120M180 120L100 70M180 120L260 70M260 70L310 30" stroke="#6b4f2a" stroke-width="8" fill="none" stroke-linecap="round"/>
+<text x="200" y="150" font-size="20">iy</text>
+<text x="40" y="62" font-size="20">diy</text>
+<text x="160" y="40" font-size="20">do it yourself</text>
+</svg>
+<p class="key">「遞迴泛化」：燈像樹枝一樣長出相關的小分岔，不是亂塞。</p>
+<p>例：管「iy」的燈 → 長出「diy」→ 再長出「do it yourself」。有名的「貓＋車」亂結例子，作者說其實是看錯了。</p>
+</section>
+
+<section id="why">
+<h2>為何重要</h2>
+<svg viewBox="0 0 360 170" role="img" aria-label="拼圖越拼越快">
+<g stroke="#fff" stroke-width="3"><rect x="40" y="30" width="60" height="60" fill="#2f7d6d"/><rect x="100" y="30" width="60" height="60" fill="#2f7d6d"/><rect x="160" y="30" width="60" height="60" fill="#2f7d6d"/><rect x="40" y="90" width="60" height="60" fill="#2f7d6d"/><rect x="100" y="90" width="60" height="60" fill="#2f7d6d"/><rect x="160" y="90" width="60" height="60" fill="#ddd"/></g>
+<text x="290" y="100" font-size="20" text-anchor="middle">越拼越快</text>
+</svg>
+<p>如果 AI 腦袋本來就整齊，就能<b>直接研究</b>它，不用先另外訓練模型去拆結。</p>
+<p>像拼圖：懂越多，剩下的越好猜。作者認為這對理解 AI、讓 AI 更安全是好消息。</p>
+</section>
+
+<section id="caveat">
+<h2>要注意</h2>
+<svg viewBox="0 0 360 150" role="img" aria-label="警示三角形">
+<path d="M180 20L300 130H60Z" fill="#f6c453" stroke="#b5462b" stroke-width="5"/>
+<text x="180" y="115" font-size="56" text-anchor="middle" fill="#b5462b">!</text>
+</svg>
+<ul>
+<li>作者自稱是「工作假說」；Qwen3 數字是<b>初步稽核</b>。</li>
+<li>百分比會隨門檻改變（什麼算「一件事」、弱訊號看多深）。</li>
+<li>兆級模型的細節還沒公開，要等配套論文。</li>
+<li>這是一位研究者的長文，不是同儕審查論文；網路上也有讀者質疑寫法。</li>
+</ul>
+</section>
+
+<section id="src" class="src">
+<h2>來源</h2>
+<ul>
+<li><a href="https://already-clean.goodfire.com/">Neural Networks Are Already Clean</a>（Nick Cammarata, Goodfire, 2026）</li>
+<li><a href="https://already-clean.goodfire.com/essay.md">純文字版 essay.md</a></li>
+<li><a href="https://distill.pub/2020/circuits/zoom-in/">Zoom In（Distill, 2020）</a></li>
+<li><a href="https://distill.pub/2021/multimodal-neurons/">Multimodal Neurons（Distill, 2021）</a></li>
+<li><a href="https://transformer-circuits.pub/2023/monosemantic-features/index.html">Towards Monosemanticity（Anthropic, 2023）</a></li>
+<li><a href="https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html">OpenAI 神經元自動解釋（2023）</a></li>
+<li><a href="https://www.techmeme.com/261015/p48">Techmeme 報導（2026-10-15）</a></li>
+<li><a href="https://www.lesswrong.com/posts/x4kvabkF2Jk8GLZp8/linkpost-neural-networks-are-already-clean">LessWrong 轉貼討論</a></li>
+<li><a href="https://ecosistemastartup.com/goodfire-90-de-las-neuronas-de-la-ia-ya-se-entiende/">Ecosistema Startup 報導（西文）</a></li>
+</ul>
+<p class="note">網頁小工坊整理 · 2026-10-16</p>
+</section>
+</main>
+</body>
+</html>
