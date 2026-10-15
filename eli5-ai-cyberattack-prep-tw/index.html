@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 網攻危機，台灣家庭怎麼應對（ELI5）</title>
+<title>開放權重大語言模型的風險（ELI5）</title>
 <style>
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
@@ -23,8 +23,10 @@ svg text{font-family:inherit}
 .src{font-size:18px;color:#4c5d66}
 .src a,a{color:#1b6b8f}
 .note{background:#fff7e0;border-radius:14px;padding:12px 14px}
+li{margin:6px 0}
 .cards{display:grid;gap:14px}
-@media(min-width:900px){.cards{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){li{margin:6px 0}
+.cards{grid-template-columns:1fr 1fr}}
 .card{border:2px solid #d6e0da;border-radius:18px;padding:14px}
 .card ul{list-style:none;padding:0;margin:0}
 .card li{margin:10px 0}
@@ -38,177 +40,141 @@ footer{text-align:center;font-size:18px;color:#5b6b63;padding:20px}
 </head>
 <body>
 <nav aria-label="章節">
-<a href="#warn">警告</a><a href="#france">法國</a><a href="#ai">AI</a><a href="#calm">冷靜看</a><a href="#tw">台灣</a><a href="#list">清單</a><a href="#caveat">提醒</a><a href="#src">來源</a>
+<a href="#q">問題</a><a href="#easy">AI網攻</a><a href="#fair">公平</a><a href="#switch">總開關</a><a href="#out">收不回</a><a href="#worst">最糟</a><a href="#key">門vs鑰匙</a><a href="#strong">越強</a><a href="#home">家裡</a><a href="#src">來源</a>
 </nav>
 <main>
 <header>
-<h1>AI 網攻危機<br>台灣家庭怎麼應對</h1>
-<p class="key">一句話：不用慌。先看懂，再照官方清單準備。</p>
+<h1>開放權重大語言模型<br>風險在哪裡？</h1>
+<p class="key">一句話：閉源有總開關，開放權重沒有。</p>
 </header>
 
-<section id="warn">
-<h2>① 有人提出警告</h2>
-<svg viewBox="0 0 360 200" role="img" aria-label="電、錢、網路、水四個圖示">
-<rect x="0" y="0" width="360" height="200" rx="20" fill="#eef4fb"/>
-<g font-size="21" text-anchor="middle" fill="#1d2a33">
-<circle cx="50" cy="80" r="38" fill="#ffd54f"/><path d="M55 52 L38 86 H52 L44 110 L64 74 H50 Z" fill="#1d2a33"/><text x="50" y="150">電網</text>
-<circle cx="135" cy="80" r="38" fill="#a5d6a7"/><text x="135" y="92" font-size="34">$</text><text x="135" y="150">金融</text>
-<circle cx="220" cy="80" r="38" fill="#90caf9"/><path d="M196 80 h48 M220 56 v48" stroke="#1d2a33" stroke-width="5"/><circle cx="220" cy="80" r="24" fill="none" stroke="#1d2a33" stroke-width="5"/><text x="220" y="150">網路</text>
-<circle cx="305" cy="80" r="38" fill="#80deea"/><path d="M305 56 C290 80 290 100 305 104 C320 100 320 80 305 56Z" fill="#1d2a33"/><text x="305" y="150">水</text>
-<text x="180" y="188" font-size="21">AI 可能被拿來攻擊這些</text>
-</g></svg>
-<p>Elicit 共同創辦人 Andreas Stuhlmüller 在 X 上說：他認為<b>一年內</b>出現 AI 網攻電網、金融、網路或供水，是「有可能的」（plausible）。</p>
-<p class="src">來源：<a href="https://x.com/stuhlmueller/status/2110048778942284149">原貼文（2026-10-14 00:43 台北時間）</a></p>
-<h3>他建議準備的東西（原文數字）</h3>
-<ul class="plain">
-<li>現金：幾週（a few weeks）的花費</li>
-<li>Starlink Mini（約 US$150＋待機每月 US$10）</li>
-<li>基本電力約 US$1,250：1 kWh 磷酸鐵鋰電池＋1 片 400W 折疊太陽板</li>
-<li>進階約 US$5,000：4 kWh 電池＋3 片 400W 板＋約 2,500W 雙燃料發電機</li>
-<li>水：每人兩週 14 加侖以上（約 53 公升）</li>
-<li>食物：2 週以上耐放食物；手搖 NOAA 收音機</li>
-</ul>
-<p class="src">來源：同上原貼文。加侖換算：1 美制加侖＝3.785 公升（本頁計算）。</p>
-</section>
-
-<section id="france">
-<h2>② 真的發生過：法國超市冰箱</h2>
-<svg viewBox="0 0 360 190" role="img" aria-label="冰箱被遠端改設定，食物退冰">
-<rect width="360" height="190" rx="20" fill="#fdf1ec"/>
-<rect x="40" y="25" width="110" height="140" rx="12" fill="#cfe8f5" stroke="#1d2a33" stroke-width="4"/>
-<line x1="40" y1="85" x2="150" y2="85" stroke="#1d2a33" stroke-width="4"/>
-<text x="95" y="65" font-size="30" text-anchor="middle">🧊</text><text x="95" y="135" font-size="30" text-anchor="middle">💧</text>
-<path d="M170 95 h60" stroke="#c0392b" stroke-width="6" marker-end="url(#a)"/>
-<defs><marker id="a" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#c0392b"/></marker></defs>
-<text x="290" y="90" font-size="20" text-anchor="middle" fill="#1d2a33">一直除霜</text>
-<text x="290" y="120" font-size="20" text-anchor="middle" fill="#c0392b">食物變溫</text>
+<section id="q">
+<h2>① 開場問題</h2>
+<svg viewBox="0 0 360 170" role="img" aria-label="兩顆AI大腦，一顆在上鎖的房子裡，一顆在外面">
+<rect width="360" height="170" rx="20" fill="#eef4fb"/>
+<path d="M40 80 L100 35 L160 80 V145 H40Z" fill="#ffe0b2" stroke="#1d2a33" stroke-width="4"/>
+<text x="100" y="120" font-size="40" text-anchor="middle">🧠</text>
+<text x="260" y="105" font-size="56" text-anchor="middle">🧠</text>
+<g font-size="21" text-anchor="middle" fill="#1d2a33"><text x="100" y="166">閉源</text><text x="260" y="160">開放權重</text></g>
 </svg>
-<p class="key">駭客控制了老舊的冷凍控制器，讓冰箱一直除霜。</p>
-<p>報導說約 500 家店受影響，損失數百萬歐元食品；多數是已停止更新的舊設備。法國資安署 ANSSI 之後警告攻擊可能仍在進行。</p>
-<p class="src">來源：<a href="https://www.coolingpost.com/world-news/danfoss-moves-to-mitigate-cyberattack/">Cooling Post（2026-10-12）</a>；<a href="https://apnews.com/article/france-cyberattack-supermarkets-refrigeration-systems-78a813a8efd466b360655339f96083dc">AP 報導</a>（本次未能載入，未引用其數字）。延伸閱讀：<a href="https://jessetsai1024.github.io/jt-pages/eli5-france-fridge-hack/">法國冰箱駭客事件 ELI5</a></p>
+<p class="key">把 AI 的「大腦」（權重）公開給所有人下載，會有什麼風險？</p>
+<p>背景：Elicit 共同創辦人 Andreas Stuhlmüller 在 X 上說，他認為一年內出現 AI 網攻電網、金融、網路或供水是「有可能的」——這是他的個人判斷。</p>
+<p class="src">來源：<a href="https://x.com/stuhlmueller/status/2110048778942284149">原貼文</a></p>
 </section>
 
-<section id="ai">
-<h2>③ AI 改變了什麼？</h2>
-<svg viewBox="0 0 360 180" role="img" aria-label="以前找漏洞要很多人，現在AI幫忙變便宜">
-<rect width="360" height="180" rx="20" fill="#f1eefb"/>
+<section id="easy">
+<h2>② AI 讓網攻變容易</h2>
+<svg viewBox="0 0 360 170" role="img" aria-label="以前很多人找漏洞，現在AI幫忙">
+<rect width="360" height="170" rx="20" fill="#f1eefb"/>
 <g font-size="21" text-anchor="middle" fill="#1d2a33">
 <text x="90" y="40">以前</text><text x="270" y="40">現在</text>
-<text x="90" y="100" font-size="40">👩‍💻👨‍💻👩‍💻</text>
-<text x="270" y="100" font-size="40">🤖</text>
-<text x="90" y="150">找漏洞：慢、貴</text><text x="270" y="150">找漏洞：快、便宜</text>
-</g></svg>
-<p class="key">AI 讓「找漏洞、寫攻擊程式」變便宜。</p>
-<p>Google 威脅情報小組（GTIG）2026 年 5 月說：第一次發現犯罪集團用 AI 開發的零時差漏洞攻擊，準備大規模使用，但被提前攔下。同一份報告說也有國家級駭客用 AI 研究漏洞。好消息：防守方也在用 AI 找漏洞、補漏洞。</p>
-<p class="src">來源：<a href="https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access">Google Cloud GTIG 報告</a>；<a href="https://www.reuters.com/legal/litigation/hackers-pushing-innovation-ai-enabled-hacking-operations-google-says-2026-05-11/">Reuters（2026-05-11）</a></p>
+<text x="90" y="100" font-size="38">👩‍💻👨‍💻👩‍💻</text><text x="270" y="100" font-size="44">🤖</text>
+<text x="90" y="150">慢、貴</text><text x="270" y="150">快、便宜</text></g></svg>
+<h3>🇫🇷 法國超市</h3>
+<p>駭客控制老舊的冷凍控制器，讓冰箱一直除霜；報導說約 500 家店受影響，多數是已停止更新的舊設備。</p>
+<p class="src">來源：<a href="https://www.coolingpost.com/world-news/danfoss-moves-to-mitigate-cyberattack/">Cooling Post（2026-10-12）</a>；延伸：<a href="https://jessetsai1024.github.io/jt-pages/eli5-france-fridge-hack/">法國冰箱駭客 ELI5</a></p>
+<h3>🔍 Google 報告</h3>
+<p>Google 威脅情報小組 2026 年 5 月說：第一次發現犯罪集團用 AI 開發的零時差漏洞攻擊，準備大規模使用，但被提前攔下。</p>
+<p class="src">來源：<a href="https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access">Google GTIG 報告</a>；<a href="https://www.reuters.com/legal/litigation/hackers-pushing-innovation-ai-enabled-hacking-operations-google-says-2026-05-11/">Reuters（2026-05-11）</a></p>
 </section>
 
-<section id="calm">
-<h2>④ 冷靜看：這是一般防災</h2>
-<svg viewBox="0 0 360 170" role="img" aria-label="同一個箱子應付地震、颱風、停電">
+<section id="fair">
+<h2>③ 先講公平的部分</h2>
+<svg viewBox="0 0 360 170" role="img" aria-label="牆上有裂縫，信件裡藏著指令">
+<rect width="360" height="170" rx="20" fill="#fdf1ec"/>
+<rect x="30" y="30" width="130" height="100" fill="#bcaaa4" stroke="#1d2a33" stroke-width="4"/>
+<path d="M95 30 L85 60 L105 80 L90 130" stroke="#1d2a33" stroke-width="4" fill="none"/>
+<rect x="200" y="45" width="130" height="80" rx="6" fill="#fff" stroke="#1d2a33" stroke-width="4"/><path d="M200 45 L265 90 L330 45" fill="none" stroke="#1d2a33" stroke-width="4"/>
+<text x="300" y="118" font-size="26">😈</text>
+<g font-size="21" text-anchor="middle" fill="#1d2a33"><text x="95" y="160">越獄</text><text x="265" y="160">提示注入</text></g></svg>
+<p class="key">閉源模型也不是銅牆鐵壁。</p>
+<ul class="plain">
+<li><b>越獄</b>：公司加了一層又一層防護，但總有人想辦法鑽漏洞。</li>
+<li><b>提示注入</b>：壞人把指令藏在網頁、信件或文件裡，AI 一讀到就可能被牽著走。</li>
+</ul>
+<p>所以不管開源還是閉源，風險都存在。</p>
+</section>
+
+<section id="switch">
+<h2>④ 關鍵差別：總開關</h2>
+<svg viewBox="0 0 360 170" role="img" aria-label="原廠手握總開關">
 <rect width="360" height="170" rx="20" fill="#eaf6ee"/>
-<rect x="125" y="60" width="110" height="80" rx="10" fill="#8d6e63"/><rect x="125" y="60" width="110" height="20" fill="#6d4c41"/>
-<text x="180" y="118" font-size="22" text-anchor="middle" fill="#fff">防災箱</text>
-<g font-size="21" text-anchor="middle" fill="#1d2a33"><text x="55" y="45">地震</text><text x="180" y="40">颱風</text><text x="305" y="45">網攻停電</text></g>
-<path d="M60 55 L120 80 M180 48 V58 M300 55 L240 80" stroke="#2f7d5b" stroke-width="4"/>
-</svg>
+<rect x="140" y="30" width="80" height="110" rx="12" fill="#fff" stroke="#1d2a33" stroke-width="4"/>
+<rect x="160" y="50" width="40" height="40" rx="6" fill="#2f7d5b"/><text x="180" y="125" font-size="21" text-anchor="middle">ON/OFF</text>
+<text x="180" y="163" font-size="21" text-anchor="middle" fill="#1d2a33">原廠手上</text></svg>
+<p class="key">閉源出了問題，原廠看得到。</p>
+<ul class="plain"><li>發現濫用</li><li>修補漏洞</li><li>停掉帳號</li></ul>
+<p>手上永遠握著總開關。</p>
+</section>
+
+<section id="out">
+<h2>⑤ 權重一上網，收不回</h2>
+<svg viewBox="0 0 360 180" role="img" aria-label="一顆大腦複製成很多顆散到世界各地">
+<rect width="360" height="180" rx="20" fill="#eef4fb"/>
+<text x="180" y="70" font-size="48" text-anchor="middle">🧠</text>
+<g font-size="30"><text x="30" y="130">🧠</text><text x="100" y="150">🧠</text><text x="230" y="150">🧠</text><text x="300" y="130">🧠</text></g>
+<path d="M160 80 L60 105 M170 85 L120 120 M190 85 L245 120 M200 80 L305 105" stroke="#1b6b8f" stroke-width="3"/>
+<text x="180" y="174" font-size="21" text-anchor="middle" fill="#1d2a33">送給全世界</text></svg>
+<p class="key">開放權重沒有這個開關。</p>
+<p>權重一上網，等於把整顆 AI 大腦送給全世界：任何人都能<b>下載、重新訓練、拆掉安全機制、自己部署</b>。原廠管不到，也收不回。</p>
+</section>
+
+<section id="worst">
+<h2>⑥ 最糟的情況（可能情境）</h2>
+<svg viewBox="0 0 360 170" role="img" aria-label="電網、銀行、醫院三個目標">
+<rect width="360" height="170" rx="20" fill="#fff4e5"/>
+<g font-size="40" text-anchor="middle"><text x="60" y="90">⚡</text><text x="180" y="90">🏦</text><text x="300" y="90">🏥</text></g>
+<g font-size="21" text-anchor="middle" fill="#1d2a33"><text x="60" y="135">電網</text><text x="180" y="135">銀行</text><text x="300" y="135">醫院</text></g></svg>
+<p>有人拔掉所有防護，專門教模型找漏洞、寫攻擊程式，同時打向電網、銀行、醫院；或者讓它不停產生假新聞、詐騙和惡意內容。</p>
+<p>後果可能是毀滅性的，事後幾乎查不到是誰，也收不回模型。</p>
+<p class="src">這是一種可能情境，不是預測。</p>
+</section>
+
+<section id="key">
+<h2>⑦ 門 vs 鑰匙</h2>
+<svg viewBox="0 0 360 180" role="img" aria-label="左邊一扇門有屋主看守，右邊很多把鑰匙">
+<rect width="360" height="180" rx="20" fill="#f3f0ea"/>
+<rect x="40" y="30" width="80" height="110" rx="6" fill="#8d6e63" stroke="#1d2a33" stroke-width="4"/><circle cx="105" cy="88" r="6" fill="#ffd54f"/>
+<text x="150" y="80" font-size="36">👀</text>
+<g font-size="30"><text x="215" y="70">🔑</text><text x="265" y="70">🔑</text><text x="315" y="70">🔑</text><text x="240" y="120">🔑</text><text x="290" y="120">🔑</text></g>
+<g font-size="21" text-anchor="middle" fill="#1d2a33"><text x="95" y="168">閉源：屋主在顧</text><text x="275" y="168">開放：鑰匙發全世界</text></g></svg>
 <ul class="plain">
-<li>「一年內」是他<b>個人判斷</b>，不是官方預測。</li>
-<li>風險是真的，但不用恐慌。</li>
-<li class="key">他的清單很像一般防災準備。</li>
+<li><b>閉源</b>：一扇偶爾會被撬開的門，但屋主還在顧。</li>
+<li><b>開放權重</b>：把鑰匙印出來發給全世界。</li>
 </ul>
 </section>
 
-<section id="tw">
-<h2>⑤ 台灣自己的風險</h2>
-<svg viewBox="0 0 360 200" role="img" aria-label="台灣與馬祖之間的海纜被切斷">
-<rect width="360" height="200" rx="20" fill="#e8f3fb"/>
-<path d="M250 40 C285 70 290 140 255 180 C235 150 230 80 250 40Z" fill="#81c784" stroke="#1d2a33" stroke-width="3"/>
-<circle cx="80" cy="50" r="12" fill="#81c784" stroke="#1d2a33" stroke-width="3"/>
-<path d="M92 55 Q170 60 248 70" stroke="#455a64" stroke-width="5" fill="none" stroke-dasharray="10 8"/>
-<text x="165" y="70" font-size="30" text-anchor="middle">✂️</text>
-<g font-size="21" fill="#1d2a33"><text x="40" y="90">馬祖</text><text x="200" y="125">台灣</text><text x="30" y="170">海纜可能被切斷</text></g>
-</svg>
+<section id="strong">
+<h2>⑧ 模型越強，風險越大</h2>
+<svg viewBox="0 0 360 150" role="img" aria-label="長條越來越高">
+<rect width="360" height="150" rx="20" fill="#f1eefb"/>
+<g fill="#7e57c2"><rect x="60" y="95" width="50" height="25"/><rect x="155" y="65" width="50" height="55"/><rect x="250" y="30" width="50" height="90"/></g>
+<text x="180" y="143" font-size="21" text-anchor="middle" fill="#1d2a33">能力 ↑ 風險 ↑</text></svg>
+<p class="key">模型越強，風險越大。</p>
+<p class="note">反方觀點：開源讓研究者可以檢查模型；而且到目前為止，還沒有公開的大規模災難案例。</p>
+</section>
+
+<section id="home">
+<h2>⑨ 家裡可以做的</h2>
+<p>照官方《全民安全指引》居家儲備：</p>
 <ul class="plain">
-<li>台灣本來就要面對地震、颱風。</li>
-<li><b>海纜</b>：2023 年 2 月兩條台馬海纜被中國籍船隻弄斷，馬祖約 50 天網路很慢，只能靠微波備援。
-<br><span class="src">來源：<a href="https://apnews.com/article/matsu-taiwan-internet-cables-cut-china-65f10f5f73a346fa788436366d7a7c70">AP</a>、<a href="https://www.taiwannews.com.tw/news/4852575">Taiwan News</a>、<a href="https://www.cna.com.tw/news/afe/202303310279.aspx">中央社</a></span></li>
-<li>兩岸緊張：政府已出《全民安全指引》。</li>
-<li><b>Starlink 台灣沒有</b>：數位部長說談判因法規與經營權破局。
-<br><span class="src">來源：<a href="https://www.taipeitimes.com/News/taiwan/archives/2026/05/17/2003857478">Taipei Times（2026-05-17）</a></span></li>
-<li>替代：中華電信代理 OneWeb 低軌、SES 中軌衛星，數位部用於災害通訊（主要給政府與企業）。
-<br><span class="src">來源：<a href="https://moda.gov.tw/en/press/press-releases/13056">數位部</a>、<a href="https://www.cna.com.tw/news/afe/202408210050.aspx">中央社</a></span></li>
+<li>飲用水：每人每天至少 3 公升，至少 7 天份</li>
+<li>罐頭、泡麵、餅乾；卡式爐＋瓦斯罐</li>
+<li>手電筒、乾電池、行動電源、可攜式收音機</li>
+<li>急救箱、常用藥物</li>
 </ul>
-</section>
-
-<section id="list">
-<h2>⑥ 居家儲備清單（官方）</h2>
-<p class="src">可以打勾（只在你的畫面上，不會儲存）。</p>
-<div class="cards">
-<div class="card"><h3>💧 水</h3><ul>
-<li><label><input type="checkbox"><span>飲用水：每人每天至少 3 公升</span></label></li>
-<li><label><input type="checkbox"><span>以家庭為單位，至少 7 天份</span></label></li>
-</ul><p class="src">3 公升：<a href="https://prepare.mnd.gov.tw/emergency-supplies/househeld">全民安全指引 居家儲備</a></p></div>
-
-<div class="card"><h3>🥫 食物</h3><ul>
-<li><label><input type="checkbox"><span>罐頭、泡麵、餅乾、即食飯</span></label></li>
-<li><label><input type="checkbox"><span>卡式爐＋瓦斯罐</span></label></li>
-</ul><p class="src">來源：<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">日常居家儲備清單 PDF</a></p></div>
-
-<div class="card"><h3>🐾 寵物</h3><ul>
-<li><label><input type="checkbox"><span>有養寵物的話，記得準備寵物的食物和水</span></label></li>
-<li><label><input type="checkbox"><span>項圈牽繩、排泄用品、餐具、飼主聯絡資訊</span></label></li>
-</ul><p class="src">來源：<a href="https://www.gov.tw/security/%E7%95%B6%E5%8D%B1%E6%A9%9F%E4%BE%86%E8%87%A8%E6%99%82%EF%BC%9A%E8%87%BA%E7%81%A3%E5%85%A8%E6%B0%91%E5%AE%89%E5%85%A8%E6%8C%87%E5%BC%95.pdf">當危機來臨時：臺灣全民安全指引 PDF</a></p></div>
-
-<div class="card"><h3>💵 現金</h3><ul>
-<li><label><input type="checkbox"><span>少量現金</span></label></li>
-</ul><p class="src">來源：<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">居家儲備清單 PDF</a>（緊急避難包項目）</p></div>
-
-<div class="card"><h3>🔋 電</h3><ul>
-<li><label><input type="checkbox"><span>行動電源充飽、充電線</span></label></li>
-<li><label><input type="checkbox"><span>LED 燈、頭燈、乾電池</span></label></li>
-<li><label><input type="checkbox"><span>小型手搖發電機</span></label></li>
-</ul><p class="src">來源：<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">居家儲備清單</a></p></div>
-
-<div class="card"><h3>📻 通訊</h3><ul>
-<li><label><input type="checkbox"><span>可攜式收音機</span></label></li>
-<li><label><input type="checkbox"><span>紙本聯絡資訊、避難地圖</span></label></li>
-</ul><p class="src">收音機、紙本：<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">居家儲備清單</a></p></div>
-
-<div class="card"><h3>💊 醫藥</h3><ul>
-<li><label><input type="checkbox"><span>常用藥物、個人處方藥</span></label></li>
-<li><label><input type="checkbox"><span>急救箱、口罩</span></label></li>
-</ul><p class="src">來源：<a href="https://prepare.mnd.gov.tw/emergency-supplies/househeld">全民安全指引</a></p></div>
-
-<div class="card"><h3>📄 證件</h3><ul>
-<li><label><input type="checkbox"><span>身分證、健保卡影本放防水夾鏈袋</span></label></li>
-<li><label><input type="checkbox"><span>也可存數位版</span></label></li>
-</ul><p class="src">來源：<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">居家儲備清單</a></p></div>
-</div>
-</section>
-
-<section id="caveat">
-<h2>⑦ 提醒</h2>
-<div class="note">
-<ul class="plain">
-<li>這不是官方建議，只是整理。</li>
-<li>請以官方為準：<a href="https://prepare.mnd.gov.tw/">全民安全指引</a>、<a href="https://www.nfa.gov.tw/">內政部消防署</a>。</li>
-<li>每半年檢查一次，快過期的先吃。</li>
-</ul></div>
+<p class="src">來源：<a href="https://prepare.mnd.gov.tw/emergency-supplies/househeld">全民安全指引 居家儲備</a>、<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">清單 PDF</a>。本頁不是官方建議。</p>
 </section>
 
 <section id="src">
-<h2>⑧ 來源</h2>
+<h2>⑩ 來源</h2>
 <ul class="plain src">
 <li><a href="https://x.com/stuhlmueller/status/2110048778942284149">Andreas Stuhlmüller X 原貼文</a></li>
 <li><a href="https://www.coolingpost.com/world-news/danfoss-moves-to-mitigate-cyberattack/">Cooling Post：Danfoss moves to mitigate cyberattack</a></li>
-<li><a href="https://apnews.com/article/france-cyberattack-supermarkets-refrigeration-systems-78a813a8efd466b360655339f96083dc">AP：France cyberattack supermarkets</a>（未能載入）</li>
 <li><a href="https://jessetsai1024.github.io/jt-pages/eli5-france-fridge-hack/">ELI5：法國冰箱駭客</a></li>
-<li><a href="https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access">Google GTIG AI 威脅報告</a>、<a href="https://www.reuters.com/legal/litigation/hackers-pushing-innovation-ai-enabled-hacking-operations-google-says-2026-05-11/">Reuters</a></li>
-<li><a href="https://apnews.com/article/matsu-taiwan-internet-cables-cut-china-65f10f5f73a346fa788436366d7a7c70">AP 馬祖海纜</a>、<a href="https://www.taiwannews.com.tw/news/4852575">Taiwan News</a>、<a href="https://www.cna.com.tw/news/afe/202303310279.aspx">中央社</a></li>
-<li><a href="https://www.taipeitimes.com/News/taiwan/archives/2026/05/17/2003857478">Taipei Times：Starlink</a></li>
-<li><a href="https://moda.gov.tw/en/press/press-releases/13056">數位部 衛星韌性</a>、<a href="https://www.cna.com.tw/news/afe/202408210050.aspx">中央社 中華電 SES</a></li>
-<li><a href="https://prepare.mnd.gov.tw/emergency-supplies/househeld">全民安全指引：居家儲備</a>、<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">清單 PDF</a>、<a href="https://www.gov.tw/security/%E7%95%B6%E5%8D%B1%E6%A9%9F%E4%BE%86%E8%87%A8%E6%99%82%EF%BC%9A%E8%87%BA%E7%81%A3%E5%85%A8%E6%B0%91%E5%AE%89%E5%85%A8%E6%8C%87%E5%BC%95.pdf">當危機來臨時 PDF</a></li>
+<li><a href="https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access">Google GTIG AI 威脅報告</a></li>
+<li><a href="https://www.reuters.com/legal/litigation/hackers-pushing-innovation-ai-enabled-hacking-operations-google-says-2026-05-11/">Reuters 2026-05-11</a></li>
+<li><a href="https://prepare.mnd.gov.tw/emergency-supplies/househeld">全民安全指引：居家儲備</a>、<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">清單 PDF</a></li>
 </ul>
 </section>
 </main>
