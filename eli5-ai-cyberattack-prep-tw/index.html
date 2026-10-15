@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 網攻危機，台灣家庭怎麼應對（ELI5）</title>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.6;color:#1d2a33;background:#f3f6f4;overflow-wrap:anywhere;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:9;background:#fffffff2;border-bottom:1px solid #d6e0da;display:flex;gap:8px;overflow-x:auto;padding:8px 10px}
+nav a{flex:none;min-height:44px;display:flex;align-items:center;padding:0 16px;border-radius:22px;background:#e3eee8;color:#1d4a3a;text-decoration:none;font-size:18px;font-weight:600}
+main{max-width:820px;margin:0 auto;padding:12px}
+header{padding:18px 6px 4px}
+h1{font-size:34px;line-height:1.3;margin:6px 0}
+h2{font-size:30px;line-height:1.3;margin:4px 0 10px}
+h3{font-size:24px;margin:8px 0 4px}
+.key{font-size:25px;font-weight:700}
+section{background:#fff;border-radius:22px;padding:18px;margin:16px 0;box-shadow:0 2px 8px #0000000f;scroll-margin-top:72px}
+svg{width:100%;height:auto;display:block;margin:6px 0 10px}
+svg text{font-family:inherit}
+.src{font-size:18px;color:#4c5d66}
+.src a,a{color:#1b6b8f}
+.note{background:#fff7e0;border-radius:14px;padding:12px 14px}
+.cards{display:grid;gap:14px}
+@media(min-width:900px){.cards{grid-template-columns:1fr 1fr}}
+.card{border:2px solid #d6e0da;border-radius:18px;padding:14px}
+.card ul{list-style:none;padding:0;margin:0}
+.card li{margin:10px 0}
+.card label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;min-height:44px}
+.card input{width:30px;height:30px;flex:none;margin-top:3px;accent-color:#2f7d5b}
+.card input:checked+span{text-decoration:line-through;color:#6b7b73}
+small{font-size:18px}
+ul.plain{padding-left:1.1em}
+footer{text-align:center;font-size:18px;color:#5b6b63;padding:20px}
+</style>
+</head>
+<body>
+<nav aria-label="章節">
+<a href="#warn">警告</a><a href="#france">法國</a><a href="#ai">AI</a><a href="#calm">冷靜看</a><a href="#tw">台灣</a><a href="#list">清單</a><a href="#caveat">提醒</a><a href="#src">來源</a>
+</nav>
+<main>
+<header>
+<h1>AI 網攻危機<br>台灣家庭怎麼應對</h1>
+<p class="key">一句話：不用怕，先備好「兩週不靠電、網、刷卡」的生活。</p>
+</header>
+
+<section id="warn">
+<h2>① 有人提出警告</h2>
+<svg viewBox="0 0 360 200" role="img" aria-label="電、錢、網路、水四個圖示">
+<rect x="0" y="0" width="360" height="200" rx="20" fill="#eef4fb"/>
+<g font-size="21" text-anchor="middle" fill="#1d2a33">
+<circle cx="50" cy="80" r="38" fill="#ffd54f"/><path d="M55 52 L38 86 H52 L44 110 L64 74 H50 Z" fill="#1d2a33"/><text x="50" y="150">電網</text>
+<circle cx="135" cy="80" r="38" fill="#a5d6a7"/><text x="135" y="92" font-size="34">$</text><text x="135" y="150">金融</text>
+<circle cx="220" cy="80" r="38" fill="#90caf9"/><path d="M196 80 h48 M220 56 v48" stroke="#1d2a33" stroke-width="5"/><circle cx="220" cy="80" r="24" fill="none" stroke="#1d2a33" stroke-width="5"/><text x="220" y="150">網路</text>
+<circle cx="305" cy="80" r="38" fill="#80deea"/><path d="M305 56 C290 80 290 100 305 104 C320 100 320 80 305 56Z" fill="#1d2a33"/><text x="305" y="150">水</text>
+<text x="180" y="188" font-size="21">AI 可能被拿來攻擊這些</text>
+</g></svg>
+<p>Elicit 共同創辦人 Andreas Stuhlmüller 在 X 上說：他認為<b>一年內</b>出現 AI 網攻電網、金融、網路或供水，是「有可能的」（plausible）。</p>
+<p class="src">來源：<a href="https://x.com/stuhlmueller/status/2110048778942284149">原貼文（2026-10-14 00:43 台北時間）</a></p>
+<h3>他建議準備的東西（原文數字）</h3>
+<ul class="plain">
+<li>現金：幾週（a few weeks）的花費</li>
+<li>Starlink Mini（約 US$150＋待機每月 US$10）</li>
+<li>基本電力約 US$1,250：1 kWh 磷酸鐵鋰電池＋1 片 400W 折疊太陽板</li>
+<li>進階約 US$5,000：4 kWh 電池＋3 片 400W 板＋約 2,500W 雙燃料發電機</li>
+<li>水：每人兩週 14 加侖以上（約 53 公升）</li>
+<li>食物：2 週以上耐放食物；手搖 NOAA 收音機</li>
+</ul>
+<p class="src">來源：同上原貼文。加侖換算：1 美制加侖＝3.785 公升（本頁計算）。</p>
+</section>
+
+<section id="france">
+<h2>② 真的發生過：法國超市冰箱</h2>
+<svg viewBox="0 0 360 190" role="img" aria-label="冰箱被遠端改設定，食物退冰">
+<rect width="360" height="190" rx="20" fill="#fdf1ec"/>
+<rect x="40" y="25" width="110" height="140" rx="12" fill="#cfe8f5" stroke="#1d2a33" stroke-width="4"/>
+<line x1="40" y1="85" x2="150" y2="85" stroke="#1d2a33" stroke-width="4"/>
+<text x="95" y="65" font-size="30" text-anchor="middle">🧊</text><text x="95" y="135" font-size="30" text-anchor="middle">💧</text>
+<path d="M170 95 h60" stroke="#c0392b" stroke-width="6" marker-end="url(#a)"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#c0392b"/></marker></defs>
+<text x="290" y="90" font-size="20" text-anchor="middle" fill="#1d2a33">一直除霜</text>
+<text x="290" y="120" font-size="20" text-anchor="middle" fill="#c0392b">食物變溫</text>
+</svg>
+<p class="key">駭客控制了老舊的冷凍控制器，讓冰箱一直除霜。</p>
+<p>報導說約 500 家店受影響，損失數百萬歐元食品；多數是已停止更新的舊設備。法國資安署 ANSSI 之後警告攻擊可能仍在進行。</p>
+<p class="src">來源：<a href="https://www.coolingpost.com/world-news/danfoss-moves-to-mitigate-cyberattack/">Cooling Post（2026-10-12）</a>；<a href="https://apnews.com/article/france-cyberattack-supermarkets-refrigeration-systems-78a813a8efd466b360655339f96083dc">AP 報導</a>（本次未能載入，未引用其數字）。延伸閱讀：<a href="https://jessetsai1024.github.io/jt-pages/eli5-france-fridge-hack/">法國冰箱駭客事件 ELI5</a></p>
+</section>
+
+<section id="ai">
+<h2>③ AI 改變了什麼？</h2>
+<svg viewBox="0 0 360 180" role="img" aria-label="以前找漏洞要很多人，現在AI幫忙變便宜">
+<rect width="360" height="180" rx="20" fill="#f1eefb"/>
+<g font-size="21" text-anchor="middle" fill="#1d2a33">
+<text x="90" y="40">以前</text><text x="270" y="40">現在</text>
+<text x="90" y="100" font-size="40">👩‍💻👨‍💻👩‍💻</text>
+<text x="270" y="100" font-size="40">🤖</text>
+<text x="90" y="150">找漏洞：慢、貴</text><text x="270" y="150">找漏洞：快、便宜</text>
+</g></svg>
+<p class="key">AI 讓「找漏洞、寫攻擊程式」變便宜。</p>
+<p>Google 威脅情報小組（GTIG）2026 年 5 月說：第一次發現犯罪集團用 AI 開發的零時差漏洞攻擊，準備大規模使用，但被提前攔下。同一份報告說也有國家級駭客用 AI 研究漏洞。好消息：防守方也在用 AI 找漏洞、補漏洞。</p>
+<p class="src">來源：<a href="https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access">Google Cloud GTIG 報告</a>；<a href="https://www.reuters.com/legal/litigation/hackers-pushing-innovation-ai-enabled-hacking-operations-google-says-2026-05-11/">Reuters（2026-05-11）</a></p>
+</section>
+
+<section id="calm">
+<h2>④ 冷靜看：這是一般防災</h2>
+<svg viewBox="0 0 360 170" role="img" aria-label="同一個箱子應付地震、颱風、停電">
+<rect width="360" height="170" rx="20" fill="#eaf6ee"/>
+<rect x="125" y="60" width="110" height="80" rx="10" fill="#8d6e63"/><rect x="125" y="60" width="110" height="20" fill="#6d4c41"/>
+<text x="180" y="118" font-size="22" text-anchor="middle" fill="#fff">防災箱</text>
+<g font-size="21" text-anchor="middle" fill="#1d2a33"><text x="55" y="45">地震</text><text x="180" y="40">颱風</text><text x="305" y="45">網攻停電</text></g>
+<path d="M60 55 L120 80 M180 48 V58 M300 55 L240 80" stroke="#2f7d5b" stroke-width="4"/>
+</svg>
+<ul class="plain">
+<li>「一年內」是他<b>個人判斷</b>，不是官方預測。</li>
+<li>風險是真的，但不用恐慌。</li>
+<li class="key">他的清單＝一般防災準備。地震、颱風也用得到。</li>
+</ul>
+</section>
+
+<section id="tw">
+<h2>⑤ 台灣自己的風險</h2>
+<svg viewBox="0 0 360 200" role="img" aria-label="台灣與馬祖之間的海纜被切斷">
+<rect width="360" height="200" rx="20" fill="#e8f3fb"/>
+<path d="M250 40 C285 70 290 140 255 180 C235 150 230 80 250 40Z" fill="#81c784" stroke="#1d2a33" stroke-width="3"/>
+<circle cx="80" cy="50" r="12" fill="#81c784" stroke="#1d2a33" stroke-width="3"/>
+<path d="M92 55 Q170 60 248 70" stroke="#455a64" stroke-width="5" fill="none" stroke-dasharray="10 8"/>
+<text x="165" y="70" font-size="30" text-anchor="middle">✂️</text>
+<g font-size="21" fill="#1d2a33"><text x="40" y="90">馬祖</text><text x="200" y="125">台灣</text><text x="30" y="170">海纜可能被切斷</text></g>
+</svg>
+<ul class="plain">
+<li>地震、颱風：最常見的停電停水原因。</li>
+<li><b>海纜</b>：2023 年 2 月兩條台馬海纜被中國籍船隻弄斷，馬祖約 50 天網路很慢，只能靠微波備援。
+<br><span class="src">來源：<a href="https://apnews.com/article/matsu-taiwan-internet-cables-cut-china-65f10f5f73a346fa788436366d7a7c70">AP</a>、<a href="https://www.taiwannews.com.tw/news/4852575">Taiwan News</a>、<a href="https://www.cna.com.tw/news/afe/202303310279.aspx">中央社</a></span></li>
+<li>兩岸緊張：政府已出《全民安全指引》。</li>
+<li><b>Starlink 台灣沒有</b>：數位部長說談判因法規與經營權破局。
+<br><span class="src">來源：<a href="https://www.taipeitimes.com/News/taiwan/archives/2026/05/17/2003857478">Taipei Times（2026-05-17）</a></span></li>
+<li>替代：中華電信代理 OneWeb 低軌、SES 中軌衛星，數位部用於災害通訊（主要給政府與企業）。家庭能做的：兩支手機用<b>不同電信</b>。
+<br><span class="src">來源：<a href="https://moda.gov.tw/en/press/press-releases/13056">數位部</a>、<a href="https://www.cna.com.tw/news/afe/202408210050.aspx">中央社</a></span></li>
+</ul>
+</section>
+
+<section id="list">
+<h2>⑥ 兩週清單：2 大人＋兔子和鸚鵡</h2>
+<p class="src">可以打勾（只在你的畫面上，不會儲存）。</p>
+<div class="cards">
+<div class="card"><h3>💧 水</h3><ul>
+<li><label><input type="checkbox"><span>每人每天至少 3 公升 → 2 人 × 14 天 ≈ <b>84 公升</b></span></label></li>
+<li><label><input type="checkbox"><span>兔子和鸚鵡的飲水另外準備</span></label></li>
+</ul><p class="src">3 公升：<a href="https://prepare.mnd.gov.tw/emergency-supplies/househeld">全民安全指引 居家儲備</a>（官方建議至少 7 天；84 為本頁換算兩週）</p></div>
+
+<div class="card"><h3>🥫 食物</h3><ul>
+<li><label><input type="checkbox"><span>罐頭、泡麵、餅乾、即食飯（兩週）</span></label></li>
+<li><label><input type="checkbox"><span>卡式爐＋瓦斯罐</span></label></li>
+</ul><p class="src">來源：<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">日常居家儲備清單 PDF</a></p></div>
+
+<div class="card"><h3>🐰 兔子</h3><ul>
+<li><label><input type="checkbox"><span>提摩西草 2 週以上＋飼料</span></label></li>
+<li><label><input type="checkbox"><span class="key">牧草絕對不能斷</span></label></li>
+<li><label><input type="checkbox"><span>超過 8 小時不吃不便便＝急診</span></label></li>
+</ul><p class="src">兔子飲食應 80–90% 是牧草：<a href="https://cve.edu.au/common/Uploaded%20files/CT/CT-5917-Rabbit-Gastrointestinal-Stasis-Syndrome-O-Clarke.pdf">CVE 獸醫文章</a>；8 小時：<a href="https://www.petmd.com/rabbit/conditions/digestive/gastrointestinal-gi-stasis-rabbits">PetMD</a>；<a href="https://vcahospitals.com/know-your-pet/gastrointestinal-stasis-in-rabbits">VCA</a></p></div>
+
+<div class="card"><h3>🦜 鸚鵡</h3><ul>
+<li><label><input type="checkbox"><span>2 週以上飼料</span></label></li>
+<li><label><input type="checkbox"><span>外出籠（兔子也要一個）</span></label></li>
+<li><label><input type="checkbox"><span>寵物常用藥、飼主聯絡資料</span></label></li>
+</ul><p class="src">寵物用品項目：<a href="https://www.gov.tw/security/%E7%95%B6%E5%8D%B1%E6%A9%9F%E4%BE%86%E8%87%A8%E6%99%82%EF%BC%9A%E8%87%BA%E7%81%A3%E5%85%A8%E6%B0%91%E5%AE%89%E5%85%A8%E6%8C%87%E5%BC%95.pdf">當危機來臨時：臺灣全民安全指引 PDF</a></p></div>
+
+<div class="card"><h3>💵 現金</h3><ul>
+<li><label><input type="checkbox"><span>幾週的生活費現金</span></label></li>
+<li><label><input type="checkbox"><span>多換些小鈔</span></label></li>
+</ul><p class="src">「幾週」來自原貼文；停電時刷卡、手機支付可能不能用。</p></div>
+
+<div class="card"><h3>🔋 電</h3><ul>
+<li><label><input type="checkbox"><span>行動電源充飽、充電線</span></label></li>
+<li><label><input type="checkbox"><span>LED 燈、頭燈、乾電池</span></label></li>
+<li><label><input type="checkbox"><span>選配：約 1 kWh 磷酸鐵鋰電源站＋折疊太陽板</span></label></li>
+</ul><p class="src">1 kWh：原貼文；其他：<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">居家儲備清單</a></p></div>
+
+<div class="card"><h3>📻 通訊</h3><ul>
+<li><label><input type="checkbox"><span>兩支手機用不同電信</span></label></li>
+<li><label><input type="checkbox"><span>手搖／可攜式收音機（聽警廣、災情廣播）</span></label></li>
+<li><label><input type="checkbox"><span>紙本聯絡資訊、避難地圖</span></label></li>
+</ul><p class="src">收音機、紙本：<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">居家儲備清單</a></p></div>
+
+<div class="card"><h3>💊 醫藥</h3><ul>
+<li><label><input type="checkbox"><span>兩週常用藥、處方藥</span></label></li>
+<li><label><input type="checkbox"><span>急救箱、口罩</span></label></li>
+</ul><p class="src">來源：<a href="https://prepare.mnd.gov.tw/emergency-supplies/househeld">全民安全指引</a></p></div>
+
+<div class="card"><h3>📄 證件</h3><ul>
+<li><label><input type="checkbox"><span>身分證、健保卡影本放防水夾鏈袋</span></label></li>
+<li><label><input type="checkbox"><span>雲端也備份一份</span></label></li>
+</ul><p class="src">來源：<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">居家儲備清單</a></p></div>
+</div>
+</section>
+
+<section id="caveat">
+<h2>⑦ 提醒</h2>
+<div class="note">
+<ul class="plain">
+<li>這不是官方建議，只是整理。</li>
+<li>請以官方為準：<a href="https://prepare.mnd.gov.tw/">全民安全指引</a>、<a href="https://www.nfa.gov.tw/">內政部消防署</a>。</li>
+<li>寵物健康請問你的獸醫。</li>
+<li>每半年檢查一次，快過期的先吃。</li>
+</ul></div>
+</section>
+
+<section id="src">
+<h2>⑧ 來源</h2>
+<ul class="plain src">
+<li><a href="https://x.com/stuhlmueller/status/2110048778942284149">Andreas Stuhlmüller X 原貼文</a></li>
+<li><a href="https://www.coolingpost.com/world-news/danfoss-moves-to-mitigate-cyberattack/">Cooling Post：Danfoss moves to mitigate cyberattack</a></li>
+<li><a href="https://apnews.com/article/france-cyberattack-supermarkets-refrigeration-systems-78a813a8efd466b360655339f96083dc">AP：France cyberattack supermarkets</a>（未能載入）</li>
+<li><a href="https://jessetsai1024.github.io/jt-pages/eli5-france-fridge-hack/">ELI5：法國冰箱駭客</a></li>
+<li><a href="https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access">Google GTIG AI 威脅報告</a>、<a href="https://www.reuters.com/legal/litigation/hackers-pushing-innovation-ai-enabled-hacking-operations-google-says-2026-05-11/">Reuters</a></li>
+<li><a href="https://apnews.com/article/matsu-taiwan-internet-cables-cut-china-65f10f5f73a346fa788436366d7a7c70">AP 馬祖海纜</a>、<a href="https://www.taiwannews.com.tw/news/4852575">Taiwan News</a>、<a href="https://www.cna.com.tw/news/afe/202303310279.aspx">中央社</a></li>
+<li><a href="https://www.taipeitimes.com/News/taiwan/archives/2026/05/17/2003857478">Taipei Times：Starlink</a></li>
+<li><a href="https://moda.gov.tw/en/press/press-releases/13056">數位部 衛星韌性</a>、<a href="https://www.cna.com.tw/news/afe/202408210050.aspx">中央社 中華電 SES</a></li>
+<li><a href="https://prepare.mnd.gov.tw/emergency-supplies/househeld">全民安全指引：居家儲備</a>、<a href="https://prepare.mnd.gov.tw/assets/pdf/emergency-supplies.zh-Hant.pdf">清單 PDF</a>、<a href="https://www.gov.tw/security/%E7%95%B6%E5%8D%B1%E6%A9%9F%E4%BE%86%E8%87%A8%E6%99%82%EF%BC%9A%E8%87%BA%E7%81%A3%E5%85%A8%E6%B0%91%E5%AE%89%E5%85%A8%E6%8C%87%E5%BC%95.pdf">當危機來臨時 PDF</a></li>
+<li><a href="https://www.petmd.com/rabbit/conditions/digestive/gastrointestinal-gi-stasis-rabbits">PetMD</a>、<a href="https://vcahospitals.com/know-your-pet/gastrointestinal-stasis-in-rabbits">VCA</a>、<a href="https://cve.edu.au/common/Uploaded%20files/CT/CT-5917-Rabbit-Gastrointestinal-Stasis-Syndrome-O-Clarke.pdf">CVE</a></li>
+</ul>
+</section>
+</main>
+<footer>網頁小工坊 · 2026-10-15</footer>
+</body></html>
