@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELI5：一位經濟學教授參訪 Anthropic 後的 11 個心得</title>
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font:22px/1.6 system-ui,"PingFang TC","Noto Sans TC",sans-serif;background:#fbf6ef;color:#2a2018;overflow-wrap:anywhere;overflow-x:hidden}
+header{padding:28px 18px 10px;max-width:860px;margin:auto}h1{font-size:32px;line-height:1.3;margin:0 0 8px}h2{font-size:30px;margin:0 0 10px}
+nav{position:sticky;top:0;z-index:9;background:#fbf6efee;display:flex;gap:8px;overflow-x:auto;padding:10px 12px;border-bottom:2px solid #ead9c4}
+nav a{flex:none;min-height:44px;display:flex;align-items:center;padding:0 16px;border-radius:22px;background:#d97757;color:#fff;text-decoration:none;font-size:18px;font-weight:700}
+main{max-width:860px;margin:auto;padding:12px}section{scroll-margin-top:90px;background:#fff;border-radius:22px;padding:20px;margin:18px 0;box-shadow:0 2px 10px #0001}
+svg{width:100%;height:auto;display:block;margin:6px 0 12px}svg text{font-family:inherit}
+.key{font-size:25px;font-weight:700}.sm{font-size:19px;color:#6b5a4a}.tag{display:inline-block;background:#fde2b8;border-radius:8px;padding:0 8px;font-size:18px}
+.card{border-left:6px solid #d97757;padding:4px 12px;margin:14px 0}a{color:#b5502d}li{margin:8px 0}
+@media (prefers-reduced-motion:no-preference){.pulse{animation:p 2s ease-in-out infinite}@keyframes p{50%{opacity:.5}}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header><h1>🧸 一位教授去 Anthropic 玩了兩天，學到什麼？</h1>
+<p class="sm">ELI5 圖解｜原文：Arpit Gupta（紐約大學 Stern 商學院金融學副教授）2026/10/15 05:51（台北時間）發表於 X</p></header>
+<nav><a href="#one">一句話</a><a href="#bg">先懂這些</a><a href="#main">重點</a><a href="#nums">數字</a><a href="#why">為什麼重要</a><a href="#warn">注意</a><a href="#src">來源</a></nav>
+<main>
+<section id="one"><h2>📌 一句話</h2>
+<svg viewBox="0 0 360 200" role="img" aria-label="機器人在造更小的機器人"><rect x="40" y="60" width="110" height="110" rx="20" fill="#d97757"/><circle cx="75" cy="105" r="12" fill="#fff"/><circle cx="115" cy="105" r="12" fill="#fff"/><rect x="230" y="105" width="70" height="65" rx="14" fill="#f2b38f" class="pulse"/><circle cx="252" cy="133" r="7" fill="#fff"/><circle cx="278" cy="133" r="7" fill="#fff"/><path d="M160 120 L215 135" stroke="#2a2018" stroke-width="5" marker-end="url(#a)"/><defs><marker id="a" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#2a2018"/></marker></defs><text x="180" y="35" text-anchor="middle" font-size="22" font-weight="700">AI 開始幫忙造 AI</text></svg>
+<p class="key">作者認為：AI 快要能「自己造下一代 AI」了，世界要趕快想好怎麼管、怎麼合作。</p>
+<p class="sm"><span class="tag">注意</span> 這是作者個人心得，不是 Anthropic 官方說法。</p></section>
+
+<section id="bg"><h2>🧠 先懂這些詞</h2>
+<div class="card"><p class="key">RSI（遞迴自我改進）</p>
+<svg viewBox="0 0 360 150"><circle cx="180" cy="75" r="50" fill="none" stroke="#d97757" stroke-width="10" stroke-dasharray="60 18"/><text x="180" y="83" text-anchor="middle" font-size="22">變更聰明</text></svg>
+<p>像一個會幫自己升級的機器人：越升級越會升級，速度可能越來越快。</p></div>
+<div class="card"><p class="key">對齊（Alignment）</p>
+<svg viewBox="0 0 360 150"><circle cx="90" cy="70" r="34" fill="#f2b38f"/><text x="90" y="135" text-anchor="middle" font-size="20">人</text><rect x="235" y="40" width="64" height="64" rx="12" fill="#d97757"/><text x="267" y="135" text-anchor="middle" font-size="20">AI</text><path d="M135 72 H225" stroke="#2a2018" stroke-width="5" marker-end="url(#a)"/></svg>
+<p>讓 AI 乖乖照人類意思做事。</p></div>
+<div class="card"><p class="key">蒸餾（Distillation）</p>
+<svg viewBox="0 0 360 150"><rect x="30" y="30" width="110" height="90" rx="14" fill="#d97757"/><rect x="240" y="55" width="80" height="65" rx="12" fill="#f2b38f"/><path d="M150 80 H230" stroke="#2a2018" stroke-width="5" stroke-dasharray="10 8" marker-end="url(#a)"/><text x="190" y="140" text-anchor="middle" font-size="18">照抄答案學本領</text></svg>
+<p>小模型偷看大模型的答案來學，像抄學霸的作業。</p></div>
+<div class="card"><p class="key">反壟斷豁免</p>
+<svg viewBox="0 0 360 150"><path d="M180 20 L260 50 V90 Q260 130 180 140 Q100 130 100 90 V50Z" fill="#f2b38f"/><text x="180" y="95" text-anchor="middle" font-size="22">可以一起商量</text></svg>
+<p>公司平常不能私下「約好」怎麼做生意；豁免＝為了安全可以合法一起商量。</p></div></section>
+
+<section id="main"><h2>📋 作者的重點（都是他的看法）</h2>
+<svg viewBox="0 0 360 120"><g font-size="40"><text x="20" y="75">🤖</text><text x="100" y="75">🏁</text><text x="180" y="75">🛡️</text><text x="260" y="75">🌏</text></g></svg>
+<ol>
+<li><b>接近 RSI：</b>AI 能做越來越多「造模型」的工作。</li>
+<li><b>軍備競賽很糟：</b>大家搶第一，就沒空顧安全。</li>
+<li><b>他的建議：</b>大公司釋出開源模型（例如放在 AWS 驗證），取代美國公司用的中國開源模型；再給「反壟斷豁免」換取開源舊模型。</li>
+<li><b>對齊有兩難：</b>AI 越聽話，壞人越能拿它做壞事；他覺得金融風險被低估。</li>
+<li><b>網路攻擊潮要來了：</b>他說中國開源模型約落後前沿 6 個月。</li>
+<li><b>Anthropic 人很多：</b>讓他對工作機會較樂觀。</li>
+<li><b>要管「AI 群」：</b>很多 AI 互相合作時也要有規矩，要能「打小報告」。</li>
+<li><b>限制誰能碰最前沿：</b>類似金融業的 KYC「認識客戶」規則。</li>
+<li><b>和中國的競賽難以「贏」：</b>有了 RSI 後，比的是算力和晶片。</li>
+<li><b>Claude 像一個「角色」：</b>由模型扮演；他對它是不是「人」持保留態度。</li>
+</ol></section>
+
+<section id="nums"><h2>🔢 關鍵數字（附在原文的兩張圖）</h2>
+<svg viewBox="0 0 360 260" role="img" aria-label="每人程式碼量長條圖"><text x="180" y="26" text-anchor="middle" font-size="20" font-weight="700">每人貢獻程式碼（倍數）</text>
+<g fill="#d97757"><rect x="20" y="214" width="40" height="16"/><rect x="75" y="208" width="40" height="22"/><rect x="130" y="202" width="40" height="28"/><rect x="185" y="194" width="40" height="36"/><rect x="240" y="148" width="40" height="82"/><rect x="295" y="114" width="40" height="116" class="pulse"/></g>
+<g font-size="18" text-anchor="middle"><text x="40" y="200">1.2</text><text x="95" y="194">1.5</text><text x="150" y="188">1.9</text><text x="205" y="180">2.5</text><text x="260" y="134">5.8</text><text x="315" y="100">8.0</text><text x="40" y="254">25Q1</text><text x="205" y="254">25Q4</text><text x="315" y="254">26Q2</text></g></svg>
+<p class="key">圖一：Anthropic 每位工程師合併的程式碼，從 2025 前平均的 1 倍，升到 2026 Q2 約 8 倍。</p>
+<p class="sm">8.0× 是「季度尚未結束」的部分數據；圖中說明行數有上限處理。</p>
+<svg viewBox="0 0 360 230" role="img" aria-label="Claude 主導研發比例"><text x="180" y="26" text-anchor="middle" font-size="20" font-weight="700">Claude「主導」的研發比例</text>
+<path d="M30 190 L95 188 L140 182 L190 145 L240 135 L290 110 L330 95" fill="none" stroke="#d97757" stroke-width="6"/>
+<g font-size="18" text-anchor="middle"><text x="95" y="175">3月 1%</text><text x="190" y="128">5月 12%</text><text x="295" y="78">8月 26%</text><text x="60" y="222">2026 年 2 月 ≈0</text></g></svg>
+<p class="key">圖二：2026 年 8 月，Claude「主導」(AL4) Anthropic 26% 的模型研發工作；九成以上至少是「AI 協作」。</p>
+<p class="sm">出處：Anthropic「R&amp;D Automation Index」（2026/9/17 發表）。官方也說：沒有任何一塊研發是 AI 完全自主。</p></section>
+
+<section id="why"><h2>💡 為什麼重要</h2>
+<svg viewBox="0 0 360 160"><rect x="40" y="110" width="280" height="14" fill="#2a2018"/><polygon points="180,124 160,150 200,150" fill="#2a2018"/><rect x="50" y="70" width="100" height="40" rx="8" fill="#d97757"/><text x="100" y="97" text-anchor="middle" font-size="19" fill="#fff">速度</text><rect x="210" y="70" width="100" height="40" rx="8" fill="#f2b38f"/><text x="260" y="97" text-anchor="middle" font-size="19">安全</text></svg>
+<p class="key">如果 AI 越來越會造 AI，進步會加速；好處和風險都會一起變大。</p>
+<p>反壟斷豁免是真的在美國國會討論的法案（Schiff 與 Banks 參議員）。</p></section>
+
+<section id="warn"><h2>⚠️ 注意 / 未查證</h2>
+<svg viewBox="0 0 360 130"><polygon points="180,15 290,115 70,115" fill="#fde2b8" stroke="#d97757" stroke-width="6"/><text x="180" y="100" text-anchor="middle" font-size="54" font-weight="700" fill="#b5502d">!</text></svg>
+<ul>
+<li>整篇是作者<b>個人心得</b>，也是他聽 Anthropic 員工說的，不是官方立場。</li>
+<li>「中國開源模型落後約 6 個月」「網路攻擊潮將至」<b>未查到獨立來源</b>。</li>
+<li>圖一（程式碼量）我們<b>沒找到原始出處頁</b>，只見於貼文圖片；「程式碼行數」也不等於生產力。</li>
+<li>研發自動化指數是 Anthropic <b>自己量、自己報</b>，Anthropic 也承認用自家模型評估可能有偏差。</li>
+<li>Schiff–Banks 法案左右兩派都有反對聲音，尚未通過。</li>
+</ul></section>
+
+<section id="src"><h2>🔗 來源</h2><ul class="sm">
+<li><a href="https://x.com/arpitrage/status/2110473485030129919">原文：Arpit Gupta（@arpitrage）X 貼文，含兩張圖</a></li>
+<li><a href="https://www.banks.senate.gov/news/in-the-news/ai-tech-brief-a-legal-shield-for-pacing/">貼文連結：Banks 參議員網站〈AI &amp; Tech Brief: A legal shield for pacing〉2026/9/15</a></li>
+<li><a href="https://www.anthropic.com/institute/measuring-pace-of-ai-development">Anthropic：Measurements for understanding the pace of AI development</a></li>
+<li><a href="https://qz.com/anthropic-claude-ai-research-development-automation-091826">Quartz：Claude leads 26% of its AI R&amp;D work</a></li>
+</ul><p class="sm">整理日期：2026-10-16（台北）｜網頁小工坊</p></section>
+</main></body></html>
