@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>腦袋每秒偷偷切換約 15 次？｜看得見與看不見的臉｜圖解預印本</title>
+<meta name="description" content="用大圖解釋 bioRxiv 預印本：猴子大腦在「看見的臉」和「沒看見的臉」之間快速輪流切換。尚未經同儕審查。">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:#0f1222;color:#f4f4f8;font-size:22px;line-height:1.65;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:10;display:flex;gap:8px;overflow-x:auto;padding:8px 10px;background:rgba(15,18,34,.96);border-bottom:1px solid #2d3355;-webkit-overflow-scrolling:touch}
+nav a{flex:0 0 auto;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;padding:0 16px;border-radius:22px;background:#242a4d;color:#fff;text-decoration:none;font-size:18px;font-weight:700}
+nav a:hover,nav a:focus{background:#ffb347;color:#111}
+main{max-width:760px;margin:0 auto;padding:12px}
+section{scroll-margin-top:90px;background:#1a1f3a;border-radius:26px;margin:18px 0;padding:24px 18px 26px;box-shadow:0 6px 22px rgba(0,0,0,.35)}
+h1{font-size:32px;line-height:1.3;margin:.3em 0}
+h2{font-size:30px;line-height:1.3;margin:.2em 0 .4em;color:#ffd27a}
+h3{font-size:26px;line-height:1.35;margin:.2em 0 .3em}
+p,li{font-size:22px;margin:.45em 0}
+ul{padding-left:1.1em;margin:.4em 0}
+.small{font-size:18px;color:#c9cbe0}
+.badge{display:inline-block;background:#ff6b6b;color:#fff;border-radius:22px;padding:6px 16px;font-weight:800;font-size:19px}
+.warn{background:#3a1f2a;border:2px solid #ff6b6b;border-radius:18px;padding:12px 14px;margin:14px 0}
+.card{background:#232948;border-radius:20px;padding:16px 14px;margin:14px 0}
+.big{font-size:56px;font-weight:900;line-height:1.1;color:#ffb347}
+.c1{color:#ffb347;font-weight:800}
+.c2{color:#c792ff;font-weight:800}
+a{color:#8fd3ff}
+a.n{color:#ffe27a;font-weight:800;text-decoration:underline;text-decoration-thickness:2px;display:inline-block;min-height:44px;line-height:44px;padding:0 2px}
+.big a.n{color:#ffb347;line-height:1.1}
+svg{display:block;width:100%;height:auto;max-width:100%;margin:10px auto}
+svg text{font-family:inherit}
+.spec{background:#1f2f2a;border-left:6px solid #5fd3a0;border-radius:14px;padding:12px 14px;margin:12px 0}
+.lab{display:inline-block;font-size:18px;font-weight:800;border-radius:12px;padding:2px 12px;margin-bottom:4px}
+.lab.r{background:#ffb347;color:#111}.lab.s{background:#5fd3a0;color:#111}.lab.l{background:#ff6b6b;color:#fff}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 18px;border-radius:24px;background:#ffb347;color:#111;font-weight:800;text-decoration:none;margin:6px 6px 0 0;font-size:20px}
+footer{text-align:center;padding:20px 12px 40px;font-size:18px;color:#c9cbe0}
+@media (min-width:900px){body{font-size:22px}}
+</style></head>
+<body>
+<nav aria-label="章節">
+<a href="#top">開頭</a><a href="#game">實驗</a><a href="#spy">偷聽</a><a href="#puzzle">謎題</a><a href="#flicker">發現</a><a href="#read">讀臉</a><a href="#check">驗證</a><a href="#loud">差別</a><a href="#front">前額葉</a><a href="#guess">推測</a><a href="#limits">限制</a><a href="#credit">出處</a>
+</nav>
+<main>
+
+<section id="top">
+<span class="badge">⚠️ 預印本・尚未經同儕審查</span>
+<h1>你的大腦，可能每秒偷偷切換約 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=1">15</a> 次</h1>
+<p>在「<span class="c1">看得見的東西</span>」和「<span class="c2">看不見的東西</span>」之間，來回輪流。</p>
+<svg viewBox="0 0 360 170" role="img" aria-label="大腦在看見與沒看見之間快速切換的示意圖">
+<rect x="0" y="0" width="360" height="170" rx="18" fill="#232948"/>
+<g transform="translate(20,20)">
+<ellipse cx="60" cy="55" rx="55" ry="45" fill="#f7a8c4"/>
+<path d="M30 40 q15 -20 30 0 q15 -20 30 0 M25 65 q20 15 35 0 q15 15 35 0" stroke="#c0628a" stroke-width="4" fill="none"/>
+</g>
+<g>
+<rect x="160" y="40" width="22" height="70" fill="#ffb347"/><rect x="182" y="40" width="22" height="70" fill="#c792ff"/>
+<rect x="204" y="40" width="22" height="70" fill="#ffb347"/><rect x="226" y="40" width="22" height="70" fill="#c792ff"/>
+<rect x="248" y="40" width="22" height="70" fill="#ffb347"/><rect x="270" y="40" width="22" height="70" fill="#c792ff"/>
+<rect x="292" y="40" width="22" height="70" fill="#ffb347"/><rect x="314" y="40" width="22" height="70" fill="#c792ff"/>
+</g>
+<text x="160" y="140" font-size="20" fill="#ffb347" font-weight="800">看見的臉</text>
+<text x="255" y="140" font-size="20" fill="#c792ff" font-weight="800">沒看見的臉</text>
+<text x="160" y="30" font-size="19" fill="#fff">時間 →</text>
+</svg>
+<p class="small">這頁用大圖解釋一篇 2026 年 10 月 16 日貼上 bioRxiv 的神經科學<b>預印本</b>。預印本 = 還沒經過其他科學家正式審查的論文，結論之後可能會改。</p>
+</section>
+
+<section id="game">
+<h2>① 一個騙眼睛的小遊戲</h2>
+<p>左眼和右眼，各看<b>不同</b>的臉。</p>
+<svg viewBox="0 0 360 300" role="img" aria-label="閃光抑制實驗：先給一隻眼看臉A，再突然給另一隻眼看臉B，結果只看見B">
+<rect width="360" height="300" rx="18" fill="#232948"/>
+<text x="16" y="34" font-size="20" fill="#fff" font-weight="800">步驟 1：只給左眼看 A</text>
+<circle cx="60" cy="75" r="26" fill="#fff"/><circle cx="60" cy="75" r="12" fill="#333"/>
+<circle cx="140" cy="75" r="26" fill="#555"/><path d="M114 75 h52" stroke="#222" stroke-width="6"/>
+<g transform="translate(250,75)"><circle r="32" fill="#c792ff"/><circle cx="-11" cy="-6" r="4" fill="#222"/><circle cx="11" cy="-6" r="4" fill="#222"/><path d="M-12 12 q12 8 24 0" stroke="#222" stroke-width="3" fill="none"/><text x="-9" y="56" font-size="20" fill="#c792ff" font-weight="800">A</text></g>
+<text x="16" y="172" font-size="20" fill="#fff" font-weight="800">步驟 2：突然給右眼看 B</text>
+<circle cx="60" cy="215" r="26" fill="#fff"/><circle cx="60" cy="215" r="12" fill="#333"/>
+<circle cx="140" cy="215" r="26" fill="#fff"/><circle cx="140" cy="215" r="12" fill="#333"/>
+<g transform="translate(250,215)"><circle r="32" fill="#ffb347"/><circle cx="-11" cy="-6" r="4" fill="#222"/><circle cx="11" cy="-6" r="4" fill="#222"/><path d="M-10 14 h20" stroke="#222" stroke-width="3"/><text x="-9" y="58" font-size="20" fill="#ffb347" font-weight="800">B</text></g>
+</svg>
+<div class="card">
+<h3>結果：你只「看見」新的 <span class="c1">B</span></h3>
+<p><span class="c2">A</span> 明明還在眼前，卻從意識裡消失了。</p>
+</div>
+<p>科學家先找 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=3">14</a> 位真人按按鈕回報看見什麼：閃出新臉後，回報看見新臉的比例是 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=25">82%</a>（只看一張臉、沒有衝突時是 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=25">87%</a>）。</p>
+<p class="small">這個遊戲叫「雙眼閃光抑制」。好處：眼前的東西不變，只有「看見什麼」變了。</p>
+</section>
+
+<section id="spy">
+<h2>② 偷聽腦細胞</h2>
+<p><a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=23">2</a> 隻獼猴，戴紅藍眼鏡看同樣的畫面。</p>
+<svg viewBox="0 0 360 230" role="img" aria-label="猴子大腦側面，標出後方的臉孔區和前方的前額葉，插著細長探針">
+<rect width="360" height="230" rx="18" fill="#232948"/>
+<path d="M40 130 q-10 -80 90 -95 q100 -15 170 40 q25 40 -10 70 q-40 30 -120 25 q-80 10 -130 -40z" fill="#f7a8c4"/>
+<circle cx="250" cy="140" r="20" fill="#ffb347"/><circle cx="205" cy="160" r="17" fill="#ffb347"/>
+<circle cx="80" cy="120" r="18" fill="#5fd3a0"/>
+<path d="M250 140 L285 20 M80 120 L60 20" stroke="#8fd3ff" stroke-width="5"/>
+<text x="196" y="210" font-size="19" fill="#ffb347" font-weight="800">臉孔區（後）</text>
+<text x="20" y="210" font-size="19" fill="#5fd3a0" font-weight="800">前額葉（前）</text>
+<text x="200" y="22" font-size="20" fill="#8fd3ff">探針</text>
+</svg>
+<ul>
+<li>細長探針（Neuropixels）一次聽很多細胞。示範的一次試驗裡同時錄到 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=17">429</a> 個細胞。</li>
+<li>聽的地方：專門認臉的「臉孔區」，還有大腦前方的「前額葉」。</li>
+<li>給猴子看了 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=4">1500</a> 張不同的臉。</li>
+</ul>
+</section>
+
+<section id="puzzle">
+<h2>③ 老謎題：訊號怎麼這麼弱？</h2>
+<p>你明明<b>只</b>看見 B，可是把一段時間的腦細胞反應<b>平均</b>起來，它們只「一點點」偏向 B。</p>
+<svg viewBox="0 0 360 200" role="img" aria-label="長條圖：只看一張臉時差別很大，衝突時平均差別很小">
+<rect width="360" height="200" rx="18" fill="#232948"/>
+<rect x="60" y="40" width="80" height="110" rx="8" fill="#8fd3ff"/>
+<rect x="210" y="125" width="80" height="25" rx="8" fill="#8fd3ff"/>
+<text x="38" y="182" font-size="19" fill="#fff">只看一張臉</text>
+<text x="200" y="182" font-size="19" fill="#fff">兩眼衝突時</text>
+<text x="215" y="112" font-size="19" fill="#ffe27a" font-weight="800">差別小</text>
+<text x="70" y="30" font-size="19" fill="#ffe27a" font-weight="800">差別大</text>
+</svg>
+<p>衝突時的差別，大約只剩單獨看時的 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=4">0.23</a> 倍（斜率）。</p>
+<p class="small">以前的研究也一直看到這個現象，所以科學家在大腦哪裡都找不到「純粹的意識訊號」。</p>
+</section>
+
+<section id="flicker">
+<h2>④ 發現：大腦在快速「輪流」</h2>
+<p>不要平均，改成一小段一小段看（每段 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=4">10</a> 毫秒）：</p>
+<svg viewBox="0 0 360 210" role="img" aria-label="時間軸：橘色看見的臉和紫色沒看見的臉交替出現，平均起來變成灰色">
+<rect width="360" height="210" rx="18" fill="#232948"/>
+<text x="16" y="32" font-size="19" fill="#fff" font-weight="800">一段一段看</text>
+<g transform="translate(16,44)">
+<rect x="0" width="40" height="44" fill="#ffb347"/><rect x="40" width="32" height="44" fill="#c792ff"/><rect x="72" width="48" height="44" fill="#ffb347"/><rect x="120" width="36" height="44" fill="#c792ff"/><rect x="156" width="30" height="44" fill="#ffb347"/><rect x="186" width="50" height="44" fill="#c792ff"/><rect x="236" width="44" height="44" fill="#ffb347"/><rect x="280" width="48" height="44" fill="#c792ff"/>
+</g>
+<text x="16" y="124" font-size="19" fill="#fff" font-weight="800">全部平均起來</text>
+<rect x="16" y="136" width="328" height="44" fill="#9a8bb0"/>
+<text x="110" y="166" font-size="19" fill="#111" font-weight="800">糊成一團 → 訊號弱</text>
+</svg>
+<div class="card">
+<p><span class="c1">橘色時段</span>：細胞群只代表「看見的臉」。</p>
+<p><span class="c2">紫色時段</span>：同一批細胞改成代表「沒看見的臉」。</p>
+</div>
+<p>每段大約只停留 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=11">64</a> 毫秒（橘）和 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=11">59</a> 毫秒（紫）。</p>
+<p>換算約每秒 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=15">15</a> 次；而人感覺上的切換，作者引用過去研究約每秒 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=15">0.5</a> 次。快了十倍以上。</p>
+<p class="small">而且這段時間裡，真人回報的感覺是穩定的「一直看見 B」。</p>
+</section>
+
+<section id="read">
+<h2>⑤ 從腦細胞「畫回」那張臉</h2>
+<p>科學家先學會「細胞怎麼反應 ↔ 臉長什麼樣」，再反推回去。</p>
+<svg viewBox="0 0 360 190" role="img" aria-label="橘色時段畫出看見的臉，紫色時段畫出沒看見的臉">
+<rect width="360" height="190" rx="18" fill="#232948"/>
+<rect x="20" y="30" width="50" height="50" fill="#ffb347"/><text x="82" y="62" font-size="24" fill="#fff">→</text>
+<g transform="translate(150,55)"><circle r="28" fill="#ffb347"/><circle cx="-9" cy="-5" r="4" fill="#222"/><circle cx="9" cy="-5" r="4" fill="#222"/><path d="M-9 12 h18" stroke="#222" stroke-width="3"/></g>
+<text x="200" y="62" font-size="19" fill="#ffb347" font-weight="800">看見的 B</text>
+<rect x="20" y="110" width="50" height="50" fill="#c792ff"/><text x="82" y="142" font-size="24" fill="#fff">→</text>
+<g transform="translate(150,135)"><circle r="28" fill="#c792ff"/><circle cx="-9" cy="-5" r="4" fill="#222"/><circle cx="9" cy="-5" r="4" fill="#222"/><path d="M-10 10 q10 8 20 0" stroke="#222" stroke-width="3" fill="none"/></g>
+<text x="200" y="142" font-size="19" fill="#c792ff" font-weight="800">沒看見的 A！</text>
+</svg>
+<div class="card">
+<h3>畫得多準？</h3>
+<p>橘色時段：某些臉部特徵能解釋超過 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=5">80%</a> 的變化；理想狀況（只看一張臉）上限超過 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=5">90%</a>。</p>
+</div>
+<div class="card">
+<h3>猜是哪一張（10 選 1）</h3>
+<p>全部平均：看見的 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=6">40%</a>、沒看見的 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=6">34%</a> → 分不清。</p>
+<p>只用橘色時段：看見的超過 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=6">61%</a>、沒看見的只有 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=6">4%</a>。紫色時段則反過來。</p>
+<p class="small">亂猜的命中率是 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=18">10%</a>。</p>
+</div>
+<p><b>重點：</b>沒被「看見」的臉，並沒有消失，大腦裡還有一份清楚的版本。</p>
+</section>
+
+<section id="check">
+<h2>⑥ 會不會是算出來的假象？</h2>
+<p>作者自己指出：用同一批資料「分段」又「畫臉」，會讓結果看起來比真的好。所以他們做了檢查：</p>
+<div class="card"><h3>✂️ 切一半</h3><p>用一半細胞決定橘/紫，再用<b>另一半</b>細胞畫臉。還是畫得出來，只是準度稍微低一些。</p></div>
+<div class="card"><h3>⚖️ 一種 vs 兩種狀態</h3><p>「兩種狀態輪流」比「只有一種狀態」更符合資料：<a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=7">19</a> 個錄音場次全部如此。</p></div>
+<div class="card"><h3>🔀 換錯答案卷</h3><p>故意給錯的臉當範本，就畫不出來 → 不是方法硬湊出來的。</p></div>
+<div class="card"><h3>💡 不是單純的「忙/閒」</h3><p>細胞整體會一陣忙一陣閒，但橘/紫在忙時和閒時幾乎各佔一半（忙時 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=11">49%</a>/<a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=11">51%</a>）。</p></div>
+<div class="card"><h3>🧪 和假模型比賽</h3><p>作者模擬了幾種其他解釋（例如「每個細胞各自亂切」），只有「整群一起輪流」能通過所有測試。</p></div>
+</section>
+
+<section id="loud">
+<h2>⑦ 橘色時段比較「大聲」</h2>
+<p>兩種時段很像鏡子，但不完全一樣：</p>
+<svg viewBox="0 0 360 170" role="img" aria-label="兩個斜坡，橘色斜坡比紫色陡">
+<rect width="360" height="170" rx="18" fill="#232948"/>
+<path d="M30 140 L160 40" stroke="#ffb347" stroke-width="10" stroke-linecap="round"/>
+<path d="M200 140 L330 62" stroke="#c792ff" stroke-width="10" stroke-linecap="round"/>
+<text x="40" y="30" font-size="19" fill="#ffb347" font-weight="800">看見：較陡</text>
+<text x="210" y="50" font-size="19" fill="#c792ff" font-weight="800">沒看見</text>
+</svg>
+<ul>
+<li>細胞對「看見的臉」的反應坡度，平均是對「沒看見的臉」的 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=9">1.21</a> 倍。</li>
+<li>電腦單看細胞反應，分辨現在是橘還是紫的準確率約 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=10">66%</a>（亂猜是 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=19">50%</a>）。</li>
+<li>是<b>同一批</b>細胞在換角色，不是兩隊不同的細胞（相關係數 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=9">0.90</a>）。</li>
+</ul>
+<p class="small">作者說：「輪流 + 橘色稍微大聲」，就能解釋第 ③ 段那個「平均起來訊號很弱」的老謎題。</p>
+</section>
+
+<section id="front">
+<h2>⑧ 大腦前方也一樣</h2>
+<p>在前額葉也看到類似的橘/紫輪流。</p>
+<div class="card">
+<p>橘色時段：反應像「看見的臉」（斜率 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=14">0.91</a>）</p>
+<p>紫色時段：反應像「沒看見的臉」（斜率 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=14">−0.52</a>）</p>
+</div>
+<p class="small">但這裡畫臉沒那麼準：理想上限低於 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=14">80%</a>，臉型特徵更低於 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=14">30%</a>。</p>
+<p>意思是：不管大腦前面還是後面，平均起來都找不到「純粹的意識」——要看<b>時間</b>。</p>
+</section>
+
+<section id="guess">
+<h2>⑨ 這代表什麼？</h2>
+<div class="spec"><span class="lab r">結果</span><p>兩個腦區都在快速交替「看見」和「沒看見」的內容；沒看見的臉也被完整保存著。</p></div>
+<div class="spec"><span class="lab s">作者的解讀</span><p>要「意識到」某個東西，不只看<b>在大腦哪裡</b>，還要看<b>在哪個時間片段</b>被挑出來。</p></div>
+<div class="spec"><span class="lab s">作者明說是推測</span><p>紫色時段也許讓大腦偷偷試想「另一種可能」；橘色時段的內容才被送去給負責回報和行動的地方。</p></div>
+<p class="small">為什麼有些片段會被意識到、有些不會？作者說這要留給未來研究。</p>
+</section>
+
+<section id="limits">
+<h2>⑩ 要小心的地方</h2>
+<div class="warn"><span class="lab l">預印本</span><p>還沒經過同儕審查，數字和結論都可能修改。</p></div>
+<ul>
+<li>只有 <a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=23">2</a> 隻猴子。</li>
+<li>「看見哪張臉」是用真人按按鈕確認的；猴子看的是同樣的畫面。</li>
+<li>作者承認「同一批資料分段又分析」會誇大結果；他們用切半等方法檢查，切半後準度較低。</li>
+<li>兩個臉孔區之間，作者說<b>沒有強力證據</b>顯示它們是同步一起切換的。</li>
+<li>前額葉畫臉準度比臉孔區低。</li>
+<li>作者刻意不處理「為什麼大腦活動會有感覺」這個哲學難題。</li>
+<li>資料和程式碼說要「正式發表後」才公開（<a class="n" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf#page=31">見論文第 31 頁</a>）。</li>
+</ul>
+</section>
+
+<section id="credit">
+<h2>出處與作者</h2>
+<p><b>Rapid alternation of conscious and suppressed stimulus representations in the primate brain</b></p>
+<p>Janis K. Hesse、Frank F. Lanfranchi、Conor McGrory、Yuelin Shi、Tatiana A. Engel、Doris Y. Tsao</p>
+<p class="small">（Lanfranchi 與 McGrory 為共同貢獻）</p>
+<p class="small">University of California, Berkeley（神經科學系）・Princeton Neuroscience Institute, Princeton University・California Institute of Technology（生物與生物工程學系）・Howard Hughes Medical Institute</p>
+<p class="small">bioRxiv 預印本，2026-10-16 貼出，doi: 10.64898/2026.10.15.759299，CC-BY 4.0。經費：Howard Hughes Medical Institute、NIH（論文自述）。作者聲明無利益衝突。</p>
+<a class="btn" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1">論文頁面</a><a class="btn" href="https://www.biorxiv.org/content/10.64898/2026.10.15.759299v1.full.pdf">PDF</a><a class="btn" href="https://doi.org/10.64898/2026.10.15.759299">DOI</a>
+<p class="small">本頁所有數字都連到論文 PDF 的對應頁。圖都是示意圖，不是論文原圖。</p>
+</section>
+</main>
+<footer>網頁小工坊・圖解給完全新手・非醫療或專業建議</footer>
+</body></html>
