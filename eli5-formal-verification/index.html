@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>形式驗證白話解說：AI 用數學保證程式不當掉</title><style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font-family:system-ui,"PingFang TC","Noto Sans TC",sans-serif;font-size:22px;line-height:1.65;background:#f6f4ef;color:#222;overflow-x:hidden}
+main{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:34px;line-height:1.3;margin:.3em 0}h2{font-size:30px;margin:1.4em 0 .5em}
+.card{background:#fff;border-radius:16px;padding:18px;margin:16px 0;box-shadow:0 2px 8px #0001;overflow-wrap:anywhere}
+.card h3{font-size:26px;margin:0 0 .4em;line-height:1.35}
+.warn{border-left:8px solid #d64545;background:#fff4f4}.warn h3::before{content:"⚠️ "}
+.ok{border-left:8px solid #3a9a5b}
+blockquote{margin:.6em 0;padding:.5em .8em;background:#f1efe9;border-radius:10px;font-size:19px;color:#444}
+small,.note{font-size:18px;color:#555}
+a{color:#0b5bd3;display:inline-block;min-height:44px;padding:8px 0}
+.big{font-size:48px;text-align:center;margin:0}
+ul{padding-left:1.2em}
+
+svg text{font-family:inherit} li{margin:.4em 0}</style></head><body><main>
+<p class="big">🧮🔒🤖</p>
+<h1>用數學「保證」程式不會當掉<br>AI 讓它變可行了</h1>
+<p class="note">來源：Anthropic 研究文章 <a href="https://www.anthropic.com/research/formal-verification">LLMs are making formal software verification feasible at a much larger scale</a>（2026-10-22，與 <a href="https://theorem.dev/">Theorem</a> 合作）。</p>
+<h2>🎯 測試 vs 📐 證明</h2>
+<div class="card ok"><h3>像找蛀牙 vs 證明不可能蛀牙</h3><p><b>測試</b>就像丟很多很多球看會不會打破窗戶——丟再多次也不能保證「永遠」不會破。</p><p><b>形式驗證</b>是把程式變成數學題，<b>證明</b>它永遠遵守某些規則。證不出來，就表示可能有 bug，而且失敗的地方會告訴你 bug 大概在哪。</p><svg viewBox="0 0 330 150" width="100%" role="img" aria-label="測試只試幾個點，證明涵蓋全部" style="max-width:330px;display:block;margin:8px auto"><text x="82" y="28" font-size="20" text-anchor="middle">🎯 測試</text><rect x="5" y="40" width="155" height="100" rx="10" fill="none" stroke="#999" stroke-width="2" stroke-dasharray="6 5"/><circle cx="20" cy="60" r="7" fill="#e07a7a"/><circle cx="57" cy="83" r="7" fill="#e07a7a"/><circle cx="94" cy="106" r="7" fill="#e07a7a"/><circle cx="131" cy="129" r="7" fill="#e07a7a"/><circle cx="168" cy="82" r="7" fill="#e07a7a"/><circle cx="55" cy="105" r="7" fill="#e07a7a"/><circle cx="92" cy="128" r="7" fill="#e07a7a"/><circle cx="129" cy="81" r="7" fill="#e07a7a"/><circle cx="166" cy="104" r="7" fill="#e07a7a"/><text x="248" y="28" font-size="20" text-anchor="middle">📐 證明</text><rect x="170" y="40" width="155" height="100" rx="10" fill="#9be3b0"/><text x="248" y="98" font-size="20" text-anchor="middle">全部蓋滿 ✓</text></svg></div>
+<h2>💸 以前為什麼很少人做？</h2>
+<div class="card ok"><h3>超級貴</h3><p>證明常常比程式本身大很多倍，又需要很稀有的專家。文章舉例：seL4 作業系統核心寫程式花 <b>2 人年</b>，驗證卻花了 <b>20 人年</b>（<a href="https://sel4.systems/Research/pdfs/comprehensive-formal-verification-os-microkernel.pdf">seL4 論文</a>）。所以以前只用在空中巴士航電這種攸關生命的地方。</p></div>
+<h2>🤖 Claude 做到了什麼？</h2>
+<div class="card ok"><h3>數字大集合</h3><ul>
+<li>幾週內，在 Google OSS-Fuzz 的 <b>123 個</b>開源程式庫、<b>239 個</b>入口點上證明：任何 <b>64 MB 以內</b>的輸入都不會當掉（不會出現記憶體安全錯誤或斷言失敗）。</li>
+<li>證明是針對編譯後的 <b>RISC-V 機器碼</b>，不是原始碼。</li>
+<li>總共約 <b>1 億 8,000 萬行</b> Rocq 證明；一份典型證明約 60 萬行，對應的程式中位數約 1.8 萬條 RISC-V 指令。</li>
+<li>這麼多證明幾乎不用人看：由 <b>Rocq 證明檢查器</b>自動檢查。</li></ul><svg viewBox="0 0 330 290" width="100%" role="img" aria-label="流程：程式庫→RISC-V→Rocq 證明→自動檢查" style="max-width:330px;display:block;margin:8px auto"><rect x="5" y="5" width="320" height="46" rx="10" fill="#ffd77a"/><text x="165.0" y="35.0" font-size="20" text-anchor="middle">📚 程式庫＋模糊測試</text><text x="165" y="72" font-size="22" text-anchor="middle">⬇️ 編譯</text><rect x="5" y="82" width="320" height="46" rx="10" fill="#cfe8ff"/><text x="165.0" y="112.0" font-size="20" text-anchor="middle">⚙️ RISC-V 機器碼</text><text x="165" y="149" font-size="22" text-anchor="middle">⬇️ Claude 寫證明</text><rect x="5" y="159" width="320" height="46" rx="10" fill="#e8d4ff"/><text x="165.0" y="189.0" font-size="20" text-anchor="middle">📜 Rocq 證明</text><text x="165" y="226" font-size="22" text-anchor="middle">⬇️ 自動檢查</text><rect x="5" y="236" width="320" height="46" rx="10" fill="#9be3b0"/><text x="165.0" y="266.0" font-size="20" text-anchor="middle">✅ 證明檢查器說 OK</text></svg></div>
+<div class="card ok"><h3>要相信的只剩三樣</h3><p>①RISC-V 和 Linux 行程的數學模型 ②被證明的定理敘述 ③Rocq 檢查器本身。檢查員只要信得過，就不必每行都看。</p></div>
+<h2>🐞 順便抓到很多 bug</h2>
+<div class="card warn"><h3>證明的過程也是抓蟲</h3><p>試著證明時找到<b>上百個</b> bug，Claude 也自己修好再繼續證。其中很多是 fuzzer 不太可能找到的，例如：</p><ul><li>解壓縮器只在約 <b>20 MB</b>、特殊排列的輸入才會越界寫入</li><li>影像解碼器要 64 MB 輸入、超過 2 GB 記憶體才觸發的越界讀取</li><li>重新找到 libexpat 的 CVE-2026-56132</li></ul><p>另外，文章也提到驗證一款 PDF 閱讀器時，一週找到的安全 bug 等於平常一年的通報量。</p></div>
+<h2>⚠️ 限制：它不是萬能</h2>
+<div class="card warn"><h3>「驗證過」≠「沒有 bug」</h3><ul><li>檢查器只能確認證明符合規格，<b>不能確認規格符合現實</b>。</li><li>假設程式是<b>單執行緒、靜態連結（musl libc）、固定記憶體</b>、在 RISC-V + Linux 上跑；但多數人用 x86／ARM 和 glibc。</li><li>ASan 抓不到所有記憶體錯誤；每個程式庫也沒驗完所有入口點；呼叫者用錯程式庫還是可能出事。</li></ul></div>
+<div class="card ok"><h3>很花「AI 字數」，但會越來越便宜</h3><ul><li>證明可能要用上<b>數億個 token</b>。</li><li>新模型更省：在 36 個小任務中，Opus 5.5 證完一半所用的 token 比 Opus 5 少約 <b>40%</b>。</li><li>證明能重用：代理互相抄用證明時，token 少用 <b>17%</b>。</li></ul></div>
+<h2>🔗 延伸閱讀</h2>
+<div class="card ok"><h3>相關連結</h3><ul><li><a href="https://www.anthropic.com/research/formal-verification">Anthropic 原文</a></li><li><a href="https://theorem.dev/oss-verify/">Theorem：OSS Verify</a></li><li><a href="https://github.com/theorem-labs/oss-verify-proofs">公開的證明（GitHub）</a></li><li><a href="https://github.com/theorem-labs/rocq-linux-process-semantics">Linux 行程語意（GitHub）</a></li><li><a href="https://github.com/google/oss-fuzz">Google OSS-Fuzz</a></li></ul></div>
+<p class="note">本頁為白話整理，數字皆取自原文；以原文為準。本頁由網頁小工坊整理。</p>
+</main></body></html>
