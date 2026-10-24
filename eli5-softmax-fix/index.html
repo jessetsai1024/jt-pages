@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>給阿嬤看的 AI 論文：電腦「算到變成 0」的小錯誤</title>
+<style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+*{box-sizing:border-box}body{margin:0;font-family:"Noto Sans TC","PingFang TC",sans-serif;font-size:22px;line-height:1.7;background:#fff8ec;color:#2b2b2b;overflow-x:hidden}
+main{max-width:640px;margin:0 auto;padding:18px 16px 60px}
+h1{font-size:32px;line-height:1.35;margin:.3em 0}h2{font-size:30px;margin:1.4em 0 .4em;color:#b4461e}
+.card{background:#fff;border-radius:22px;padding:18px;margin:16px 0;box-shadow:0 4px 0 #f0d9b5}
+.card h3{font-size:26px;margin:0 0 .3em}
+.paper{display:block;background:#2f6fde;color:#fff;text-decoration:none;border-radius:18px;padding:14px 18px;min-height:44px;font-weight:700}
+.small{font-size:18px;color:#666}svg{width:100%;height:auto;display:block}
+.big{font-size:30px;font-weight:800;color:#1f8a4c}.bad{color:#c0392b}
+.tag{display:inline-block;background:#ffe08a;border-radius:10px;padding:0 8px;font-size:18px}
+a{color:#2f6fde}li{margin:.4em 0}ul{padding-left:1.1em}
+@keyframes bob{50%{transform:translateY(-6px)}}.bob{animation:bob 2s infinite}
+</style></head><body><main>
+<span class="tag">ELI5 給阿嬤看</span>
+<h1>🧮 AI 學東西時，電腦有個「零頭被吃掉」的小錯誤，有人把它修好了</h1>
+<a class="paper" href="https://arxiv.org/abs/2610.31642">📄 原始論文：A Fix for Softmax and Cross-Entropy（點我看）</a>
+<p class="small">作者：Jonathan T. Barron、Dan Gnanapragasam、Michael Tschannen（Google DeepMind）｜arXiv 2026 年 10 月 22 日</p>
+
+<h2>❓ 他們在問什麼？</h2>
+<div class="card"><h3>老師改考卷的故事</h3>
+<p>AI 學東西，就像小朋友寫考卷，老師每次告訴它「這題還差一點點，往這邊改」。</p>
+<p>問題是：電腦算數的時候，<b>很小很小的零頭會被四捨五入吃掉</b>。論文問：這些被吃掉的零頭，會不會讓 AI 學壞？</p>
+<svg viewBox="0 0 360 150" role="img" aria-label="大數字加小零頭，零頭不見"><rect x="10" y="30" width="120" height="80" rx="16" fill="#ffd36b"/><text x="70" y="82" font-size="30" text-anchor="middle">💰 1</text><text x="150" y="82" font-size="30">+</text><circle cx="195" cy="70" r="12" fill="#f39"/><text x="195" y="120" font-size="18" text-anchor="middle">小零頭</text><text x="225" y="82" font-size="30">=</text><rect x="250" y="30" width="100" height="80" rx="16" fill="#ffd36b"/><text x="300" y="82" font-size="30" text-anchor="middle">1 😢</text><text x="300" y="140" font-size="18" text-anchor="middle" fill="#c0392b">零頭不見了</text></svg>
+</div>
+
+<h2>🐛 他們找到兩隻小蟲</h2>
+<div class="card"><h3>小蟲 1：太有把握時，老師突然不講話</h3>
+<p>當 AI 對答案<b>非常非常有把握</b>，電腦算「還差多少」時，那個差距小到被吃成 0。於是 AI 以為「完全答對，不用再改」。</p>
+<p>但其他選項那邊的提醒<b>沒被吃掉</b>，兩邊加起來就對不上，像天平一邊少了砝碼。論文叫它「Softmax Collapse」。</p>
+<svg viewBox="0 0 360 160" role="img" aria-label="歪掉的天平"><line x1="180" y1="30" x2="180" y2="140" stroke="#8a5a2b" stroke-width="8"/><g class="bob"><line x1="60" y1="50" x2="300" y2="80" stroke="#8a5a2b" stroke-width="8"/><text x="60" y="40" font-size="22" text-anchor="middle">0 ❌</text><rect x="270" y="80" width="60" height="40" rx="8" fill="#6bb7ff"/><text x="300" y="107" font-size="18" text-anchor="middle">還有</text></g><text x="180" y="156" font-size="18" text-anchor="middle">兩邊對不上 → 天平歪了</text></svg>
+</div>
+<div class="card"><h3>小蟲 2：學生已經跟老師一樣，卻還被叫去改</h3>
+<p>有一種學法叫「蒸餾」：小 AI（學生）抄大 AI（老師）的想法。學生<b>已經跟老師一模一樣</b>時，本來應該「不用動」。</p>
+<p>可是電腦把兩個差不多的數字相減時算不準，留下一點「假的提醒」，學生就被推著慢慢走偏。論文叫它「Softmax Cancellation」。</p>
+<svg viewBox="0 0 360 120" role="img" aria-label="學生被推離老師"><text x="70" y="75" font-size="50" text-anchor="middle">👩‍🏫</text><text x="170" y="75" font-size="50" text-anchor="middle" class="bob">🧒</text><text x="260" y="70" font-size="30">➡️💨</text><text x="180" y="112" font-size="18" text-anchor="middle">明明一樣，卻被推走</text></svg>
+</div>
+
+<h2>🔧 他們做了什麼？</h2>
+<div class="card"><h3>換一個不會吃掉零頭的算法</h3>
+<p>他們把這幾個 AI 常用的計算重新寫過：<b>不要把大數字和小零頭直接加在一起</b>，先把小零頭單獨算好、保留下來。</p>
+<p>就像記帳時，不把「1 塊錢」直接加到「一百萬」裡，而是另外寫一欄。論文說這是可以直接替換的小改動，<b>不會明顯變慢</b>。</p>
+<p class="small">論文例子：同一題，舊算法算出的「還差多少」是 0；新算法算出 3.046e-8（很小但不是 0）。</p>
+</div>
+
+<h2>📊 他們發現什麼？</h2>
+<div class="card"><h3>1. AI 學習不再「突然抽筋」</h3>
+<p>以前有人看過 AI 學到一半，成績突然暴衝又跌回的怪現象（叫「彈弓 Slingshot」）。論文說：原來就是小蟲 1 造成的，修好後就不見了。</p>
+<svg viewBox="0 0 360 140" role="img" aria-label="舊的線上下亂跳，新的線平順"><polyline points="10,110 60,100 90,30 110,105 160,95 190,25 210,100 260,90 290,30 310,95 350,90" fill="none" stroke="#e67e22" stroke-width="5"/><polyline points="10,120 350,118" fill="none" stroke="#2f6fde" stroke-width="6"/><text x="20" y="22" font-size="18" fill="#e67e22">舊：一直抽筋</text><text x="200" y="138" font-size="18" fill="#2f6fde">新：平平順順</text></svg>
+</div>
+<div class="card"><h3>2. 考試分數比較高</h3>
+<p>在一個「算餘數加法」的練習題上（電腦一般用的 fp32 精度，三種設定）：</p>
+<p>新算法：<span class="big">100.0%、99.6%、99.0%</span></p>
+<p class="bad">舊算法：94.3%、96.4%、96.5%</p>
+<p class="small">更省電的 bf16 精度：新 100.0 / 99.8 / 98.9%；舊 93.3 / 94.9 / 94.2%（都是論文表 1 的平均值）。</p>
+</div>
+<div class="card"><h3>3. 學生不再走偏</h3>
+<p>學生 AI 一開始就跟老師一樣時，用新算法它會<b>乖乖停在原地</b>；用舊算法，在 bf16 精度下會被推走、成績變差。</p>
+</div>
+
+<h2>🏠 跟我的生活有什麼關係？</h2>
+<div class="card"><h3>像幫計算機換一顆更準的按鍵</h3>
+<p>你用的聊天機器人、翻譯、拍照辨識，背後都在用這種計算。這個修正不會讓 AI 變超聰明，但能讓它<b>學得更穩、少出怪錯</b>，尤其是為了省電、省錢而用「比較粗的數字」算的時候。</p>
+<p>手機上的小 AI 常是從大 AI「蒸餾」來的，小蟲 2 修好，對這種小 AI 可能有幫助（<b>未查證</b>：論文沒在手機產品上測過）。</p>
+</div>
+
+<h2>⚖️ 要注意的地方</h2>
+<div class="card"><ul>
+<li>論文自己說：實驗裡那種「超級有把握」或「學生跟老師幾乎一樣」的情況，在一般大型 AI 訓練裡<b>不常見</b>。</li>
+<li>實驗多半是很小的練習題（算餘數加法、小型網路），還沒在大型聊天 AI 上證明有多大差別（<b>未查證</b>）。</li>
+<li>這是剛上傳的論文（v1），還沒看到同行審查紀錄（<b>未查證</b>）。</li>
+</ul></div>
+
+<h2>📚 資料來源</h2>
+<div class="card"><ul>
+<li><a href="https://arxiv.org/abs/2610.31642">arXiv 摘要頁：A Fix for Softmax and Cross-Entropy</a></li>
+<li><a href="https://arxiv.org/html/2610.31642v1">論文全文（HTML 版 v1）</a></li>
+</ul><p class="small">本頁數字皆取自論文；比喻是為了好懂而簡化。</p></div>
+</main></body></html>
