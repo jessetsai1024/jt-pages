@@ -1,0 +1,91 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELI5：Grok Bot 的 Vault（保險箱）</title>
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font:22px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif;background:#f1f4f9;color:#222;overflow-x:hidden}
+main{max-width:680px;margin:0 auto;padding:18px}
+h1{font-size:34px;line-height:1.3;margin:10px 0}h2{font-size:30px;margin:34px 0 12px}
+.card{background:#fff;border-radius:18px;padding:18px;margin:16px 0;box-shadow:0 2px 8px #0001}
+.card h3{font-size:26px;margin:0 0 8px}p{margin:8px 0}
+.note{font-size:18px;color:#555}svg{width:100%;height:auto;display:block}
+a{color:#1a5fb4;display:inline-block;min-height:44px;padding:8px 0;word-break:break-all}
+.warn{background:#fff1f0;border-left:6px solid #e5484d}.ok{background:#effaf0;border-left:6px solid #2f9e44}
+.tag{display:inline-block;background:#ffe9b3;color:#7a5600;font-size:18px;padding:2px 10px;border-radius:10px}
+</style></head><body><main>
+<p class="note">ELI5・像講給五歲小孩聽</p>
+<h1>Grok Bot 的「保險箱」Vault &#128274;</h1>
+<p>想像你有一個會幫你跑腿的小幫手（Grok Bot）。</p>
+<p>以前它每次要幫你買東西、登入網站，都要再問你一次密碼和卡號。</p>
+<p>現在它多了一個<b>上鎖的保險箱</b>，可以把這些東西存起來，下次直接用。</p>
+
+<h2>保險箱裡放什麼？</h2>
+<svg viewBox="0 0 390 170" role="img" aria-label="保險箱存三種東西">
+<rect x="15" y="20" width="110" height="120" rx="14" fill="#dde8ff"/><text x="70" y="70" font-size="40" text-anchor="middle">&#128273;</text><text x="70" y="115" font-size="20" text-anchor="middle">網站帳密</text>
+<rect x="140" y="20" width="110" height="120" rx="14" fill="#d8f0d8"/><text x="195" y="70" font-size="40" text-anchor="middle">&#128179;</text><text x="195" y="115" font-size="20" text-anchor="middle">信用卡</text>
+<rect x="265" y="20" width="110" height="120" rx="14" fill="#f6dcf3"/><text x="320" y="70" font-size="40" text-anchor="middle">&#127968;</text><text x="320" y="115" font-size="20" text-anchor="middle">聯絡資料</text></svg>
+<div class="card"><h3>&#128273; 網站登入</h3><p>一個網址、帳號（或 email）、密碼。小幫手用它登入那個網站。</p></div>
+<div class="card"><h3>&#128179; 信用卡</h3><p>卡號、到期日、安全碼、持卡人姓名、帳單地址。</p></div>
+<div class="card"><h3>&#127968; 聯絡資料</h3><p>姓名、地址、電話、email，用來填寄送和帳單欄位。</p></div>
+
+<h2>舉幾個小例子</h2>
+<div class="card"><h3>&#127857; 叫它訂便當</h3>
+<p>你說：「幫我訂便當。」</p>
+<p>到了結帳頁，它自己把存好的卡號填進去（會先問你要不要用這張卡），你不用把卡號打進聊天室。</p></div>
+<div class="card"><h3>&#128274; 叫它登入網站下載帳單</h3>
+<p>你說：「登入我的電費網站，下載上個月帳單。」</p>
+<p>它用保險箱裡存的帳密自己登入，不用再問你密碼。</p></div>
+<div class="card"><h3>&#128230; 叫它寄東西到家裡</h3>
+<p>它從聯絡資料拿地址和電話，自己填寄送欄位。</p></div>
+
+<h2>怎麼存進去？</h2>
+<div class="card"><h3>方法 1：到設定裡新增</h3>
+<p>打開「設定 &gt; Vault」，選「新增項目（New item）」，挑登入 / 卡片 / 聯絡資料，填好存檔。</p>
+<p>存卡片時，可以用<b>相機掃描</b>或上傳卡片照片自動填，也可以手打。</p></div>
+<div class="card"><h3>方法 2：填表時順手勾起來</h3>
+<p>當小幫手跳出「安全表單」請你填帳密或卡號時，勾選<b>「Securely save to Grok Bot's vault（安全地存到保險箱）」</b>，下次就記住了。</p>
+<p>不勾的話，這次填的只留在這個對話，會自己過期。</p></div>
+
+<svg viewBox="0 0 390 150" role="img" aria-label="安全表單上的勾選框">
+<rect x="20" y="20" width="350" height="110" rx="12" fill="#fff" stroke="#ccc" stroke-width="2"/>
+<rect x="40" y="45" width="26" height="26" rx="5" fill="#2f9e44"/><text x="52" y="65" font-size="20" fill="#fff" text-anchor="middle">&#10003;</text>
+<text x="78" y="55" font-size="19">安全地存到</text><text x="78" y="80" font-size="19">Grok Bot 的保險箱</text>
+<text x="40" y="112" font-size="17" fill="#777">卡號不會給小幫手看到</text></svg>
+
+<h2>誰看得到？（重點）</h2>
+<div class="card ok"><h3>小幫手「看不到」的</h3>
+<p>你存的<b>密碼、卡號、安全碼</b>，小幫手永遠看不到。它只是在表單上「幫你填進去」，值不會出現在聊天裡。</p></div>
+<div class="card warn"><h3>小幫手「看得到」的</h3>
+<p>依官方說明：它<b>看得到你的聯絡資料，也知道你存了哪些登入</b>（這樣它才能挑對的那一組來用）。</p>
+<p>所以「只有你看得到」這句話要更精準：敏感的密碼和卡號它看不到，但聯絡資料和「有哪些登入」它是知道的。</p></div>
+
+<h2>和 1Password 有什麼不一樣？</h2>
+<div class="card"><p>Vault 是<b>內建</b>在 Grok Bot 裡的，還能放信用卡和聯絡資料。</p>
+<p>1Password 是另外一個 app，要另外連接。</p>
+<p>官方說：登入時小幫手<b>先</b>用 Vault 裡存的，再找 1Password 這類密碼管理器；兩個都沒有才會問你。</p>
+<p class="note">註：1Password 其實也能存卡片，差別主要在 Vault 是「內建、不用另外裝」。</p></div>
+
+<h2>三句話記住</h2>
+<div class="card"><p>1&#65039;&#8419; Vault 是 Grok Bot 內建的上鎖保險箱，放網站帳密、信用卡、聯絡資料。</p>
+<p>2&#65039;&#8419; 小幫手幫你「填」登入和結帳表單，你不用把密碼或卡號貼到聊天裡。</p>
+<p>3&#65039;&#8419; 密碼、卡號、安全碼小幫手看不到；但聯絡資料和「你存了哪些登入」它看得到。</p></div>
+
+<h2>要小心的地方 / 對不上的地方</h2>
+<div class="card warn">
+<p>&#8226; <b>上線日期</b>：簡報寫 2026-10-22，但官方更新日誌把 Vault 列在 v0.75.5、日期是 <b>2026-10-23</b>，@bot 官方貼文也是 10/23。<span class="tag">有出入</span></p>
+<p>&#8226; <b>「只有你看得到」</b>：不完全對。官方文件說小幫手看得到聯絡資料和你存了哪些登入。<span class="tag">有出入</span></p>
+<p>&#8226; <b>按鈕名稱</b>：簡報說「Add card」，官方文件寫的是「New item（新增項目）」再選卡片、存檔；掃卡功能屬實。<span class="tag">小出入</span></p>
+<p>&#8226; <b>需求版本</b>：官方說需要 Grok Bot 0.75.2 以上。</p>
+<p>&#8226; <b>Team Bot 不支援</b> Vault，要改用 Secrets。</p>
+<p>&#8226; 參考貼文來自一般用戶 James Martinez（非官方），圖片顯示設定裡的「Vault」入口，副標「Logins, cards and contacts Grok Bot can use」，與官方一致。</p>
+<p class="tag">未查證</p>
+<p class="note">官方尚未說明資料如何加密、存在手機還是伺服器，也未說是否限特定方案或地區（據 TruViber 報導）。本頁不臆測。</p>
+</div>
+
+<h2>出處</h2>
+<div class="card">
+<p>官方文件：Grok Bot〈Store secrets securely〉<a href="https://cursor.com/help/grok-bot/secrets">cursor.com/help/grok-bot/secrets</a></p>
+<p>官方更新日誌 v0.75.5（2026-10-23）<a href="https://x.ai/changelog/bot">x.ai/changelog/bot</a></p>
+<p>參考貼文（James Martinez，2026-10-23）<a href="https://x.com/realjamesmtz/status/2113619419989754227">x.com/realjamesmtz/status/2113619419989754227</a></p>
+<p class="note">本頁所有畫面數字（如 1234）皆為<b>示意</b>佔位，非真實個資。簡化說明，細節以官方文件為準。</p></div>
+</main></body></html>
