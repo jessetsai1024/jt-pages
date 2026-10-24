@@ -1,0 +1,77 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELI5：YubiKey 安全金鑰怎麼運作？</title>
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font-family:system-ui,"PingFang TC","Noto Sans TC",sans-serif;font-size:22px;line-height:1.65;background:#f6f3ea;color:#222;overflow-x:hidden}
+main{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:32px;line-height:1.3;margin:.4em 0}h2{font-size:30px;margin:1.4em 0 .5em}
+.card{background:#fff;border-radius:18px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #0001}
+.card h3{font-size:26px;margin:0 0 .4em}svg{width:100%;height:auto;display:block;margin:10px 0}
+.tag{display:inline-block;background:#ffe08a;border-radius:8px;padding:0 8px;font-size:18px}
+small,.note{font-size:18px;color:#555}a{color:#0057b8;display:inline-block;min-height:44px;padding:8px 0;word-break:break-all}
+table{width:100%;border-collapse:collapse;font-size:18px;table-layout:fixed;word-break:break-all}td,th{border:1px solid #ddd;padding:5px;vertical-align:top}
+li{margin:.3em 0}
+</style></head><body><main>
+<h1>🔑 YubiKey 小鑰匙<br>是怎麼保護你的？</h1>
+<p>想像你有一顆<b>魔法印章</b>。印章只在你手上，別人只能拿到「印出來的圖案」來比對。YubiKey 就是這顆印章。</p>
+
+<div class="card"><h3>① 註冊：做一把鎖＋一把鑰匙</h3>
+<p>第一次在網站登記時，小鑰匙裡的晶片會做出<b>一對</b>東西：</p>
+<ul><li>🔒 <b>公鑰</b>（像一把鎖）：交給網站保管，被偷也沒關係。</li>
+<li>🗝️ <b>私鑰</b>（真正的鑰匙）：<b>永遠留在晶片裡</b>，不會被拿出來。</li></ul>
+<svg viewBox="0 0 360 200" role="img" aria-label="晶片產生鑰匙對，只把鎖交給網站">
+<rect x="10" y="40" width="130" height="120" rx="16" fill="#2b6cb0"/><text x="75" y="75" fill="#fff" font-size="22" text-anchor="middle">YubiKey</text>
+<text x="75" y="120" font-size="34" text-anchor="middle">🗝️</text><text x="75" y="150" fill="#fff" font-size="20" text-anchor="middle">私鑰留這裡</text>
+<path d="M150 100h70" stroke="#333" stroke-width="4" marker-end="url(#a)"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#333"/></marker></defs>
+<rect x="230" y="40" width="120" height="120" rx="16" fill="#38a169"/><text x="290" y="75" fill="#fff" font-size="22" text-anchor="middle">網站</text>
+<text x="290" y="120" font-size="34" text-anchor="middle">🔒</text><text x="290" y="150" fill="#fff" font-size="20" text-anchor="middle">只收到公鑰</text>
+</svg>
+<p class="note">每個網站、每個帳號都會做一對新的，所以網站之間沒辦法串起來追蹤你。（FIDO Alliance）</p></div>
+
+<div class="card"><h3>② 登入：在謎題上蓋章</h3>
+<p>網站丟出一個<b>每次都不一樣的隨機謎題</b>（challenge）。小鑰匙用私鑰在上面「蓋章」（簽名），網站用那把鎖檢查章對不對。</p>
+<svg viewBox="0 0 360 210" role="img" aria-label="網站送出隨機謎題，鑰匙簽名回傳，網站用公鑰驗證">
+<rect x="10" y="20" width="110" height="70" rx="12" fill="#38a169"/><text x="65" y="62" fill="#fff" font-size="22" text-anchor="middle">網站</text>
+<rect x="240" y="20" width="110" height="70" rx="12" fill="#2b6cb0"/><text x="295" y="62" fill="#fff" font-size="22" text-anchor="middle">YubiKey</text>
+<path d="M125 45h108" stroke="#333" stroke-width="3" marker-end="url(#a)"/><text x="180" y="35" font-size="20" text-anchor="middle">謎題 #8F3A</text>
+<path d="M235 75H130" stroke="#c05621" stroke-width="3" marker-end="url(#a)"/><text x="180" y="110" font-size="20" text-anchor="middle" fill="#c05621">✍️ 蓋好章</text>
+<text x="180" y="160" font-size="22" text-anchor="middle">網站用 🔒 一比：對！✅</text>
+<text x="180" y="192" font-size="20" text-anchor="middle" fill="#555">私鑰從頭到尾沒離開晶片</text></svg>
+<p>因為謎題每次都換，偷看到舊的章也沒用。</p></div>
+
+<div class="card"><h3>③ 為什麼騙子網站騙不到？</h3>
+<p>小鑰匙會記得「我是跟 <b>哪個網址</b> 配對的」。瀏覽器會把真正的網址告訴它，簽名裡也包含網址資訊。</p>
+<svg viewBox="0 0 360 200" role="img" aria-label="假網址拿不到簽名">
+<rect x="10" y="20" width="160" height="70" rx="12" fill="#38a169"/><text x="90" y="52" fill="#fff" font-size="20" text-anchor="middle">bank.com</text><text x="90" y="78" fill="#fff" font-size="20" text-anchor="middle">✅ 認得，蓋章</text>
+<rect x="190" y="20" width="160" height="70" rx="12" fill="#e53e3e"/><text x="270" y="52" fill="#fff" font-size="20" text-anchor="middle">bank-1ogin.com</text><text x="270" y="78" fill="#fff" font-size="20" text-anchor="middle">❌ 不認得</text>
+<text x="180" y="140" font-size="22" text-anchor="middle">長得再像，網址不同</text><text x="180" y="172" font-size="22" text-anchor="middle">就找不到那把鑰匙</text></svg>
+<p>簡訊驗證碼是你<b>自己眼睛看、手打</b>，你可能把它打進假網站；小鑰匙不會被「看起來很像」騙到。</p></div>
+
+<div class="card"><h3>④ 為什麼要摸一下？</h3>
+<p>摸金屬片＝告訴它「<b>真的有人在這裡</b>」（user presence）。這樣遠端駭客就算控制了電腦，也沒辦法偷偷叫它蓋章。很多網站還會要你輸入鑰匙的 PIN（user verification），證明是「你本人」。</p>
+<svg viewBox="0 0 360 120" role="img" aria-label="手指觸碰鑰匙"><rect x="60" y="40" width="240" height="60" rx="14" fill="#2b6cb0"/><circle cx="250" cy="70" r="18" fill="#f6c343"/><text x="120" y="78" fill="#fff" font-size="22" text-anchor="middle">YubiKey</text><text x="250" y="30" font-size="30" text-anchor="middle">👆</text></svg></div>
+
+<h2>跟其他方法比一比</h2>
+<div class="card"><table>
+<tr><th></th><th>簡訊碼</th><th>手機通行密鑰</th><th>YubiKey</th></tr>
+<tr><td>防釣魚</td><td>❌ 可被騙打進假網站</td><td>✅</td><td>✅</td></tr>
+<tr><td>私鑰在哪</td><td>沒有私鑰，靠電信簡訊</td><td>通常<b>同步</b>到雲端帳號（iCloud、Google 等）</td><td><b>綁在實體裝置</b>，不同步、無法複製</td></tr>
+<tr><td>弄丟時</td><td>換 SIM</td><td>新手機登入帳號就回來</td><td>鑰匙不見就沒了 → <b>要準備備用鑰匙</b></td></tr>
+</table>
+<p class="note">同步型方便、不怕弄丟；綁裝置型更難被複製，但記得至少註冊兩把。簡訊碼還有 SIM 卡被盜換的風險。</p></div>
+
+<div class="card"><h3>一句話總結</h3><p>🔑 鑰匙藏在晶片裡、只認真網址、要你親手摸——所以騙子偷不走也騙不到。</p></div>
+
+<h2>資料來源</h2>
+<ul class="note">
+<li><a href="https://fidoalliance.org/how-fido-works/">FIDO Alliance：How FIDO Works</a></li>
+<li><a href="https://fidoalliance.org/passkeys/">FIDO Alliance：Passkeys</a></li>
+<li><a href="https://www.w3.org/TR/webauthn-3/">W3C Web Authentication Level 3（origin、user presence/verification）</a></li>
+<li><a href="https://www.yubico.com/authentication-standards/fido2/">Yubico：FIDO2</a></li>
+<li><a href="https://developers.yubico.com/Passkeys/">Yubico Developers：Passkeys</a></li>
+<li><a href="https://pages.nist.gov/800-63-4/sp800-63b.html">NIST SP 800-63B-4（簡訊/PSTN 限制、可同步驗證器）</a></li>
+</ul>
+<p class="note">⚠️ 簡化說明：圖中網址、謎題皆為示意。實際有些 YubiKey 只存「可還原的金鑰」而非逐一存放，原理細節依型號與設定而異（未逐型號查證）。</p>
+</main></body></html>
