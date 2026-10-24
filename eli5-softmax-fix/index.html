@@ -23,19 +23,19 @@ a{color:#2f6fde}li{margin:.4em 0}ul{padding-left:1.1em}
 <div class="card"><h3>老師改考卷的故事</h3>
 <p>AI 學東西，就像小朋友寫考卷，老師每次告訴它「這題還差一點點，往這邊改」。</p>
 <p>問題是：電腦算數的時候，<b>很小很小的零頭會被四捨五入吃掉</b>。論文問：這些被吃掉的零頭，會不會讓 AI 學壞？</p>
-<svg viewBox="0 0 360 150" role="img" aria-label="大數字加小零頭，零頭不見"><rect x="10" y="30" width="120" height="80" rx="16" fill="#ffd36b"/><text x="70" y="82" font-size="30" text-anchor="middle">💰 1</text><text x="150" y="82" font-size="30">+</text><circle cx="195" cy="70" r="12" fill="#f39"/><text x="195" y="120" font-size="18" text-anchor="middle">小零頭</text><text x="225" y="82" font-size="30">=</text><rect x="250" y="30" width="100" height="80" rx="16" fill="#ffd36b"/><text x="300" y="82" font-size="30" text-anchor="middle">1 😢</text><text x="300" y="140" font-size="18" text-anchor="middle" fill="#c0392b">零頭不見了</text></svg>
+<svg viewBox="0 0 360 150" role="img" aria-label="大數字加小零頭，零頭不見"><rect x="10" y="30" width="120" height="80" rx="16" fill="#ffd36b"/><text x="70" y="82" font-size="30" text-anchor="middle">💰 1</text><text x="150" y="82" font-size="30">+</text><circle cx="195" cy="70" r="12" fill="#f39"/><text x="195" y="120" font-size="21" text-anchor="middle">小零頭</text><text x="225" y="82" font-size="30">=</text><rect x="250" y="30" width="100" height="80" rx="16" fill="#ffd36b"/><text x="300" y="82" font-size="30" text-anchor="middle">1 😢</text><text x="300" y="140" font-size="21" text-anchor="middle" fill="#c0392b">零頭不見了</text></svg>
 </div>
 
 <h2>🐛 他們找到兩隻小蟲</h2>
 <div class="card"><h3>小蟲 1：太有把握時，老師突然不講話</h3>
 <p>當 AI 對答案<b>非常非常有把握</b>，電腦算「還差多少」時，那個差距小到被吃成 0。於是 AI 以為「完全答對，不用再改」。</p>
 <p>但其他選項那邊的提醒<b>沒被吃掉</b>，兩邊加起來就對不上，像天平一邊少了砝碼。論文叫它「Softmax Collapse」。</p>
-<svg viewBox="0 0 360 160" role="img" aria-label="歪掉的天平"><line x1="180" y1="30" x2="180" y2="140" stroke="#8a5a2b" stroke-width="8"/><g class="bob"><line x1="60" y1="50" x2="300" y2="80" stroke="#8a5a2b" stroke-width="8"/><text x="60" y="40" font-size="22" text-anchor="middle">0 ❌</text><rect x="270" y="80" width="60" height="40" rx="8" fill="#6bb7ff"/><text x="300" y="107" font-size="18" text-anchor="middle">還有</text></g><text x="180" y="156" font-size="18" text-anchor="middle">兩邊對不上 → 天平歪了</text></svg>
+<svg viewBox="0 0 360 160" role="img" aria-label="歪掉的天平"><line x1="180" y1="30" x2="180" y2="140" stroke="#8a5a2b" stroke-width="8"/><g class="bob"><line x1="60" y1="50" x2="300" y2="80" stroke="#8a5a2b" stroke-width="8"/><text x="60" y="40" font-size="22" text-anchor="middle">0 ❌</text><rect x="270" y="80" width="60" height="40" rx="8" fill="#6bb7ff"/><text x="300" y="107" font-size="21" text-anchor="middle">還有</text></g><text x="180" y="156" font-size="21" text-anchor="middle">兩邊對不上 → 天平歪了</text></svg>
 </div>
 <div class="card"><h3>小蟲 2：學生已經跟老師一樣，卻還被叫去改</h3>
 <p>有一種學法叫「蒸餾」：小 AI（學生）抄大 AI（老師）的想法。學生<b>已經跟老師一模一樣</b>時，本來應該「不用動」。</p>
 <p>可是電腦把兩個差不多的數字相減時算不準，留下一點「假的提醒」，學生就被推著慢慢走偏。論文叫它「Softmax Cancellation」。</p>
-<svg viewBox="0 0 360 120" role="img" aria-label="學生被推離老師"><text x="70" y="75" font-size="50" text-anchor="middle">👩‍🏫</text><text x="170" y="75" font-size="50" text-anchor="middle" class="bob">🧒</text><text x="260" y="70" font-size="30">➡️💨</text><text x="180" y="112" font-size="18" text-anchor="middle">明明一樣，卻被推走</text></svg>
+<svg viewBox="0 0 360 120" role="img" aria-label="學生被推離老師"><text x="70" y="75" font-size="50" text-anchor="middle">👩‍🏫</text><text x="170" y="75" font-size="50" text-anchor="middle" class="bob">🧒</text><text x="260" y="70" font-size="30">➡️💨</text><text x="180" y="112" font-size="21" text-anchor="middle">明明一樣，卻被推走</text></svg>
 </div>
 
 <h2>🔧 他們做了什麼？</h2>
@@ -48,7 +48,7 @@ a{color:#2f6fde}li{margin:.4em 0}ul{padding-left:1.1em}
 <h2>📊 他們發現什麼？</h2>
 <div class="card"><h3>1. AI 學習不再「突然抽筋」</h3>
 <p>以前有人看過 AI 學到一半，成績突然暴衝又跌回的怪現象（叫「彈弓 Slingshot」）。論文說：原來就是小蟲 1 造成的，修好後就不見了。</p>
-<svg viewBox="0 0 360 140" role="img" aria-label="舊的線上下亂跳，新的線平順"><polyline points="10,110 60,100 90,30 110,105 160,95 190,25 210,100 260,90 290,30 310,95 350,90" fill="none" stroke="#e67e22" stroke-width="5"/><polyline points="10,120 350,118" fill="none" stroke="#2f6fde" stroke-width="6"/><text x="20" y="22" font-size="18" fill="#e67e22">舊：一直抽筋</text><text x="200" y="138" font-size="18" fill="#2f6fde">新：平平順順</text></svg>
+<svg viewBox="0 0 360 140" role="img" aria-label="舊的線上下亂跳，新的線平順"><polyline points="10,110 60,100 90,30 110,105 160,95 190,25 210,100 260,90 290,30 310,95 350,90" fill="none" stroke="#e67e22" stroke-width="5"/><polyline points="10,120 350,118" fill="none" stroke="#2f6fde" stroke-width="6"/><text x="20" y="22" font-size="21" fill="#e67e22">舊：一直抽筋</text><text x="200" y="138" font-size="21" fill="#2f6fde">新：平平順順</text></svg>
 </div>
 <div class="card"><h3>2. 考試分數比較高</h3>
 <p>在一個「算餘數加法」的練習題上（電腦一般用的 fp32 精度，三種設定）：</p>
