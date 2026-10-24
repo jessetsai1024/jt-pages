@@ -1,0 +1,88 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELI5：有人在敲工廠「小電腦」的門</title>
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font:22px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif;background:#f3f7fb;color:#222;overflow-x:hidden}
+main{max-width:680px;margin:0 auto;padding:18px}
+h1{font-size:34px;line-height:1.3;margin:10px 0}h2{font-size:30px;margin:34px 0 12px}
+.card{background:#fff;border-radius:18px;padding:18px;margin:16px 0;box-shadow:0 2px 8px #0001}
+.card h3{font-size:26px;margin:0 0 8px}p{margin:8px 0}
+.note{font-size:18px;color:#555}svg{width:100%;height:auto;display:block}
+a{color:#1a5fb4;display:inline-block;min-height:44px;padding:8px 0;word-break:break-all}
+.warn{background:#fff1f0;border-left:6px solid #e5484d}.ok{background:#effaf0;border-left:6px solid #2f9e44}
+</style></head><body><main>
+<p class="note">ELI5・像講給五歲小孩聽</p>
+<h1>有人在敲工廠「小電腦」的門 🚪</h1>
+<p>美國五個政府單位一起發警告：有壞人在找某種工廠用的小電腦。</p>
+<p>這種小電腦叫 <b>PLC</b>。我們先看看它是什麼。</p>
+
+<h2>PLC 是什麼？</h2>
+<div class="card"><h3>🧠 機器的「小管家」</h3>
+<p>想像家裡的電鍋：按下去，它自己知道何時加熱、何時保溫。</p>
+<p>PLC 就像一個更大、更聰明的「電鍋腦袋」。</p>
+<p>它照著寫好的規則，指揮工廠的機器：何時開、何時關、轉多快。</p></div>
+<svg viewBox="0 0 390 200" role="img" aria-label="PLC 指揮機器">
+<rect x="150" y="20" width="90" height="70" rx="10" fill="#2f6fb3"/><text x="195" y="62" font-size="22" fill="#fff" text-anchor="middle">PLC</text>
+<line x1="195" y1="90" x2="60" y2="140" stroke="#555" stroke-width="3"/><line x1="195" y1="90" x2="195" y2="140" stroke="#555" stroke-width="3"/><line x1="195" y1="90" x2="330" y2="140" stroke="#555" stroke-width="3"/>
+<g font-size="20" text-anchor="middle"><text x="60" y="170">&#127981; 機器</text><text x="195" y="170">&#128167; 水廠</text><text x="330" y="170">&#9889; 能源</text></g></svg>
+<div class="card"><h3>&#128205; 用在哪裡？</h3>
+<p>警告裡說，最常被盯上的是：關鍵製造業、能源、自來水與污水、化學、食品與農業、商業設施。</p>
+<p>這次講的是西門子（Siemens）S7 系列：S7-200、300、400、1200、1500。</p></div>
+
+<h2>壞人在做什麼？</h2>
+<div class="card"><h3>&#128269; 1. 在網路上找「沒關的門」</h3>
+<p>就像小偷沿街找沒鎖的門。</p>
+<p>壞人用網路掃描服務（例如 Censys、ZoomEye），找到直接連上網路、或分隔不良的 PLC。</p></div>
+<div class="card"><h3>&#129302; 2. 叫 AI 幫忙寫工具</h3>
+<p>以前要很懂行才寫得出攻擊程式。</p>
+<p>現在壞人用 AI 幫忙寫，門檻和時間都大幅降低。</p>
+<p>警告說：這是攻擊能力的「進化」。</p></div>
+<div class="card"><h3>&#127919; 3. 把壞工具裝成「好工具」</h3>
+<p>他們用公開的工具庫（snap7.dll / python-snap7）加上 AI 寫的 Python 程式。</p>
+<p>做出來的東西長得像正常的「監控軟體」，讓防守的人以為沒事。</p>
+<p>其實它能透過 S7comm 這個溝通方式，讀寫 PLC 的記憶體、設定和程式。</p></div>
+<div class="card"><h3>&#128064; 4. 先看、先卡位</h3>
+<p>他們對資料區做「讀」和「寫」的動作。</p>
+<p>警告研判：這是長期偵察，想摸清環境，為以後搞破壞預先卡位。</p>
+<p class="note">「讀」多半是偵察；「寫」可能是為未來的破壞預作準備。</p></div>
+
+<svg viewBox="0 0 390 150" role="img" aria-label="假裝成好工具的壞程式">
+<rect x="20" y="40" width="150" height="70" rx="12" fill="#d8f0d8"/><text x="95" y="72" font-size="20" text-anchor="middle">看起來像</text><text x="95" y="98" font-size="20" text-anchor="middle">監控軟體</text>
+<text x="195" y="85" font-size="30" text-anchor="middle">&#8594;</text>
+<rect x="220" y="40" width="150" height="70" rx="12" fill="#fde0e0"/><text x="295" y="72" font-size="20" text-anchor="middle">其實是</text><text x="295" y="98" font-size="20" text-anchor="middle">攻擊工具</text></svg>
+
+<h2>可能出什麼事？</h2>
+<div class="card warn"><p>&#9888;&#65039; 警告列出可能後果：</p>
+<p>&#8226; 工廠流程被打斷，影響產量和品質、公共服務。</p>
+<p>&#8226; 安全意外：有人被害到（例如關掉安全保護、緊急停機系統）。</p>
+<p>&#8226; 設備損壞、長時間停工。</p>
+<p>&#8226; 機密資料外洩、違反法規、連鎖影響其他系統。</p>
+<p class="note">這些是「可能」的後果，警告說要看實際情況。</p></div>
+
+<h2>怎麼保護？（給大人看的）</h2>
+<div class="card ok"><h3>&#129534; 清點</h3><p>把環境裡所有 S7 系列 PLC 都列出來，核對韌體版本。</p></div>
+<div class="card ok"><h3>&#128296; 更新</h3><p>盡快裝上重要的安全修補，尤其是連到網路的那些。</p></div>
+<div class="card ok"><h3>&#128274; 別讓它連上網路</h3><p>最重要的一招。在防火牆「完全封鎖 TCP 102 埠」，把工控網和辦公網分開。</p></div>
+<div class="card ok"><h3>&#128273; 設密碼、管權限</h3><p>所有 S7 控制器都開密碼保護，設定讀寫保護等級，只讓授權的電腦連進去。</p></div>
+<div class="card ok"><h3>&#128065; 監看</h3><p>裝懂工控的偵測系統，盯 TCP 102 埠的異常連線、沒授權的讀寫、snap7 的使用。</p></div>
+<div class="card ok"><h3>&#128295; S7 專屬強化</h3><p>關掉用不到的網頁伺服器和協定、限制同時連線數、開啟「know-how 保護」等功能。</p></div>
+
+<h2>三句話記住</h2>
+<div class="card"><p>1&#65039;&#8419; 壞人正在找「直接連上網路、保護不好」的西門子 S7 工廠小電腦（PLC），用來偵察與卡位。</p>
+<p>2&#65039;&#8419; 他們用 AI 寫攻擊程式，再偽裝成正常的監控工具，降低了攻擊門檻。</p>
+<p>3&#65039;&#8419; 最有效的防守：不要把 PLC 連上網路、封鎖 TCP 102 埠、更新韌體、設密碼、持續監看。</p></div>
+
+<h2>要小心的地方</h2>
+<div class="card warn">
+<p>&#8226; 這是政府警告（TLP:CLEAR，可自由分享），不是事後鑑識報告；沒有點名是誰、也沒給受害數量。</p>
+<p>&#8226; 警告特別說：PLC 被攻擊的範圍「不只西門子」，所有 PLC 的業主都該採取防護。這點比簡報更廣。</p>
+<p>&#8226; 警告的技術細節寫 snap7.dll / python-snap7，透過 S7comm 協定運作（簡報說的 python-snap7 正確）。</p>
+<p>&#8226; 偵察用「讀」、卡位用「寫」，警告用「potentially（可能）」等字，屬研判，非百分百確定。</p>
+<p class="note">本頁未查證：警告未提供具體被攻擊的數量或日期，文中亦無這些數字。</p></div>
+
+<h2>出處</h2>
+<div class="card"><p>NSA、CISA、FBI、DOE、EPA 聯合網路安全警告，〈Defending Against an Active Threat to Siemens S7 Series PLCs〉，2026 年 8 月，版本 1.0（U/OO/6053597-26）。</p>
+<p><a href="https://media.defense.gov/2026/Aug/18/2003983494/-1/-1/0/CSA_Active_Threat_to_Siemens_S7_Series_PLCs.PDF">原始 PDF（media.defense.gov）</a></p>
+<p class="note">所有事實與用語皆取自這份警告。簡化說明，細節以原文為準。</p></div>
+</main></body></html>
