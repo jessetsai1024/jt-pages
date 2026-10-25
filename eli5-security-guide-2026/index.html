@@ -1,0 +1,64 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELI5：2026 資安實用指南（像講給阿嬤聽）</title>
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font:22px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif;background:#fff7ef;color:#222;overflow-x:hidden}
+main{max-width:680px;margin:0 auto;padding:18px}
+h1{font-size:34px;line-height:1.3;margin:10px 0}h2{font-size:30px;margin:34px 0 12px;line-height:1.35}
+.card{background:#fff;border-radius:18px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #0001}
+.card h3{font-size:26px;margin:0 0 8px;line-height:1.35}p{margin:8px 0}
+.ico{font-size:52px;line-height:1;display:inline-block;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.note{font-size:18px;color:#555}.ex{background:#f6f6f6;border-radius:12px;padding:10px 12px}
+svg,img{width:100%;height:auto;display:block;border-radius:14px}
+a{color:#1a5fb4;display:inline-block;min-height:44px;padding:8px 0;word-break:break-all}
+.big{display:block;text-align:center;background:#111;color:#fff;border-radius:16px;padding:14px;font-size:24px;text-decoration:none;margin:14px 0}
+.tag{display:inline-block;font-size:19px;font-weight:bold;border-radius:10px;padding:4px 10px;margin:4px 0}
+.ok{background:#dff5e3;color:#11632a}.diff{background:#fff1cc;color:#7a5600}.un{background:#eee;color:#444}
+.mine{background:#eef0ff;border-left:6px solid #5b5bd6}
+</style></head><body><main>
+<p class="note">ELI5・像講給阿嬤聽</p>
+<h1>壞人最愛「偷懶的門」🚪：2026 資安實用指南</h1>
+<p>美國財經帳號 <b>Markets &amp; Mayhem（@Mayhem4Markets）</b> 在 2026 年 10 月 25 日凌晨 00:39（台北時間）發文說：最近駭客新聞好多，他寫了一份長文教大家怎麼保護自己，「接下來一年多會很刺激，先把門窗釘牢」。</p>
+<a class="big" href="https://x.com/Mayhem4Markets/status/2114034035542352190">👉 看原始貼文（英文）</a>
+<img src="cover.jpg" alt="原文封面圖" loading="lazy">
+<p class="note">圖：原文〈A Practical Guide to Improving Your Security in 2026〉封面，來源 @Mayhem4Markets</p>
+
+<div class="card"><h3>一句話重點</h3><p>大多數被駭，<b>不是靠什麼厲害的新招</b>，而是：同一個密碼到處用、電腦手機沒更新、人一急就被騙。擋住它們的方法很無聊、很便宜，但大家常常懶得做。</p></div>
+
+<svg viewBox="0 0 390 220" role="img" aria-label="小偷繞過鐵門，從沒關的窗戶爬進去">
+<rect width="390" height="220" rx="18" fill="#e7f1ff"/>
+<rect x="60" y="70" width="190" height="120" fill="#ffd8a8"/><polygon points="50,72 155,15 260,72" fill="#e5484d"/>
+<rect x="90" y="120" width="40" height="70" fill="#555"/><text x="110" y="112" font-size="26" text-anchor="middle">🔒</text>
+<rect x="170" y="100" width="56" height="46" fill="#9fd3ff" stroke="#333" stroke-width="3"/><line x1="226" y1="100" x2="246" y2="88" stroke="#333" stroke-width="3"/>
+<text x="320" y="140" font-size="54" text-anchor="middle">🦹</text>
+<text x="110" y="212" font-size="19" text-anchor="middle">大門鎖很好</text><text x="290" y="212" font-size="19" text-anchor="middle">窗戶沒關 → 進來</text></svg>
+
+<h2>他教的 6 件事（白話版）</h2>
+<div class="card"><div class="ico">🔑</div><h3>1. 每個地方用不同密碼</h3><p>壞人從 A 網站偷到你的帳密，會拿去 B、C、D 網站一個個試。用「密碼管家」App 幫你記一堆不同的長密碼。最先顧好：Email、銀行、密碼管家本身。</p><p class="ex">像全家門、車、保險箱都用同一把鑰匙，掉一把全完了。</p><p>他也說：<b>不用定期換密碼</b>，被外洩時再換就好。</p></div>
+<div class="card"><div class="ico">📱</div><h3>2. 開「第二道鎖」</h3><p>登入時除了密碼，再要你手機上的確認或一支實體小鑰匙。最好是「通行金鑰（passkey）」或實體安全鑰匙；簡訊驗證碼比沒有好，但最弱之一。</p><p class="ex">手機突然跳出「是你在登入嗎？」而你沒在登入——<b>千萬別按同意</b>，代表有人已經知道你的密碼了。</p></div>
+<div class="card"><div class="ico">🔄</div><h3>3. 有更新就裝</h3><p>手機、電腦、瀏覽器打開自動更新。舊手機原廠不再出安全更新，就別再用它開銀行、Email。</p><p class="ex">更新就像修好破掉的窗戶。壞人專挑還沒修的窗。</p></div>
+<div class="card"><div class="ico">💾</div><h3>4. 備份，而且有一份「拔掉線」</h3><p>勒索病毒會把檔案鎖起來要錢。照片文件多存一份在外接硬碟，存完拔掉收好，還要偶爾試著拿回來看看。</p><p class="ex">像重要證件影印一份放娘家：家裡淹水也不怕。</p></div>
+<div class="card"><div class="ico">🏠</div><h3>5. 家裡網路分開</h3><p>客人用「訪客 Wi-Fi」，智慧插座、攝影機這類小家電也別跟你的電腦放同一個網路。</p><p class="ex">客人坐客廳就好，不用給他臥室鑰匙。</p></div>
+<div class="card"><div class="ico">☎️</div><h3>6. 跟家人約「通關密語」</h3><p>接到「我是兒子，急著要錢」的電話，先問只有家人知道的暗號，或掛掉後自己回撥熟悉的號碼確認。</p><p class="ex">聲音、影片現在都能用 AI 假造，暗號比耳朵可靠。</p></div>
+
+<h2>他說的數字，查證結果</h2>
+<div class="card"><span class="tag ok">已查證</span><h3>「鑽漏洞」已變成壞人入侵第一名（31%），偷密碼掉到 13%</h3><p>Verizon 2026 年資料外洩調查報告確實這樣寫。補充：13% 下降有一部分是因為報告今年改了分類方式（新增「假冒情境詐騙」一類）。</p><a href="https://www.verizon.com/business/resources/Te26/reports/2026-dbir-data-breach-investigations-report.pdf">Verizon 2026 DBIR（PDF）</a><br><a href="https://www.techtarget.com/cybersecurity/news/366643420/Verizon-2026-DBIR-6-key-takeaways-for-CISOs">TechTarget 報導</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>只有 26% 的「已知被利用漏洞」被完全修好（去年 38%），修好要 43 天（去年 32 天）</h3><p>同一份報告有這些數字。</p><a href="https://www.securityweek.com/verizon-dbir-2026-vulnerability-exploitation-overtakes-credential-theft-as-top-breach-vector/">SecurityWeek 報導</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>勒索病毒占 48%（去年 44%），69% 受害者沒付錢；有外包廠商牽涉的案件增加 60%</h3><a href="https://www.helpnetsecurity.com/2026/05/20/verizon-2026-dbir-findings/">Help Net Security 報導</a></div>
+<div class="card"><span class="tag diff">有出入</span><h3>「是報告 19 年來第一次偷密碼不是第一名」、「調查了 13,000 個組織」</h3><p>報告確實是第 19 版，也說偷密碼「之前是第一名」；但「史上第一次」和「13,000 個組織」這兩個說法，我們沒在查到的摘要裡找到原句，而且分類方式改過，跟往年不完全能比。</p></div>
+<div class="card"><span class="tag ok">已查證</span><h3>美國官方「已知被利用漏洞清單」有 1,756 筆，2026 年新增 272 筆，361 筆跟勒索病毒有關</h3><p>我們直接下載美國 CISA 官方清單算過（清單更新於 10 月 24 日台北時間），數字完全一樣。</p><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA KEV 官方清單</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>美國標準局 NIST 說：不可以強迫大家定期換密碼</h3><a href="https://pages.nist.gov/800-63-4/sp800-63b.html">NIST SP 800-63B-4</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>2026 年 5 月 TanStack 事件：42 個程式套件、84 個壞版本，會偷工程師的密碼鑰匙</h3><p>這是給寫程式的人看的，一般人不用擔心。</p><a href="https://tanstack.com/blog/npm-supply-chain-compromise-postmortem">TanStack 官方事後報告</a><br><a href="https://github.com/advisories/GHSA-g7cv-rxg3-hmpx">GitHub 安全公告</a></div>
+<div class="card"><span class="tag un">未查證</span><h3>微軟研究「第二道鎖」降低 99.22% 風險、Google 研究簡訊擋下 76% 鎖定攻擊等</h3><p>這些是較早的公司研究，常被引用，但這次沒有逐一打開原始研究核對，先當參考。</p></div>
+
+<h2>跟美股、00646 有關嗎？</h2>
+<div class="card"><p>這篇是<b>資安教學</b>，不是在講股市，也沒說哪家公司股價會怎樣。所以對買 00646（元大S&amp;P500）的人，<b>沒有直接關係</b>。</p><p>真正有關的是「保護你的帳戶」：證券 App、銀行、Email 開第二道鎖、別點簡訊裡的連結，就是在顧好你自己的錢。</p><p class="note">本頁不是投資建議，也不預測價格。</p></div>
+
+<div class="card mine"><h3>🙋 小工坊補充（不是原作者說的）</h3><p>全部做完要一個月。最划算的第一步：Email 和銀行換成不同密碼＋開第二道鎖、手機開自動更新。原文後半有很多給公司 IT、工程師的內容（防火牆、程式套件），一般人可跳過。</p></div>
+
+<h2>資料來源</h2>
+<p><a href="https://x.com/Mayhem4Markets/status/2114034035542352190">@Mayhem4Markets 原貼文與長文（2026-10-25 台北時間）</a></p>
+<p class="note">頁面為白話改寫；數字只引用可查的來源。</p>
+</main></body></html>
