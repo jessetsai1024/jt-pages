@@ -1,0 +1,104 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELI5：日本 GMO「雲端電腦」被駭，到底發生什麼事？</title>
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font:22px/1.7 -apple-system,"PingFang TC","Noto Sans TC",sans-serif;background:#f3f7ff;color:#222;overflow-x:hidden}
+main{max-width:680px;margin:0 auto;padding:18px}
+h1{font-size:32px;line-height:1.3;margin:10px 0}h2{font-size:30px;margin:34px 0 12px;line-height:1.35}
+.card{background:#fff;border-radius:18px;padding:18px;margin:18px 0;box-shadow:0 2px 8px #0001}
+.card h3{font-size:26px;margin:0 0 8px;line-height:1.35}p{margin:8px 0}
+.note{font-size:18px;color:#555}.ico{font-size:48px;line-height:1}
+svg{width:100%;height:auto;display:block}
+a{color:#1a5fb4;display:inline-block;min-height:44px;padding:8px 0;word-break:break-all;font-size:18px}
+.tag{display:inline-block;font-size:18px;font-weight:bold;border-radius:10px;padding:4px 10px;margin:4px 0}
+.ok{background:#dff5e3;color:#13652a}.diff{background:#fff1cc;color:#7a5600}.no{background:#fde2e2;color:#9b1c1c}
+.step{border-left:8px solid #5b8def}.rumor{border-left:8px solid #d33}.fact{border-left:8px solid #2a9d4b}
+.big{font-size:26px;font-weight:bold}
+ul{padding-left:24px;margin:8px 0}
+</style></head><body><main>
+<p class="note">ELI5 給 Jesse｜整理時間：2026-10-26 08:45（台北時間）</p>
+<h1>🇯🇵 日本 GMO「雲端電腦」被小偷闖入，到底怎麼了？</h1>
+<p class="note">本頁日期／時間都標明是「日本時間」或「台北時間」。日本時間比台北快 1 小時。</p>
+
+<div class="card">
+<h3>🏦 先用一個故事講完</h3>
+<svg viewBox="0 0 360 200" role="img" aria-label="租保險箱房間的比喻">
+<rect x="10" y="20" width="160" height="150" rx="12" fill="#e8eefc" stroke="#5b8def" stroke-width="3"/>
+<text x="90" y="50" font-size="20" text-anchor="middle" fill="#234">租來的房間</text>
+<rect x="45" y="70" width="90" height="70" rx="8" fill="#ffd166"/>
+<text x="90" y="112" font-size="20" text-anchor="middle">🔑 鑰匙</text>
+<text x="230" y="80" font-size="44">🦹</text>
+<text x="225" y="130" font-size="20" fill="#9b1c1c">偷偷影印</text>
+<text x="225" y="160" font-size="20" fill="#9b1c1c">鑰匙</text>
+<text x="300" y="120" font-size="40">💰</text>
+<text x="290" y="160" font-size="18" fill="#234">去開帳戶</text>
+</svg>
+<p>很多日本人跟 GMO 公司<b>租了一間「網路上的房間」</b>（一台遠端電腦，叫 VPS），讓炒外匯的「自動交易機器人」（MT4/MT5）24 小時在裡面工作。</p>
+<p>大家為了方便，把<b>證券／外匯帳戶的鑰匙（帳號密碼）</b>就放在房間裡。</p>
+<p>結果小偷溜進房間、裝了壞程式，<b>把鑰匙抄走</b>，再拿去別人的帳戶亂買亂賣。</p>
+</div>
+
+<h2>📅 圖畫時間軸（日本時間）</h2>
+<div class="card step"><div class="ico">📞</div><h3>10/19　客人打電話說怪怪的</h3><p>GMO 開始調查。</p></div>
+<div class="card step"><div class="ico">🐛</div><h3>10/20　發現房間裡被裝了壞程式</h3><p>停止新申請和管理頁面。</p></div>
+<div class="card step"><div class="ico">🔌</div><h3>10/21 凌晨 4:00　全部房間分批關門</h3><p>（＝台北時間 3:00）所有方案的伺服器一台台關掉。同一天起，有客人回報帳戶被亂交易。</p></div>
+<div class="card step"><div class="ico">👮</div><h3>10/22　報警</h3><p>GMO 承認帳號密碼「可能被拿走並被亂用」。</p></div>
+<div class="card step"><div class="ico">💴</div><h3>10/24　道歉＋賠錢方案（第 4 報）</h3><p>承認系統有安全漏洞、資料真的被帶出去；宣布賠償；並說小偷來勒索要錢，GMO 拒絕。</p></div>
+<div class="card step"><div class="ico">🛡️</div><h3>10/24–10/25　請政府出手</h3><p>GMO 請日本政府啟動「主動網路防禦」（政府直接去癱瘓壞人的電腦）。10/25 集團老闆熊谷正壽發部落格說明。</p></div>
+
+<h2>😨 有多嚴重？</h2>
+<div class="card">
+<p class="big">26,739 台</p>
+<p>這是「<b>可能</b>受影響」的房間數，<b>不是</b>「確定被闖」的數量。</p>
+<p>被拿走的是客人自己存在房間裡的<b>交易帳號密碼</b>。GMO 說這台機器上<b>沒有存信用卡資料</b>。</p>
+<p>實際有多少人被亂交易、損失多少錢：<b>官方還沒公布</b>。</p>
+<p>壞人怎麼闖進來的：<b>還在調查</b>。</p>
+</div>
+
+<div class="card">
+<h3>💴 GMO 怎麼賠？</h3>
+<ul>
+<li>每位現有用戶慰問金 <b>5,000 日圓</b>（不管有沒有損失）。10/30 前用 email 通知領法。</li>
+<li>被亂交易造成的<b>實際虧損</b>由 GMO 補（券商退的錢先扣掉；券商不退也照補）。申請方法 <b>11/6 前</b>公布。</li>
+<li>舊系統不直接重開；想繼續用的人可換到新的替代服務，<b>前 6 個月免費</b>。</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>🦹 壞人放話恐嚇</h3>
+<p>小偷說：不給錢就繼續亂動客人在 <b>70 多家</b>券商的帳戶、公開「連過這台機器的客人電腦」的資料、發動勒索病毒。</p>
+<p>⚠️ 這是<b>壞人自己說的</b>。官方<b>沒有證實</b>客人自己家的電腦被駭；GMO 還在查，只請大家先掃毒、備份。</p>
+</div>
+
+<h2>🗣️ 網路謠言 vs. 事實</h2>
+<div class="card rumor">
+<h3>X 上的貼文怎麼說</h3>
+<p>帳號 @faultlineworld（2026-10-26 03:03 台北時間）說：GMO 集團 2.6 萬台伺服器被「劫持」、在 70 家券商平台詐騙交易、存款被「自動掏空」。另有流傳說法稱「服務永久關閉」「執行長說網路開始崩壞」。</p>
+<a href="https://x.com/faultlineworld/status/2114432564022923482">看原貼文</a>
+</div>
+<div class="card fact"><h3>「2.6 萬台被劫持」</h3><span class="tag diff">有出入</span><p>官方是「<b>可能</b>受影響 26,739 台」，不是全部確認被闖。</p></div>
+<div class="card fact"><h3>「70 家券商被洗劫」</h3><span class="tag diff">有出入</span><p>「70 多家」是客人開戶的券商數量（壞人恐嚇時也這樣說），不是 70 家都確認被盜。</p></div>
+<div class="card fact"><h3>「存款被自動掏空」</h3><span class="tag no">未查證</span><p>確實有人回報被亂交易，但規模、金額官方沒公布。</p></div>
+<div class="card fact"><h3>「永久關閉」</h3><span class="tag diff">有出入</span><p>舊系統不直接重開，但有替代服務（6 個月免費），不是公司收掉。</p></div>
+<div class="card fact"><h3>「執行長說網路開始崩壞」</h3><span class="tag no">未查證</span><p>找不到出處。老闆的部落格是在解釋為何請政府出手、承認改善太慢。</p></div>
+
+<h2>✅ 每一條事實查證</h2>
+<div class="card"><span class="tag ok">已查證</span><h3>GMO Internet（股票代號 4784）的 VPS，很多人拿來跑 MT4/MT5</h3><a href="https://internet.gmo/en/ir/pdf/irlibrary/gmointernet_e_disclose_20261023.pdf">GMO 適時揭露 PDF</a> <a href="https://internet.gmo/en/news/article/247/">GMO 第 2 報</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>時間軸 10/19、10/20、10/21 4:00、10/22 報警（日本時間）</h3><a href="https://internet.gmo/en/news/article/248/">GMO 第 3 報</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>26,739 台「可能受影響」；沒存信用卡</h3><a href="https://internet.gmo/en/news/article/248/">GMO 第 3 報</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>10/24 第 4 報：5,000 日圓、補實際虧損、11/6 前公布申請；承認有漏洞、資料外流</h3><a href="https://internet.gmo/en/news/article/249/">GMO 第 4 報（英文）</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>替代服務 6 個月免費</h3><p class="note">英文版第 4 報沒寫這段，是日文版內容，經資安網站轉述。</p><a href="https://websec-center.com/blog/desktop-cloud-fuseiakusesu/">websec-center 整理</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>壞人勒索、恐嚇公開客人電腦資料／勒索病毒</h3><span class="tag no">未查證</span><p>客人電腦「真的被駭」沒有官方證實。</p><a href="https://internet.gmo/en/news/article/249/">GMO 第 4 報</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>GMO 請政府啟動「主動網路防禦」</h3><a href="https://www.japantimes.co.jp/news/2026/10/25/japan/crime-legal/gmo-active-cyberdefense-government-request/">Japan Times 10/25</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>入侵路線還在查；跟 PHP 漏洞 php2shell 沒有證據有關</h3><p>官方沒提 PHP；調查 10/19 就開始，早於 10/21 的 PHP 修補。</p><a href="https://websec-center.com/blog/desktop-cloud-fuseiakusesu/">websec-center 整理</a></div>
+<div class="card"><span class="tag ok">已查證</span><h3>新消息：老闆承認內部白帽駭客早就提醒過，但改得不夠快</h3><p class="note">10/25 熊谷正壽部落格，經資安網站轉述；GMO 官網有公告此部落格。</p><a href="https://internet.gmo/en/news/article/251/">GMO 公告</a> <a href="https://websec-center.com/blog/desktop-cloud-fuseiakusesu/">websec-center 整理</a></div>
+
+<h2>🧓 一般人可以學到什麼</h2>
+<div class="card"><div class="ico">🙅</div><h3>鑰匙別放在租來的房間</h3><p>密碼不要存在雲端電腦、或寫在電腦裡的記事本。</p></div>
+<div class="card"><div class="ico">📱</div><h3>開「兩步驟驗證」</h3><p>就像門上再加一道要手機簡訊的鎖，小偷拿到密碼也開不了。</p></div>
+<div class="card"><div class="ico">🔑</div><h3>每個地方用不同密碼</h3><p>一把鑰匙被抄，別的門才不會一起被打開。</p></div>
+<div class="card"><div class="ico">🎣</div><h3>小心「說要賠你錢」的訊息</h3><p>GMO 說絕不會用信件或電話問你密碼。</p></div>
+
+<p class="note">注意：事件仍在發展，數字以官方最新公告為準。本頁沒有任何個人資料。</p>
+</main></body></html>
