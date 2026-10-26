@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>給阿嬤看的懂：Bloom 交易機器人錢包被掏空事件</title>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:#fff8ec;color:#2b2118;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.65;overflow-x:hidden}
+main{max-width:720px;margin:0 auto;padding:16px}
+h1{font-size:34px;line-height:1.3;margin:10px 0}
+h2{font-size:30px;line-height:1.3;margin:40px 0 14px;padding:10px 14px;background:#ffd166;border-radius:16px}
+h3{font-size:26px;line-height:1.35;margin:0 0 8px}
+.card{background:#fff;border:3px solid #2b2118;border-radius:20px;padding:18px;margin:16px 0;box-shadow:5px 5px 0 #2b2118;overflow-wrap:anywhere}
+.hero{background:#ffe3e3;text-align:center}
+.big{font-size:64px;line-height:1.1}
+.small{font-size:18px;color:#5b4a3a}
+.tag{display:inline-block;font-size:18px;font-weight:700;padding:4px 12px;border-radius:999px;margin:0 6px 6px 0}
+.ok{background:#c7f9cc}.bad{background:#ffc9c9}.unk{background:#e7e7ff}
+.tl{border-left:6px solid #ef476f;padding-left:16px;margin:16px 0}
+.tl p{margin:0 0 4px}
+.time{font-weight:800;color:#c9184a;font-size:22px}
+.num{font-size:40px;font-weight:900;color:#c9184a;line-height:1.2}
+svg{width:100%;height:auto;display:block}
+a{color:#0a58ca;word-break:break-all}
+ul.src{padding-left:0;list-style:none}
+ul.src li a{display:flex;align-items:center;min-height:48px;padding:8px 0}
+.note{background:#e7f5ff;border-color:#1c7ed6;box-shadow:5px 5px 0 #1c7ed6}
+footer{font-size:18px;text-align:center;margin:30px 0}
+</style></head><body><main>
+
+<div class="card hero">
+<div class="big">🌸🔑💨</div>
+<h1>給阿嬤看的懂：<br>「Bloom」交易機器人的錢包被掏空了</h1>
+<p>2026 年 10 月 26 日早上，一群用 Telegram 機器人「BloomTrading」幫忙買賣幣的人，醒來發現錢包裡的 SOL 幣被搬走了。</p>
+<p class="small">本頁編譯時間：2026-10-26 15:25（台北時間）。事情還在發展中，原因尚未確認。本頁不是投資建議。</p>
+</div>
+
+<div class="card note"><h3>📌 三句話說完</h3>
+<p>1️⃣ 約 9,408 顆 SOL（約 95 萬美元）從一堆錢包被搬到同一個可疑地址。</p>
+<p>2️⃣ Bloom 說受害的是 9 個人、共 49 個錢包，承諾全額賠償，但<b>還沒證實已經付錢</b>。</p>
+<p>3️⃣ 真正原因還在查（Bloom 說會查是不是外包廠商出問題），偷走的錢截至編譯時還躺在一個錢包沒動。</p></div>
+
+<h2>⏰ 1. 發生了什麼（時間線）</h2>
+<p class="small">以下全部是台北時間（UTC+8）。</p>
+<div class="tl">
+<p><span class="time">08:59（台北時間）</span></p><p>鏈上紀錄：可疑「收錢錢包」收到第一筆極小的轉帳（1 lamport，幾乎是 0），像小偷先試鑰匙能不能開。<span class="tag ok">已查證（鏈上）</span></p>
+</div>
+<div class="tl"><p><span class="time">09:12（台北時間）</span></p><p>受害者 Domy（@domyxbt）在 X 上喊救命：剛被拿走約 6.4 萬美元。</p></div>
+<div class="tl"><p><span class="time">09:16（台北時間）</span></p><p>Domy 貼出 3 個被清空的錢包，說共被拿走 800 SOL。</p></div>
+<div class="tl"><p><span class="time">09:28（台北時間）</span></p><p>Domy 說他被偷了 8 萬美元，懷疑是 Bloom（他後來也說自己不能 100% 確定）。</p></div>
+<div class="tl"><p><span class="time">09:29–09:46（台北時間）</span></p><p>鏈上可看到可疑錢包在這段時間陸續收到多筆轉入。</p></div>
+<div class="tl"><p><span class="time">09:39（台北時間）</span></p><p>交易員 KayTheDoc 發文：「大規模盜領中，群組說是 BLOOM，未證實。快把錢移走。」</p></div>
+<div class="tl"><p><span class="time">11:02（台北時間）</span></p><p>Bloom 官方回應：正在調查，<b>暫停部分服務</b>，請用 Discord 開客服單。</p></div>
+<div class="tl"><p><span class="time">12:26（台北時間）</span></p><p>鏈上追蹤帳號 Onchain Lens：9,408 SOL（約 95.4 萬美元）從 49 名受害者流進一個盜領錢包，最大一筆 1,636 SOL（約 16.6 萬美元），「最終數字可能更高」。</p></div>
+<div class="tl"><p><span class="time">12:30（台北時間）</span></p><p>盜領錢包把 9,408.21 SOL <b>一次全部</b>搬到另一個新錢包。<span class="tag ok">已查證（鏈上）</span></p></div>
+<div class="tl"><p><span class="time">12:37（台北時間）</span></p><p>Bloom：不需要募捐救援金，會把 9 位受害者的損失全額賠到他們指定的新錢包；仍在查原因，包括是否第三方廠商被入侵。</p></div>
+<div class="tl"><p><span class="time">13:48–14:05（台北時間）</span></p><p>Bloom 澄清：49 個錢包屬於 9 個人，不是 49 個受害者。</p></div>
+<div class="tl"><p><span class="time">15:19（台北時間）</span></p><p>本頁查核：那 9,408.21 SOL 仍躺在第二個錢包，還沒被轉去交易所。<span class="tag ok">已查證（鏈上）</span></p></div>
+
+<h2>🔢 2. 重要數字</h2>
+<div class="card"><div class="num">約 9,408 SOL</div><p>被搬走的總量（約 95.4 萬美元）。來源：Onchain Lens；鏈上餘額 9,408.21 SOL 對得上。</p></div>
+<div class="card"><div class="num">9 人 / 49 個錢包</div><p>Bloom 官方說法。Onchain Lens 原本寫「49 名受害者」，另有鏈上分析者算出 41 個錢包——數字<b>還沒對齊</b>。</p></div>
+<div class="card"><div class="num">1,636 SOL</div><p>最大的一筆（約 16.6 萬美元）。</p></div>
+<div class="card"><div class="num">約 8 萬美元</div><p>Domy 自己說的損失（他也說 3 個錢包共 800 SOL）。</p></div>
+<div class="card"><div class="num">0 元</div><p>截至編譯時，<b>沒有公開證據</b>顯示賠償已經付出去。</p></div>
+
+<h2>🧓🔑 3. 為什麼一次就能全被搬光？</h2>
+<div class="card">
+<svg viewBox="0 0 360 200" role="img" aria-label="阿嬤把家裡鑰匙交給管家">
+<rect x="0" y="0" width="360" height="200" rx="18" fill="#fff3bf"/>
+<text x="20" y="80" font-size="56">👵</text>
+<text x="105" y="80" font-size="40">➡️🔑</text>
+<text x="230" y="80" font-size="56">🤵</text>
+<text x="20" y="130" font-size="21" fill="#2b2118">阿嬤把鑰匙交給管家</text>
+<text x="20" y="170" font-size="21" fill="#2b2118">管家幫她半夜去市場搶便宜</text>
+</svg>
+<h3>管家拿著你家的鑰匙</h3>
+<p>想像阿嬤請了一位很勤快的<b>管家</b>：市場一有便宜的菜，管家半夜就衝去買，阿嬤不用起床。</p>
+<p>但管家要能半夜自己出門買菜，就得<b>拿著阿嬤的家門鑰匙和錢包</b>。Telegram 交易機器人就是這個管家：它手上有你錢包的「私鑰」（等於鑰匙），才能不問你就馬上買賣。</p>
+</div>
+<div class="card">
+<svg viewBox="0 0 360 190" role="img" aria-label="一個鑰匙圈掛著很多家的鑰匙">
+<rect x="0" y="0" width="360" height="190" rx="18" fill="#ffe3e3"/>
+<text x="20" y="70" font-size="44">🏠🏠🏠🏠🏠</text>
+<text x="40" y="130" font-size="44">🗝️🦹</text>
+<text x="150" y="130" font-size="21" fill="#2b2118">一串鑰匙被拿走</text>
+<text x="150" y="160" font-size="21" fill="#2b2118">整條街一起遭殃</text>
+</svg>
+<h3>壞人只要偷到管家的鑰匙櫃</h3>
+<p>這位管家同時替整條街的人保管鑰匙。萬一管家的鑰匙櫃被打開——不管是管家自己出包、還是幫管家做鎖的外包師傅出問題——小偷就能<b>一晚開好幾家的門</b>。</p>
+<p>這次鏈上看到很多錢包在短短十幾分鐘內被搬空，所以大家懷疑是「鑰匙櫃」出事。<span class="tag unk">原因未查證</span></p>
+</div>
+
+<h2>📚 4. 以前也發生過嗎？</h2>
+<div class="card"><h3>🍌 Banana Gun（2024 年 9 月）</h3>
+<p>同樣是 Telegram 交易機器人。約 563 顆 ETH（約 300 萬美元）從 11 位用戶錢包被搬走。</p>
+<p>原因：團隊調查後說是它使用的「Telegram 訊息 oracle」有漏洞。</p>
+<p>結果：關掉機器人、修好、加上轉帳延遲 2 小時；用團隊金庫全額賠償。</p>
+<span class="tag ok">已查證</span></div>
+<div class="card"><h3>🦄 Unibot（2023 年 10 月 31 日）</h3>
+<p>另一個 Telegram 交易機器人，約 64 萬美元被盜。</p>
+<p>不同點：這次不是偷鑰匙，而是它的智能合約「權限檢查」有洞，壞人能動用用戶曾經授權給它的代幣。</p>
+<p>像是：管家的「代簽同意書」寫得太寬，被人拿去亂用。</p>
+<span class="tag ok">已查證</span></div>
+<div class="card"><h3>🌸 Bloom（2026 年 10 月 26 日，本次）</h3>
+<p>約 9,408 SOL。原因還在查，賠償已承諾、尚未證實付款。</p>
+<span class="tag unk">進行中</span></div>
+
+<h2>🛡️ 5. 一般人怎麼保護自己</h2>
+<div class="card"><h3>🧺 不要把雞蛋放同一籃</h3><p>放在機器人錢包裡的，只放「今天要用的零錢」。大部分的錢放在只有你自己有鑰匙的地方。</p></div>
+<div class="card"><h3>🔑 鑰匙不要到處複製</h3><p>不要把主要錢包的私鑰「匯入」任何機器人或網站。匯入一次，就等於多打一把鑰匙給別人。</p></div>
+<div class="card"><h3>🚨 出事時先搬家</h3><p>只是「斷開連線」沒有用，鑰匙已經在別人手上。要把錢搬到一個<b>全新、從沒匯入過</b>的錢包。</p></div>
+<div class="card"><h3>🕵️ 小心「假客服」</h3><p>出事時騙子最多。只相信官方帳號公告，私訊說要幫你「追回」的通常是詐騙。</p></div>
+<div class="card"><h3>📢 看清「已證實」和「傳言」</h3><p>第一時間的數字常常會改。等官方和鏈上資料對得上再下結論。</p></div>
+
+<h2>🔍 6. 傳言 vs 事實</h2>
+<div class="card"><span class="tag ok">已查證</span><h3>約 9,408 SOL 流進同一個可疑錢包</h3><p>Onchain Lens 公布；本頁也在鏈上看到 9,408.21 SOL 從盜領錢包一次轉到下一個錢包。</p></div>
+<div class="card"><span class="tag ok">已查證</span><h3>Bloom 暫停部分服務、承諾全額賠償</h3><p>Bloom 官方 X 帳號親口說的。</p></div>
+<div class="card"><span class="tag bad">有出入</span><h3>「49 名受害者」</h3><p>Bloom 說是 9 個人的 49 個錢包；另有鏈上分析者算 41 個錢包。人數和錢包數還沒有統一說法。</p></div>
+<div class="card"><span class="tag bad">有出入</span><h3>「Bloom 只賠 9 個錢包」</h3><p>Bloom 最早一則回覆寫「9 affected wallets」，之後改口澄清是 9 位用戶、49 個錢包，都會賠。</p></div>
+<div class="card"><span class="tag unk">未查證</span><h3>「就是 Bloom 幹的／捲款跑路」</h3><p>受害者懷疑跟 Bloom 有關；Bloom 否認是跑路，原因未公布。</p></div>
+<div class="card"><span class="tag unk">未查證</span><h3>「是第三方廠商被駭」</h3><p>這只是 Bloom 說「正在調查的方向之一」，不是結論。</p></div>
+<div class="card"><span class="tag unk">未查證</span><h3>「賠償已經到帳」</h3><p>截至編譯時沒有公開付款證明或時間表。</p></div>
+<div class="card"><span class="tag unk">未查證</span><h3>「錢已經被洗到交易所」</h3><p>截至 15:19（台北時間）鏈上查到這筆 SOL 還在第二個錢包沒動。之後可能會變。</p></div>
+
+<h2>🔗 7. 資料來源</h2>
+<ul class="src">
+<li><a href="https://x.com/KayTheDoc/status/2114532284447781094">KayTheDoc 最早示警貼文（X）</a></li>
+<li><a href="https://x.com/domyxbt/status/2114529594942337103">Domy：被偷 8 萬美元（X）</a></li>
+<li><a href="https://x.com/OnchainLens/status/2114574282282160371">Onchain Lens：9,408 SOL 追蹤（X）</a></li>
+<li><a href="https://x.com/BloomTrading/status/2114553258337574985">Bloom：調查中、暫停部分服務（X）</a></li>
+<li><a href="https://x.com/BloomTrading/status/2114577183834280267">Bloom：全額賠償、查第三方（X）</a></li>
+<li><a href="https://x.com/BloomTrading/status/2114599403059122649">Bloom：49 個錢包屬於 9 人（X）</a></li>
+<li><a href="https://solscan.io/account/7kY8qx8MqJ7Rz2vMhgHETdZLHcTp1oM78AA9dmE9p8BQ">盜領錢包（Solscan）</a></li>
+<li><a href="https://solscan.io/account/6nYyCzJJzErbmfxvXqzbAqwoBzNvXUiwr15KCkcgmoe9">資金目前所在錢包（Solscan）</a></li>
+<li><a href="https://crypto.news/bloomtrading-solana-wallet-drain-refunds/">crypto.news 報導</a></li>
+<li><a href="https://cryptobriefing.com/bloomtrading-bot-users-wallet-drains/">Crypto Briefing 報導</a></li>
+<li><a href="https://www.tokenpost.com/news/technology/40816">TokenPost 報導</a></li>
+<li><a href="https://www.chaincatcher.com/en/article/2298899">ChainCatcher 快訊</a></li>
+<li><a href="https://www.theblock.co/news/ecosystems/2024-09-25-banana-gun-exploit-refund-318074">The Block：Banana Gun 事件</a></li>
+<li><a href="https://www.quillaudits.com/blog/hack-analysis/banana-gun-exploit">QuillAudits：Banana Gun 分析</a></li>
+</ul>
+<footer>編譯時間：2026-10-26 15:25（台北時間）・本頁不構成投資建議 🌸</footer>
+</main></body></html>
