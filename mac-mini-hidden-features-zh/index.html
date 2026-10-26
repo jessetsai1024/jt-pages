@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mac Mini 被低估的隱藏功能｜中文重點整理</title>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font-family:-apple-system,"PingFang TC","Noto Sans TC",sans-serif;font-size:22px;line-height:1.7;color:#1d2433;background:#f3f6fb;overflow-x:hidden;word-break:break-word}
+main{max-width:720px;margin:0 auto;padding:18px}
+h1{font-size:32px;line-height:1.35;margin:10px 0}
+h2{font-size:30px;margin:34px 0 12px}
+h3{font-size:26px;margin:0 0 8px}
+.hero{background:linear-gradient(135deg,#4f6bed,#9b5de5);color:#fff;border-radius:22px;padding:22px;text-align:center}
+.hero svg{width:100%;max-width:300px;height:auto}
+.note{background:#fff4d6;border-left:6px solid #f4a300;border-radius:14px;padding:14px 16px;margin:16px 0}
+.card{background:#fff;border-radius:18px;padding:18px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+.num{display:inline-block;background:#4f6bed;color:#fff;border-radius:12px;padding:0 12px;margin-right:6px}
+.eg{background:#eaf7ee;border-radius:12px;padding:12px 14px;margin-top:10px}
+.uv{background:#ffe1e1;color:#a40000;border-radius:8px;padding:0 6px;font-size:18px;white-space:nowrap}
+blockquote{margin:10px 0;padding:10px 14px;border-left:5px solid #9b5de5;background:#f5efff;border-radius:10px}
+a{color:#2a4bd7}
+a.btn{display:block;min-height:48px;padding:12px;text-align:center;background:#1d2433;color:#fff;border-radius:14px;text-decoration:none;margin:12px 0}
+code{font-size:19px;background:#eef;padding:1px 5px;border-radius:5px;word-break:break-all}
+small,.meta{font-size:18px;color:#555}
+</style></head><body><main>
+<div class="hero">
+<svg viewBox="0 0 300 150" role="img" aria-label="Mac Mini 插圖">
+<rect x="40" y="60" width="220" height="60" rx="16" fill="#e8ecf3"/><rect x="40" y="108" width="220" height="12" rx="6" fill="#c4cad6"/>
+<circle cx="236" cy="90" r="5" fill="#4ade80"/>
+<text x="150" y="44" text-anchor="middle" font-size="26" fill="#fff">🤖 📺 🏠 💾</text>
+<text x="150" y="97" text-anchor="middle" font-size="20" fill="#333">Mac Mini</text>
+</svg>
+<h1>你的 Mac Mini 不只是收信電腦：11 個隱藏用途（中文重點整理）</h1>
+</div>
+
+<div class="note">📌 <b>這是中文摘要改寫，不是全文翻譯。</b>完整內容請看原文。<br>
+✍️ 原作者：<b>Jack（<a href="https://x.com/jackcoder0">@jackcoder0</a>）</b><br>
+🔗 原文串：<a href="https://x.com/jackcoder0/status/2114383054387188206">x.com/jackcoder0/status/2114383054387188206</a><br>
+<span class="meta">發文時間：2026-10-25 23:46（台北時間）｜X 推文串，共 14 則</span></div>
+<div class="note">⚠️ 標有 <span class="uv">未查證</span> 的數字或產品規格，是原文說法，我們沒有找到官方來源確認。原文<b>沒有附任何參考連結</b>。另外原文標題說有「11 個功能」，但串文裡實際只編號到第 10 個。</div>
+
+<h2>🎬 開場故事</h2>
+<div class="card">作者講了一個故事：有人花 599 美元買了 Mac Mini，接上螢幕鍵盤，整整兩年只拿來上網收信。後來一位同事（系統工程師，家裡跑三台 Mac Mini 當伺服器）看到後說了一句重話：
+<blockquote>「你把一台伺服器當桌機用……結果你拿它來收 Gmail。」</blockquote>
+<div class="eg">🍳 白話：就像買了一台多功能電鍋，卻只拿來煮白飯。</div></div>
+
+<h2>💡 為什麼 Mac Mini 被低估</h2>
+<div class="card">
+<ul>
+<li>外型像一台路由器，沒螢幕沒喇叭，很容易被當成「便宜入門機」。</li>
+<li>Apple 晶片的「統一記憶體」讓 CPU、顯示晶片、AI 引擎共用同一塊記憶體，作者認為跑 AI 比同價位 PC 快。</li>
+<li>待機只吃約 3–4 瓦，全天開著一個月電費約 1–2 美元，像一盞小夜燈 <span class="uv">未查證</span>；同級 PC 待機約 30–80 瓦 <span class="uv">未查證</span>。</li>
+<li>Mac Studio 則更強：更多連接埠、10Gb 網路、最高 512GB 記憶體、M5 Ultra 晶片 <span class="uv">未查證</span>。</li>
+</ul>
+<div class="eg">🧠 「統一記憶體」白話版：像全家共用一個大冰箱，不必把菜從這台冰箱搬到那台。</div></div>
+
+<h2>🧰 十個功能</h2>
+
+<div class="card"><h3><span class="num">1</span>🗄️ 無螢幕伺服器模式</h3>
+只插電和網路線，塞進櫃子裡，用別台裝置遠端操作。作者教的設定：在「系統設定 → 一般 → 共享」打開「螢幕共享」和「遠端登入」；在「能源」裡關掉自動睡眠；並開啟停電後自動重開機。
+<div class="eg">🏠 例子：出門在外，用 iPad 連回家裡那台 Mac 拿檔案。</div></div>
+
+<div class="card"><h3><span class="num">2</span>🤖 在家跑私人 AI</h3>
+安裝免費工具 <a href="https://ollama.com">Ollama</a>，下載一個開源模型（例如 Llama 3），就能離線聊天，不用月費、資料不出門。作者依記憶體大小分級：16GB 適合較小模型；32–64GB 可跑更大模型，作者稱「在許多任務接近 GPT-4」<span class="uv">未查證</span>；Mac Studio 大記憶體版本可跑超大模型。他也提到「M6 Mac Mini」可達每秒 60 個字詞以上 <span class="uv">未查證</span>。
+<div class="eg">💬 例子：把私人日記丟給 AI 整理，但完全不經過網路。</div></div>
+
+<div class="card"><h3><span class="num">3</span>📺 變成 Apple TV（AirPlay 接收器）</h3>
+設定「AirDrop 與接力 → AirPlay 接收器」打開後，用 HDMI 接電視，家裡的 iPhone、iPad 就能把畫面或音樂投過去。作者說可省下一台 Apple TV。
+<div class="eg">🛏️ 例子：睡前用手機把助眠 Podcast 投到臥室電視播放。</div></div>
+
+<div class="card"><h3><span class="num">4</span>🔍 原況文字（從圖片抓字）</h3>
+照片、網頁圖片、甚至暫停中的影片畫面上的文字，都能直接選取、複製、翻譯，在本機完成。進階玩法：用「捷徑」做一個快捷鍵，截圖後自動把文字存進筆記。
+<div class="eg">🧾 例子：拍下收據，直接複製上面的金額和店名。</div></div>
+
+<div class="card"><h3><span class="num">5</span>🎙️ 離線聽寫</h3>
+作者說從 macOS Ventura 起，Apple 晶片的 Mac 聽寫可在本機處理、不必上網，也不再有 60 秒限制。按麥克風鍵說話就會變文字。
+<div class="eg">✍️ 例子：不想打字時，用講的寫完一封長信。</div></div>
+
+<div class="card"><h3><span class="num">6</span>⚡ 「捷徑」自動化</h3>
+Mac 內建的「捷徑」App 可以把好幾個步驟串成一鍵完成。作者舉的例子：早安簡報（行事曆＋天氣＋信件標題）、收據自動記帳、會議準備、下班一鍵收工。他說可取代每月 50 美元的付費工具 <span class="uv">未查證</span>。
+<div class="eg">🌅 例子：早上按一下，天氣和今天行程一次跳出來。</div></div>
+
+<div class="card"><h3><span class="num">7</span>🔗 多台 Mac 串成 AI 叢集</h3>
+作者說 Mac Studio 可透過 Thunderbolt 5 把多台機器串起來一起跑大型 AI，速度最高約單機 3 倍、M5 Ultra 的 AI 效能是 M3 Ultra 的 4.3 倍 <span class="uv">未查證</span>。這比較適合研究者或工作室。
+<div class="eg">🧱 白話：一張桌子放不下的大拼圖，拆到兩三張桌子一起拼。</div></div>
+
+<div class="card"><h3><span class="num">8</span>💾 時光機備份</h3>
+插一顆外接 SSD，開啟 Time Machine，系統就會每小時自動備份；保留過去一天的每小時備份、過去一個月的每日備份，更早的每週一份，滿了自動刪最舊的。
+<div class="eg">🗑️ 例子：三週前誤刪的照片，還能找回來。</div></div>
+
+<div class="card"><h3><span class="num">9</span>🖥️ 接多台螢幕</h3>
+作者說 M4 Pro 版 Mac Mini 最多接 3 台螢幕，Mac Studio 更多（M5 Max 4 台、M5 Ultra 8 台）<span class="uv">未查證</span>。他估算三螢幕工作站總價約 900–1,200 美元，比同級 PC 便宜 <span class="uv">未查證</span>。
+<div class="eg">📈 例子：一台看資料、一台寫東西、一台開聊天。</div></div>
+
+<div class="card"><h3><span class="num">10</span>🏡 智慧家庭中樞</h3>
+作者說在 iCloud 設定的「家庭」裡可把這台 Mac 設成 HomeKit 家庭中樞，讓燈、門鎖、攝影機全天由它控制，人在外面也能用 iPhone 操作 <span class="uv">未查證</span>（Apple 官方一般以 Apple TV、HomePod 當家庭中樞）。
+<div class="eg">💡 例子：下班路上用手機先把家裡的燈打開。</div></div>
+
+<h2>🧾 作者的結論</h2>
+<div class="card">作者認為 Mac Mini 是「每瓦效能最高」的 Mac，只是長得像路由器、又被當成入門機在賣。結尾引那位工程師的話：家裡三台 Mac Mini 分別當影音伺服器、AI 主機、智慧家庭兼 VPN，一個月電費約 5 美元 <span class="uv">未查證</span>。
+<blockquote>「這台鋁盒子能做的比你想的多，一直都是。」</blockquote>
+他建議今晚就打開系統設定試試：螢幕共享、AirPlay 接收器、捷徑、安裝 Ollama。最後一則是請讀者轉發並追蹤他。</div>
+
+<div class="note">🙋 小提醒：原文串帶有一些推銷口吻，部分功能（例如 VPN、媒體伺服器）開場有提到，但串中沒有詳細教學。</div>
+
+<a class="btn" href="https://x.com/jackcoder0/status/2114383054387188206">👉 前往 X 閱讀原文全文</a>
+<p class="meta">本頁為中文摘要改寫，著作權屬原作者 @jackcoder0。</p>
+</main></body></html>
