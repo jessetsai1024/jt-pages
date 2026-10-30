@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>阿嬤也看得懂的 Herdr：AI 小幫手的家</title>
+<title>阿嬤也看得懂的 Herdr 桌面版 Mod</title>
 <style>
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -32,55 +32,10 @@ a{color:#b04a00;word-break:break-all}
 <body>
 <main>
 <p class="sub">🧓 阿嬤版科技小教室</p>
-<h1>Herdr 是什麼？<br>幫 AI 小幫手蓋一個「家」🏠</h1>
-<p>現在很多工程師會請「AI 小幫手」（像 Claude Code、Codex）幫忙寫程式。小幫手一多，就像家裡同時請了好幾個幫傭，大家各忙各的，很容易亂。</p>
-<p><b>Herdr</b> 就是給這些小幫手住的一間大房子：誰在忙、誰做完、誰在等你回話，一眼就看得到。</p>
-<span class="tag ok">✅ 已查證</span> 官網說它是給 Claude Code、Codex 等寫程式 AI 的工作空間，而且是<b>免費開源</b>（Apache 2.0 授權，等於食譜公開，大家都可以看、可以改）。
+<h1>Herdr 桌面版的 Mod：<br>冰箱上的小磁鐵 🧲</h1>
+<p>Herdr 桌面版是一個讓好幾個「AI 寫程式小幫手」（像 Claude Code、Codex）一起上班的電腦程式。今天只講它最好玩的地方：<b>Mod</b>。</p>
 
-<svg viewBox="0 0 340 200" role="img" aria-label="一間房子裡有三個小幫手">
-<rect x="20" y="80" width="300" height="110" rx="12" fill="#ffd9a0" stroke="#7a3e00" stroke-width="4"/>
-<polygon points="10,85 170,10 330,85" fill="#e86a3a" stroke="#7a3e00" stroke-width="4"/>
-<text x="60" y="150" font-size="44">🤖</text><text x="145" y="150" font-size="44">🧑‍🍳</text><text x="230" y="150" font-size="44">🤖</text>
-<text x="118" y="68" font-size="24" fill="#fff" font-weight="700">Herdr</text>
-</svg>
-
-<h2>🏡 兩間房子：老房子和新房子</h2>
-<div class="card"><div class="big">💻</div><h3>老房子：Herdr TUI</h3>
-<p>最早的 Herdr，住在「終端機」那種黑底白字的視窗裡。</p></div>
-<div class="card"><div class="big">🪟</div><h3>新房子：桌面 App</h3>
-<p>新做的「真正的電腦程式」，有漂亮的視窗，Mac、Linux、Windows 都能用。</p></div>
-<div class="card"><span class="tag ok">✅ 已查證</span>
-<p>兩間房子<b>不共用小幫手</b>：在老房子裡做事的，新房子看不到，反過來也一樣。就像兩個不同的廚房，各有各的廚師。</p></div>
-
-<h2>🍲 關門了，廚房照樣在煮</h2>
-<div class="card">
-<svg viewBox="0 0 340 170" role="img" aria-label="門關上，廚房裡鍋子還在冒煙">
-<rect x="10" y="20" width="200" height="140" rx="10" fill="#fff" stroke="#7a3e00" stroke-width="4"/>
-<text x="40" y="110" font-size="52">🍲</text><text x="120" y="110" font-size="52">👩‍🍳</text>
-<rect x="215" y="20" width="110" height="140" rx="8" fill="#a8693a" stroke="#7a3e00" stroke-width="4"/>
-<circle cx="305" cy="95" r="7" fill="#ffd34d"/>
-<text x="222" y="70" font-size="20" fill="#fff">門關了</text>
-</svg>
-<p>新 App 的小幫手，其實不是住在你看到的視窗裡，而是住在背後一台小小的「管家機」叫 <code>herdr-core</code>。</p>
-<p>所以你把 App 關掉、更新、甚至它當掉，小幫手都<b>照樣在做事</b>，就像你把廚房門關上，鍋子還在咕嘟咕嘟煮。</p>
-<span class="tag ok">✅ 已查證</span>
-<span class="tag diff">⚠️ 小提醒</span>
-<p>但如果是<b>整台電腦重開機</b>，或管家機本身停了，小幫手就會停下來。官網說新 App 不會自動幫你把工作接回去，要你自己再叫它開始。（老房子 TUI 則說重開機後會把畫面排好、接回對話。）</p>
-</div>
-
-<h2>🗺️ 好幾台電腦，一張清單看完</h2>
-<div class="card"><div class="big">💻🖥️☁️</div>
-<p>你家的筆電、樓上的桌機、外面租的伺服器，只要能用 SSH（一種安全的遠端連線）連到，就能全部加進來，排在<b>同一條側邊欄</b>裡。</p>
-<p>就像把好幾家分店的員工名單，貼在同一張白板上。你的筆電睡著了，遠端那台的小幫手還在繼續做。</p>
-<span class="tag ok">✅ 已查證</span></div>
-
-<h2>📨 小幫手也會請小幫手</h2>
-<div class="card"><div class="big">👩‍🍳➡️🧑‍🍳</div>
-<p>大廚可以把「切菜」交給二廚，自己繼續炒菜。二廚切好了，會<b>自動回報</b>給大廚，不用你在中間傳話。</p>
-<p>大廚也可以中途跟二廚說「再看一次」。你只要聽最後結果就好。</p>
-<span class="tag ok">✅ 已查證</span></div>
-
-<h2>🧲 Mods：冰箱上的小磁鐵</h2>
+<h2>🧲 Mod 是什麼？</h2>
 <div class="card">
 <svg viewBox="0 0 340 210" role="img" aria-label="冰箱上貼著磁鐵">
 <rect x="90" y="10" width="160" height="190" rx="16" fill="#e8f2ff" stroke="#2b4a7a" stroke-width="4"/>
@@ -88,86 +43,102 @@ a{color:#b04a00;word-break:break-all}
 <text x="110" y="60" font-size="34">🍓</text><text x="180" y="60" font-size="34">⏰</text>
 <text x="110" y="140" font-size="34">⌨️</text><text x="180" y="140" font-size="34">📌</text>
 </svg>
-<p>冰箱（App 的畫面）本身不用換，<b>Mod 就是貼上去的小磁鐵</b>：多一個小面板、一個選單、一組快捷鍵。</p>
-<p>它們其實是放在 <code>~/.config/herdr-app/mods/</code> 資料夾裡的 JavaScript 小檔案。</p>
+<p>想像 Herdr 的畫面是一台<b>冰箱</b>。冰箱不用換，你只是在上面<b>貼小磁鐵</b>：一個便條板、一個計時器、一組快捷鍵。</p>
+<p>官網的說法是：Mod 是「加在你現有版面上的一小塊」，例如一組按鍵或一個面板。</p>
 <span class="tag ok">✅ 已查證</span></div>
 
-<div class="card"><h3>🔤 官方範例：Tmux prefix</h3>
-<p>先按 <b>Ctrl+B</b>，再按一個鍵，就能切換分頁、窗格。旁邊還會跳出小提示，等你想好要按什麼。像是「先按門鈴，再說要找誰」。</p>
+<div class="card"><div class="big">📁</div><h3>磁鐵收在哪？</h3>
+<p>每個 Mod 都是一個小資料夾，放在電腦裡的 <code>~/.config/herdr-app/mods/</code>。就像冰箱旁邊那個專門放磁鐵的小盒子。</p>
+<p>同一層還有一份 <code>AGENTS.md</code>，算是<b>家規</b>，寫明 AI 小幫手可以改哪些東西。所以你只要開口，小幫手就會照家規幫你貼磁鐵。</p>
 <span class="tag ok">✅ 已查證</span></div>
 
-<div class="card"><h3>📋 怎麼裝？</h3>
-<p>網站上<b>複製一行字</b>，貼給你的 AI 小幫手，它就會幫你把磁鐵貼好。你不用自己動手。</p>
-<span class="tag ok">✅ 已查證</span></div>
-
-<div class="card"><h3>🎁 怎麼分享自己的？</h3>
+<h2>🔤 官方範例：Tmux prefix</h2>
+<div class="card"><div class="big">🔔➡️🚪</div>
+<p>就像<b>先按門鈴，再說要找誰</b>：</p>
 <ul>
-<li>請小幫手寫一份 <code>RECIPE.md</code>（食譜：別人的小幫手照著就能做出來）</li>
-<li>拍一張 <code>preview.png</code> 照片</li>
-<li>放到 GitHub 公開，貼上標籤 <code>herdr-mod</code>，大約一小時內就會出現在網站上</li>
+<li>先按 <b>Ctrl+B</b>，畫面上方會跳出一張小提示卡，靜靜等你按下一個鍵（不會自己消失）</li>
+<li>按 <b>c</b>：開新分頁</li>
+<li>按 <b>n / p</b>：下一個／上一個分頁</li>
+<li>按 <b>1～9、0</b>：直接跳到第幾個分頁</li>
+<li>按 <b>%</b> 或 <b>"</b>：把畫面切成左右或上下兩格</li>
+<li>按 <b>?</b>：看全部按鍵；按 <b>Esc</b>：算了不按</li>
 </ul>
-<span class="tag ok">✅ 已查證</span>
-<span class="tag diff">⚠️ 要小心</span>
-<p>官方<b>不會審查</b>別人做的 Mod，是靠你的小幫手在裝之前把每個檔案讀過。陌生人送的磁鐵，先看清楚再貼。</p></div>
-
-<div class="card"><h3>🛋️ 再大一號：Layout（版面）</h3>
-<p>磁鐵是小東西；<b>Layout 是整個廚房重新擺</b>。分享時標籤用 <code>herdr-layout</code>。</p>
+<p>官網特別說：這只是貼在現有版面上的一小塊，不是換掉整個視窗。</p>
 <span class="tag ok">✅ 已查證</span></div>
 
-<h2>💡 它的想法：叫幫手直接改房子</h2>
-<div class="quote">“Made for your agents. Remade by them.”<br>（做給你的 AI 小幫手用，也讓它們來改造。）</div>
-<div class="card"><div class="big">🧹🪑</div>
-<p>一般軟體要加功能，常常得去買「加裝套件」。Herdr 的想法是：<b>不用買套件，直接跟幫手說「幫我把沙發搬到窗邊」</b>，它就去搬。</p>
-<p>因為 App 的每一個部分，都是 <code>~/.config/herdr-app/</code> 裡的普通檔案：</p>
+<h2>🌈 大家做的磁鐵（社群）</h2>
+<div class="card">
+<p>GitHub 上已經有人分享，下面是作者自己寫的介紹（我只換成白話）：</p>
 <ul>
-<li><code>AGENTS.md</code>：家規，寫明小幫手可以改什麼</li>
-<li><code>settings.json</code>：字型、顏色、聲音</li>
-<li><code>keys.json</code>：快捷鍵</li>
-<li><code>layouts/</code>、<code>mods/</code>、<code>themes/</code>：版面、磁鐵、佈景</li>
+<li>⌨️ <b>herdr-jump</b>：按 Cmd+1…9 跳到某個工作區</li>
+<li>↩️ <b>herdr-reopen-tab</b>：不小心關掉分頁，按 Cmd+Shift+T 叫回來</li>
+<li>🖱️ <b>herdr-quick-close</b>：用滑鼠中鍵一按就關分頁</li>
+<li>🌳 <b>herdr-git-graph</b>：把程式的修改紀錄畫成一張樹狀圖</li>
+<li>📂 <b>herdr-space-picker</b>：挑資料夾時有自動完成、最愛、最近用過</li>
+<li>🏷️ <b>herdr-auto-titles</b>：自動幫每件工作取標題</li>
 </ul>
-<div class="quote">“No plugin system, no fork to maintain. You ask, it edits.”<br>（沒有外掛系統，也不用自己另起爐灶；你開口，它就改。）</div>
-<p>官網的例子：跟小幫手說「每個分頁放個計時器」，它就去改檔案，做好了。</p>
+<span class="tag ok">✅ 確實存在</span>
+<span class="tag no">❓ 未試用</span>
+<p>這些是 GitHub 上標了 <code>herdr-mod</code> 的專案（2026-10-30 查到 12 個）。我沒有實際裝來試，好不好用沒驗證。</p></div>
+
+<h2>📋 怎麼裝？三步驟</h2>
+<div class="card"><div class="big">1️⃣</div><h3>到網站挑一個</h3>
+<p>打開 <a href="https://herdr.dev/mods/">herdr.dev/mods</a>，點進喜歡的 Mod。</p></div>
+<div class="card"><div class="big">2️⃣</div><h3>按「Copy」複製一行字</h3>
+<p>Tmux prefix 那行字大概是這樣：</p>
+<div class="quote"><code>Read ~/.config/herdr-app/AGENTS.md, then add this mod: herdr.dev/mods/herdrdev/tmux-prefix</code></div>
+<p>意思是：「先讀家規，再幫我加這個磁鐵。」</p></div>
+<div class="card"><div class="big">3️⃣</div><h3>貼給你的 AI 小幫手</h3>
+<p>在 Herdr 裡把這行貼給小幫手，它就會<b>自己動手貼好</b>，放在你原本的東西旁邊。你不用懂程式。</p>
+<span class="tag ok">✅ 已查證</span></div>
+<div class="card"><div class="big">✏️</div><h3>想要自己的磁鐵？</h3>
+<p>直接跟小幫手講，例如官網的例子：「每個分頁放個計時器，顯示小幫手忙多久了」，它就去改 mods 裡的檔案，做好了。</p>
+<div class="quote">“You ask, it edits.”（你開口，它就改。）</div>
 <span class="tag ok">✅ 已查證</span></div>
 
-<h2>⚖️ 對照：老房子用「正式套件」</h2>
-<div class="vs">
-<div class="card"><div class="big">📦</div><h3>老房子 TUI：有外掛系統</h3>
-<p>有正式的外掛（plugin）：每個外掛有一張說明書 <code>herdr-plugin.toml</code>，用 <code>herdr plugin install 作者/專案</code> 安裝，還有一個外掛市集。</p>
-<p>官方文件說：整個 Herdr 指令工具<b>本身就是</b>外掛能用的介面。</p>
-<span class="tag ok">✅ 已查證</span>
-<span class="tag diff">⚠️ 要小心</span>
-<p>外掛<b>沒有沙盒</b>（沒有隔離的安全小房間），用你的身分在電腦上跑。只裝信得過的來源。</p></div>
-<div class="card"><div class="big">🗣️</div><h3>新房子 App：用嘴巴改</h3>
-<p>沒有外掛系統，改什麼都是叫小幫手去改檔案。</p></div>
-</div>
+<h2>⚠️ 安全小叮嚀</h2>
+<div class="card"><div class="big">🕵️‍♀️</div>
+<p>官方<b>不審查</b>大家做的 Mod。官網說，是靠你的 AI 小幫手在加之前把每個檔案讀過。社群的預覽圖倒是會先過濾，而且至少等 24 小時才出現。</p>
+<p>就像陌生人送你的磁鐵：<b>先翻過來看看背面，再貼上冰箱</b>。來路不明的，別急著裝。</p>
+<span class="tag ok">✅ 已查證</span></div>
 
-<h2>👀 順便認識：Rex</h2>
-<div class="card"><div class="big">🦖</div>
-<p>Rex 是 Mitchell Hashimoto（做過 Terraform、Ghostty 的知名工程師）新創公司 <b>Superlogical</b> 做的「終端機多工器」，也就是一個能同時管很多終端機視窗、關掉再回來還在的工具。</p>
-<p>它的設定和擴充是用 <b>Lua</b> 小程式寫的。跟 Herdr 比：Rex 是「寫一份 Lua 說明給機器照做」；Herdr 新 App 是「直接叫 AI 小幫手改檔案」。</p>
-<span class="tag ok">✅ 已查證</span>
-<span class="tag diff">⚠️ 小補充</span>
-<p>嚴格說是 Mitchell 和夥伴共同創辦的 Superlogical 公司做的；目前還在<b>測試階段</b>（2026 年 10 月開始公開測試，先開放 macOS）。</p></div>
+<h2>🎁 怎麼分享自己做的？</h2>
+<div class="card"><div class="big">1️⃣</div><h3>請小幫手寫「食譜」</h3>
+<p>網站上有一段現成的話可複製，貼給小幫手，它會寫出 <code>RECIPE.md</code>：一份別人的小幫手照著就能做出同樣磁鐵的食譜。</p></div>
+<div class="card"><div class="big">2️⃣</div><h3>放進一個資料夾</h3>
+<ul>
+<li>Mod 本體（<code>mods/</code> 裡那一份）</li>
+<li><code>RECIPE.md</code> 食譜</li>
+<li><code>preview.png</code> 一張截圖</li>
+<li>需要的話，一小段按鍵設定 <code>keys.json</code></li>
+</ul>
+<p>注意：不要放 <code>layouts/</code> 資料夾。一個專案可以裝好幾個 Mod。</p></div>
+<div class="card"><div class="big">3️⃣</div><h3>放上 GitHub，貼標籤</h3>
+<p>放到公開的 GitHub 專案，加上標籤 <code>herdr-mod</code>。不用註冊，大約一小時內就會出現在網站的 Community 區。</p>
+<span class="tag ok">✅ 已查證</span></div>
+
+<h2>🛋️ Mod 和 Layout 差在哪？</h2>
+<div class="card vs">
+<p>🧲 <b>Mod</b>：貼在現有畫面上的小東西（一組按鍵、一個面板）。分享標籤 <code>herdr-mod</code>。</p>
+<p>🛋️ <b>Layout</b>：整個畫面的擺法，像把整間廚房重新排過。分享標籤 <code>herdr-layout</code>。</p>
+<span class="tag ok">✅ 標籤已查證</span>
+<span class="tag diff">⚠️ 我的推論</span>
+<p>「Layout 比 Mod 大一號」是我自己歸納的說法。官網只說 Mod 是「一小塊」、不是整個視窗，也說 tmux 那種較小的東西算 Mod。</p></div>
 
 <h2>📝 阿嬤重點三句話</h2>
 <div class="card"><ul>
-<li>🏠 Herdr 是 AI 小幫手住的家，誰需要你，它會提醒你。</li>
-<li>🍲 新 App 關掉了，小幫手照樣在背後做事。</li>
-<li>🧲 想加東西不用買套件，跟小幫手說一聲，它就幫你改；Mod 就像冰箱磁鐵。</li>
+<li>🧲 Mod 就是冰箱磁鐵：不換冰箱，只多貼一個小功能。</li>
+<li>📋 想裝？複製網站上一行字，貼給 AI 小幫手，它幫你貼好。</li>
+<li>🕵️‍♀️ 官方不審查，陌生人的磁鐵先看清楚再貼。</li>
 </ul></div>
 
 <h2>📚 資料來源</h2>
 <div class="card src"><ul>
-<li><a href="https://herdr.dev/">herdr.dev 官網（桌面 App）</a></li>
-<li><a href="https://herdr.dev/tui/">herdr.dev/tui（Herdr TUI）</a></li>
-<li><a href="https://herdr.dev/mods/">herdr.dev/mods（Mods）</a></li>
-<li><a href="https://herdr.dev/plugins/">herdr.dev/plugins（外掛市集）</a></li>
-<li><a href="https://herdr.dev/docs/plugins/">Herdr 外掛文件（含安全說明）</a></li>
-<li><a href="https://github.com/herdrdev/herdr-app">GitHub：herdrdev/herdr-app</a></li>
-<li><a href="https://github.com/herdrdev/herdr">GitHub：herdrdev/herdr</a></li>
-<li><a href="https://mitchellh.com/writing/superlogical">Mitchell Hashimoto：Superlogical</a></li>
-<li><a href="https://www.superlogical.com/updates/public-testing-beginning">Superlogical：Rex 公開測試</a></li>
-<li><a href="https://www.superlogical.com/rex/docs/automate/lua-scripts">Rex 文件：Lua Scripts</a></li>
+<li><a href="https://herdr.dev/mods/">herdr.dev/mods（Mods 總覽與分享方式）</a></li>
+<li><a href="https://herdr.dev/mods/herdrdev/tmux-prefix/">Tmux prefix 官方範例頁</a></li>
+<li><a href="https://herdr.dev/">herdr.dev 官網（設定資料夾、AGENTS.md）</a></li>
+<li><a href="https://herdr.dev/layouts/">herdr.dev/layouts（Layouts）</a></li>
+<li><a href="https://github.com/topics/herdr-mod">GitHub：herdr-mod 標籤</a></li>
 </ul></div>
 <p class="foot">網頁小工坊製作｜資料查證於 2026-10-30（台北時間）｜內容以自己的話改寫，引文僅為簡短原文。</p>
 </main>
