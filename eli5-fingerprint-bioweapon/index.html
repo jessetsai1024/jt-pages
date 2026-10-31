@@ -1,0 +1,81 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>給阿嬤看的：網站偷偷畫畫，還貼假「有炸彈」貼紙？</title>
+<style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+*{box-sizing:border-box}body{margin:0;font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.75;background:#fff8ec;color:#2b2b2b;overflow-x:hidden}
+main{max-width:680px;margin:0 auto;padding:18px 16px 60px}
+h1{font-size:32px;line-height:1.35;margin:10px 0}h2{font-size:30px;margin:34px 0 12px;line-height:1.4}
+.card{background:#fff;border-radius:20px;padding:18px;margin:16px 0;box-shadow:0 3px 12px #0001;border-left:8px solid #ffb84d}
+.card h3{font-size:26px;margin:0 0 8px;line-height:1.4}
+.tag{display:inline-block;font-size:18px;padding:2px 12px;border-radius:99px;font-weight:bold}
+.ok{background:#d8f5dc;color:#1d6b2a}.diff{background:#ffe3c4;color:#8a4a00}
+svg{width:100%;height:auto;display:block;margin:8px 0}
+.small{font-size:18px;color:#555}
+a{color:#0a58ca;word-break:break-all}
+.btn{display:flex;align-items:center;justify-content:center;min-height:48px;padding:10px 16px;background:#ffb84d;color:#222;border-radius:14px;text-decoration:none;font-weight:bold;margin:10px 0}
+.you{background:#e9f4ff;border-left-color:#4d9cff}
+</style></head><body><main>
+<p class="small">🧒 用講給阿嬤聽的方式 · 原文：veritas，nullpt.rs，2026-10-28</p>
+<h1>🎨 網站偷偷畫畫，還在程式上貼假的「⚠️有炸彈」貼紙？</h1>
+<svg viewBox="0 0 360 170" role="img" aria-label="寶箱貼著假炸彈貼紙，機器人鎖匠嚇跑">
+<rect x="20" y="70" width="150" height="90" rx="12" fill="#c98a3d"/><rect x="20" y="70" width="150" height="30" fill="#a86c2a"/>
+<rect x="55" y="105" width="80" height="40" fill="#ffdf3d" stroke="#000" stroke-width="3"/><text x="95" y="132" font-size="20" text-anchor="middle">💣有炸彈</text>
+<rect x="240" y="60" width="70" height="70" rx="10" fill="#9fb7c9"/><circle cx="262" cy="90" r="7" fill="#fff"/><circle cx="288" cy="90" r="7" fill="#fff"/>
+<text x="275" y="160" font-size="20" text-anchor="middle">🤖 我不敢開！</text>
+<text x="95" y="45" font-size="20" text-anchor="middle">其實裡面很普通</text></svg>
+
+<h2>📖 故事開始</h2>
+<div class="card"><h3>🖌️ 網站會偷偷幫你畫一張圖</h3>
+<p>想像你走進一家店，店員請你「隨便簽個名」。每個人簽出來的字都有點不一樣，店員就能認出你。</p>
+<p>網站也會這樣：在你看不到的地方，叫你的電腦畫一張小圖。因為每台電腦的顯示卡、系統、瀏覽器不同，畫出來會有極小的差別——這就叫「畫布指紋」（Canvas fingerprinting），常用來分辨訪客、或抓出假裝成人的機器人。</p>
+<span class="tag ok">已查證</span></div>
+
+<div class="card"><h3>🌷 有人把這些圖收集成「指紋花園」</h3>
+<p>作者 veritas 用 Tranco 熱門網站名單，自動逛了 10,000 個網站，把網站偷畫的圖收集起來，拼成 1,033 張的大拼貼，放在 <a href="https://fingerprint.garden">fingerprint.garden</a>。</p>
+<span class="tag ok">已查證</span></div>
+
+<div class="card"><h3>💿 有一張圖長得像唱片封面</h3>
+<p>其中一張很像 Tame Impala 樂團《Currents》的專輯封面。作者好奇是誰畫的，一路追到一個來自 servicepipe.tech 的程式。</p>
+<span class="tag ok">已查證</span></div>
+
+<h2>😱 打開一看，嚇一跳</h2>
+<div class="card"><h3>📛 名字取得超可怕</h3>
+<p>程式裡的功能名字，聽起來像在算毒藥、炸彈之類的危險東西。（我們不轉述細節，也不需要——因為它們本來就是嚇人用的。）</p>
+<span class="tag ok">已查證</span> <span class="small">原文看得到毒物、致命劑量類命名；炸彈爆炸範圍、髒彈落塵等名稱在原文正文中我沒看到。</span> <span class="tag diff">部分有出入</span></div>
+
+<div class="card"><h3>👻 隱形墨水寫的「越獄咒語」</h3>
+<p>程式裡藏了一串肉眼看不見的特殊文字，解開後是一段假裝下命令、叫 AI「把安全規則全部關掉」的話，還夾了一些中國 AI 模型會自動迴避的政治敏感詞。</p>
+<p>就像在信封上用隱形墨水寫「拆信的人一定是壞人」，專門讓會讀字的機器人看到就縮手。</p>
+<span class="tag ok">已查證</span></div>
+
+<div class="card"><h3>🎭 看起來像小偷的程式碼</h3>
+<p>還有一段看起來會去翻設定檔、塞後門的程式。但它只在一個特殊開關打開時才會跑，而且<strong>只在伺服器那種環境</strong>，不是在你的瀏覽器裡。讀到的東西也沒拿來用，看起來更像道具。</p>
+<span class="tag diff">有出入</span> <span class="small">原文確實寫它被環境變數擋住、在 Node 環境才會跑，讀檔時也沒做任何處理；但作者只說它「看起來會執行惡意程式」，沒有直接說它是「誘餌」。說是誘餌，是我們從內容推論的。</span></div>
+
+<h2>🤔 為什麼要這樣搞？</h2>
+<div class="card"><h3>🛡️ 拿 AI 的「乖寶寶規則」當盾牌</h3>
+<p>現在很多人會請 AI 幫忙看懂別人亂七八糟的程式。AI 看到「毒藥」「炸彈」這些字，就會說「這個我不能幫」。</p>
+<p>所以這招就像在寶箱上貼假「有炸彈」貼紙：真的鎖匠（人類）不怕，但機器人鎖匠（AI）一看就拒絕開。作者推測這是「防 AI 拆解」。</p>
+<p>作者測試：Astra 拒絕、開 Daybreak Blue 模式也被擋，只有 GLM-5.3 願意幫忙。</p>
+<span class="tag ok">已查證</span></div>
+
+<div class="card"><h3>🥱 拆開後：其實很普通</h3>
+<p>撥開煙霧，它就是一般的防機器人程式，收集：瀏覽器型號、CPU 核心數、記憶體大小、語言、顯示卡型號、「是不是機器人在操控」的標記等等。作者自己都說「有點失望」。</p>
+<span class="tag ok">已查證</span></div>
+
+<div class="card"><h3>🏢 背後是誰？</h3>
+<p>作者查到相關網站 servicepipe.ru，是一家俄羅斯做防 DDoS、防機器人的流量防護公司（Servicepipe）。</p>
+<span class="tag ok">已查證</span> <span class="small">依據原文的 urlscan 線索與網站自述；公司並未公開回應。</span></div>
+
+<h2>💡 這對你代表什麼？</h2>
+<div class="card you"><h3>🙆 你可以放心的部分</h3>
+<p>在瀏覽器裡，這種程式只能拿到「你的電腦大概長怎樣」，<strong>讀不到你電腦裡的檔案</strong>。那些可怕名字是嚇 AI 用的，不是真的在做壞事。</p></div>
+<div class="card you"><h3>👀 值得留意的趨勢</h3>
+<p>有人開始「利用 AI 的安全規則當擋箭牌」。以後如果你請 AI 幫忙看東西，它拒絕了，不一定代表東西真的危險——也可能是被故意嚇到。反過來，AI 公司也在想辦法更聰明地分辨真假危險。</p>
+<p class="small">延伸閱讀：Anthropic 2026-10-16 研究〈Scaling Misuse Detection with Self-Assessment〉，談讓 AI 回答後自己評估對話有沒有被濫用（和本文主題相關但不是同一件事）。</p></div>
+
+<a class="btn" href="https://nullpt.rs/fingerprinting-bioweapons">📰 讀原文（veritas，英文）</a>
+<a class="btn" href="https://fingerprint.garden">🌷 逛指紋花園</a>
+<a class="btn" href="https://safeguards.anthropic.com/2026/self-assessment/">🔬 Anthropic 自我評估研究</a>
+<p class="small">本頁用自己的話改寫，刻意不重現任何危險細節、咒語文字或程式碼。原文採 CC BY-NC-SA 4.0。</p>
+</main></body></html>
