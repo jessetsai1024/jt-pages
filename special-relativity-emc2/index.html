@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>狹義相對論：從光速不變推到 E = mc²</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.7;color:#1f2330;background:linear-gradient(180deg,#eef3ff,#fff7ee);overflow-x:hidden}
+main{max-width:720px;margin:0 auto;padding:16px 12px 40px}
+header{text-align:center;padding:20px 8px}
+h1{font-size:32px;line-height:1.35;margin:.2em 0}
+h2{font-size:30px;line-height:1.35;margin:0 0 .4em}
+h3{font-size:26px;margin:.8em 0 .3em}
+.sub{font-size:20px;color:#555}
+.card{border-radius:22px;padding:18px 16px;margin:20px 0;box-shadow:0 4px 14px rgba(0,0,0,.08);background:#fff;border-top:8px solid var(--c,#6e56cf);overflow:hidden}
+.c1{--c:#3b82f6}.c2{--c:#10b981}.c3{--c:#f59e0b}.c4{--c:#ef4444}.c5{--c:#8b5cf6}.c6{--c:#ec4899}.c7{--c:#14b8a6}.c8{--c:#64748b}
+.plain{background:#fff8dc;border-radius:16px;padding:12px 14px;margin:10px 0}
+.eg{background:#e9f8ef;border-radius:16px;padding:12px 14px;margin:10px 0}
+.key{background:var(--c);color:#fff;border-radius:16px;padding:12px 14px;margin:14px 0 4px;font-weight:700}
+.tag{font-weight:700}
+.math{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;max-width:100%;padding:4px 0}
+.katex{font-size:1.1em}
+.katex-display{margin:.5em 0}
+svg{width:100%;height:auto;display:block;margin:10px 0}
+.st{font-size:18px;fill:#1f2330}
+label{display:block;font-size:22px;margin:8px 0 4px}
+input,select,button{font-size:22px;min-height:48px;padding:8px 12px;border-radius:12px;border:2px solid #c7c9d9;width:100%;font-family:inherit}
+button{background:#6e56cf;color:#fff;border:none;font-weight:700;margin-top:12px;cursor:pointer}
+#out{margin-top:12px;font-size:22px}
+.err{color:#b42318;font-weight:700}
+ol,ul{padding-left:1.2em}
+a{color:#2557d6;word-break:break-all;display:inline-block;min-height:44px;padding:6px 0}
+.note{font-size:19px;color:#555}
+footer{font-size:18px;color:#666;text-align:center}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div style="font-size:56px">🚄💡⏱️</div>
+<h1>狹義相對論：從光速不變推到 E = mc²</h1>
+<p class="sub">用火車、光和一點點國中數學，一步一步走到愛因斯坦最有名的式子</p>
+</header>
+
+<section class="card c1">
+<h2>① 兩個出發點（假設）</h2>
+<div class="plain"><span class="tag">🧓 白話先講：</span>整套理論只靠兩句話。第一句：坐在平穩的車上跟站在地上，物理規則一模一樣。第二句：不管你怎麼跑，量到的光速都一樣快。</div>
+<div class="eg"><span class="tag">🍵 生活例子：</span>在平穩行駛的高鐵上倒茶，茶水還是直直落進杯子，跟在家裡一樣——你感覺不出車在動。這就是第一句話。</div>
+<h3>1. 相對性原理</h3>
+<p>所有等速直線運動（不加速）的觀察者，看到的物理定律都相同。沒有任何實驗能分辨「誰才是真的靜止」。</p>
+<h3>2. 光速不變</h3>
+<p>在真空中，每個觀察者量到的光速都是同一個值：</p>
+<div class="math">$$c = 299\,792\,458\ \text{m/s}$$</div>
+<p>就算你追著光跑，光也不會變慢。這跟日常經驗很不一樣：追著公車跑，公車相對你就變慢了；但光不會。</p>
+<div class="key">一句話重點：規則對誰都一樣，光速對誰都一樣——後面所有怪事都從這裡來。</div>
+</section>
+
+<section class="card c2">
+<h2>② 時間膨脹：用「光鐘」推導</h2>
+<div class="plain"><span class="tag">🧓 白話先講：</span>想像一個時鐘，裡面一道光在上下兩面鏡子間來回彈，彈一趟算「滴答」一下。車上的人看，光走直線；月台的人看，車子在往前跑，光就得走斜線。斜線比較長，可是光速又不能變快，所以月台上的人會覺得那一下「滴答」花了比較久。</div>
+<div class="eg"><span class="tag">🏓 生活例子：</span>在行進的火車上把球直直往上丟再接住，車上的人看是上下直線；月台的人看到球畫出一道弧線，走的路比較長。球可以「順便」變快，光卻不行——差別就在這裡。</div>
+<svg viewBox="0 0 320 300" role="img" aria-label="光鐘：車上看與月台看">
+<text x="50" y="22" text-anchor="middle" class="st">🚄 車上看</text>
+<text x="215" y="22" text-anchor="middle" class="st">🧍 月台看</text>
+<rect x="15" y="40" width="70" height="8" fill="#64748b"/><rect x="15" y="232" width="70" height="8" fill="#64748b"/>
+<line x1="50" y1="48" x2="50" y2="232" stroke="#f59e0b" stroke-width="4"/>
+<polygon points="50,52 43,66 57,66" fill="#f59e0b"/>
+<text x="58" y="145" class="st">L</text>
+<line x1="100" y1="30" x2="100" y2="260" stroke="#ccc" stroke-dasharray="5 5"/>
+<rect x="110" y="40" width="50" height="8" fill="#94a3b8"/><rect x="110" y="232" width="50" height="8" fill="#94a3b8"/>
+<rect x="190" y="40" width="50" height="8" fill="#64748b"/><rect x="190" y="232" width="50" height="8" fill="#64748b"/>
+<line x1="135" y1="232" x2="215" y2="48" stroke="#f59e0b" stroke-width="4"/>
+<line x1="215" y1="48" x2="295" y2="232" stroke="#f59e0b" stroke-width="3" stroke-dasharray="7 5"/>
+<line x1="215" y1="48" x2="215" y2="232" stroke="#3b82f6" stroke-width="3"/>
+<line x1="135" y1="232" x2="215" y2="232" stroke="#10b981" stroke-width="4"/>
+<rect x="203" y="220" width="12" height="12" fill="none" stroke="#333"/>
+<text x="221" y="150" class="st">L</text>
+<text x="118" y="132" class="st" fill="#b45309">cΔt/2</text>
+<text x="140" y="256" class="st">vΔt/2</text>
+<text x="210" y="290" text-anchor="middle" class="st">鏡子往右移 → 速度 v</text>
+</svg>
+
+<h3>車上看（靜止的光鐘）</h3>
+<p>鏡子相距 \(L\)，光來回一趟：</p>
+<div class="math">$$\Delta t_0 = \frac{2L}{c}$$</div>
+<h3>月台看（光鐘以速度 v 往右跑）</h3>
+<p>光從下鏡走到上鏡的這段時間是 \(\Delta t/2\)。這段時間裡：</p>
+<ul>
+<li>鏡子往右移了 \(v\Delta t/2\)（水平邊）</li>
+<li>上下距離還是 \(L\)（垂直邊）</li>
+<li>光走的斜邊長 \(c\Delta t/2\)——用 \(c\)，因為光速對月台上的人也一樣</li>
+</ul>
+<p>畢氏定理：</p>
+<div class="math">$$\left(\frac{c\Delta t}{2}\right)^2 = L^2 + \left(\frac{v\Delta t}{2}\right)^2$$</div>
+<p>把含 \(\Delta t\) 的項移到同一邊：</p>
+<div class="math">$$\frac{(\Delta t)^2}{4}\,(c^2 - v^2) = L^2$$</div>
+<div class="math">$$\Delta t = \frac{2L}{\sqrt{c^2 - v^2}}$$</div>
+<p>分子分母同除以 \(c\)，再用 \(\Delta t_0 = 2L/c\)：</p>
+<div class="math">$$\Delta t = \frac{2L/c}{\sqrt{1 - v^2/c^2}} = \frac{\Delta t_0}{\sqrt{1 - v^2/c^2}}$$</div>
+<div class="math">$$\Delta t = \gamma\,\Delta t_0,\qquad \gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$$</div>
+<p>因為 \(v &lt; c\)，\(\gamma\) 一定大於等於 1，所以月台量到的 \(\Delta t\) 比較長：<b>移動中的時鐘看起來走得比較慢。</b></p>
+<div class="key">一句話重點：光走的路變長、速度卻不能變，所以時間只好被拉長 γ 倍。</div>
+</section>
+
+<section class="card c3">
+<h2>③ 長度收縮</h2>
+<div class="plain"><span class="tag">🧓 白話先講：</span>月台和火車上的人對「花了多久」意見不同，那對「有多長」也會意見不同。車上的人錶走得比較少，算出來的距離就比較短。</div>
+<div class="eg"><span class="tag">📏 生活例子：</span>月台上放一根 \(L_0\) 長的尺。火車開過去，月台的人說「車頭從尺頭到尺尾花了 10 秒」；車上的錶卻只走了比 10 秒少一點，於是車上的人用「速度 × 自己的時間」算，覺得那把尺比較短。</div>
+<h3>推導</h3>
+<p>尺靜止在月台，靜止長度 \(L_0\)。月台看火車以 \(v\) 經過整根尺，花的時間：</p>
+<div class="math">$$\Delta t = \frac{L_0}{v}$$</div>
+<p>車上的錶就在車頭跟著跑，是「移動的時鐘」，只走了：</p>
+<div class="math">$$\Delta t_0 = \frac{\Delta t}{\gamma}$$</div>
+<p>車上的人看尺以 \(v\) 往後跑過去，算出的長度：</p>
+<div class="math">$$L = v\,\Delta t_0 = \frac{v\,\Delta t}{\gamma} = \frac{L_0}{\gamma}$$</div>
+<p>⚠️ 只有<b>沿著運動方向</b>的長度會縮短；垂直方向（例如光鐘的高度 \(L\)）不變——前面推時間膨脹時正是用了這一點。</p>
+<div class="key">一句話重點：跑得越快，前進方向上的東西看起來越短，縮成 1/γ。</div>
+</section>
+
+<section class="card c4">
+<h2>④ E = mc² 從哪來</h2>
+<div class="plain"><span class="tag">🧓 白話先講：</span>推東西就是把能量灌給它。速度越接近光速，同樣用力推，速度幾乎不再增加，灌進去的能量變成「更難推動」的動量。把這些能量一點一點加總，就會發現：東西就算不動，本身也藏著一大筆能量，大小是 \(mc^2\)。</div>
+<div class="eg"><span class="tag">🛒 生活例子：</span>推超市推車，一開始越推越快；想像推車快到接近光速時，你出再大的力，它都只會「更重、更難推」，速度卻卡在光速之下。</div>
+<h3>步驟 1：相對論動量</h3>
+<div class="math">$$p = \gamma m v$$</div>
+<h3>步驟 2：力做的功就是能量增加</h3>
+<p>力 \(F = dp/dt\)，走一小段 \(dx = v\,dt\)：</p>
+<div class="math">$$dE = F\,dx = \frac{dp}{dt}\,v\,dt = v\,dp$$</div>
+<h3>步驟 3：算出 dp</h3>
+<p>對 \(p = \gamma m v\) 取微分。因為 \(\dfrac{d\gamma}{dv} = \gamma^3 \dfrac{v}{c^2}\)：</p>
+<div class="math">$$dp = m\left(\gamma + v\,\frac{d\gamma}{dv}\right)dv$$</div>
+<div class="math">$$dp = m\left(\gamma + \gamma^3\frac{v^2}{c^2}\right)dv$$</div>
+<p>把 \(\gamma\) 寫成 \(\gamma^3(1-v^2/c^2)\)，括號裡兩項互相抵消：</p>
+<div class="math">$$dp = m\gamma^3\left(1 - \frac{v^2}{c^2} + \frac{v^2}{c^2}\right)dv$$</div>
+<div class="math">$$dp = m\gamma^3\,dv$$</div>
+<h3>步驟 4：從靜止積分到速度 v</h3>
+<div class="math">$$K = \int_0^{v} v'\,dp = \int_0^{v} m\gamma^3\,v'\,dv'$$</div>
+<div class="math">$$K = \int_0^{v} \frac{m\,v'\,dv'}{\left(1 - v'^2/c^2\right)^{3/2}}$$</div>
+<p>代換 \(u = 1 - v'^2/c^2\)，則 \(du = -\dfrac{2v'}{c^2}\,dv'\)：</p>
+<div class="math">$$K = -\frac{mc^2}{2}\int_1^{1-v^2/c^2} u^{-3/2}\,du$$</div>
+<div class="math">$$K = -\frac{mc^2}{2}\Big[-2u^{-1/2}\Big]_1^{1-v^2/c^2}$$</div>
+<div class="math">$$K = mc^2\left(\frac{1}{\sqrt{1-v^2/c^2}} - 1\right)$$</div>
+<div class="math">$$K = \gamma mc^2 - mc^2$$</div>
+<h3>步驟 5：總能量</h3>
+<p>動能 = 總能量 − 靜止時就有的能量，所以：</p>
+<div class="math">$$E = \gamma mc^2$$</div>
+<p>靜止時 \(v=0\)、\(\gamma=1\)：</p>
+<div class="math">$$E = mc^2$$</div>
+<div class="key">一句話重點：把推東西的能量全部加起來，會多出一項「不動也有」的能量 mc²。</div>
+</section>
+
+<section class="card c5">
+<h2>⑤ 慢速時，回到牛頓</h2>
+<div class="plain"><span class="tag">🧓 白話先講：</span>新理論不是推翻舊理論。在騎車、開車、坐飛機這種「慢」速度下，相對論算出來的答案跟國中學的 \(\tfrac12 mv^2\) 幾乎一樣。</div>
+<div class="eg"><span class="tag">✈️ 生活例子：</span>客機時速約 900 km，\(v/c\) 大約一百萬分之一，\(\gamma\) 跟 1 差不到一兆分之一，日常完全感覺不到。</div>
+<p>當 \(v \ll c\)，用近似 \((1-x)^{-1/2} \approx 1 + \tfrac12 x\)：</p>
+<div class="math">$$\gamma \approx 1 + \frac{1}{2}\frac{v^2}{c^2}$$</div>
+<div class="math">$$K = (\gamma - 1)mc^2$$</div>
+<div class="math">$$K \approx \frac{1}{2}\frac{v^2}{c^2}\,mc^2 = \frac{1}{2}mv^2$$</div>
+<div class="key">一句話重點：慢的時候，相對論自動變回牛頓力學。</div>
+</section>
+
+<section class="card c6">
+<h2>⑥ γ 跟速度的關係</h2>
+<div class="plain"><span class="tag">🧓 白話先講：</span>γ 是「時間被拉長、長度被壓縮」的倍數。速度一半光速時只多 15%；越接近光速，γ 就像爬懸崖一樣往上衝，到光速時會變成無限大——所以永遠到不了。</div>
+<svg viewBox="0 0 320 300" role="img" aria-label="γ 隨速度變化的曲線">
+<line x1="40" y1="250" x2="315" y2="250" stroke="#333" stroke-width="2"/><line x1="40" y1="250" x2="40" y2="15" stroke="#333" stroke-width="2"/>
+<line x1="310" y1="250" x2="310" y2="15" stroke="#999" stroke-dasharray="6 5"/>
+<path d="M40.0,250.0 L41.4,250.0 L42.7,250.0 L44.0,250.0 L45.4,250.0 L46.8,250.0 L48.1,250.0 L49.5,250.0 L50.8,250.0 L52.1,250.0 L53.5,250.0 L54.8,250.0 L56.2,249.9 L57.5,249.9 L58.9,249.9 L60.2,249.9 L61.6,249.9 L63.0,249.9 L64.3,249.9 L65.7,249.9 L67.0,249.8 L68.4,249.8 L69.7,249.8 L71.1,249.8 L72.4,249.8 L73.8,249.7 L75.1,249.7 L76.5,249.7 L77.8,249.7 L79.2,249.6 L80.5,249.6 L81.9,249.6 L83.2,249.6 L84.6,249.5 L85.9,249.5 L87.3,249.5 L88.6,249.5 L90.0,249.4 L91.3,249.4 L92.7,249.4 L94.0,249.3 L95.4,249.3 L96.7,249.3 L98.1,249.2 L99.4,249.2 L100.8,249.1 L102.1,249.1 L103.5,249.1 L104.8,249.0 L106.2,249.0 L107.5,248.9 L108.9,248.9 L110.2,248.8 L111.6,248.8 L112.9,248.7 L114.3,248.7 L115.6,248.6 L117.0,248.6 L118.3,248.5 L119.7,248.5 L121.0,248.4 L122.4,248.4 L123.7,248.3 L125.1,248.2 L126.4,248.2 L127.8,248.1 L129.1,248.1 L130.5,248.0 L131.8,247.9 L133.2,247.9 L134.5,247.8 L135.9,247.7 L137.2,247.6 L138.6,247.6 L139.9,247.5 L141.3,247.4 L142.6,247.3 L144.0,247.3 L145.3,247.2 L146.7,247.1 L148.0,247.0 L149.4,246.9 L150.7,246.8 L152.1,246.7 L153.4,246.7 L154.8,246.6 L156.1,246.5 L157.5,246.4 L158.8,246.3 L160.2,246.2 L161.5,246.1 L162.9,246.0 L164.2,245.9 L165.6,245.7 L166.9,245.6 L168.3,245.5 L169.6,245.4 L171.0,245.3 L172.3,245.2 L173.7,245.0 L175.0,244.9 L176.4,244.8 L177.7,244.7 L179.1,244.5 L180.4,244.4 L181.8,244.3 L183.1,244.1 L184.5,244.0 L185.8,243.8 L187.2,243.7 L188.5,243.5 L189.9,243.4 L191.2,243.2 L192.6,243.0 L193.9,242.9 L195.3,242.7 L196.6,242.5 L198.0,242.3 L199.3,242.2 L200.7,242.0 L202.0,241.8 L203.4,241.6 L204.7,241.4 L206.1,241.2 L207.4,241.0 L208.8,240.8 L210.1,240.5 L211.5,240.3 L212.8,240.1 L214.2,239.9 L215.5,239.6 L216.9,239.4 L218.2,239.1 L219.6,238.9 L220.9,238.6 L222.3,238.3 L223.6,238.0 L225.0,237.8 L226.3,237.5 L227.7,237.2 L229.0,236.8 L230.4,236.5 L231.7,236.2 L233.1,235.9 L234.4,235.5 L235.8,235.2 L237.1,234.8 L238.5,234.4 L239.8,234.0 L241.2,233.6 L242.5,233.2 L243.9,232.7 L245.2,232.3 L246.6,231.8 L247.9,231.4 L249.3,230.9 L250.6,230.4 L252.0,229.8 L253.3,229.3 L254.7,228.7 L256.0,228.1 L257.4,227.5 L258.7,226.8 L260.1,226.2 L261.4,225.5 L262.8,224.7 L264.1,223.9 L265.5,223.1 L266.8,222.3 L268.2,221.4 L269.5,220.5 L270.9,219.5 L272.2,218.5 L273.6,217.4 L274.9,216.2 L276.3,215.0 L277.6,213.7 L279.0,212.3 L280.3,210.8 L281.7,209.2 L283.0,207.5 L283.3,207.1 L283.5,206.8 L283.8,206.4 L284.1,206.0 L284.4,205.6 L284.6,205.2 L284.9,204.8 L285.2,204.4 L285.4,204.0 L285.7,203.6 L286.0,203.2 L286.2,202.8 L286.5,202.3 L286.8,201.9 L287.1,201.4 L287.3,201.0 L287.6,200.5 L287.9,200.0 L288.1,199.5 L288.4,199.0 L288.7,198.5 L288.9,198.0 L289.2,197.5 L289.5,196.9 L289.8,196.4 L290.0,195.8 L290.3,195.3 L290.6,194.7 L290.8,194.1 L291.1,193.5 L291.4,192.8 L291.6,192.2 L291.9,191.6 L292.2,190.9 L292.5,190.2 L292.7,189.5 L293.0,188.8 L293.3,188.1 L293.5,187.3 L293.8,186.6 L294.1,185.8 L294.3,185.0 L294.6,184.1 L294.9,183.3 L295.2,182.4 L295.4,181.5 L295.7,180.6 L296.0,179.6 L296.2,178.6 L296.5,177.6 L296.8,176.6 L297.0,175.5 L297.3,174.4 L297.6,173.3 L297.9,172.1 L298.1,170.9 L298.4,169.6 L298.7,168.3 L298.9,166.9 L299.2,165.5 L299.5,164.0 L299.7,162.5 L300.0,160.9 L300.3,159.3 L300.6,157.6 L300.8,155.8 L301.1,153.9 L301.4,151.9 L301.6,149.9 L301.9,147.7 L302.2,145.4 L302.4,143.0 L302.7,140.5 L303.0,137.8 L303.3,135.0 L303.5,132.0 L303.8,128.8 L304.1,125.3 L304.3,121.7 L304.6,117.7 L304.9,113.5 L305.1,108.9 L305.4,103.9 L305.7,98.4 L306.0,92.4 L306.2,85.8 L306.5,78.4 L306.8,70.1 L307.0,60.7 L307.3,49.9" fill="none" stroke="#6e56cf" stroke-width="4"/><line x1="280" y1="54" x2="307.3" y2="49.9" stroke="#e5484d" stroke-width="1.5"/><circle cx="307.3" cy="49.9" r="6" fill="#e5484d"/><text x="130" y="60" class="st">0.99c ≈ 7.09</text><line x1="175" y1="114" x2="283.0" y2="207.5" stroke="#e5484d" stroke-width="1.5"/><circle cx="283.0" cy="207.5" r="6" fill="#e5484d"/><text x="55" y="120" class="st">0.9c ≈ 2.294</text><line x1="175" y1="149" x2="256.0" y2="228.1" stroke="#e5484d" stroke-width="1.5"/><circle cx="256.0" cy="228.1" r="6" fill="#e5484d"/><text x="55" y="155" class="st">0.8c ≈ 1.667</text><line x1="175" y1="184" x2="175.0" y2="244.9" stroke="#e5484d" stroke-width="1.5"/><circle cx="175.0" cy="244.9" r="6" fill="#e5484d"/><text x="55" y="190" class="st">0.5c ≈ 1.155</text><text x="34" y="256" text-anchor="end" class="st">1</text><text x="34" y="27" text-anchor="end" class="st">8</text>
+<text x="40" y="276" text-anchor="middle" class="st">0</text><text x="310" y="276" text-anchor="middle" class="st">c</text>
+<text x="175" y="296" text-anchor="middle" class="st">速度 v/c →</text><text x="48" y="20" class="st">γ</text></svg>
+<p class="note">標示點已重新計算：0.5c → 1.1547、0.8c → 1.6667、0.9c → 2.2942、0.99c → 7.0888。</p>
+<h3>🧮 自己算算看</h3>
+<label for="unit">速度單位</label>
+<select id="unit"><option value="frac">光速的幾倍（例如 0.8）</option><option value="kms">公里／秒（km/s）</option></select>
+<label for="v">輸入速度</label>
+<input id="v" type="text" inputmode="decimal" value="0.8" autocomplete="off">
+<button id="calc" type="button">計算</button>
+<div id="out" aria-live="polite"></div>
+<div class="key">一句話重點：γ 在低速幾乎等於 1，接近光速時暴衝到無限大。</div>
+</section>
+
+<section class="card c7">
+<h2>⑦ 真實世界的例子</h2>
+<h3>🛰️ GPS 衛星時鐘</h3>
+<div class="plain"><span class="tag">🧓 白話先講：</span>手機導航靠天上衛星的原子鐘報時。衛星跑很快，鐘會變慢一點；但它在高空、重力比較弱，鐘又會變快一點。兩個加起來，衛星的鐘每天快一點點，不修正的話地圖上的藍點會越跑越歪。</div>
+<ul>
+<li><b>狹義相對論（速度）：</b>約 <b>−7 微秒／天</b>（變慢）</li>
+<li><b>廣義相對論（重力較弱）：</b>約 <b>+45 微秒／天</b>（變快）</li>
+<li><b>淨效應：</b>約 <b>+38 微秒／天</b></li>
+</ul>
+<p>38 微秒乘以光速約 11 公里——所以如果完全不修正，定位誤差每天會累積到約 10 公里的等級。實際做法是在衛星發射前就把鐘的頻率調低（Ashby 論文給的分數約 4.465×10⁻¹⁰），接收器再補上軌道偏心造成的小修正。〔來源 1–3〕</p>
+<h3>⚡ 宇宙射線緲子到得了地面</h3>
+<div class="plain"><span class="tag">🧓 白話先講：</span>緲子是高空大氣被宇宙射線撞出來的小粒子，「壽命」很短。照牛頓的算法，大部分應該在半路就衰變光了，但地面上卻偵測到很多。原因是它們跑得接近光速，在我們看來它們的時鐘變慢了，所以活得夠久、飛得夠遠。</div>
+<p>緲子靜止時的平均壽命約 2.2 微秒（半衰期約 1.56 微秒）。就算以光速飛，2.2 微秒也只夠走約 660 公尺，但它們是在約十公里高空產生的。若 \(\gamma\) 約 10 以上，從地面看壽命被拉長 10 倍以上，就能有相當比例抵達地面；從緲子自己的角度看，則是大氣層厚度被縮短了——兩種說法給出同一個結果。〔來源 4–5〕</p>
+<h3>🔵 LHC：再怎麼加速也到不了光速</h3>
+<div class="plain"><span class="tag">🧓 白話先講：</span>歐洲的大強子對撞機（LHC）把質子加速到超級接近光速，但永遠差那麼一點點。能量可以一直加上去，速度卻只多出小數點後很後面的位數。</div>
+<ul>
+<li>CERN 資料：7 TeV 的質子速度是光速的 <b>0.999999991 倍</b>（99.9999991%），約 299,789,760 m/s，只比光速慢約 3 m/s。注入時（450 GeV）約 0.999997828 倍。〔來源 6–7〕</li>
+<li>CERN 用 7 TeV ÷ 質子靜止能量 0.938 GeV 算出 \(\gamma \approx 7461\)。〔來源 8〕</li>
+<li>目前 LHC 標稱質子能量是 6.8 TeV。〔來源 9〕依同一算法，\(\gamma \approx 7248\)、速度約 0.99999999048 c（此兩數為本頁自行計算）。</li>
+</ul>
+<div class="key">一句話重點：相對論不是紙上談兵——手機導航、天上掉下來的粒子、全世界最大的加速器，天天都在驗證它。</div>
+</section>
+
+<section class="card c8">
+<h2>📚 資料來源</h2>
+<ol>
+<li>NIST, “Putting Einstein to the Test”（GPS −7 / +45 / +38 μs/day）<br><a href="https://www.nist.gov/atomic-clocks/a-powerful-tool-for-science/putting-einstein-test">nist.gov/atomic-clocks/…/putting-einstein-test</a></li>
+<li>N. Ashby, “Relativity in the Global Positioning System,” <i>Living Reviews in Relativity</i> 6, 1 (2003)（頻率預先調整 −4.4647×10⁻¹⁰）<br><a href="https://link.springer.com/article/10.12942/lrr-2003-1">link.springer.com/article/10.12942/lrr-2003-1</a></li>
+<li>C. E. Mungan, “Relativistic Effects on Clocks,” <i>The Physics Teacher</i>（US Naval Academy；−7.2 與 +45.6 μs/day）<br><a href="https://www.usna.edu/Users/physics/mungan/_files/documents/Publications/TPT11.pdf">usna.edu/…/mungan/…/TPT11.pdf</a></li>
+<li>HyperPhysics（Georgia State University）, “Muon Experiment in Relativity”<br><a href="http://hyperphysics.phy-astr.gsu.edu/hbase/Relativ/muon.html">hyperphysics.phy-astr.gsu.edu/hbase/Relativ/muon.html</a></li>
+<li>Particle Data Group, Muon summary table（平均壽命 2.1969811×10⁻⁶ s）<br><a href="https://pdg.lbl.gov/2024/tables/rpp2024-sum-leptons.pdf">pdg.lbl.gov/2024/tables/rpp2024-sum-leptons.pdf</a></li>
+<li>CERN Bulletin, “The LHC in numbers” (2010)<br><a href="https://cds.cern.ch/journal/CERNBulletin/2010/14/News%20Articles/1255150?ln=en">cds.cern.ch/journal/CERNBulletin/2010/14/…</a></li>
+<li>CERN, “LHC the guide” FAQ brochure<br><a href="http://cds.cern.ch/record/2255762">cds.cern.ch/record/2255762</a></li>
+<li>CERN LHC Machine Outreach FAQ（γ = 7460.52）<br><a href="https://lhc-machine-outreach.web.cern.ch/lhc-machine-outreach-faq.htm">lhc-machine-outreach.web.cern.ch/…faq.htm</a></li>
+<li>CERN, “The Large Hadron Collider”（標稱質子能量 6.8 TeV）<br><a href="https://home.cern/science/accelerators/large-hadron-collider">home.cern/science/accelerators/large-hadron-collider</a></li>
+</ol>
+</section>
+<footer>文字為本頁自行撰寫的科普說明 · 2026</footer>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+ renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false});
+ document.querySelectorAll(".katex *").forEach(function(e){if(parseFloat(getComputedStyle(e).fontSize)<17)e.style.fontSize="17px";});
+});
+(function(){
+ var C=299792.458;
+ function fmt(x,d){return x.toLocaleString("zh-TW",{maximumFractionDigits:d});}
+ function run(){
+  var out=document.getElementById("out"),unit=document.getElementById("unit").value;
+  var raw=document.getElementById("v").value.trim().replace(/,/g,"");
+  var x=Number(raw);
+  if(raw===""||!isFinite(x)){out.innerHTML='<p class="err">😅 請輸入一個數字喔，例如 0.8 或 150000。</p>';return;}
+  if(x<0){out.innerHTML='<p class="err">😅 速度請輸入 0 或正數。</p>';return;}
+  var b=unit==="frac"?x:x/C;
+  if(b>=1){out.innerHTML='<p class="err">🚫 這個速度等於或超過光速（'+fmt(C,3)+' km/s）。有質量的東西永遠到不了光速，請輸入小一點的數字再試一次！</p>';return;}
+  var g=1/Math.sqrt(1-b*b);
+  out.innerHTML='<p>速度 = '+fmt(b,9)+' c（約 '+fmt(b*C,3)+' km/s）</p>'+
+  '<p>γ = <b>'+fmt(g,6)+'</b></p>'+
+  '<p>⏱️ 移動的鐘走 1 小時，地面看經過了 <b>'+fmt(g*60,4)+' 分鐘</b>（'+fmt(g,6)+' 小時）</p>'+
+  '<p>📏 1 公尺長的棒子，沿運動方向看起來剩 <b>'+fmt(100/g,4)+' 公分</b></p>';
+ }
+ document.getElementById("calc").addEventListener("click",run);
+ document.getElementById("v").addEventListener("keydown",function(e){if(e.key==="Enter")run();});
+ document.getElementById("unit").addEventListener("change",function(){document.getElementById("v").value=this.value==="frac"?"0.8":"240000";run();});
+ run();
+})();
+</script>
+</body>
+</html>
