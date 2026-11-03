@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不同的 AI 會看到同一個世界嗎？Platonic JEPA 白話版</title>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.7;color:#1f2330;background:linear-gradient(180deg,#ede9fe,#fce7f3 45%,#fef9c3);overflow-x:hidden}
+main{max-width:640px;margin:0 auto;padding:12px 12px 60px}
+header{text-align:center;padding:18px 6px 6px}
+h1{font-size:30px;line-height:1.4;margin:.2em 0}
+h2{font-size:26px;line-height:1.4;margin:.2em 0 .3em}
+.sub{margin:0;color:#444}
+.card{background:#fff;border-radius:24px;padding:16px;margin:18px 0;border-top:8px solid var(--c);box-shadow:0 4px 14px rgba(0,0,0,.08);text-align:center}
+.card p{margin:.3em 0}
+.c1{--c:#3b82f6}.c2{--c:#f59e0b}.c3{--c:#ef4444}.c4{--c:#10b981}.c5{--c:#8b5cf6}.c6{--c:#ec4899}.c7{--c:#64748b}
+.scene{font-size:60px;line-height:1.3;margin:.1em 0}
+.tagA{display:inline-block;background:#fef3c7;border-radius:10px;padding:2px 10px;font-size:19px;font-weight:700}
+.key{background:#fef3c7;border-radius:14px;padding:8px 12px;font-weight:700;margin-top:8px}
+svg{width:100%;height:auto;display:block;margin:8px 0}
+.st{font-size:18px;font-family:inherit}
+.notes{text-align:left}.notes p{font-size:20px}
+.tag{display:inline-block;font-size:18px;font-weight:700;border-radius:8px;padding:2px 8px}
+.ok{background:#dcfce7;color:#166534}.diff{background:#fee2e2;color:#991b1b}.unk{background:#e5e7eb;color:#374151}
+.sources{text-align:left}
+.sources a{font-size:19px;display:inline-block;min-height:44px;padding:6px 0;color:#2557d6;word-break:break-all}
+.sources ol{padding-left:1.2em;margin:0}
+footer{text-align:center;font-size:18px;color:#555}
+</style>
+</head>
+<body>
+<main>
+<header><div class="scene">📷📝🌍</div><h1>不同的 AI，會看到同一個世界嗎？</h1><p class="sub">一篇新論文，白話講給你聽</p></header>
+
+<section class="card c3"><p style="background:#fee2e2;border:3px solid #ef4444;border-radius:18px;padding:12px;font-weight:700">⚠️ 先說清楚：這是 Balestriero 和 LeCun 在 2026/10/29 放上 arXiv 的預印本，還沒經過正式審查。</p></section>
+
+<section class="card c1"><div class="scene">🐶</div><h2>有人猜：AI 最後都會想得一樣</h2><p>看圖的 AI、讀字的 AI，學久了，腦中的「世界地圖」會長得很像。</p><p>這個猜想叫「柏拉圖表徵假說」。</p></section>
+
+<section class="card c2"><span class="tagA">🐕 這是比喻</span><h2>教小孩認識狗，有兩種方法</h2>
+<svg viewBox="0 0 320 200" role="img" aria-label="好方法：照片配說明；慢方法：讀很多文章猜下個字">
+<rect x="4" y="4" width="150" height="150" rx="16" fill="#dcfce7"/><text x="30" y="70" font-size="40">📷🐶</text><text x="30" y="120" font-size="40">📝🐶</text>
+<rect x="166" y="4" width="150" height="150" rx="16" fill="#f1f5f9"/><text x="190" y="70" font-size="40">📚📚</text><text x="200" y="120" font-size="40">❓</text>
+<text x="79" y="184" class="st" fill="#166534" text-anchor="middle">✅ 好方法</text><text x="241" y="184" class="st" text-anchor="middle">🐢 慢方法</text>
+</svg>
+<p>好方法：給他看狗的照片，再配一句講這隻狗的話。</p><p>慢方法：給他一大堆文章，叫他猜下一個字。</p></section>
+
+<section class="card c4"><div class="scene">📸📸 ➜ 🔄</div><h2>論文說：好方法就會一樣</h2><p>如果每次學的兩樣東西，都在講<b>同一個場景</b>，</p><p>分開訓練的 AI，學到的地圖只差「轉個方向」。</p><p class="sm" style="font-size:19px">（在很理想的條件下，作者用數學證明。）</p></section>
+
+<section class="card c5"><span class="tagA">🧭 這是比喻</span><h2>只差轉個方向</h2>
+<svg viewBox="0 0 320 150" role="img" aria-label="兩張一樣的地圖，其中一張轉了方向">
+<g transform="translate(20 20)"><rect width="110" height="100" rx="12" fill="#e0f2fe"/><text x="20" y="45" font-size="28">🏠</text><text x="62" y="80" font-size="28">🌳</text></g>
+<text x="142" y="80" font-size="30">➜</text>
+<g transform="translate(240 70) rotate(90) translate(-55 -50)"><rect width="110" height="100" rx="12" fill="#e0f2fe"/><text x="20" y="45" font-size="28">🏠</text><text x="62" y="80" font-size="28">🌳</text></g>
+</svg><p>就像同一張地圖，一張正著放，一張轉了 90 度。</p></section>
+
+<section class="card c6"><div class="scene">📄✂️📄</div><h2>猜下一個字，是「慢方法」</h2><p>聊天 AI 學的，是同一篇文章的前半段和後半段。</p><p>這兩段不一定在講同一件事，所以要學超多才會對齊。</p></section>
+
+<section class="card c1"><h2>📊 要學多少，才到一樣的程度？</h2><svg viewBox="0 0 320 146" role="img"><text x="0" y="24" class="st">📸 好方法（同一場景）</text><rect x="0" y="32" width="6" height="30" rx="8" fill="#22c55e"/><text x="14" y="54" class="st" font-weight="700">2,160 萬筆</text><text x="0" y="94" class="st">📚 猜下一個字</text><rect x="0" y="102" width="190" height="30" rx="8" fill="#94a3b8"/><text x="198" y="124" class="st" font-weight="700">9 億筆</text></svg><p>好方法少了大約 <b>42 倍</b>（兩邊的分數是 .109 和 .111）。</p></section>
+
+<section class="card c2"><h2>📊 跟看圖 AI 有多像？</h2><svg viewBox="0 0 320 216" role="img"><text x="0" y="24" class="st">🐣 小 JEPA（1.09 億）</text><rect x="0" y="32" width="175" height="30" rx="8" fill="#8b5cf6"/><text x="183" y="54" class="st" font-weight="700">.184</text><text x="0" y="94" class="st">🐘 Qwen2.5（720 億）</text><rect x="0" y="102" width="146" height="30" rx="8" fill="#94a3b8"/><text x="154" y="124" class="st" font-weight="700">.154</text><text x="0" y="164" class="st">🐘 Llama 3（700 億）</text><rect x="0" y="172" width="143" height="30" rx="8" fill="#94a3b8"/><text x="151" y="194" class="st" font-weight="700">.151</text></svg><p>小小的模型，比大 660 倍的模型更像看圖的 AI（DINOv2）。</p><p class="sm" style="font-size:19px">分數越高越像。</p></section>
+
+<section class="card c3"><div class="scene">📏 ≠ 💬🧠</div><h2>但是，它只量了一件事</h2><p>只量「和看圖 AI 有多像」。</p><p><b>沒有</b>比會不會聊天、會不會推理。</p><p class="key">不是「小模型比大模型聰明」。</p></section>
+
+<section class="card c7"><div class="scene">🧪</div><h2>還有幾個但書</h2><p>證明假設的是理想世界：世界大小有限、訓練到最好、答案只差轉方向。</p><p>他們實際用的訓練方法，「只差轉方向」這點是假設，沒有證明。</p><p>也沒有涵蓋會根據「動作」來預測的世界模型。</p><p>大資料裡的好配對，有一部分是另一個看圖 AI 寫的說明。</p></section>
+
+<section class="card c5"><div class="scene">🗣️🐦</div><h2>網路上怎麼說？</h2><p>有人發文說「LeCun 被證明是對的，1.09 億打敗 720 億」。</p><p>論文說的是「不只靠變大」，不是「變大從來沒用」。</p><p>LeCun 回文說，JEPA 世界模型用「理解」取代死背，比較省記憶體。這是他一直以來的看法，這篇論文沒有證明這件事。</p><p>他自己也說，這篇論文「只是」證明了資料的相似結構會決定表徵的形狀。</p></section>
+
+<section class="card c4"><div class="scene">🌱</div><h2>所以呢？</h2><p>教 AI 的時候，<b>給它看什麼樣的配對</b>，可能比一直變大更重要。</p><p>但這還只是一篇剛出來的研究。</p></section>
+
+<section class="card c7 notes"><h2>🧾 查證結果</h2>
+<p><span class="tag ok">已查證</span> 論文 arXiv 2610.39302，2026/10/29 提交，作者 Balestriero 和 LeCun。</p>
+<p><span class="tag ok">已查證</span> 正樣本是同一場景的兩個觀察（好視角）時，分開訓練的 JEPA 學到的表徵只差一個旋轉；猜下一個字是「壞視角」（同一份文件的片段），所以只能靠規模對齊。</p>
+<p><span class="tag ok">已查證</span> 2,160 萬筆對 9 億筆（.109 對 .111），約 42 倍；1.09 億參數的文字 JEPA 和 DINOv2 的對齊是 .184，高過 Qwen2.5-72B（.154）和 Llama-3-70B（.151）；論文寫「660 倍」。</p>
+<p><span class="tag ok">已查證</span> 限制：有限世界、母體最佳解、只差旋轉的唯一性；SIGReg 的唯一性是假設；分析不涵蓋依動作預測的世界模型。</p>
+<p><span class="tag diff">有出入</span> 「660 倍」是和 Qwen2.5-72B 比；Llama-3-70B 大約是 640 倍。</p>
+<p><span class="tag diff">有出入</span> 42 倍的比較裡，作者說沒有測更早的下一個字檢查點，所以那是 9 億筆時的單點比較。</p>
+<p><span class="tag diff">有出入</span> 大規模實驗的好配對，每張圖的三則文字裡有兩則是 LLaVA 看圖說明器產生的；作者說和語言模型的比較依賴這些文字。這點簡報沒提。</p>
+<p><span class="tag diff">有出入</span> 原 PO 說「規模從來沒有作用」；論文的說法是「不只靠規模」。</p>
+<p><span class="tag unk">未查證</span> LeCun「理解取代記憶、省記憶體」：這是他的觀點，論文沒有測聊天或推理能力，無法證明。</p>
+</section>
+
+<section class="card c7 sources"><h2>📚 資料來源</h2><ol>
+<li><a href="https://arxiv.org/abs/2610.39302" target="_blank" rel="noopener">arXiv 2610.39302 論文摘要頁</a></li>
+<li><a href="https://arxiv.org/html/2610.39302" target="_blank" rel="noopener">論文全文（HTML 版）</a></li>
+<li><a href="https://x.com/ylecun/status/2116977821088096276" target="_blank" rel="noopener">LeCun 在 X 的回文</a></li>
+<li><a href="https://x.com/heyshrutimishra/status/2116931531000156348" target="_blank" rel="noopener">引發討論的 X 原文</a></li>
+</ol></section>
+<footer>本頁為白話整理，細節以論文原文為準。</footer>
+</main>
+</body>
+</html>
