@@ -3,175 +3,172 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>太平出發｜週末機車四選一＋兩間住宿估價</title>
+<title>太平出發｜週末機車小旅行</title>
 <style>
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.7;color:#1f2330;background:linear-gradient(180deg,#ecfdf5,#e0f2fe 40%,#fef9c3);overflow-x:hidden}
-main{max-width:640px;margin:0 auto;padding:12px 12px 60px}
-header{text-align:center;padding:18px 6px 6px}
-h1{font-size:30px;line-height:1.4;margin:.2em 0}
-h2{font-size:26px;line-height:1.35;margin:.2em 0 .4em}
-.sub{margin:0;color:#444;font-size:20px}
-.card{background:#fff;border-radius:24px;padding:16px;margin:18px 0;border-top:8px solid var(--c);box-shadow:0 4px 14px rgba(0,0,0,.08)}
-.card p,.card li{margin:.4em 0}
-.card ul{padding-left:1.2em;margin:.4em 0}
-.c1{--c:#0ea5e9}.c2{--c:#f59e0b}.c3{--c:#10b981}.c4{--c:#8b5cf6}.c5{--c:#ef4444}.c6{--c:#64748b}.c7{--c:#ec4899}
-.scene{font-size:56px;line-height:1.25;text-align:center;margin:.1em 0}
-.time{display:block;background:#f1f5f9;border-radius:14px;padding:10px 12px;margin:8px 0;font-size:20px}
-.price{background:#fef3c7;border-radius:14px;padding:10px 12px;font-weight:700;margin:10px 0}
-.note{font-size:19px;color:#475569}
-.warn{background:#fee2e2;border:3px solid #ef4444;border-radius:16px;padding:12px;font-weight:700}
-.ok{background:#dcfce7;color:#166534}.diff{background:#fee2e2;color:#991b1b}.unk{background:#e5e7eb;color:#374151}
-.tag{display:inline-block;font-size:18px;font-weight:700;border-radius:8px;padding:2px 8px}
-svg{width:100%;height:auto;display:block;margin:8px 0}
-.st{font-size:18px;font-family:inherit}
-a{color:#2557d6;font-size:19px;display:inline-block;min-height:44px;padding:6px 0;word-break:break-all}
-.sources ol{padding-left:1.2em}
-footer{text-align:center;font-size:18px;color:#555}
-.chip{display:inline-block;background:#e0f2fe;border-radius:999px;padding:4px 12px;font-size:18px;margin:2px}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.65;color:#1e293b;background:#0b1220;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:#38bdf8;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.05);animation:heroZoom 18s ease-in-out infinite alternate}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.15) 0%,rgba(11,18,32,.35) 45%,rgba(11,18,32,.92) 100%)}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:640px;margin:0 auto;padding:28px 18px 36px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 14px;font-size:18px;margin-bottom:14px}
+.hero h1{font-size:34px;line-height:1.25;margin:0 0 10px;letter-spacing:.02em;text-shadow:0 8px 30px rgba(0,0,0,.35)}
+.hero p{margin:0;font-size:20px;opacity:.95}
+.wrap{max-width:640px;margin:0 auto;padding:8px 14px 56px;background:linear-gradient(180deg,#0b1220 0%,#10233f 18%,#ecfeff 42%,#fef3c7 100%)}
+.section-title{color:#e2e8f0;font-size:18px;letter-spacing:.18em;text-transform:uppercase;margin:22px 8px 12px;opacity:.85}
+.card{background:#fff;border-radius:28px;overflow:hidden;margin:0 0 20px;box-shadow:0 18px 40px rgba(15,23,42,.16);border:1px solid rgba(255,255,255,.65);transform:translateY(28px);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease}
+.card.show{transform:translateY(0);opacity:1}
+.card-photo{position:relative;aspect-ratio:16/10;overflow:hidden}
+.card-photo img{width:100%;height:100%;object-fit:cover}
+.card-photo .badge{position:absolute;left:14px;top:14px;background:linear-gradient(135deg,#06b6d4,#3b82f6);color:#fff;border-radius:999px;padding:8px 14px;font-size:18px;font-weight:700;box-shadow:0 8px 20px rgba(37,99,235,.35)}
+.card-photo .badge.green{background:linear-gradient(135deg,#34d399,#059669)}
+.card-photo .badge.amber{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1f2937}
+.card-photo .badge.violet{background:linear-gradient(135deg,#a78bfa,#7c3aed)}
+.card-body{padding:18px 18px 20px}
+.card h2{font-size:26px;margin:0 0 8px;line-height:1.3}
+.highlight{margin:0 0 14px;color:#475569;font-size:20px}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{position:relative;padding:10px 0 10px 42px;border-left:3px solid #e2e8f0;margin-left:12px;font-size:20px}
+.timeline li:last-child{border-left-color:transparent}
+.timeline li::before{content:attr(data-ico);position:absolute;left:-22px;top:8px;width:40px;height:40px;border-radius:50%;background:#f8fafc;border:2px solid #e2e8f0;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:40px;text-align:center}
+.stay{display:grid;gap:14px}
+.stay-card{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:center;background:linear-gradient(135deg,#fff,#f0f9ff);border-radius:22px;padding:14px;box-shadow:0 10px 28px rgba(15,23,42,.1);border:1px solid rgba(148,163,184,.25);transform:translateY(24px);opacity:0;transition:transform .7s ease,opacity .7s ease}
+.stay-card.show{transform:translateY(0);opacity:1}
+.stay-card img{width:92px;height:92px;object-fit:cover;border-radius:18px}
+.stay-card h3{font-size:22px;margin:0 0 4px}
+.price{font-size:20px;font-weight:700;color:#0f766e;margin:0}
+.footer{text-align:center;color:#64748b;font-size:18px;padding:8px 8px 24px;line-height:1.6}
+.footer .credits{margin-top:10px;font-size:18px}
+@keyframes heroZoom{from{transform:scale(1.05)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-bg{animation:none;transform:none}
+  .card,.stay-card{transform:none;opacity:1;transition:none}
+}
 </style>
 </head>
 <body>
-<main>
-<header>
-  <div class="scene">🛵🌲🌅</div>
-  <h1>從太平出發的週末機車小旅行</h1>
-  <p class="sub">四個行程，兩間住宿估價，給阿嬤也能懂</p>
+<header class="hero" role="banner">
+  <img class="hero-bg" src="img/hero.jpg" alt="高美濕地夕陽" width="1920" height="1080">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="pill">🛵 從太平出發 · 週末機車</div>
+    <h1>四個輕鬆行程<br>兩間住宿估價</h1>
+    <p>看夕陽、鑽森林，騎一趟就好</p>
+  </div>
 </header>
 
-<section class="card c6">
-  <p class="warn">⚠️ 價格是官網公告或估計。實際空房與房價，請以官方為準。本頁不放任何人的住家地址，只寫「從太平出發」。</p>
-</section>
+<main class="wrap">
+  <p class="section-title">行程</p>
 
-<section class="card c1">
-  <div class="scene">🌤️</div>
-  <h2>出發前記得看一眼</h2>
-  <p>東勢林場全年約 <b>06:30～22:00</b>。全票約 <b>NT$250</b>，機車停車約 <b>NT$30</b>。</p>
-  <p>從太平騎車，經大坑、新社、東勢大橋，大約 <b>1 小時 15 分到 1 小時 30 分</b>。</p>
-  <p>電話 <a href="tel:0425872191">04-2587-2191</a></p>
-  <p class="note">楓林小徑目前封閉，公告到 <b>2027/05/04</b>。請改走別的步道。</p>
-  <p class="note">〔天氣〕簡報寫 11/8 太平晴時多雲、降雨約 24%、高溫約 32°C。本頁製作時未能從氣象署即時頁核對，出發前請自己打開中央氣象署確認。</p>
-</section>
+  <article class="card reveal">
+    <div class="card-photo">
+      <img src="img/gaomei.jpg" alt="高美濕地木棧道與濕地景色" width="800" height="500" loading="eager">
+      <span class="badge">行程 1</span>
+    </div>
+    <div class="card-body">
+      <h2>🌅 高美濕地兩天一夜</h2>
+      <p class="highlight">住台中港酒店，傍晚走木棧道看夕陽，隔天再到梧棲漁港晃晃。</p>
+      <ul class="timeline">
+        <li data-ico="🏨">週六入住台中港酒店</li>
+        <li data-ico="🌇">傍晚高美看夕陽（約 17:14）</li>
+        <li data-ico="🦀">隔天梧棲漁港 → 回家</li>
+      </ul>
+    </div>
+  </article>
 
-<section class="card c1">
-  <div class="scene">🌊🌇🏨</div>
-  <h2>行程 1｜高美濕地兩天一夜</h2>
-  <svg viewBox="0 0 320 120" role="img" aria-label="從太平騎到台中港附近，傍晚看夕陽">
-    <rect x="8" y="8" width="304" height="104" rx="16" fill="#e0f2fe"/>
-    <text x="24" y="55" font-size="32">🏘️</text>
-    <text x="70" y="52" class="st">太平</text>
-    <path d="M110 48 H200" stroke="#0ea5e9" stroke-width="4" stroke-dasharray="8 6"/>
-    <text x="205" y="55" font-size="32">🏨</text>
-    <text x="248" y="40" font-size="28">🌅</text>
-    <text x="248" y="78" class="st">高美</text>
-  </svg>
-  <span class="time">週六：入住台中港酒店 → 傍晚去高美濕地看夕陽</span>
-  <p>11/8 日落大約 <b>17:14</b>（高美一帶天文估算）。</p>
-  <p>木棧道在滿潮前後約 <b>1.5 小時</b>關閉（大潮約 <b>2 小時</b>），日落後也關閉。出發前一定要看潮汐表。</p>
-  <p class="note">〔潮汐〕簡報估計本週末晚間滿潮約在 21:00 之後。這是估計，請以中央氣象署或現場公告為準。</p>
-  <span class="time">隔天：逛梧棲漁港 → 回家</span>
-</section>
+  <article class="card reveal">
+    <div class="card-photo">
+      <img src="img/wuqi.jpg" alt="梧棲漁港景色" width="800" height="500" loading="lazy">
+      <span class="badge amber">行程 2</span>
+    </div>
+    <div class="card-body">
+      <h2>🛵 高美濕地一日遊</h2>
+      <p class="highlight">下午騎過去，趕夕陽，當天回家，最輕鬆。</p>
+      <ul class="timeline">
+        <li data-ico="🌤️">下午從太平出發</li>
+        <li data-ico="🌅">傍晚看夕陽</li>
+        <li data-ico="🏠">當天回家</li>
+      </ul>
+    </div>
+  </article>
 
-<section class="card c2">
-  <div class="scene">🛵🌅🏠</div>
-  <h2>行程 2｜高美濕地一日遊</h2>
-  <span class="time">下午從太平出發 → 傍晚看夕陽 → 當天回家</span>
-  <p>一樣要避開滿潮關閉與日落後封閉。輕鬆版，適合不想過夜。</p>
-</section>
+  <article class="card reveal">
+    <div class="card-photo">
+      <img src="img/dongshi.jpg" alt="東勢林場森林步道" width="800" height="500" loading="lazy">
+      <span class="badge green">行程 3</span>
+    </div>
+    <div class="card-body">
+      <h2>🌲 東勢林場二日遊</h2>
+      <p class="highlight">白天森林浴，晚上免費夜間導覽，回程可順遊新社莊園。</p>
+      <ul class="timeline">
+        <li data-ico="🌉">天空步道 · 森林浴 · 濯足園</li>
+        <li data-ico="🌙">夜間導覽 19:00／20:00</li>
+        <li data-ico="🏰">隔天園區玩 → 新社莊園／白冷圳</li>
+      </ul>
+    </div>
+  </article>
 
-<section class="card c3">
-  <div class="scene">🌲🚶🌙</div>
-  <h2>行程 3｜東勢林場二日遊</h2>
-  <p><span class="chip">第 1 天</span></p>
-  <ul>
-    <li>天空步道（約 700 公尺）</li>
-    <li>森林浴步道</li>
-    <li>濯足園泡腳</li>
-    <li>晚上免費夜間導覽（約 19:00、20:00）</li>
-  </ul>
-  <p><span class="chip">第 2 天</span></p>
-  <ul>
-    <li>侏儸紀公園</li>
-    <li>民俗公園 DIY</li>
-    <li>回程可順遊新社莊園、白冷圳圓堀</li>
-  </ul>
-  <p class="note">本頁故意不放新社花海。</p>
-</section>
+  <article class="card reveal">
+    <div class="card-photo">
+      <img src="img/dongshi2.jpg" alt="東勢林場園區景色" width="800" height="500" loading="lazy">
+      <span class="badge violet">行程 4</span>
+    </div>
+    <div class="card-body">
+      <h2>⏱️ 東勢林場一日遊</h2>
+      <p class="highlight">早出發晚回家，午餐吃森林食堂，天黑前回到太平。</p>
+      <ul class="timeline">
+        <li data-ico="🕗">08:30 出發，10:00 前入園</li>
+        <li data-ico="🛤️">天空步道與森林浴</li>
+        <li data-ico="🍽️">12:00 森林食堂午餐</li>
+        <li data-ico="🦶">午後濯足／侏儸紀／DIY</li>
+        <li data-ico="🏠">15:30 返程</li>
+      </ul>
+    </div>
+  </article>
 
-<section class="card c4">
-  <div class="scene">⏰🌲☕</div>
-  <h2>行程 4｜東勢林場一日遊</h2>
-  <span class="time">08:30 出發，目標 10:00 前入園</span>
-  <ul>
-    <li>10:00 天空步道與森林浴步道</li>
-    <li>12:00 午餐：森林食堂（官網目前顯示「森林咖啡屋」暫停營業）</li>
-    <li>13:30 濯足園，或侏儸紀公園、民俗公園 DIY</li>
-    <li>15:30 返程，爭取天黑前到家</li>
-  </ul>
-</section>
-
-<section class="card c5">
-  <div class="scene">🏨🍽️</div>
-  <h2>住宿 A｜台中港酒店（雅緻雙人房）</h2>
-  <div class="price">
-    專案價（含兩客早餐）<br>
-    平日 NT$4,199　小假日 NT$4,399　假日 NT$5,399<br>
-    <span class="note" style="font-weight:500">官網標示定價約 NT$8,800</span>
+  <p class="section-title" style="color:#334155">住宿</p>
+  <div class="stay">
+    <div class="stay-card reveal">
+      <img src="img/hero.jpg" alt="高美夕陽，台中港酒店附近海線氛圍" width="184" height="184" loading="lazy">
+      <div>
+        <h3>🏨 台中港酒店</h3>
+        <p class="price">雅緻雙人　NT$4,199～5,399</p>
+      </div>
+    </div>
+    <div class="stay-card reveal">
+      <img src="img/xinshe.jpg" alt="新社莊園建築，東勢林場周邊氛圍" width="184" height="184" loading="lazy">
+      <div>
+        <h3>🏡 東勢林場會館</h3>
+        <p class="price">標準二人　NT$3,000～4,500</p>
+      </div>
+    </div>
   </div>
-  <p>入住約 <b>16:00</b>。入住前 1 天取消，約收訂金 <b>80%</b>。</p>
-  <p>電話 <a href="tel:0426568888">04-2656-8888</a></p>
-  <p><a href="https://tchhotel.com/room_detail/5" target="_blank" rel="noopener">客房介紹（官網）</a></p>
-  <p><a href="https://tchhotel.com/news_detail/348" target="_blank" rel="noopener">饗趣海線專案（官網）</a></p>
-</section>
-
-<section class="card c3">
-  <div class="scene">🏡🍃</div>
-  <h2>住宿 B｜東勢林場森林渡假會館</h2>
-  <div class="price">
-    標準二人房（兩張單人床）<br>
-    假日約 NT$4,500　平日八折約 NT$3,600<br><br>
-    精緻二人房<br>
-    假日約 NT$5,000　平日約 NT$4,000<br>
-    <span class="note" style="font-weight:500">精緻房：兩小床 2 間＋一大床 1 間，合計 3 間</span>
-  </div>
-  <p><b>11 月線上專案</b>（每週二、三、四指定日）：標準二人房約 <b>NT$3,000</b>，含門票、早餐、150 元餐券。採線上訂房，官網寫明不提供電話預訂。</p>
-  <p>住宿仍要買門票，但可抵房價。附隔日早餐。入住約 <b>15:00</b>，退房約 <b>11:00</b>。</p>
-  <p class="note">〔備品〕簡報寫「無一次性備品」。官網房型頁未清楚寫這句，請打電話再確認。</p>
-  <p>訂房電話 <a href="tel:0425872191">04-2587-2191</a>（一般訂房；11 月平日專案請走線上）</p>
-  <p><a href="https://www.tsfa.com.tw/" target="_blank" rel="noopener">東勢林場官網</a></p>
-</section>
-
-<section class="card c6">
-  <h2>🧾 查證結果</h2>
-  <p><span class="tag ok">已查證</span> 東勢林場 06:30～22:00、全票 250、機車停車 30、電話 04-2587-2191。</p>
-  <p><span class="tag ok">已查證</span> 夜間導覽約 19:00、20:00，免費，森林廣場集合。</p>
-  <p><span class="tag ok">已查證</span> 楓林小徑封閉至 2027/05/04（園區 2026/09/03 公告）。</p>
-  <p><span class="tag ok">已查證</span> 高美木棧道：滿潮前後約 1.5 小時關閉，大潮約 2 小時，日落後關閉（臺中海域即時海象／高美旅遊網說明）。</p>
-  <p><span class="tag ok">已查證</span> 11/8 高美一帶日落約 17:14（天文計算）。</p>
-  <p><span class="tag ok">已查證</span> 台中港酒店雅緻雙人專案價 4,199／4,399／5,399、定價 8,800、入住 16:00、入住前 1 日取消 80%、電話 04-2656-8888。</p>
-  <p><span class="tag ok">已查證</span> 森林渡假會館標準房假日 4,500、平日八折；精緻房假日 5,000、平日 4,000；11 月二三四線上專案標準房 3,000 含門票早餐餐券；住宿須購票可抵房價。</p>
-  <p><span class="tag diff">有出入</span> 官網選單顯示「森林咖啡屋-暫停營業」。行程 4 午餐請改以森林食堂為主，出發前再確認。</p>
-  <p><span class="tag diff">有出入</span> 11 月 3,000 元專案官網寫「僅線上訂房，恕不提供電話預訂」，與「打電話轉 9」不完全相同。</p>
-  <p><span class="tag diff">有出入</span> 該專案日期是每週二、三、四，不含一般週六 overnight。週末若要住林場，請看假日牌價或別的專案。</p>
-  <p><span class="tag unk">未查證</span> 本週末晚間滿潮約 21:00 後（簡報估計）；11/8 太平天氣細節；天空步道「700 公尺」精確長度；「無一次性備品」；林場入住 15:00／退房 11:00 的官網原文。</p>
-</section>
-
-<section class="card c6 sources">
-  <h2>📚 資料來源</h2>
-  <ol>
-    <li><a href="https://www.tsfa.com.tw/" target="_blank" rel="noopener">東勢林場遊樂區官網</a></li>
-    <li><a href="https://tsfa.com.tw/page/about/index.aspx?kind=35" target="_blank" rel="noopener">東勢林場票價訊息</a></li>
-    <li><a href="https://www.tsfa.com.tw/page/about/index.aspx?kind=106" target="_blank" rel="noopener">東勢林場導覽訊息</a></li>
-    <li><a href="https://www.tsfa.com.tw/page/news/show.aspx?num=2664" target="_blank" rel="noopener">11 月平日住宿優惠</a></li>
-    <li><a href="https://tchhotel.com/room_detail/5" target="_blank" rel="noopener">台中港酒店雅緻雙人房</a></li>
-    <li><a href="https://tchhotel.com/news_detail/348" target="_blank" rel="noopener">台中港酒店專案頁</a></li>
-    <li><a href="https://travel.taichung.gov.tw/ocean-realtime/zh-tw/gaomei-wetlands-reserve" target="_blank" rel="noopener">臺中海域即時海象：高美濕地</a></li>
-    <li><a href="https://gaomei.com.tw/gaomei-wetland/opening-hours/" target="_blank" rel="noopener">高美濕地木棧道開放說明</a></li>
-    <li><a href="https://www.cwa.gov.tw/" target="_blank" rel="noopener">中央氣象署（潮汐與天氣請至此查）</a></li>
-  </ol>
-</section>
-<footer>網頁小工坊整理。出發前請再核對官方公告。</footer>
 </main>
+
+<footer class="footer">
+  <p>價格以官方公告為準</p>
+  <p class="credits">照片：高美夕陽 © 阿爾特斯（CC BY 3.0）；高美濕地 © Kingjeff20414（CC BY-SA 4.0）；梧棲漁港 © Mnb（CC BY-SA 3.0）；東勢林場 © Foxy1219（CC BY-SA 4.0）；新社莊園 © 林高志（CC BY-SA 4.0），皆來自 Wikimedia Commons</p>
+</footer>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.reveal');
+  if(reduce||!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('show')});
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}
+    });
+  },{threshold:0.18,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
 </body>
 </html>
