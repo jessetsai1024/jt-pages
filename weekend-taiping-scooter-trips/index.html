@@ -3,170 +3,282 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>太平出發｜週末機車小旅行</title>
+<title>太平出發｜週末旅宿精選</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+:root{
+  --bg:#0c1520;
+  --bg2:#111c2a;
+  --panel:#152233;
+  --ink:#f3efe6;
+  --muted:#b9b2a4;
+  --gold:#c6a76a;
+  --gold-soft:rgba(198,167,106,.35);
+  --line:rgba(198,167,106,.45);
+  --shadow:0 30px 80px rgba(0,0,0,.45);
+}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:22px;line-height:1.65;color:#1e293b;background:#0b1220;overflow-x:hidden}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",sans-serif;font-size:21px;font-weight:300;line-height:1.75;overflow-x:hidden}
 img{max-width:100%;height:auto;display:block}
-a{color:#38bdf8;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
-.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.05);animation:heroZoom 18s ease-in-out infinite alternate}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,.15) 0%,rgba(11,18,32,.35) 45%,rgba(11,18,32,.92) 100%)}
-.hero-inner{position:relative;z-index:1;width:100%;max-width:640px;margin:0 auto;padding:28px 18px 36px}
-.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 14px;font-size:18px;margin-bottom:14px}
-.hero h1{font-size:34px;line-height:1.25;margin:0 0 10px;letter-spacing:.02em;text-shadow:0 8px 30px rgba(0,0,0,.35)}
-.hero p{margin:0;font-size:20px;opacity:.95}
-.wrap{max-width:640px;margin:0 auto;padding:8px 14px 56px;background:linear-gradient(180deg,#0b1220 0%,#10233f 18%,#ecfeff 42%,#fef3c7 100%)}
-.section-title{color:#e2e8f0;font-size:18px;letter-spacing:.18em;text-transform:uppercase;margin:22px 8px 12px;opacity:.85}
-.card{background:#fff;border-radius:28px;overflow:hidden;margin:0 0 20px;box-shadow:0 18px 40px rgba(15,23,42,.16);border:1px solid rgba(255,255,255,.65);transform:translateY(28px);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease}
-.card.show{transform:translateY(0);opacity:1}
-.card-photo{position:relative;aspect-ratio:16/10;overflow:hidden}
-.card-photo img{width:100%;height:100%;object-fit:cover}
-.card-photo .badge{position:absolute;left:14px;top:14px;background:linear-gradient(135deg,#06b6d4,#3b82f6);color:#fff;border-radius:999px;padding:8px 14px;font-size:18px;font-weight:700;box-shadow:0 8px 20px rgba(37,99,235,.35)}
-.card-photo .badge.green{background:linear-gradient(135deg,#34d399,#059669)}
-.card-photo .badge.amber{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1f2937}
-.card-photo .badge.violet{background:linear-gradient(135deg,#a78bfa,#7c3aed)}
-.card-body{padding:18px 18px 20px}
-.card h2{font-size:26px;margin:0 0 8px;line-height:1.3}
-.highlight{margin:0 0 14px;color:#475569;font-size:20px}
-.timeline{list-style:none;margin:0;padding:0}
-.timeline li{position:relative;padding:10px 0 10px 42px;border-left:3px solid #e2e8f0;margin-left:12px;font-size:20px}
-.timeline li:last-child{border-left-color:transparent}
-.timeline li::before{content:attr(data-ico);position:absolute;left:-22px;top:8px;width:40px;height:40px;border-radius:50%;background:#f8fafc;border:2px solid #e2e8f0;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:40px;text-align:center}
-.stay{display:grid;gap:14px}
-.stay-card{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:center;background:linear-gradient(135deg,#fff,#f0f9ff);border-radius:22px;padding:14px;box-shadow:0 10px 28px rgba(15,23,42,.1);border:1px solid rgba(148,163,184,.25);transform:translateY(24px);opacity:0;transition:transform .7s ease,opacity .7s ease}
-.stay-card.show{transform:translateY(0);opacity:1}
-.stay-card img{width:92px;height:92px;object-fit:cover;border-radius:18px}
-.stay-card h3{font-size:22px;margin:0 0 4px}
-.price{font-size:20px;font-weight:700;color:#0f766e;margin:0}
-.footer{text-align:center;color:#64748b;font-size:18px;padding:8px 8px 24px;line-height:1.6}
-.footer .credits{margin-top:10px;font-size:18px}
-@keyframes heroZoom{from{transform:scale(1.05)}to{transform:scale(1.12)}}
+a{color:var(--gold);text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;font-weight:600;letter-spacing:.18em}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:640px;max-height:920px;overflow:hidden;background:#000}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.slide.is-on{opacity:1;z-index:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 10s linear}
+.slide.is-on img{transform:scale(1.12)}
+.hero-veil{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(12,21,32,.28) 0%,rgba(12,21,32,.45) 40%,rgba(12,21,32,.88) 100%)}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 20px 72px}
+.hero-inner{max-width:1120px;margin:0 auto}
+.kicker{display:inline-block;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;font-size:18px;letter-spacing:.42em;color:var(--gold);margin-bottom:22px}
+.hero h1{font-size:clamp(34px,6vw,56px);line-height:1.35;margin:0 0 18px;font-weight:700;letter-spacing:.22em}
+.hero .sub{margin:0;max-width:28em;color:var(--muted);font-size:20px;letter-spacing:.08em}
+.dots{display:flex;gap:10px;margin-top:28px}
+.dot{width:28px;height:2px;background:rgba(243,239,230,.25);border:0;padding:0;cursor:pointer}
+.dot.on{background:var(--gold)}
+
+/* SECTIONS */
+.section{padding:88px 0 24px}
+.section-head{text-align:center;margin-bottom:48px}
+.section-head .orn{width:48px;height:1px;background:var(--gold);margin:0 auto 18px}
+.section-head h2{font-size:28px;margin:0 0 12px;letter-spacing:.36em}
+.section-head p{margin:0 auto;max-width:28em;color:var(--muted);font-size:19px;letter-spacing:.06em}
+
+/* PACKAGE */
+.pkg{display:grid;grid-template-columns:1.15fr .85fr;gap:0;margin:0 0 56px;background:var(--panel);box-shadow:var(--shadow);border:1px solid var(--gold-soft);overflow:hidden;opacity:0;transform:translateY(36px);transition:opacity 1.1s ease,transform 1.1s ease}
+.pkg.show{opacity:1;transform:none}
+.pkg-media{position:relative;min-height:360px;overflow:hidden}
+.pkg-media>img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s ease}
+.pkg:hover .pkg-media>img{transform:scale(1.04)}
+.pkg-body{padding:36px 32px 34px;display:flex;flex-direction:column;justify-content:center}
+.pkg-no{font-size:18px;letter-spacing:.4em;color:var(--gold);margin:0 0 14px}
+.pkg h3{font-size:26px;margin:0 0 14px;letter-spacing:.22em;line-height:1.45}
+.tagline{margin:0 0 22px;color:var(--muted);font-size:20px;letter-spacing:.04em}
+.rule{height:1px;background:var(--line);border:0;margin:0 0 22px}
+.days{display:grid;gap:18px}
+.day{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:start}
+.day-label{font-family:"Noto Serif TC",serif;font-size:18px;letter-spacing:.2em;color:var(--gold);padding-top:4px}
+.day p{margin:0;font-size:20px;color:var(--ink)}
+.day .mini{margin-top:10px;width:88px;height:66px;object-fit:cover;border:1px solid var(--line)}
+.pkg:nth-child(even){grid-template-columns:.85fr 1.15fr}
+.pkg:nth-child(even) .pkg-media{order:2}
+
+/* STAY */
+.stay-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.hotel{background:var(--panel);border:1px solid var(--gold-soft);box-shadow:var(--shadow);overflow:hidden;opacity:0;transform:translateY(36px);transition:opacity 1.1s ease,transform 1.1s ease}
+.hotel.show{opacity:1;transform:none}
+.hotel-photo{position:relative;aspect-ratio:4/3;overflow:hidden}
+.hotel-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s ease}
+.hotel:hover .hotel-photo img{transform:scale(1.04)}
+.price-tag{position:absolute;right:16px;bottom:16px;background:rgba(12,21,32,.82);border:1px solid var(--gold);color:var(--gold);padding:12px 16px;font-family:"Noto Serif TC",serif;font-size:20px;letter-spacing:.12em}
+.hotel-body{padding:28px 24px 30px}
+.hotel-body h3{font-size:24px;margin:0 0 10px;letter-spacing:.22em}
+.hotel-body p{margin:0;color:var(--muted);font-size:19px}
+
+footer{text-align:center;padding:64px 20px 80px;color:var(--muted);font-size:18px;border-top:1px solid var(--gold-soft);margin-top:48px}
+footer .credits{margin-top:14px;max-width:52em;margin-left:auto;margin-right:auto;line-height:1.7}
+
+@media (max-width:820px){
+  .pkg,.pkg:nth-child(even){grid-template-columns:1fr}
+  .pkg:nth-child(even) .pkg-media{order:0}
+  .pkg-media{min-height:240px;aspect-ratio:16/10}
+  .pkg-body{padding:28px 20px 30px}
+  .stay-grid{grid-template-columns:1fr}
+  .hero{min-height:560px;height:88vh}
+  .hero h1{font-size:34px;letter-spacing:.16em}
+  .section{padding:64px 0 8px}
+  .pkg h3{font-size:24px;letter-spacing:.14em}
+}
 @media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .hero-bg{animation:none;transform:none}
-  .card,.stay-card{transform:none;opacity:1;transition:none}
+  .slide,.slide img,.pkg,.hotel,.pkg-media>img,.hotel-photo img{transition:none!important;animation:none!important;transform:none!important}
+  .pkg,.hotel{opacity:1}
 }
 </style>
 </head>
 <body>
-<header class="hero" role="banner">
-  <img class="hero-bg" src="img/hero.jpg" alt="高美濕地夕陽" width="1920" height="1080">
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div class="pill">🛵 從太平出發 · 週末機車</div>
-    <h1>四個輕鬆行程<br>兩間住宿估價</h1>
-    <p>看夕陽、鑽森林，騎一趟就好</p>
+<header class="hero" id="hero">
+  <div class="slides" aria-hidden="true">
+    <div class="slide is-on"><img src="img/hero1.jpg" alt="高美濕地夕陽與木棧道" width="2000" height="1400"></div>
+    <div class="slide"><img src="img/hero2.jpg" alt="高美濕地金色落日" width="2000" height="1330"></div>
+    <div class="slide"><img src="img/hero3.jpg" alt="東勢林場森林光影" width="2000" height="1500"></div>
+  </div>
+  <div class="hero-veil"></div>
+  <div class="hero-copy">
+    <div class="hero-inner">
+      <div class="kicker">FROM TAIPING</div>
+      <h1>週末旅宿精選</h1>
+      <p class="sub">從太平出發的海線與山林。四條路線，兩處留宿，為一個慢下來的週末而備。</p>
+      <div class="dots" role="tablist" aria-label="輪播">
+        <button class="dot on" type="button" aria-label="1"></button>
+        <button class="dot" type="button" aria-label="2"></button>
+        <button class="dot" type="button" aria-label="3"></button>
+      </div>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
-  <p class="section-title">行程</p>
-
-  <article class="card reveal">
-    <div class="card-photo">
-      <img src="img/gaomei.jpg" alt="高美濕地木棧道與濕地景色" width="800" height="500" loading="eager">
-      <span class="badge">行程 1</span>
-    </div>
-    <div class="card-body">
-      <h2>🌅 高美濕地兩天一夜</h2>
-      <p class="highlight">住台中港酒店，傍晚走木棧道看夕陽，隔天再到梧棲漁港晃晃。</p>
-      <ul class="timeline">
-        <li data-ico="🏨">週六入住台中港酒店</li>
-        <li data-ico="🌇">傍晚高美看夕陽（約 17:14）</li>
-        <li data-ico="🦀">隔天梧棲漁港 → 回家</li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="card reveal">
-    <div class="card-photo">
-      <img src="img/wuqi.jpg" alt="梧棲漁港景色" width="800" height="500" loading="lazy">
-      <span class="badge amber">行程 2</span>
-    </div>
-    <div class="card-body">
-      <h2>🛵 高美濕地一日遊</h2>
-      <p class="highlight">下午騎過去，趕夕陽，當天回家，最輕鬆。</p>
-      <ul class="timeline">
-        <li data-ico="🌤️">下午從太平出發</li>
-        <li data-ico="🌅">傍晚看夕陽</li>
-        <li data-ico="🏠">當天回家</li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="card reveal">
-    <div class="card-photo">
-      <img src="img/dongshi.jpg" alt="東勢林場森林步道" width="800" height="500" loading="lazy">
-      <span class="badge green">行程 3</span>
-    </div>
-    <div class="card-body">
-      <h2>🌲 東勢林場二日遊</h2>
-      <p class="highlight">白天森林浴，晚上免費夜間導覽，回程可順遊新社莊園。</p>
-      <ul class="timeline">
-        <li data-ico="🌉">天空步道 · 森林浴 · 濯足園</li>
-        <li data-ico="🌙">夜間導覽 19:00／20:00</li>
-        <li data-ico="🏰">隔天園區玩 → 新社莊園／白冷圳</li>
-      </ul>
-    </div>
-  </article>
-
-  <article class="card reveal">
-    <div class="card-photo">
-      <img src="img/dongshi2.jpg" alt="東勢林場園區景色" width="800" height="500" loading="lazy">
-      <span class="badge violet">行程 4</span>
-    </div>
-    <div class="card-body">
-      <h2>⏱️ 東勢林場一日遊</h2>
-      <p class="highlight">早出發晚回家，午餐吃森林食堂，天黑前回到太平。</p>
-      <ul class="timeline">
-        <li data-ico="🕗">08:30 出發，10:00 前入園</li>
-        <li data-ico="🛤️">天空步道與森林浴</li>
-        <li data-ico="🍽️">12:00 森林食堂午餐</li>
-        <li data-ico="🦶">午後濯足／侏儸紀／DIY</li>
-        <li data-ico="🏠">15:30 返程</li>
-      </ul>
-    </div>
-  </article>
-
-  <p class="section-title" style="color:#334155">住宿</p>
-  <div class="stay">
-    <div class="stay-card reveal">
-      <img src="img/hero.jpg" alt="高美夕陽，台中港酒店附近海線氛圍" width="184" height="184" loading="lazy">
-      <div>
-        <h3>🏨 台中港酒店</h3>
-        <p class="price">雅緻雙人　NT$4,199～5,399</p>
-      </div>
-    </div>
-    <div class="stay-card reveal">
-      <img src="img/xinshe.jpg" alt="新社莊園建築，東勢林場周邊氛圍" width="184" height="184" loading="lazy">
-      <div>
-        <h3>🏡 東勢林場會館</h3>
-        <p class="price">標準二人　NT$3,000～4,500</p>
-      </div>
-    </div>
+<main>
+<section class="section wrap">
+  <div class="section-head">
+    <div class="orn"></div>
+    <h2>精選行程</h2>
+    <p>海風與林徑。每一趟，只留下最清楚的節奏。</p>
   </div>
+
+  <article class="pkg reveal">
+    <div class="pkg-media"><img src="img/trip1.jpg" alt="高美濕地夕陽木棧道" width="1600" height="1000" loading="lazy"></div>
+    <div class="pkg-body">
+      <p class="pkg-no">JOURNEY 01</p>
+      <h3>高美濕地<br>兩天一夜</h3>
+      <p class="tagline">潮聲將盡，金光鋪滿泥灘。</p>
+      <hr class="rule">
+      <div class="days">
+        <div class="day">
+          <div class="day-label">DAY 1</div>
+          <div>
+            <p>入住台中港酒店，傍晚高美看夕陽</p>
+            <img class="mini" src="img/trip1b.jpg" alt="高美風車夕陽" width="176" height="132" loading="lazy">
+          </div>
+        </div>
+        <div class="day">
+          <div class="day-label">DAY 2</div>
+          <div>
+            <p>梧棲漁港漫步，返回太平</p>
+            <img class="mini" src="img/trip2b.jpg" alt="梧棲漁港船隻" width="176" height="132" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="pkg reveal">
+    <div class="pkg-media"><img src="img/trip2.jpg" alt="高美濕地落日與風車" width="1600" height="1000" loading="lazy"></div>
+    <div class="pkg-body">
+      <p class="pkg-no">JOURNEY 02</p>
+      <h3>高美濕地<br>一日遊</h3>
+      <p class="tagline">只為一個黃昏，遠赴海岸。</p>
+      <hr class="rule">
+      <div class="days">
+        <div class="day">
+          <div class="day-label">DAY 1</div>
+          <div>
+            <p>午後出發，傍晚賞夕陽後返程</p>
+            <img class="mini" src="img/trip2b.jpg" alt="漁港午後" width="176" height="132" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="pkg reveal">
+    <div class="pkg-media"><img src="img/trip3.jpg" alt="東勢林場林間步道" width="1600" height="1000" loading="lazy"></div>
+    <div class="pkg-body">
+      <p class="pkg-no">JOURNEY 03</p>
+      <h3>東勢林場<br>二日遊</h3>
+      <p class="tagline">林影入夜，腳步變得更輕。</p>
+      <hr class="rule">
+      <div class="days">
+        <div class="day">
+          <div class="day-label">DAY 1</div>
+          <div>
+            <p>天空步道、森林浴、濯足園，夜間導覽</p>
+            <img class="mini" src="img/hero3.jpg" alt="林場樹影" width="176" height="132" loading="lazy">
+          </div>
+        </div>
+        <div class="day">
+          <div class="day-label">DAY 2</div>
+          <div>
+            <p>園區漫遊，回程順遊新社莊園、白冷圳</p>
+            <img class="mini" src="img/trip3b.jpg" alt="新社莊園" width="176" height="132" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="pkg reveal">
+    <div class="pkg-media"><img src="img/trip4.jpg" alt="東勢林場森林浴入口" width="1600" height="1000" loading="lazy"></div>
+    <div class="pkg-body">
+      <p class="pkg-no">JOURNEY 04</p>
+      <h3>東勢林場<br>一日遊</h3>
+      <p class="tagline">晨光進林，午後歸途。</p>
+      <hr class="rule">
+      <div class="days">
+        <div class="day">
+          <div class="day-label">DAY 1</div>
+          <div>
+            <p>上午步道，森林食堂午餐，午後返程</p>
+            <img class="mini" src="img/trip4b.jpg" alt="林場岩壁綠意" width="176" height="132" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="section wrap">
+  <div class="section-head">
+    <div class="orn"></div>
+    <h2>住宿推薦</h2>
+    <p>海線與山林，各留一處安穩的夜晚。</p>
+  </div>
+  <div class="stay-grid">
+    <article class="hotel reveal">
+      <div class="hotel-photo">
+        <img src="img/stayA.jpg" alt="台中港港區海線景致" width="1600" height="1200" loading="lazy">
+        <div class="price-tag">NT$ 4,199 起</div>
+      </div>
+      <div class="hotel-body">
+        <h3>台中港酒店</h3>
+        <p>雅緻雙人房</p>
+      </div>
+    </article>
+    <article class="hotel reveal">
+      <div class="hotel-photo">
+        <img src="img/stayB.jpg" alt="山林莊園風景色" width="1600" height="1200" loading="lazy">
+        <div class="price-tag">NT$ 3,000 起</div>
+      </div>
+      <div class="hotel-body">
+        <h3>東勢林場會館</h3>
+        <p>標準二人房</p>
+      </div>
+    </article>
+  </div>
+</section>
 </main>
 
-<footer class="footer">
+<footer>
   <p>價格以官方公告為準</p>
-  <p class="credits">照片：高美夕陽 © 阿爾特斯（CC BY 3.0）；高美濕地 © Kingjeff20414（CC BY-SA 4.0）；梧棲漁港 © Mnb（CC BY-SA 3.0）；東勢林場 © Foxy1219（CC BY-SA 4.0）；新社莊園 © 林高志（CC BY-SA 4.0），皆來自 Wikimedia Commons</p>
+  <p class="credits">照片來源 Wikimedia Commons：潘麗峰（CC BY-SA 4.0）、阿爾特斯（CC BY 3.0）、Foxy1219（CC BY-SA 4.0）、lienyuan lee（CC BY 3.0）、HANYUN CHANG（CC BY 4.0）、Brian Yang（CC BY-SA 4.0）、林高志（CC BY-SA 4.0）、台中港港區（CC0）</p>
 </footer>
 
 <script>
 (function(){
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){
-    els.forEach(function(el){el.classList.add('show')});
-    return;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var dots=[].slice.call(document.querySelectorAll('.dot'));
+  var i=0, timer;
+  function go(n){
+    slides[i].classList.remove('is-on'); dots[i].classList.remove('on');
+    i=(n+slides.length)%slides.length;
+    slides[i].classList.add('is-on'); dots[i].classList.add('on');
   }
+  dots.forEach(function(d,idx){d.addEventListener('click',function(){go(idx); restart()})});
+  function restart(){ if(reduce) return; clearInterval(timer); timer=setInterval(function(){go(i+1)},5600) }
+  if(!reduce) restart();
+
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(reduce || !('IntersectionObserver' in window)){ els.forEach(function(el){el.classList.add('show')}); return }
   var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}
-    });
-  },{threshold:0.18,rootMargin:'0px 0px -40px 0px'});
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target) } });
+  },{threshold:0.16, rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(el){io.observe(el)});
 })();
 </script>

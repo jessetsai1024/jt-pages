@@ -1,44 +1,80 @@
 [
   {
-    "key": "hero",
+    "key": "hero1",
+    "file": "Gaomei Wetland sunset DSC 5441-2.jpg",
+    "lic": "CC BY-SA 4.0",
+    "artist": "潘麗峰"
+  },
+  {
+    "key": "hero2",
     "file": "Sunset of Gaomei Wetland.JPG",
     "lic": "CC BY 3.0",
-    "artist": "阿爾特斯",
-    "commons": "https://commons.wikimedia.org/wiki/File:Sunset_of_Gaomei_Wetland.JPG"
+    "artist": "阿爾特斯"
   },
   {
-    "key": "gaomei",
-    "file": "Gaomei Wetlands Wildlife Refuge - YHPhotogravity - 002.jpg",
-    "lic": "CC BY-SA 4.0",
-    "artist": "Kingjeff20414",
-    "commons": "https://commons.wikimedia.org/wiki/File:Gaomei_Wetlands_Wildlife_Refuge_-_YHPhotogravity_-_002.jpg"
-  },
-  {
-    "key": "wuqi",
-    "file": "Taiwan Wuci Fishery Harbor-3.jpg",
-    "lic": "CC BY-SA 3.0",
-    "artist": "Mnb at Chinese Wikipedia",
-    "commons": "https://commons.wikimedia.org/wiki/File:Taiwan_Wuci_Fishery_Harbor-3.jpg"
-  },
-  {
-    "key": "dongshi",
+    "key": "hero3",
     "file": "Dongshih Forest Garden 2019-05-08.jpg",
     "lic": "CC BY-SA 4.0",
-    "artist": "Foxy1219",
-    "commons": "https://commons.wikimedia.org/wiki/File:Dongshih_Forest_Garden_2019-05-08.jpg"
+    "artist": "Foxy1219"
   },
   {
-    "key": "dongshi2",
+    "key": "trip1",
+    "file": "Gaomei Wetland sunset DSC 5441-2.jpg",
+    "lic": "CC BY-SA 4.0",
+    "artist": "潘麗峰"
+  },
+  {
+    "key": "trip1b",
+    "file": "Gaomei Wetlands 高美濕地 - panoramio.jpg",
+    "lic": "CC BY 3.0",
+    "artist": "lienyuan lee"
+  },
+  {
+    "key": "trip2",
+    "file": "Sunset on Taichung Kaomei wetland.jpg",
+    "lic": "CC BY 4.0",
+    "artist": "HANYUN, CHANG"
+  },
+  {
+    "key": "trip2b",
+    "file": "梧棲漁港.jpg",
+    "lic": "CC BY-SA 4.0",
+    "artist": "Brian Yang"
+  },
+  {
+    "key": "trip3",
     "file": "Dongshih Forest Garden 2019-05-08 (2).jpg",
     "lic": "CC BY-SA 4.0",
-    "artist": "Foxy1219",
-    "commons": "https://commons.wikimedia.org/wiki/File:Dongshih_Forest_Garden_2019-05-08_%282%29.jpg"
+    "artist": "Foxy1219"
   },
   {
-    "key": "xinshe",
-    "file": "台中新社莊園1.jpg",
+    "key": "trip3b",
+    "file": "台中新社莊園5.jpg",
     "lic": "CC BY-SA 4.0",
-    "artist": "林高志",
-    "commons": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E4%B8%AD%E6%96%B0%E7%A4%BE%E8%8E%8A%E5%9C%921.jpg"
+    "artist": "林高志"
+  },
+  {
+    "key": "trip4",
+    "file": "Dongshih Forest Garden 2019-05-08 (3).jpg",
+    "lic": "CC BY-SA 4.0",
+    "artist": "Foxy1219"
+  },
+  {
+    "key": "trip4b",
+    "file": "東勢林場 觀音洞.jpg",
+    "lic": "CC BY-SA 4.0",
+    "artist": "Foxy1219"
+  },
+  {
+    "key": "stayA",
+    "file": "台中港港區.jpg",
+    "lic": "CC0",
+    "artist": "public domain / CC0"
+  },
+  {
+    "key": "stayB",
+    "file": "台中新社莊園8.jpg",
+    "lic": "CC BY-SA 4.0",
+    "artist": "林高志"
   }
 ]
