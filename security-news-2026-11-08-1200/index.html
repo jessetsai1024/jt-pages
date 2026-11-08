@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="zh-Hant-TW"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+<title>資安新聞午報｜2026-11-08 12:00</title><meta name="description" content="過去 24 小時重大資安新聞，共 4 則。"><style>
+/* 資安新聞 shared mobile-first style (v2, large type) — inline this inside <style> */
+:root{--bg:#f6f7fb;--card:#fff;--ink:#141824;--muted:#4a5266;--line:#e3e6ef;--chip:#fff;--navbg:rgba(246,247,251,.94);
+--openai:#0b8a6b;--xai:#3b3f4a;--anthropic:#b4532a;--google:#1a5fd6;--meta:#0866ff;--other:#b45309;--hero1:#ede9fe;--hero2:#e0f2fe}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1117;--card:#161b26;--ink:#eef1f7;--muted:#b3bacb;--line:#2a3142;--chip:#1b2130;--navbg:rgba(13,17,23,.94);
+--openai:#34d399;--xai:#d4d8e1;--anthropic:#f0a37f;--google:#7aa7ff;--meta:#6ea8ff;--other:#fbbf24;--hero1:#2a1f55;--hero2:#0f3346}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+font-size:19px;line-height:1.75;overflow-x:hidden;overflow-wrap:anywhere;word-break:break-word}
+.wrap{max-width:500px;margin:0 auto;padding:0 12px calc(28px + env(safe-area-inset-bottom))}
+header{margin:12px 0 0;padding:18px 16px;border-radius:18px;background:linear-gradient(135deg,var(--hero1),var(--hero2));border:1px solid var(--line)}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;line-height:1.5;color:#b91c1c;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35);padding:3px 12px;border-radius:999px}
+@media (prefers-color-scheme:dark){.live{color:#fca5a5}}
+.dot{width:9px;height:9px;border-radius:50%;background:#ef4444;animation:p 1.6s infinite}
+@keyframes p{50%{opacity:.3}}
+h1{margin:10px 0 6px;font-size:30px;line-height:1.3;font-weight:800}
+h1 small{display:block;font-size:19px;font-weight:600;color:var(--muted);margin-top:4px;line-height:1.5}
+.intro{margin:0;color:var(--muted);font-size:19px;line-height:1.75}
+.total{display:inline-block;margin-top:10px;font-weight:700;font-size:17px;background:var(--card);border:1px solid var(--line);padding:4px 14px;border-radius:999px}
+nav{position:sticky;top:0;z-index:10;margin:10px -12px 0;padding:8px 12px;background:var(--navbg);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;min-height:48px;padding:0 14px;border-radius:999px;background:var(--chip);
+border:1.5px solid var(--c);color:var(--ink);text-decoration:none;font-weight:700;font-size:17px;white-space:nowrap}
+.chip b{min-width:28px;height:28px;padding:0 8px;display:inline-grid;place-items:center;border-radius:999px;background:var(--c);color:var(--bg);font-size:16px}
+.chip:active{transform:scale(.97)}
+.c-openai{--c:var(--openai)}.c-xai{--c:var(--xai)}.c-anthropic{--c:var(--anthropic)}.c-google{--c:var(--google)}.c-meta{--c:var(--meta)}.c-other{--c:var(--other)}
+.sec{margin-top:24px}
+h2{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:24px;line-height:1.3;font-weight:800}
+.ico{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:12px;font-size:22px;background:color-mix(in srgb,var(--c) 18%,transparent);border:1.5px solid var(--c)}
+.cnt{margin-left:auto;font-size:16px;font-weight:700;color:var(--c);border:1.5px solid var(--c);padding:1px 10px;border-radius:999px;white-space:nowrap}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.card{display:flex;flex-direction:column;gap:8px;padding:14px 14px 12px 15px;border-radius:16px;background:var(--card);border:1px solid var(--line);
+border-left:5px solid var(--c);color:var(--ink);text-decoration:none;box-shadow:0 2px 10px -6px rgba(0,0,0,.25);-webkit-tap-highlight-color:transparent}
+.card:active{transform:scale(.99);background:color-mix(in srgb,var(--c) 8%,var(--card))}
+.card:focus-visible,.chip:focus-visible,.top:focus-visible{outline:3px solid var(--c,currentColor);outline-offset:2px}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:16px;line-height:1.5;color:var(--muted)}
+.date{font-weight:700;color:var(--c);font-variant-numeric:tabular-nums}
+.tag{border:1px solid var(--line);padding:0 9px;border-radius:999px}
+.ttl{font-size:22px;font-weight:800;line-height:1.4}
+.em{margin-right:6px}
+.sum{font-size:19px;line-height:1.75}
+.btn{display:flex;align-items:center;gap:6px;min-height:50px;margin-top:2px;padding:8px 14px;border-radius:12px;font-weight:700;font-size:17px;line-height:1.4;
+color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
+.arr{margin-left:auto;padding-left:8px;font-size:20px}
+footer{margin-top:28px;padding:14px;border-radius:14px;border:1px dashed var(--line);color:var(--muted);font-size:17px;line-height:1.7}
+footer p{margin:6px 0}
+.top{display:flex;align-items:center;justify-content:center;min-height:50px;margin-top:12px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:17px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style></head><body><div class="wrap" id="top">
+<header><span class="live"><span class="dot" aria-hidden="true"></span>資安午報</span>
+<h1>🛡️ 資安新聞午報<small>2026-11-07 12:00 ～ 11-08 12:00（台灣時間）</small></h1>
+<p class="intro">這一輪重點：南韓最大券商未來資產證券公布約 3.9 萬人資料外洩；義大利外長塔亞尼的個人資料流上暗網，總理梅洛尼指是親俄駭客所為；Claude Code「不要再問」會把密碼寫進設定檔，公開 GitHub 上已有逾千份含密鑰；Anthropic 開始通知企業用戶，稱 10 月有未具名資安公司未經授權進入內部系統。</p>
+<span class="total">📰 共 4 則</span></header>
+<nav aria-label="分類"><div class="chips"><a class="chip c-xai" href="#attack"><span aria-hidden="true">💥</span>攻擊與外洩事件<b>2</b></a><a class="chip c-anthropic" href="#intel"><span aria-hidden="true">🕵️</span>威脅情報與 AI 資安<b>2</b></a></div></nav>
+<section id="attack" class="sec c-xai" aria-labelledby="h-attack"><h2 id="h-attack"><span class="ico" aria-hidden="true">💥</span>攻擊與外洩事件<span class="cnt">2 則</span></h2><ul class="list"><li><a class="card" href="https://en.yna.co.kr/view/AEN20261107000451315" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">11/7</span><span class="tag">資料外洩・南韓金融</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🏦</span>未來資產證券遭駭：約 3,800 個客戶帳號與 35,255 名員工資料外洩</span>
+<span class="sum">南韓最大券商未來資產證券（Mirae Asset Securities）週六說，外部攻擊發生在 11/4 與 11/5：先打手機網頁的電話認證登入服務，隔天再打內部群組軟體 mi-global。外洩的是約 3,800 名客戶的帳號，公司強調沒有一併洩漏戶名或其他客戶個資；另有 35,255 名現職員工、前員工與外包人員的姓名、員工編號、電郵、手機號碼與加密密碼外洩，沒有住民登錄號、護照或駕照。公司發現異常外部 IP 後切斷路徑，並向金融委員會、金融監督院與個人情報保護委員會通報。這是未來資產集團兩週內第四家遭入侵的關係企業（人壽保險 10/26 已公布客戶資料外洩）。韓聯社引述主管機關：自 9/30 起約一個月，已有 37 家金融機構通報 40 起外洩、逾 47 萬筆個資，遭竊資金估計約 10 億韓元（約 74.5 萬美元）。請小心冒充該公司的電話、簡訊與電子郵件。</span>
+<span class="btn">🔗 韓聯社 Yonhap、Aju Press<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://www.bbc.com/news/articles/cr20wvge32j3o" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">11/7</span><span class="tag">政治人物・暗網</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🇮🇹</span>義大利外長塔亞尼：個人資料被丟上暗網，總理梅洛尼指親俄駭客所為</span>
+<span class="sum">義大利外交部 11/7 證實，資安單位近日在需透過 Tor 才能進入的暗網區域，發現外長兼副總理安東尼奧·塔亞尼（Antonio Tajani）的個人資料。塔亞尼在 X 上寫道，網路犯罪者「連日來」公布他的個資並繼續蒐集更多資訊，等於把他和家人暴露在新的威脅與恫嚇之下；他說攻擊原因是義大利支持烏克蘭的立場。總理喬治亞·梅洛尼（Giorgia Meloni）對此表示聲援，並把此事歸咎於親俄駭客；莫斯科尚未公開回應，這仍是她的說法、並非獨立證實的歸因。塔亞尼也向同樣收到威脅的羅馬檢察官 Francesco Lo Voi、郵政警察局長 Ivano Gabrielli 與市長 Paolo Tassan-Zanin 表達聲援，並要求輪值 G7 主席國把混合威脅列入 11/9–11/10 巴黎外長會議議程。外洩資料的具體內容尚未公布。</span>
+<span class="btn">🔗 BBC、義大利外交部公報、美聯社<span class="arr" aria-hidden="true">↗</span></span>
+</a></li></ul></section>
+<section id="intel" class="sec c-anthropic" aria-labelledby="h-intel"><h2 id="h-intel"><span class="ico" aria-hidden="true">🕵️</span>威脅情報與 AI 資安<span class="cnt">2 則</span></h2><ul class="list"><li><a class="card" href="https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">11/7</span><span class="tag">開發工具・密鑰外洩</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">🔑</span>Claude Code「不要再問」會把密碼和金鑰寫進設定檔，公開 GitHub 已有 1,122 份含密鑰</span>
+<span class="sum">The Hacker News 11/7 引述 Apiiro：在 Claude Code 選「Yes, and don’t ask again」時，它可能把當時核准的整條指令（含密碼、Token）明文存進專案裡的 <code>.claude/settings.local.json</code>。研究人員在公開 GitHub 找到 103,617 個儲存庫、共 104,185 份這類檔案，其中 1,122 份（約 1.1%）至少含一組密鑰、合計 1,379 組不重複密鑰；若再算上舊版檔案、團隊會刻意提交的 settings.json，以及代理對話紀錄，總數是 1,994 個儲存庫、2,539 組密鑰。公開檔裡超過三分之一可直接開資料庫（含 379 組資料庫密碼），另外有 43 組公開伺服器 SSH、42 組 GitHub／GitLab／npm Token、23 組 AWS 金鑰，分布在 63 個組織。Claude Code 只會把檔案加進「這台電腦」的全域 git excludes，不會寫進專案自己的 .gitignore；在追蹤到的 1,105 個儲存庫裡，有 539 個是 Claude 自己當共同作者把檔案交進去的。一家接獲通知的公司確認金鑰當時仍有效。請先輪換檔案裡出現過的每一組密碼與金鑰，再從 git 歷史清掉檔案、加進專案 .gitignore，並改核准指令樣式（例如 <code>npm run:*</code>）或用環境變數，不要把明文密鑰打進指令。</span>
+<span class="btn">🔗 The Hacker News（引述 Apiiro）<span class="arr" aria-hidden="true">↗</span></span>
+</a></li><li><a class="card" href="https://byline.network/2026/11/7-521/" target="_blank" rel="noopener noreferrer">
+<span class="meta"><span class="date">11/7</span><span class="tag">後續・企業用戶通知</span></span>
+<span class="ttl"><span class="em" aria-hidden="true">📬</span>後續：Anthropic 通知企業用戶，稱 10 月有未具名資安公司未經授權進入內部系統</span>
+<span class="sum">韓國 Byline Network 11/7 引述 Anthropic 當天寄出的個資通知：公司說 10/8 有第三方資安研究公司在未經授權的情況下自行做安全測試，接觸到部分內部系統資料，Anthropic 在 10/10 發現後切斷對方存取並修補弱點。可能被看到的包括姓名、電郵等聯絡資料；企業 Claude 帳戶還可能包括帳戶 ID、組織 ID、方案等級，以及用量與花費相關指標。對話內容、密碼、信用卡與銀行帳戶稱未受影響。該公司已出具書面確認刪除取得的資料、不會再使用；Anthropic 說目前沒發現資料被改或刪、也沒看到濫用跡象，但無法確認個別使用者的紀錄是否真的被打開過，並已向韓國主管機關通報。請小心冒充 Anthropic、以方案或帳單為由索取密碼、驗證碼或付款資訊的釣魚。這則通知的時序（10/8 發生、10/10 發現）與 10 月底披露、當時被描述成授權測試的 Cathedral 事件相近，但本次通知並未點名該公司，是否為同一事件仍標示未證實。</span>
+<span class="btn">🔗 Byline Network（引述 Anthropic 通知）、RuntimeWire<span class="arr" aria-hidden="true">↗</span></span>
+</a></li></ul></section>
+<footer><p>📌 每則都有官方說法或至少兩家來源交叉核實。標示「未證實」或需留意：梅洛尼將塔亞尼個資外洩歸咎於親俄駭客，目前沒有獨立技術報告公開證實來源；塔亞尼外洩資料的具體欄位未公布；Claude Code 外洩密鑰除一家公司確認仍有效外，Apiiro 並未逐一驗證是否還能使用；Anthropic 通知未點名該資安公司，與稍早 Cathedral 事件是否同一件尚未由官方對上號。</p>
+<p>📌 先前報過的不重複（CISA 將 SonicWall CVE-2026-19868 列入 KEV、OpenSSH SSHole 已見利用、Microsoft Paint CVE-2026-83844、GhostMap、QNAP／Plex2Shell、Gnosis Pay、DigiCert、Chainalysis 擴大範圍、WorkOS／ARTEX 沙箱逃逸、GitHub 假資安工具、日本 100 億日圓緊急方案、Crédit Mutuel Arkéa 約 1.33 億美元等）。（未收錄）澳洲 Who Gives A Crap 行銷商外洩（未公布人數、無支付資料）；Microsoft 11/6 指柬埔寨叢集 Storm-3358 用 ARTEX 打金融業（已過本輪 24 小時時窗）；TOTOLINK／Edimax 等路由器公開攻擊程式。</p>
+<p>🕒 整理時間：2026-11-08 12:00（台灣時間）｜點卡片即在新分頁開啟來源。</p></footer>
+<a class="top" href="#top">⬆️ 回到頂端</a></div></body></html>
