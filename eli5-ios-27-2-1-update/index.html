@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iOS 27.2.1 為什麼要馬上更新</title>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:22px;
+  line-height:1.7;
+  color:#1c1410;
+  background:linear-gradient(180deg,#fff1f2 0%,#ffedd5 42%,#fef3c7 100%);
+  overflow-x:hidden;
+}
+main{max-width:640px;margin:0 auto;padding:12px 14px 56px}
+header{text-align:center;padding:10px 2px 4px}
+.badge{
+  display:inline-block;
+  background:#9f1239;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:.06em;
+  border-radius:999px;
+  padding:10px 18px;
+  min-height:44px;
+  line-height:1.3;
+}
+h1{
+  font-size:34px;
+  line-height:1.35;
+  margin:14px 0 8px;
+  color:#9f1239;
+  overflow-wrap:anywhere;
+}
+.sub{font-size:22px;margin:0;color:#3f2a22}
+.nw{white-space:nowrap}
+h2{font-size:26px;line-height:1.4;margin:.15em 0 .35em}
+.card{
+  background:#fff;
+  border-radius:24px;
+  padding:18px 16px 16px;
+  margin:18px 0;
+  border-top:8px solid var(--c,#e11d48);
+  box-shadow:0 6px 18px rgba(127,29,29,.1);
+}
+.card p{margin:.35em 0}
+.center{text-align:center}
+.art{width:100%;height:auto;display:block;margin:2px auto 10px;max-width:420px}
+.st{font-size:18px;font-family:inherit}
+.verdict{
+  background:#9f1239;
+  color:#fff;
+  border-top-color:#be123c;
+  text-align:center;
+}
+.verdict h2{color:#fff;font-size:30px;margin:.1em 0 .25em}
+.verdict p{font-size:24px;margin:.2em 0}
+.note{
+  background:#fff7ed;
+  border:2px dashed #fb923c;
+  border-radius:16px;
+  padding:12px 14px;
+  font-size:20px;
+  margin-top:10px;
+}
+.steps{list-style:none;padding:0;margin:8px 0 0}
+.steps li{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:52px;
+  margin:8px 0;
+  padding:8px 12px;
+  background:#fff7ed;
+  border-radius:16px;
+  font-weight:700;
+  font-size:22px;
+}
+.num{
+  flex:0 0 44px;
+  width:44px;height:44px;
+  border-radius:50%;
+  background:#c2410c;
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:800;
+}
+.tip{
+  margin-top:12px;
+  background:#ecfdf5;
+  border-radius:16px;
+  padding:12px 14px;
+  font-size:20px;
+}
+.sources{text-align:left}
+.sources ol{list-style:none;padding:0;margin:0;counter-reset:src}
+.sources li{
+  display:grid;
+  grid-template-columns:1.6em 1fr;
+  column-gap:6px;
+  align-items:start;
+  margin:2px 0;
+}
+.sources li::before{counter-increment:src;content:counter(src) ".";font-weight:700;padding-top:8px;font-size:18px}
+.sources a{
+  font-size:18px;
+  display:block;
+  min-height:44px;
+  padding:8px 0;
+  color:#1d4ed8;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  line-height:1.5;
+}
+footer{text-align:center;font-size:18px;color:#5b4a42;padding:4px 8px}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="badge">請今天就更新</div>
+  <h1>這不是小更新，是修<span class="nw">嚴重</span>安全漏洞，請今天就更新。</h1>
+  <p class="sub">Apple 在 2026 年 11 月 9 日推出 iOS 27.2.1。看起來只差一個小數點，其實是在補很嚴重的洞。</p>
+</header>
+
+<section class="card verdict">
+  <svg class="art" viewBox="0 0 360 150" role="img" aria-label="左邊門沒鎖，右邊門已鎖好">
+    <rect x="16" y="10" width="150" height="130" rx="16" fill="#fff1f2"/>
+    <path d="M64 96 V46 h54 v50" fill="#fda4af"/>
+    <path d="M58 46 l33 -18 33 18" fill="#fb7185"/>
+    <circle cx="106" cy="74" r="5" fill="#9f1239"/>
+    <path d="M64 62 l16 -5" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+    <text x="91" y="122" text-anchor="middle" class="st" fill="#9f1239" font-weight="700">門沒鎖</text>
+    <rect x="194" y="10" width="150" height="130" rx="16" fill="#ecfdf5"/>
+    <path d="M242 96 V46 h54 v50" fill="#34d399"/>
+    <path d="M236 46 l33 -18 33 18" fill="#059669"/>
+    <circle cx="280" cy="74" r="7" fill="#064e3b"/>
+    <rect x="277" y="74" width="6" height="12" rx="1.5" fill="#064e3b"/>
+    <text x="269" y="122" text-anchor="middle" class="st" fill="#065f46" font-weight="700">門已鎖</text>
+  </svg>
+  <h2>一句話先講完</h2>
+  <p>更新前，等於門沒鎖好。</p>
+  <p>更新只要幾分鐘。</p>
+</section>
+
+<section class="card" style="--c:#ea580c">
+  <svg class="art" viewBox="0 0 360 168" role="img" aria-label="附近的人偷偷跟手機配對">
+    <rect x="12" y="10" width="336" height="148" rx="18" fill="#fff7ed"/>
+    <circle cx="86" cy="70" r="28" fill="#fdba74"/>
+    <ellipse cx="86" cy="126" rx="36" ry="22" fill="#fdba74"/>
+    <rect x="210" y="42" width="86" height="108" rx="16" fill="#1c1917"/>
+    <rect x="220" y="54" width="66" height="84" rx="8" fill="#fb923c"/>
+    <circle cx="253" cy="96" r="10" fill="#fff"/>
+    <path d="M150 88 C178 70,178 118,210 96" fill="none" stroke="#c2410c" stroke-width="5" stroke-linecap="round" stroke-dasharray="7 7"/>
+    <text x="180" y="36" text-anchor="middle" class="st" fill="#9a3412" font-weight="700">沒按同意，就配上了</text>
+  </svg>
+  <h2>附近的人，可能偷偷跟你的手機配對</h2>
+  <p>有人走在你旁邊（藍牙夠得到的距離），可能在你<b>沒按同意、也沒<span class="nw">輸入配對碼</span></b>的情況下，就跟你的手機配對成功。</p>
+  <p>可以想像成：有人站在你家門口，沒按門鈴，就自己配了一把備用鑰匙。</p>
+</section>
+
+<section class="card" style="--c:#7c3aed">
+  <svg class="art" viewBox="0 0 360 168" role="img" aria-label="陌生人混進訊息群組偷看">
+    <rect x="12" y="10" width="336" height="148" rx="18" fill="#f5f3ff"/>
+    <rect x="36" y="40" width="288" height="104" rx="16" fill="#fff"/>
+    <circle cx="70" cy="72" r="14" fill="#a78bfa"/>
+    <rect x="94" y="62" width="120" height="20" rx="8" fill="#ddd6fe"/>
+    <circle cx="70" cy="112" r="14" fill="#c4b5fd"/>
+    <rect x="94" y="102" width="150" height="20" rx="8" fill="#ede9fe"/>
+    <circle cx="292" cy="92" r="22" fill="#6d28d9"/>
+    <text x="292" y="98" text-anchor="middle" class="st" fill="#fff" font-weight="800">?</text>
+    <text x="180" y="36" text-anchor="middle" class="st" fill="#5b21b6" font-weight="700">沒被邀請，也混進來了</text>
+  </svg>
+  <h2>有人可能遠端混進群組偷看訊息</h2>
+  <p>不在你旁邊的人，也可能混進<span class="nw">「訊息」</span>裡的 iMessage 群組，看到之後傳來的內容。</p>
+  <p>另外也修了一件事：後來才被拉進群組的人，不該看到加入之前的舊訊息。</p>
+</section>
+
+<section class="card" style="--c:#b45309">
+  <h2>官方還沒說已被大規模攻擊</h2>
+  <p>到目前為止，Apple 官方<b>沒有說</b>這些漏洞已被大規模攻擊。</p>
+  <p>但漏洞已經夠嚴重，不該再等。修好只要幾分鐘，拖著不更新，等於門繼續開著。</p>
+  <p class="note">別等到出事才更新。今天就做完最安心。</p>
+</section>
+
+<section class="card" style="--c:#047857">
+  <h2>怎麼更新？照這四步走</h2>
+  <p class="tip">先插上電源，連上 Wi‑Fi，比較穩、也比较快。</p>
+  <ol class="steps">
+    <li><span class="num">1</span>打開「設定」</li>
+    <li><span class="num">2</span>點「一般」</li>
+    <li><span class="num">3</span>點「軟體更新」</li>
+    <li><span class="num">4</span>點「下載並安裝」</li>
+  </ol>
+  <p>iPhone 11 與更新的機型可以裝 iOS 27.2.1。有 iPad 的話，也請一起更新。</p>
+</section>
+
+<section class="card sources" style="--c:#64748b">
+  <h2>資料來源</h2>
+  <ol>
+    <li><a href="https://support.apple.com/zh-tw/149715" target="_blank" rel="noopener">Apple 官方：iOS 27.2.1 安全性內容</a></li>
+    <li><a href="https://support.apple.com/zh-tw/100100" target="_blank" rel="noopener">Apple 官方：安全性發布列表</a></li>
+    <li><a href="https://support.apple.com/zh-tw/149076" target="_blank" rel="noopener">Apple 官方：關於 iOS 27 更新</a></li>
+  </ol>
+</section>
+<footer>本頁依 Apple 官方安全說明整理，不是 Apple 官方網頁。細節以官方公告為準。</footer>
+</main>
+</body>
+</html>
