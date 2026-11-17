@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>譯文：我為什麼討厭 GPT-6.2 Astra｜Theo</title>
+<meta name="description" content="Theo（@theo）X 文章 Why I hate GPT-6.2 Astra 的非官方繁體中文翻譯。2026 年 11 月 18 日台北時間。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:22px;
+  line-height:1.8;
+  color:#1B2430;
+  background:#F6F2EA;
+  overflow-x:hidden;
+  border-top:3px solid #1B2430;
+  overflow-wrap:break-word;
+  line-break:strict;
+}
+.nw{white-space:nowrap}
+main{max-width:720px;margin:0 auto;padding:48px 20px 96px}
+header{text-align:center;padding:12px 0 8px}
+.kicker{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:18px;letter-spacing:.22em;color:#B89B6A;font-weight:500;margin:0 0 22px;
+  overflow-wrap:anywhere;
+}
+.rule{width:56px;height:1px;border:0;background:#B89B6A;margin:0 auto 28px}
+h1{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:30px;font-weight:600;line-height:1.45;letter-spacing:.02em;
+  margin:0 0 16px;color:#1B2430;overflow-wrap:anywhere;
+  word-break:keep-all;
+}
+.orig-title{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:18px;font-weight:500;line-height:1.55;color:#5C6570;
+  margin:0 0 28px;font-style:italic;
+}
+.author{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  text-align:left;margin:0 auto 6px;max-width:420px;
+}
+.author img{
+  width:52px;height:52px;border-radius:50%;object-fit:cover;
+  border:1px solid #D6C8AE;flex:0 0 52px;
+}
+.author .name{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-weight:600;font-size:20px;line-height:1.35;color:#1B2430;
+}
+.author .meta{font-size:18px;color:#5C6570;margin-top:0}
+.when{font-size:18px;color:#5C6570;margin:10px 0 6px}
+a{color:#1B2430;text-decoration-color:#B89B6A;text-decoration-thickness:1px;text-underline-offset:4px}
+.author a,.orig,footer a,.src a,.note a{
+  display:inline-flex;align-items:center;min-height:44px;
+}
+.orig{
+  justify-content:center;padding:0;margin:4px auto 8px;border:0;
+  border-bottom:1px solid #B89B6A;border-radius:0;background:none;
+  color:#1B2430;text-decoration:none;font-size:18px;font-weight:500;letter-spacing:.02em;
+  max-width:100%;overflow-wrap:anywhere;text-align:center;
+}
+.disclaimer{
+  font-size:18px;line-height:1.7;color:#5C6570;margin:36px 0 0;padding:18px 0;
+  border-top:1px solid #D6C8AE;border-bottom:1px solid #D6C8AE;text-align:center;
+}
+.ornament{width:40px;height:1px;border:0;background:#B89B6A;margin:40px auto}
+article p,.note,figcaption{margin:0 0 1.25em}
+h2{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:26px;font-weight:600;line-height:1.45;letter-spacing:.02em;
+  margin:2.2em 0 .7em;color:#1B2430;
+}
+.src h2{margin-top:0}
+blockquote{
+  margin:1.4em 0 1.5em;padding:.15em 0 .15em 1.05em;
+  border-left:1px solid #B89B6A;
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:22px;line-height:1.8;color:#1B2430;
+}
+blockquote p{margin:0 0 .4em}
+blockquote p:last-child{margin-bottom:0}
+article ul,article ol{margin:0 0 1.4em;padding:0 0 0 1.3em}
+article li{margin:0 0 .55em;padding:0;overflow-wrap:anywhere}
+.letter-rule{
+  width:40px;height:1px;border:0;background:#B89B6A;margin:2em auto;
+}
+.scream{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:22px;letter-spacing:.04em;margin:1.2em 0 1.4em;
+  overflow-wrap:anywhere;word-break:break-word;
+}
+code{
+  font-family:ui-monospace,"SFMono-Regular","Cascadia Code","Noto Sans Mono",Menlo,Consolas,monospace;
+  font-size:18px;
+  font-weight:500;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  white-space:pre-wrap;
+}
+.note{font-size:18px;line-height:1.7;color:#5C6570}
+.src ol{list-style:none;padding:0;margin:.4em 0 0;counter-reset:src}
+.src li{display:grid;grid-template-columns:1.6em 1fr;column-gap:8px;align-items:start;margin:0}
+.src li::before{
+  counter-increment:src;content:counter(src) ".";
+  font-family:"Noto Serif TC",serif;font-weight:500;color:#B89B6A;padding-top:10px;font-size:18px;
+}
+.src a{display:block;min-height:44px;padding:10px 0;font-size:18px;overflow-wrap:anywhere;word-break:break-word;line-height:1.6}
+footer{text-align:center;font-size:18px;color:#5C6570;padding:8px 8px 0;margin-top:8px}
+@media (min-width:800px){
+  h1{font-size:32px}
+  main{padding:56px 28px 110px}
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <p class="kicker">X 文章譯文</p>
+  <hr class="rule">
+  <h1>我為什麼討厭 <span class="nw">GPT-6.2 Astra</span></h1>
+  <p class="orig-title">原文標題：Why I hate GPT-6.2 Astra</p>
+  <div class="author">
+    <img src="img/theo.jpg" alt="Theo 的大頭貼" width="52" height="52">
+    <div>
+      <div class="name">Theo - t3.gg</div>
+      <div class="meta"><a href="https://x.com/theo" target="_blank" rel="noopener">@theo</a></div>
+    </div>
+  </div>
+  <p class="when">2026/11/18 02:35（台北時間）</p>
+  <a class="orig" href="https://x.com/theo/status/2122760447103484410" target="_blank" rel="noopener">閱讀原文（X 文章）</a>
+</header>
+
+<p class="disclaimer">內容為原作者觀點，未經查證。本頁只翻譯作者本人的文章，不加譯者意見。</p>
+<hr class="ornament">
+
+<article>
+  <p>搶先測試期間，這個模型讓我挫折到花了一天寫信給 OpenAI。他們修掉了我少數幾項抱怨，但還不夠讓我願意推薦大家使用。</p>
+  <p>我現在生病躺在床上，今天沒辦法拍影片，所以決定把這封信全文貼出來。</p>
+
+  <hr class="letter-rule">
+
+  <p>我其實有點過意不去，但我知道你們會聽進去，也會用這些回饋把模型做得更好。接下來可能會有一點小崩潰（crash out）。</p>
+  <p>信不信由你，這篇是我親手寫的，完全沒有靠任何大型語言模型（LLM）。（抱歉先誤送了一次，以後再也不在 Slack 裡起草長文了。）</p>
+  <p>總之。</p>
+  <p>我不喜歡 6.2 Astra。以我開發者的工作來說，我不會選它而不選 Opus 5.5。</p>
+  <p>我先很快講好的部分：</p>
+  <ul>
+    <li>很會做程式審查（reviewer），抓得到其他模型沒看到的問題</li>
+    <li>偶爾會想出真正厲害的新解法。它幫我搞出一個新的反向代理（reverse proxy），每個月能省下 2.5 萬美元；Opus 沒那個膽子去試夠多選項。</li>
+    <li>3D 和遊戲相關的表現是世界級的</li>
+    <li>電腦操作（Computer use）強得誇張</li>
+    <li>程式碼品質有實質進步</li>
+    <li>寫出來的子代理（subagent）提示也相當不錯</li>
+  </ul>
+  <p>你們要知道，這些話是出於愛。我真心希望你們做出一個我會每天在模型選單裡點下去的東西。話雖如此：</p>
+  <p>這個模型其餘的部分，我是真的討厭。</p>
+  <p>問題多到我很難挑哪些要特別講。有些毛病在以前的 OpenAI 模型就有了，那些我先略過。</p>
+  <p>現在又多了一組糟到不行的新行為，用起來很痛苦。</p>
+
+  <h2>1. 它沒有「知識缺口」這個概念</h2>
+  <p>這個模型在做長任務時，可以拉進很多子代理，而且管得還不錯。接著它會突然<em>問你一些古怪的內部實作鬼扯細節，你在這世上再怎麼也不可能懂，更別說給得出意見</em>。</p>
+  <p>我下了 <code>/goal make a new level for Outer Wilds</code>（用 /goal 幫《Outer Wilds》做一個新關卡）。兩小時後，它卡住（blocked）了，因為它想問我：</p>
+  <blockquote>
+    <p>r24 的審查者是把片段寫進 24_g521.mp4，還是 24_p11.mp4？</p>
+  </blockquote>
+  <p>我這輩子從沒遇過模型這樣搞。GPT-5.6 Sol 不會這樣。我完全不知道這種行為從哪來，但糟透了，讓我再也不想讓它負責長時間、長程的工作。要讓這個模型做出什麼酷的東西，變得困難許多。我甚至被迫另外設了排程（cron）上的代理，專門去檢查 6.2 Astra 是不是又問了蠢問題、把自己卡住。</p>
+  <p>會不會是因為我在用 T3 Code，所以更嚴重？有可能，但不太像。我特別去試了 Codex，還是碰到這些問題。</p>
+
+  <h2>2. 它說的是只有 6.2 Astra 才懂的語言</h2>
+  <p>在我今年用過的大型語言模型裡，這個模型的輸出最難讀懂。</p>
+  <p>我以前分享過例子，但它就是不會在做完一件事後把事情講清楚。每一次我叫它給的「說明」，都深陷細節深到回覆幾乎要算錯。它見樹不見林，然後還說林子裡只有樹是活的。這很難形容，但幾乎每次我丟給它複雜任務都會這樣。</p>
+  <p>我已經養成習慣，在 6.2 Astra 跑完一長段之後，改切到 Opus 5.5，只為了拿到一份讀得懂的摘要。要是沒這步，除了小錯誤修復之外，我真的完全解析不出它做了什麼。</p>
+  <p>最糟的是：看起來沒辦法靠提示把它改掉。</p>
+  <p>我試過改系統提示（system prompt）。我懇求過它「eli5」（講得像在教五歲小孩）。</p>
+  <p>我問它為什麼 worktree 在一台機器上很慢，另外三台卻很快。我們從替 pnpm 跑效能測試，做到把機器重灌到新的檔案系統，什麼都試了。最後我說：</p>
+  <blockquote>
+    <p>我覺得我快瘋了，你能不能直接告訴我為什麼這麼慢？</p>
+  </blockquote>
+  <p>6.2 Astra 寫了四大段，在那邊碎唸 pnpm 內部機制和快取行為。</p>
+  <p>Opus 5.5 說「因為固態硬碟（SSD）很慢」。</p>
+
+  <h2>3. 它會陷入迴圈，原地踏步</h2>
+  <p><code>ts-rust</code>（用 Rust 重寫 TypeScript）是我在搶先體驗（early access）期間，為了測試新的 OpenAI 模型而開的專案（順便謝謝你們給無限 token）。</p>
+  <p>再怎麼砸超過 30 萬美元的 token，也沒有任何一個 OpenAI 模型能在這專案上真正起頭。</p>
+  <p>我後來丟給 Opus，不到兩週、大約 2 萬美元的 token 就做完了。</p>
+  <p>我當時真的非常興奮，想把新的 Astra 丟上去，看它能不能把 ts-rust 和其他 Rust 重寫之間的差距縮掉一些。</p>
+  <p>它跑了 7 天，一點改善都沒有。它超執著於請求裡「順便讓它更小」那句，結果把編譯器弄得慢了 56%。</p>
+  <p>我叫它別再管大小，改去把效能差距消掉。</p>
+  <p>又跑了 4 天，零改動。</p>
+  <p class="scream">AAAaaAAaaaAAAaaAaaAA-</p>
+  <p>總之。</p>
+  <p>這個模型顯然非常聰明。但拿來做真實專案，讓人受不了。感覺它活在自己的世界裡，隨機決定要把腦子的哪一部分秀給我們看。</p>
+  <p>做長任務時，它要嘛因為蠢理由把自己卡住，要嘛繞圈子、毫無進展。</p>
+  <p>做短任務時，程式碼寫得還可以，然後解釋卻比它寫出來的程式碼還複雜。我花在解析它輸出的 token，比它當初產生那些輸出還要多。</p>
+  <p>它「向平均值回歸」（regresses to the mean）的次數多到不行。Ben 和我都請它在不同的電子遊戲裡做一個獨特關卡。結果我們都拿到水＋音樂＋鐘為主題、名叫「bellwether」的關卡。遊戲、提示、設定完全不同，卻不知道為什麼得到一樣的名字和主題。</p>
+
+  <h2>我對這次發表會怎麼走的預測</h2>
+  <p><strong>第 1 天，</strong>大家會愛上它。Twitter 會被各種誇張的一次到位展示（one-shots）洗版。有人會讓它把專案從一種語言搬到另一種，或把卡了好幾年的經典專案反組譯做完。它會被拿來做很猛的事，大家會很嗨。</p>
+  <p><strong>第 2 天，</strong>風向會開始轉。他們會看到它燒掉多少用量，完成的事卻比 Opus 少多少。他們會開始把有問題的程式碼合併進去，因為根本看不懂 6.2 Astra 怎麼解釋，卻相信沒問題。他們還會看到從發表當天就忘了關掉、一直在跑的迴圈，一點進度都沒有。</p>
+  <p><strong>第 5 天，</strong>多數人會過了這股熱。會出現瘋傳貼文，寫「SOL 該不會其實比 Astra 更強？？」、「ASTRA 已經變笨了嗎？？」之類的。</p>
+  <p><strong>第 14 天，</strong>這個模型大概會被遺忘得差不多。</p>
+  <p>我真的、真的、非常希望以上全錯。我很可能反應過度了（這點我自己也承認，大家都知道我會這樣）。我大可以先冷靜、等一等，再給你們更持平的看法，但我還是把這些直接倒在這裡，因為我想讓你們知道我對這個模型的真實感受。</p>
+  <p>抱歉發了這通牢騷 🙃</p>
+</article>
+
+<hr class="ornament">
+
+<section class="src">
+  <h2>說明與來源</h2>
+  <p class="note">這則貼文是一篇 X 文章（Article），連接器已讀到標題與全文（plain_text），結尾完整（以「Sorry about the rant 🙃」作結），沒有發現截斷。貼文本身與文章內文都沒有附圖。頁首大頭貼取自作者 X 個人檔案照片。</p>
+  <p class="note">同一個討論串裡，作者另有 7 則回覆其他人的貼文（例如回覆 @viticci、@ThisIsVedank、@bolyki、@BennettBuhner 等），都是針對他人留言，並非接續本文；依「別人的留言不要放上去」，這些回覆未收入本頁。連接器對該討論串「from:theo」查詢的下一頁為 0 筆，未再發現作者接續正文的貼文。</p>
+  <ol>
+    <li><a href="https://x.com/theo/status/2122760447103484410" target="_blank" rel="noopener">原文貼文／X 文章：Theo - t3.gg（@theo），Why I hate GPT-6.2 Astra，2026/11/18 02:35 台北時間</a></li>
+    <li><a href="https://x.com/i/article/2122759503888437248" target="_blank" rel="noopener">同一篇文章的 Article 連結</a></li>
+    <li><a href="https://x.com/theo" target="_blank" rel="noopener">作者帳號 @theo</a></li>
+  </ol>
+</section>
+<footer>本頁為繁體中文譯文整理，<span class="nw">細節以原文為準。</span></footer>
+</main>
+</body>
+</html>
