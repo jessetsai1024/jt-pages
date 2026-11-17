@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>打造代理：何時該把子代理併入主代理迴圈｜Anthropic 文章中譯</title>
+<meta name="description" content="Anthropic 文章 Building agents: When to fold subagents into your main agent loop 的非官方繁體中文翻譯。作者 Diane Sarkis，2026 年 10 月 22 日。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:22px;
+  line-height:1.8;
+  color:#1B2430;
+  background:#F6F2EA;
+  overflow-x:hidden;
+  border-top:3px solid #1B2430;
+  overflow-wrap:break-word;
+  line-break:strict;
+}
+h1,.kicker,.orig-title,.byline{
+  word-break:keep-all;
+  overflow-wrap:break-word;
+}
+.nw{white-space:nowrap}
+main{max-width:720px;margin:0 auto;padding:48px 20px 96px}
+header{text-align:center;padding:12px 0 8px}
+.kicker{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:18px;letter-spacing:.18em;color:#B89B6A;overflow-wrap:anywhere;font-weight:500;margin:0 0 22px;
+}
+.rule{width:56px;height:1px;border:0;background:#B89B6A;margin:0 auto 28px}
+h1{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:30px;font-weight:600;line-height:1.45;letter-spacing:.02em;
+  margin:0 0 16px;color:#1B2430;overflow-wrap:anywhere;
+}
+.orig-title{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:18px;font-weight:500;line-height:1.55;color:#5C6570;
+  margin:0 0 22px;font-style:italic;
+}
+.dek{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:22px;line-height:1.75;color:#1B2430;
+  margin:0 0 28px;text-align:left;
+}
+.byline{
+  font-size:18px;line-height:1.7;color:#5C6570;
+  margin:0 0 8px;text-align:center;
+}
+a{color:#1B2430;text-decoration-color:#B89B6A;text-decoration-thickness:1px;text-underline-offset:4px}
+.orig,footer a,.sources a{
+  display:inline-flex;align-items:center;min-height:44px;
+}
+.toc a{
+  display:inline;font-size:20px;line-height:1.65;
+}
+.orig{
+  justify-content:center;padding:0;margin:4px auto 8px;border:0;
+  border-bottom:1px solid #B89B6A;border-radius:0;background:none;
+  color:#1B2430;text-decoration:none;font-size:18px;font-weight:500;letter-spacing:.02em;
+  max-width:100%;overflow-wrap:anywhere;text-align:center;
+}
+.disclaimer{
+  font-size:18px;line-height:1.7;color:#5C6570;margin:36px 0 0;padding:18px 0;
+  border-top:1px solid #D6C8AE;border-bottom:1px solid #D6C8AE;text-align:center;
+}
+.ornament{width:40px;height:1px;border:0;background:#B89B6A;margin:40px auto}
+article p,.lead,figcaption,.note{margin:0 0 1.25em}
+.lead{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-style:italic;font-size:22px;line-height:1.8;
+}
+h2{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:26px;font-weight:600;line-height:1.45;letter-spacing:.02em;
+  margin:2.2em 0 .7em;color:#1B2430;
+}
+h3{
+  font-family:"Noto Serif TC","Noto Sans TC",serif;
+  font-size:24px;font-weight:600;line-height:1.45;letter-spacing:.02em;
+  margin:1.8em 0 .55em;color:#1B2430;
+}
+.toc{margin:0 0 2em;padding:0 0 4px}
+.toc h2{margin-top:1.2em}
+.toc ol{margin:.4em 0 0;padding:0;list-style:none;counter-reset:toc}
+.toc li{margin:0 0 .15em;padding:6px 0 6px 1.7em;text-indent:-1.7em;min-height:44px;font-size:20px;line-height:1.65}
+.toc li::before{counter-increment:toc;content:counter(toc) ". ";font-weight:500}
+
+article ul,article ol{margin:0 0 1.4em;padding:0 0 0 1.3em}
+article li{margin:0 0 .55em;padding:0;overflow-wrap:anywhere}
+article li ul{margin:.5em 0 0}
+article li>ul{padding-left:1.2em}
+figure{
+  margin:1.8em 0 2em;padding:0;
+}
+figure img{
+  display:block;width:100%;height:auto;max-width:100%;
+  border:1px solid #D6C8AE;
+  background:#fff;
+}
+figcaption{
+  font-size:18px;line-height:1.7;color:#5C6570;
+  margin:.7em 0 0;
+}
+figcaption p{margin:0 0 .5em}
+figcaption p:last-child{margin-bottom:0}
+a,code,figcaption,.sources a,.orig,.note,.credit-src{overflow-wrap:anywhere;word-break:break-word}
+code,kbd{
+  font-family:ui-monospace,"SFMono-Regular","Cascadia Code","Noto Sans Mono",Menlo,Consolas,monospace;
+  font-size:18px;
+  font-weight:500;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  white-space:pre-wrap;
+  background:transparent;
+}
+pre,pre code{
+  display:block;
+  overflow-x:auto;
+  overflow-wrap:anywhere;
+  white-space:pre-wrap;
+  word-break:break-word;
+  font-size:18px;
+  line-height:1.6;
+}
+.credit-src,.note{font-size:18px;line-height:1.7;color:#5C6570}
+.sources h2{margin-top:0}
+.sources ol{list-style:none;padding:0;margin:.4em 0 0;counter-reset:src}
+.sources li{display:grid;grid-template-columns:1.6em 1fr;column-gap:8px;align-items:start;margin:0}
+.sources li::before{
+  counter-increment:src;content:counter(src) ".";
+  font-family:"Noto Serif TC",serif;font-weight:500;color:#B89B6A;padding-top:10px;font-size:18px;
+}
+.sources a{display:block;min-height:44px;padding:10px 0;font-size:18px;overflow-wrap:anywhere;word-break:break-word;line-height:1.6}
+footer{text-align:center;font-size:18px;color:#5C6570;padding:8px 8px 0;margin-top:8px}
+@media (min-width:800px){
+  h1{font-size:32px}
+  main{padding:56px 28px 110px}
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <p class="kicker">ANTHROPIC　文章譯本</p>
+  <hr class="rule">
+  <h1>打造代理：何時該把<span class="nw">子代理</span>併入<span class="nw">主代理迴圈</span></h1>
+  <p class="orig-title">原文標題：Building agents: When to fold subagents into your <span class="nw">main agent loop</span></p>
+  <p class="dek">在 Claude Platform 打造代理<span class="nw">（agent）</span>時，少用子代理<span class="nw">（subagent）</span>、改以漸進揭示<span class="nw">（progressively disclosed）</span>的上下文與工具，往往能提高品質，同時降低成本與延遲。本文說明何時該遷移、該怎麼遷移。</p>
+  <p class="byline">作者 Diane Sarkis　｜　出處 Anthropic／claude.com<br>日期 2026 年 10 月 22 日<br>原文標示閱讀時間約 18 分鐘</p>
+  <a class="orig" href="https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop">閱讀原文（claude.com）</a>
+</header>
+
+<hr class="ornament">
+
+<nav class="toc" aria-label="目錄">
+  <h2>目錄</h2>
+  <ol>
+    <li><a href="#failure-modes">大型組織打造代理時常見的失敗模式</a></li>
+    <li><a href="#progressive-disclosure">使用具有漸進揭示的代理迴圈</a></li>
+    <li><a href="#how-to-fold">如何把子代理併入主代理迴圈</a></li>
+    <li><a href="#several-teams">多個團隊如何共同貢獻同一個代理</a></li>
+    <li><a href="#tools">能加快這項工作的工具</a></li>
+  </ol>
+</nav>
+
+<article>
+<p class="lead">如果你已經在 Claude Platform 打造了一個含有多個子代理的代理，可以用我們的<a href="https://github.com/anthropics/single-agent-loop-kit">遷移套件<span class="nw">（migration kit）</span></a>，看看哪些子代理適合併入主代理迴圈<span class="nw">（main agent loop）</span>。它會以引導式工作流程幫你辨識既有模式、評估替代方案，並驗證最佳做法。套件裡附有示範，你可以先在模擬系統上試跑，再對自己的代理動手。</p>
+
+<p>子代理是擁有自己的上下文視窗<span class="nw">（context window）</span>、工具與指示，並由<a href="https://claude.com/resources/articles/multi-agent-coordination-patterns">協調器<span class="nw">（orchestrator）</span>編排</a>的代理，是代理設計的核心元件之一。它們擅長驗證、平行作業，以及模組化權限控管<span class="nw">（modular permissioning）</span>。我們在用 Claude Platform 打造的許多代理裡都會用到它們，例如我們的<a href="https://www.anthropic.com/engineering/multi-agent-research-system">多代理研究系統</a>。</p>
+
+<p>不過，應用 AI<span class="nw">（Applied AI）</span>團隊近來發現一種企業代理部署模式：把路由器<span class="nw">（router）</span>、規劃器<span class="nw">（planner）</span>與領域子代理<span class="nw">（domain subagent）</span>併入主代理迴圈後，反而受益。在<a href="https://claude.com/resources/articles/the-anatomy-of-effective-commerce-agents#:~:text=In%20our%20comparisons%20across%20several%20enterprise%20deployments,latency%20per%20task">我們對多個企業部署的比較</a>中，<a href="https://claude.com/resources/articles/building-agents-with-skills-equipping-agents-for-specialized-work">單一代理搭配技能<span class="nw">（skills）</span></a>在品質上經常勝過「一個提示搞定一切」的設計，也勝過子代理設計，而且每項任務的成本與延遲往往更低。</p>
+
+<p>舉例來說，有一家公司發現，面向顧客的代理裡的十幾個專精子代理，讓符合品牌調性的一致體驗很難維持，還增加了延遲，傷害使用者體驗。</p>
+
+<p>我們也經常看到提案中的代理設計走上一條熟悉的路：意圖分類器<span class="nw">（intent classifier）</span>、固定的多步驟推理管線、使用者區隔分桶、分開的推薦分支，再在最上面加一個多代理協調器。</p>
+
+<p>在這些案例裡，回饋往往是：這些結構大多在做模型已經不需要別人代勞的事；一份清楚的系統提示<span class="nw">（system prompt）</span>、四到五個精簡的資料工具，再加上明確的輸出護欄<span class="nw">（guardrails）</span>，就能涵蓋大部分使用情境。</p>
+
+<figure>
+  <img src="img/subagent-design.gif" width="2024" height="884" alt="對照圖：左側常見模式是模型外圍疊了五層結構，右側建議改為單一代理迴圈。">
+  <figcaption>
+    <p><strong>圖說（圖中文字為英文原文）：</strong>左為「常見模式（Common pattern）」——模型外圍有五層結構（5 layers of structure around the model）：請求先進入多代理協調器，再經意圖分類器、固定的多步驟推理管線（步驟 1 到 5）、使用者區隔分桶，最後走進各個推薦分支才得出答案。右為「我們經常建議的做法（What we often recommend）」——一個迴圈（1 loop）：一份提示、四到五個工具、加上護欄。單一代理迴圈裡有一份清楚的系統提示、模型本身，以及四到五個精簡資料工具的工具呼叫與結果回傳，並以明確的輸出護欄收束後給出答案。</p>
+    <p>圖片來源：Anthropic／claude.com（原文插圖，動畫 GIF）。</p>
+  </figcaption>
+</figure>
+
+<p>要說清楚：子代理仍有其定位，包括在研究前線。在下列情況使用它們：</p>
+
+<ul>
+  <li>單一代理迴圈因上下文膨脹（context bloat）而出現可測量的效能下降，或</li>
+  <li>多項任務需要平行處理，並使用可在任務結束後丟棄的全新上下文視窗，或</li>
+  <li>單一代理難以選到合適的工具，或系統提示中存在互相衝突的指示。</li>
+</ul>
+
+<p>但我們太常看到企業依團隊或問題類型各給一個子代理，讓代理架構變成組織圖的複製品（這是康威定律<span class="nw">［Conway’s law］</span>在運作）。</p>
+
+<p>本文說明何時該考慮把子代理併入主代理迴圈，以及我們在大型組織打造代理時學到的實務做法。</p>
+
+<h2 id="failure-modes">大型組織打造代理時常見的失敗模式</h2>
+
+<p>公司往往希望打造一個代理，把多項產品與能力整合成單一的客戶介面。</p>
+
+<p>通常每項能力由不同團隊負責，因此公司會先讓各團隊各自打造自己的代理，再由中央平台團隊在上面建一個協調器。結構可能有好幾種，包括「協調器—子代理」，或是單一代理、但把特定代理以 MCP 工具<span class="nw">（MCP tools）</span>的形式暴露出來。</p>
+
+<p>這看起來像最簡單的解法，卻立刻帶來以下複雜度：</p>
+
+<ul>
+  <li><strong>上下文管理<span class="nw">（Context management）</span>：</strong>你必須決定代理之間交換哪些上下文，來回傳遞時又經常會丟失細節。</li>
+  <li><strong>子代理蔓延<span class="nw">（Subagent sprawl）</span>：</strong>每個團隊都推出自己的子代理，公司最後會有數百個互相重疊的子代理，沒有強制標準，也沒有明確的負責人。</li>
+  <li><strong>科學怪人式提示<span class="nw">（The Frankenprompt）</span>：</strong>每個團隊都往系統提示裡加一句話，結果規則互相衝突，也沒有一致的語氣。</li>
+  <li><strong>未經審核、過度局部化的評測（Unvetted, overly localized evals）：</strong>每個人都加入只為自己子任務過度最佳化的評測<span class="nw">（eval）</span>。沒有人擁有或維護整套評測，領導層卻依據被稀釋、過度局部化的分數做決策。</li>
+  <li><strong>延遲<span class="nw">（Latency）</span>：</strong>多代理架構的複雜度會增加延遲。有一位客戶把他們的多代理框架<span class="nw">（harness）</span>拿來對照單一代理迴圈，後者的執行時間大約快了兩倍。</li>
+</ul>
+
+<h2 id="progressive-disclosure">使用具有漸進揭示的代理迴圈</h2>
+
+<p>上文描述的「協調器—子代理」設計，用來協調跨團隊打造的專精角色是合理做法；但往往更有效的做法，是<strong>透過技能漸進揭示上下文</strong>，以及<strong>透過工具搜尋<span class="nw">（tool search）</span>漸進揭示工具</strong>。換句話說，代理先看到技能與工具的簡短說明，只有需要時才完整載入。</p>
+
+<p>這個做法之所以合理，有三個理由：</p>
+
+<ul>
+  <li><strong>共享上下文能產生更好的答案：</strong>對運行時間較長的代理來說，我們希望多項不同任務的上下文都留在主上下文視窗裡。看過稍早每一步結果的代理，能夠把它們串起來，產出比子代理交回的一組摘要更豐富的輸出與洞見。這也意味著<a href="https://claude.com/resources/articles/building-multi-agent-systems-when-and-how-to-use-them">更少的上下文視窗、更少會失真的交接<span class="nw">（lossy handoffs）</span></a>。</li>
+  <li><strong>漸進揭示能避免上下文膨脹：</strong>這個技巧讓團隊能打造可完成多種任務的單一代理，而不必把所有上下文立刻載入一份很長的系統提示。這消除了團隊過去把工作拆給子代理的主要理由。事實上，我們曾<a href="https://claude.dev/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models/">把 Claude Code 給較進階模型使用的系統提示縮減超過 80%</a>，其中就包括與漸進揭示技能與工具相關的刪減。</li>
+  <li><strong>模型能力更強了：</strong>從 Opus 4.5 開始，模型在單一迴圈裡能管理的範圍，遠超過多數團隊的預期。在 Opus 5.5 與 Fable 5.1 上，你無法關閉思考<span class="nw">（thinking）</span>；近期模型也越來越會一邊工作一邊敘述進度並檢查自己的成果，這讓某些框架元件變得多餘。每推出一個新模型，你就可以把更多決策從框架移到模型本身。更簡單的迴圈也更容易換到下一個模型；在我們協助客戶的遷移中，僵化的多代理結構常常正是讓新模型無法承擔更多工作的原因。</li>
+</ul>
+
+<p>單一代理迴圈的設計需要紀律：仔細管理的系統提示、能在對的時機被觸發的技能與工具說明，以及對上下文視窗、記憶與筆記的刻意處理。本文後續章節會更深入討論遷移與設計上的考量。</p>
+
+<p>應由一個中央團隊負責端到端品質與系統提示，並在每個新工具與評測上線前先審核。讓這個中央團隊保持精簡，有助於快速迭代，也降低大型組織裡的協調成本。</p>
+
+<p>若你仍走多代理路線，請從可能奏效的最簡單模式開始（產生器—驗證器<span class="nw">［generator-verifier］</span>、「協調器—子代理」，或其他模式）。有效拆分邊界的方法是<strong>依上下文來切分：給每個子代理一塊不太需要系統其餘部分的工作，並讓它交回精簡的結果</strong>（適合的候選包括獨立的研究路徑、介面清楚的獨立元件，或黑箱驗證）。當代理是依問題類型來拆分時，它們會陷入「傳話遊戲」<span class="nw">（telephone game）</span>，資訊來回傳遞，每次交接都會降低保真度。</p>
+
+<figure>
+  <img src="img/subagents-split.png" width="2024" height="980" alt="對照圖：上排依問題類型拆分代理，每次交接都會丟失上下文；下排依上下文拆分，由一個代理完成功能與測試，另以驗證器只跑測試。">
+  <figcaption>
+    <p><strong>圖說（圖中文字為英文原文）：</strong>上排「依問題類型拆分（Split by problem type）」：代理 1 撰寫功能，交接後由代理 2 撰寫測試，再交接給代理 3 審查程式碼。說明寫道：每次交接都會丟失上下文；負責寫測試的代理不知道實作決策為何如此做出。下排「依上下文拆分（Split by context）」：一個代理同時撰寫功能與其測試，因為它已經擁有上下文，再交給驗證器（Verifier）執行測試。說明寫道：只負責跑測試並回報結果的驗證器，並不需要實作上下文。</p>
+    <p>圖片來源：Anthropic／claude.com（原文插圖）。</p>
+  </figcaption>
+</figure>
+
+<h2 id="how-to-fold">如何把子代理併入主代理迴圈</h2>
+
+<p>許多團隊在正式環境中已經有一個協調器，以及一組專精代理。以下是我們建議朝之邁進的單一迴圈設計：</p>
+
+<ul>
+  <li>一個模型、一個上下文視窗，執行開放式的工具迴圈<span class="nw">（tool loop）</span>；回合與成本預算、寫入閘門<span class="nw">（write gates）</span>等限制，則設在框架裡。</li>
+  <li>每一回合，模型會發出一批工具呼叫。框架平行執行它們，把原始結果交回同一個模型，再由模型決定下一步：再發一批呼叫、向使用者提問，或給出答案。</li>
+  <li>當模型給出答案，或碰到<a href="https://platform.claude.com/docs/en/build-with-claude/task-budgets">預算<span class="nw">（budget）</span></a>時，迴圈就停止。答案之後，可以選擇再跑一輪目標或驗證器檢查。</li>
+  <li>模型在第一回合就把計畫寫進上下文，並隨結果到來而修訂。這是與「協調器加專精代理」設定最主要的差異：寫計畫的模型，同時也是執行計畫的那個模型，因此它可以在回合進行到一半時改計畫。</li>
+  <li>上下文仍會被載入，但由代理自己管理：
+    <ul>
+      <li>不再需要一個從規則目錄改寫計畫的程式步驟，因為每一步都由模型決定。</li>
+      <li>排序與領域程序移入<strong>技能</strong>。</li>
+      <li>硬性限制（驗證、核准閘門<span class="nw">［approval gates］</span>）以及對話中途才出現的其他事項（例如記憶查詢）移入<strong>工具</strong>。</li>
+      <li>程式碼仍可用來載入便宜、而且幾乎總是相關的內容（例如實體解析<span class="nw">［entity resolution］</span>步驟），並在迴圈所呼叫的工具裡處理機械性的部分（組裝承載資料、解析串流、接續一輪澄清）。</li>
+    </ul>
+  </li>
+</ul>
+
+<p>這種單一迴圈設計，也有助於許多團隊正在朝之邁進的終態（一個能理解使用者高層目標、並代為行動的代理），因為它把代理學到的一切都留在同一個上下文裡。</p>
+
+<p>以下建議說明一個團隊如何分階段，從多代理系統走到單一代理迴圈，以及多個團隊如何沿途持續為這個代理做出貢獻。</p>
+
+<h3>任務完成評測（Task-completion evals）</h3>
+
+<p>第一步是建立一套評測集，幫助你判斷是否該把某個子代理併入主代理迴圈。我們見過有效的評測結構是：由中央團隊擁有一份共享的端到端評測集，再加上各技能所屬團隊隨技能一併交付的較小評測集。即使只有 10 個黃金範例<span class="nw">（golden examples）</span>，也足以開始。</p>
+
+<p>依評分規準（rubric）為代理的最終訊息打分，是追蹤答案品質的好起點。只要你還有協調器，也應該追蹤路由正確率（routing accuracy；它有沒有選對子代理？）。子代理被併入後，改為檢查代理是否載入了正確的技能，或呼叫了正確的工具。隨著時間推進，朝任務完成評測努力會很有幫助，因為在比較架構時，這才是最要緊的事。</p>
+
+<p>在內部系統難以重播、使用者參與又難以模擬的環境裡，這可能相當複雜。我們內部有效的一種做法，是在重要事件上記下時間戳記，以便之後重播，作為針對性評測來執行。</p>
+
+<h3>逐步減少子代理</h3>
+
+<p>朝單一代理迴圈演進，意味著把子代理併入工具與技能。做法可以是合併領域子代理、把它們當工具呼叫，或以技能與工具取而代之。</p>
+
+<figure>
+  <img src="img/folding-in.gif" width="2024" height="892" alt="動畫圖：把子代理併入主迴圈的三種做法——合併子代理、把子代理當工具呼叫、再折進技能與工具。">
+  <figcaption>
+    <p><strong>圖說（圖中文字為英文原文，動畫會演示合併過程）：</strong>左「合併子代理（Merge subagents）」：主代理底下原先有 A、B、C、D，動畫中會收成「A＋B」「C＋D」各一個子代理。說明寫道：把共享上下文的子代理合併，數量就會變少。中「把它們當工具呼叫（Call them as tools）」：主代理透過工具呼叫，向各個子代理取得結果。說明寫道：主代理把每一個當工具呼叫，並繼續掌握對話。右「折進技能與工具（Fold into skills and tools）」：子代理的提示變成技能，它們的 API 呼叫變成工具。</p>
+    <p>圖片來源：Anthropic／claude.com（原文插圖，動畫 GIF）。</p>
+  </figcaption>
+</figure>
+
+<h3>合併領域代理</h3>
+
+<p>第一次合併之前，先建立一套小型的端到端評測。然後<strong>依共享上下文來併入，從使用最頻繁的子代理開始。</strong></p>
+
+<p><a href="https://claude.com/resources/articles/building-multi-agent-systems-when-and-how-to-use-them">合併專精角色</a>的對象，是會串接彼此輸出、會碰到同一份資料，或經常被一起呼叫的那些。例如，若正式流量有相當比例是一個專精角色之後接著另一個，那就是緊密耦合的一對，適合合併成一個領域代理。</p>
+
+<h3>把子代理當工具呼叫</h3>
+
+<p>當上文三個條件之一成立、而你仍要保留某個子代理時，讓主代理把子代理當工具來呼叫通常很有效，這樣主代理就能繼續與使用者對話。</p>
+
+<p>我們只會在子代理需要直接與使用者交談時，才建議做完整交接（由子代理接手對話）。其餘情況都可以做成主迴圈裡的技能加上工具。</p>
+
+<p>這讓你能為子代理定義<a href="https://claude.com/resources/articles/structured-outputs-on-the-claude-developer-platform">共享的回應結構（shared response schema）</a>，由主代理用真實資料核對結論，並修剪進入最終綜合步驟的輸入。這是很好的第一步，因為你不必<strong>改寫</strong>子代理。它也為你在任務完成評測上提供一個<strong>基準<span class="nw">（baseline）</span></strong>，再決定要不要把任何子代理併入主代理。</p>
+
+<p>不過，有些失敗模式仍然會在：</p>
+
+<ul>
+  <li>每個專精角色都有自己的提示、上下文、負責團隊與評測</li>
+  <li>每次呼叫仍會交回有損的摘要</li>
+  <li>每一次呼叫都是巢狀的模型迴圈，會增加延遲</li>
+</ul>
+
+<h3>透過技能與工具把子代理併入主代理</h3>
+
+<p>一次併入一個子代理：把它的提示變成技能，把 API 呼叫變成 MCP 工具。比較有無該子代理時的評測表現，再決定哪些該留下。</p>
+
+<p>比較時，不要只看最終分數，也要看哪些任務的結果翻盤了。我們在一個範例客服代理上測試時，把一個子代理併入另一個雖然降低了延遲，卻也弄壞了一個原本能通過的流程。主代理自己握著訂單查詢工具並自行作答，沒有向物流專精角色詢問送達日期。</p>
+
+<p>每次改動之前，確認你的評測涵蓋了正式環境中一起運行的每一條代理鏈，以及代理不得違反的每一條規則；而且每項任務要跑超過一次，因為像這次的破綻，兩次裡只出現了一次。</p>
+
+<h2 id="several-teams">多個團隊如何共同貢獻同一個代理</h2>
+
+<p>領域推理可以從知識庫<span class="nw">（knowledge bases）</span>、技能與 MCP 工具中取回。各團隊可以把所有權從代理轉到技能與工具，由一個精簡的中央團隊持續擁有系統提示與端到端品質。這包括在新的技能、工具與評測上線前先審核。</p>
+
+<h3>MCP 工具</h3>
+
+<p>當代理需要採取行動、從系統讀取即時資料，或以固定形狀回傳結果時，工具是合適的選擇。你也可以在遷移期間，用工具繼續呼叫子代理。我們建議依使用者意圖來分組工具（而不是一個 API 一個工具），因為系統提示裡的工具定義一旦超過 30 到 50 個，工具選擇往往就會變差。</p>
+
+<p>搭配延遲載入使用<a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool">工具搜尋</a>，限制硬性前置條件，並把真正需要的條件移進工具裡。例如，若 Y 需要 X 的輸出，就由 Y 的工具檢查它是否存在，並回傳模型可以據以行動的指示。依使用者而異的權限也是同一套做法。每個工具檢查呼叫者可以看到或可以做什麼，並回傳模型讀得懂的明白拒絕，這樣一個迴圈就能服務權限不同的使用者，不必為每個權限等級另設一個代理。</p>
+
+<h3>技能</h3>
+
+<p>當代理需要知道某個團隊如何做事——例如專精子代理的提示裡原本承載的步驟、規則與判斷——技能就是合適的選擇。</p>
+
+<p>我們擴充技能庫的做法，是把維護工作交回給撰寫技能的人。Claude 可以用能打造、測試並精簡其他技能的技能，扛起繁重的部分。</p>
+
+<p>為了防止技能蔓延，可以讓各團隊的直接負責人<span class="nw">（DRI）</span>擁有自己的技能，並確保它們寫得好、彼此有區別，且附上適當的評測再上線。</p>
+
+<ul>
+  <li><strong><code>/skill-creator</code></strong> 讓你撰寫一開始就形制良好的新技能，並稽核既有技能，進行精簡、去重與重整。</li>
+  <li><strong><code>/skill-doctor</code></strong> 讓你看到技能庫裡每個技能的成本、實際被使用的頻率，並刪除無效負擔。</li>
+</ul>
+
+<h3>知識庫</h3>
+
+<p>知識庫適合放代理只在部分時候才需要的參考資料。事實與參考資料（政策、指標定義、產品規格）可以放在模型會呼叫的搜尋或查詢工具後面，或作為技能內的參考檔案一併交付。避免讓<a href="https://claude.com/resources/articles/seeing-like-an-agent">程式把這些上下文取出來貼進提示</a>。</p>
+
+<h2 id="tools">能加快這項工作的工具</h2>
+
+<p>我們最近<a href="https://code.claude.com/docs/en/commands">發布</a>了一組 Claude API 技能，能協助完成上文提到的大部分工作。我們的<a href="https://github.com/anthropics/single-agent-loop-kit">遷移套件</a>把這些技能串成一套引導式工作流程，用來評估多代理系統，並遷移到單一代理迴圈。套件裡附有示範，你可以先試跑，再拿真實系統來用：</p>
+
+<ul>
+  <li><strong><code>/claude-api build-eval</code>：</strong>可協助建立由中央團隊擁有的第一套端到端評測，或各團隊隨技能交付的小型評測。</li>
+  <li><strong><code>/claude-api prompt-audit</code>：</strong>能標出你的提示、技能與工具說明裡、為舊模型撰寫的指示，並以 diff 的形式提出修正建議。可以對系統提示執行，找出任何為較早模型加上、如今卻讓代理更慢或更僵硬的規則。各團隊的直接負責人也可以對自己的技能與工具說明執行。</li>
+  <li><strong><code>/claude-api hillclimb</code>：</strong>能依既有評測反覆改進應用。可用於「已併入 vs 保留」<span class="nw">（folded in vs kept）</span>的比較（把一個子代理併成技能加上工具後，讓它迭代技能與工具說明，看併入後的版本是否追平或勝過原本的子代理），也可用於你的系統提示。</li>
+  <li><strong><code>/claude-api cost-optimize</code>：</strong>分析呼叫落在何處，並一次只改一樣，從提示快取<span class="nw">（prompt caching）</span>、修剪不必要的輸入與輸出 token、努力程度<span class="nw">（effort）</span>與模型選擇等選項提出節省建議。這有助於在既定設計上把成本與延遲降下來。</li>
+</ul>
+
+<p>隨著模型演進，我們對如何善用它們的理解，以及圍繞最佳實務的指引，也會跟著演進。這讓任何單一架構都不如背後的原則重要：先測量，一次只改一件事，並留下經得起考驗的部分。</p>
+
+<p>這正是這樣的案例。隨著模型能力更強、代理運行時間更長，你的子代理會有更多可以變成技能與工具。不過，你不必一步就走完。先建立一套小型的端到端評測，併入一個子代理；只有在併入後的版本分數更差時，才繼續把它當子代理保留，然後重複這個過程。</p>
+</article>
+
+<hr class="ornament">
+
+<section class="sources">
+  <h2>來源與說明</h2>
+  <ol>
+    <li><a href="https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop">原文：Building agents: When to fold subagents into your <span class="nw">main agent loop</span>（Anthropic／claude.com，作者 Diane Sarkis，2026 年 10 月 22 日）</a></li>
+    <li><a href="https://github.com/anthropics/single-agent-loop-kit">文中提到的遷移套件：anthropics/single-agent-loop-kit</a></li>
+  </ol>
+  <p class="note">本頁翻譯文中三張插圖，均自原文下載：<code>subagent-design.gif</code>、<code>subagents-split.png</code>、<code>folding-in.gif</code>，來源為 Anthropic／claude.com。圖中標籤維持英文原樣，圖說另附中文說明。原文網頁的導覽、目錄外框、電子報與「相關文章」推薦區塊屬網站版面，不是正文，故未譯入。文中沒有程式碼區塊或表格。原文 HTML 裡少數空的粗體標籤已視為排版殘留，不另外加粗。</p>
+</section>
+
+<p class="disclaimer">本頁為非官方中文翻譯，內容版權屬原作者。</p>
+<footer>
+  <p>譯本僅供閱讀參考，請以 <a href="https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop">claude.com 原文</a>為準。</p>
+</footer>
+</main>
+</body>
+</html>
